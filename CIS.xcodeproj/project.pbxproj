@@ -13,6 +13,7 @@
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
 		3E3AC8B222BC067100F1A0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8B122BC067100F1A0B3 /* Assets.xcassets */; };
 		3E3AC8B522BC067100F1A0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8B322BC067100F1A0B3 /* LaunchScreen.storyboard */; };
+		3E3AC8BD22BD507900F1A0B3 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8BC22BD507900F1A0B3 /* ItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3E3AC8B122BC067100F1A0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E3AC8B422BC067100F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E3AC8B622BC067100F1A0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E3AC8BC22BD507900F1A0B3 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */,
 				3E3AC8A922BC067000F1A0B3 /* ViewController.swift */,
+				3E3AC8BC22BD507900F1A0B3 /* ItemTableViewController.swift */,
 				3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */,
 				3E3AC8B122BC067100F1A0B3 /* Assets.xcassets */,
 				3E3AC8B322BC067100F1A0B3 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				3E3AC8AA22BC067000F1A0B3 /* ViewController.swift in Sources */,
 				3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */,
+				3E3AC8BD22BD507900F1A0B3 /* ItemTableViewController.swift in Sources */,
 				3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
