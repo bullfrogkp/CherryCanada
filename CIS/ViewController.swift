@@ -19,6 +19,7 @@ class MyTableViewController: UITableViewController {
         
         tableView.register(MyCell.self, forCellReuseIdentifier: "cellId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
+        tableView.register(ItemCell.self, forCellReuseIdentifier: "itemCellId")
         
         tableView.sectionHeaderHeight = 100
         
@@ -141,6 +142,13 @@ class MyCell: UITableViewCell {
         return button
     }()
     
+    let addItemButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Add Item", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     let customerNameTextField: UITextField = {
         let name = UITextField()
         name.placeholder = "Name"
@@ -149,10 +157,10 @@ class MyCell: UITableViewCell {
         return name
     }()
     
-    
     func setupViews() {
         addSubview(nameLabel)
         addSubview(actionButton)
+        addSubview(addItemButton)
         addSubview(customerNameTextField)
         
         let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -160,14 +168,23 @@ class MyCell: UITableViewCell {
         dataSource = ItemTableViewController()
         myTableView.dataSource = dataSource
         myTableView.delegate = dataSource
+        
+        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
+        
+        myTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        
         addSubview(myTableView)
         
         actionButton.addTarget(self, action: Selector(("handleAction")), for: .touchUpInside)
+        addItemButton.addTarget(self, action: Selector(("addItem")), for: .touchUpInside)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": nameLabel, "v1": actionButton]))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": nameLabel]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
         
     }
     
@@ -175,5 +192,8 @@ class MyCell: UITableViewCell {
         myTableViewController?.deleteCell(cell: self)
     }
     
+    @objc func addItem() {
+        print("click")
+    }
+    
 }
-
