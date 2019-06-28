@@ -19,7 +19,6 @@ class MyTableViewController: UITableViewController {
         
         tableView.register(MyCell.self, forCellReuseIdentifier: "cellId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
-        tableView.register(ItemCell.self, forCellReuseIdentifier: "itemCellId")
         
         tableView.sectionHeaderHeight = 100
         
@@ -113,87 +112,4 @@ class Header: UITableViewHeaderFooterView {
     
 }
 
-class MyCell: UITableViewCell {
-    
-    var myTableViewController: MyTableViewController?
-    var dataSource: ItemTableViewController?
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sample Item"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        return label
-    }()
-    
-    let actionButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Delete", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    let addItemButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Add Item", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    let customerNameTextField: UITextField = {
-        let name = UITextField()
-        name.placeholder = "Name"
-        name.translatesAutoresizingMaskIntoConstraints = false
-        name.font = UIFont.boldSystemFont(ofSize: 14)
-        return name
-    }()
-    
-    func setupViews() {
-        addSubview(nameLabel)
-        addSubview(actionButton)
-        addSubview(addItemButton)
-        addSubview(customerNameTextField)
-        
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
-        dataSource = ItemTableViewController()
-        myTableView.dataSource = dataSource
-        myTableView.delegate = dataSource
-        
-        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
-        
-        myTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
-        
-        addSubview(myTableView)
-        
-        actionButton.addTarget(self, action: Selector(("handleAction")), for: .touchUpInside)
-        addItemButton.addTarget(self, action: Selector(("addItem")), for: .touchUpInside)
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": nameLabel, "v1": actionButton]))
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
-        
-    }
-    
-    @objc func handleAction() {
-        myTableViewController?.deleteCell(cell: self)
-    }
-    
-    @objc func addItem() {
-        print("click")
-    }
-    
-}
+
