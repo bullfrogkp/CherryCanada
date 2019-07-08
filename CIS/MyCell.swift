@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
+class MyCell: UITableViewCell {
     
     var itemTableViewController: MyTableViewController!
     var itemTableView: UITableView!
@@ -56,7 +56,7 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         addSubview(addItemButton)
         addSubview(customerNameTextField)
         
-        itemTableView = UITableView()
+        itemTableView = ItemTableTableView()
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.backgroundColor = UIColor.blue
@@ -82,28 +82,6 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemTableView]-15-|", metrics: nil, views: views))
         
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MyCell
-        cell.layoutIfNeeded()
-        return cell
     }
     
     @objc func deleteCustomer() {

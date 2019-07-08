@@ -10,7 +10,7 @@ import UIKit
 
 class ItemCell: UITableViewCell {
     
-    var myTableViewController: MyTableViewController!
+    var itemTableViewController: ItemTableViewController!
     let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -75,7 +75,7 @@ class ItemCell: UITableViewCell {
     }
     
     @objc func deleteItem() {
-        myTableViewController?.deleteCell(cell: self)
+        itemTableViewController?.deleteCell(cell: self)
     }
     
 }
