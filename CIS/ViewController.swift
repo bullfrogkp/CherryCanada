@@ -63,8 +63,8 @@ class MyTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath as IndexPath) as! MyCell
-        myCell.nameLabel.text = items[indexPath.row]
-        myCell.myTableViewController = self
+        myCell.customerNameTextField.text = items[indexPath.row]
+        myCell.itemTableViewController = self
         return myCell
     }
     

@@ -39,11 +39,16 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     }()
     
     let customerNameTextField: UITextField = {
-        let name = UITextField()
-        name.placeholder = "Customer Name"
-        name.translatesAutoresizingMaskIntoConstraints = false
-        name.font = UIFont.boldSystemFont(ofSize: 14)
-        return name
+        let sampleTextField =  UITextField(frame: CGRect(x: 15, y: 15, width: 300, height: 20))
+        sampleTextField.placeholder = "Customer Name"
+        sampleTextField.font = UIFont.systemFont(ofSize: 15)
+        sampleTextField.borderStyle = UITextField.BorderStyle.roundedRect
+        sampleTextField.autocorrectionType = UITextAutocorrectionType.no
+        sampleTextField.keyboardType = UIKeyboardType.default
+        sampleTextField.returnKeyType = UIReturnKeyType.done
+        sampleTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+        sampleTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        return sampleTextField
     }()
     
     func setupViews() {
@@ -67,14 +72,15 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
             "deleteCustomerButton": deleteCustomerButton,
             "addItemButton": addItemButton,
             "customerNameTextField": customerNameTextField,
-            "itemTableView": itemTableView]
+            "itemTableView": itemTableView!]
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[customerNameTextField]-15-|", metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[addItemButton]-20-[deleteCustomerButton]-15-|", options: .alignAllCenterY, metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[v0]-15-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0]-15-[v1]-15-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[customerNameTextField]-20-[addItemButton]-20-[itemTableView]-15-|", metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemTableView]-15-|", metrics: nil, views: views))
         
     }
     
@@ -107,7 +113,7 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     @objc func addItem() {
         print("click")
     }
-    
+    /*
     @objc func insert() {
         items.append("Item \(items.count + 1)")
         
@@ -115,5 +121,5 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
-    
+    */
 }

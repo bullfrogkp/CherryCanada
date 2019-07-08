@@ -22,30 +22,34 @@ class ItemCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let actionButton: UIButton = {
+    let deleteItemButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete", for: .normal)
+        button.setTitle("Delete Item", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    let customerNameTextField: UITextField = {
+    let itemNameTextField: UITextField = {
         let name = UITextField()
-        name.placeholder = "Name"
+        name.placeholder = "Item Name"
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.boldSystemFont(ofSize: 14)
         return name
     }()
     
     func setupViews() {
-        addSubview(actionButton)
-        addSubview(customerNameTextField)
+        let views: [String: Any] = [
+            "deleteItemButton": deleteItemButton,
+            "itemNameTextField": itemNameTextField]
         
-        actionButton.addTarget(self, action: Selector(("handleAction")), for: .touchUpInside)
+        addSubview(deleteItemButton)
+        addSubview(itemNameTextField)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": customerNameTextField, "v1": actionButton]))
+        deleteItemButton.addTarget(self, action: Selector(("deleteItem")), for: .touchUpInside)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemNameTextField]-15-|", metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[itemNameTextField]-20-[deleteItemButton]-15-|", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views))
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,12 +74,8 @@ class ItemCell: UITableViewCell {
         return cell
     }
     
-    @objc func handleAction() {
+    @objc func deleteItem() {
         myTableViewController?.deleteCell(cell: self)
-    }
-    
-    @objc func addItem() {
-        print("click")
     }
     
 }
