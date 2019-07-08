@@ -73,7 +73,7 @@ class MyTableViewController: UITableViewController {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId")
     }
     
-    func deleteCell(cell: UITableViewCell) {
+    @objc func deleteCell(cell: UITableViewCell) {
         if let deletionIndexPath = tableView.indexPath(for: cell) {
             items.remove(at: deletionIndexPath.row)
             tableView.deleteRows(at: [deletionIndexPath], with: .automatic)

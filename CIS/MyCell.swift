@@ -10,31 +10,23 @@ import UIKit
 
 class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
-    var myTableViewController: MyTableViewController!
-    var myTableView: UITableView!
+    var itemTableViewController: MyTableViewController!
+    var itemTableView: UITableView!
     let cellId = "nextTableCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
-        myTableView.reloadData()
+        itemTableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sample Item"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        return label
-    }()
-    
-    let actionButton: UIButton = {
+    let deleteCustomerButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete", for: .normal)
+        button.setTitle("Delete Customer", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -48,37 +40,41 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     let customerNameTextField: UITextField = {
         let name = UITextField()
-        name.placeholder = "Name"
+        name.placeholder = "Customer Name"
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.boldSystemFont(ofSize: 14)
         return name
     }()
     
     func setupViews() {
-        addSubview(nameLabel)
-        addSubview(actionButton)
+        addSubview(deleteCustomerButton)
         addSubview(addItemButton)
         addSubview(customerNameTextField)
         
-        myTableView = UITableView()
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        myTableView.backgroundColor = UIColor.blue
-        myTableView.register(MyCell.self, forCellReuseIdentifier: cellId)
-        myTableView.isScrollEnabled = false
+        itemTableView = UITableView()
+        itemTableView.delegate = self
+        itemTableView.dataSource = self
+        itemTableView.backgroundColor = UIColor.blue
+        itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
+        itemTableView.isScrollEnabled = false
         
-        addSubview(myTableView)
+        addSubview(itemTableView)
         
-        actionButton.addTarget(self, action: Selector(("handleAction")), for: .touchUpInside)
+        deleteCustomerButton.addTarget(self, action: Selector(("deleteCustomer")), for: .touchUpInside)
         addItemButton.addTarget(self, action: Selector(("addItem")), for: .touchUpInside)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": nameLabel, "v1": actionButton]))
+        let views: [String: Any] = [
+            "deleteCustomerButton": deleteCustomerButton,
+            "addItemButton": addItemButton,
+            "customerNameTextField": customerNameTextField,
+            "itemTableView": itemTableView]
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": actionButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[v0]-15-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": addItemButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0]-15-[v1]-15-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views))
         
     }
     
@@ -104,12 +100,20 @@ class MyCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    @objc func handleAction() {
-        myTableViewController?.deleteCell(cell: self)
+    @objc func deleteCustomer() {
+        itemTableViewController?.deleteCell(cell: self)
     }
     
     @objc func addItem() {
         print("click")
+    }
+    
+    @objc func insert() {
+        items.append("Item \(items.count + 1)")
+        
+        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
+        
+        tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     
 }
