@@ -10,12 +10,12 @@ import UIKit
 
 class MyTableViewController: UITableViewController {
     
-    var items = ["Item 1", "Item 2", "Item 3"]
+    var items = ["Customer 1", "Customer 2", "Customer 3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "My TableView"
+        navigationItem.title = "货单"
         
         tableView.register(MyCell.self, forCellReuseIdentifier: "cellId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
@@ -26,7 +26,7 @@ class MyTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Batch Insert", style: .plain, target: self, action: Selector(("insertBatch")))
         
-        self.tableView.rowHeight = 400
+        self.tableView.rowHeight = 800
     }
     
     @objc func insertBatch() {
@@ -64,7 +64,7 @@ class MyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath as IndexPath) as! MyCell
         myCell.customerNameTextField.text = items[indexPath.row]
-        myCell.itemTableViewController = self
+        myCell.customerTableViewController = self
         return myCell
     }
     
@@ -74,9 +74,9 @@ class MyTableViewController: UITableViewController {
     }
     
     @objc func deleteCell(cell: UITableViewCell) {
-        if let deletionIndexPath = tableView.indexPath(for: cell) {
+        if let deletionIndexPath = self.tableView.indexPath(for: cell) {
             items.remove(at: deletionIndexPath.row)
-            tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
+            self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
     

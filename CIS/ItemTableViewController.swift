@@ -38,9 +38,9 @@ class ItemTableViewController: UITableViewController {
     }
     
     @objc func deleteCell(cell: UITableViewCell) {
-        if let deletionIndexPath = tableView.indexPath(for: cell) {
+        if let deletionIndexPath = self.tableView.indexPath(for: cell) {
             items.remove(at: deletionIndexPath.row)
-            tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
+            self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
 

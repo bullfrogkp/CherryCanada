@@ -10,7 +10,7 @@ import UIKit
 
 class MyCell: UITableViewCell {
     
-    var itemTableViewController: MyTableViewController!
+    var customerTableViewController: MyTableViewController!
     var itemTableView: UITableView!
     let cellId = "itemCellId"
     
@@ -56,9 +56,11 @@ class MyCell: UITableViewCell {
         addSubview(addItemButton)
         addSubview(customerNameTextField)
         
+        let itemTableController = ItemTableViewController()
+        
         itemTableView = UITableView()
-        itemTableView.delegate = self
-        itemTableView.dataSource = self
+        itemTableView.delegate = itemTableController
+        itemTableView.dataSource = itemTableController
         itemTableView.backgroundColor = UIColor.blue
         itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
         itemTableView.isScrollEnabled = false
@@ -86,7 +88,7 @@ class MyCell: UITableViewCell {
     }
     
     @objc func deleteCustomer() {
-        itemTableViewController?.deleteCell(cell: self)
+        customerTableViewController?.deleteCell(cell: self)
     }
     
     @objc func addItem() {
@@ -101,33 +103,4 @@ class MyCell: UITableViewCell {
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     */
-}
-
-extension MyCell: UITableViewDelegate {
-    
-}
-
-extension MyCell: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ItemCell
-        cell.layoutIfNeeded()
-        return cell
-    }
 }
