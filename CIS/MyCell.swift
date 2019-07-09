@@ -12,7 +12,7 @@ class MyCell: UITableViewCell {
     
     var itemTableViewController: MyTableViewController!
     var itemTableView: UITableView!
-    let cellId = "nextTableCellId"
+    let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,7 +56,7 @@ class MyCell: UITableViewCell {
         addSubview(addItemButton)
         addSubview(customerNameTextField)
         
-        itemTableView = ItemTableTableView()
+        itemTableView = UITableView()
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.backgroundColor = UIColor.blue
@@ -100,4 +100,33 @@ class MyCell: UITableViewCell {
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     */
+}
+
+extension MyCell: UITableViewDelegate {
+    
+}
+
+extension MyCell: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ItemCell
+        cell.layoutIfNeeded()
+        return cell
+    }
 }
