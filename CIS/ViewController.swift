@@ -26,7 +26,7 @@ class MyTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Batch Insert", style: .plain, target: self, action: Selector(("insertBatch")))
         
-        self.tableView.rowHeight = 200
+        self.tableView.rowHeight = 400
     }
     
     @objc func insertBatch() {

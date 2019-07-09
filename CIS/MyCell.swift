@@ -62,6 +62,7 @@ class MyCell: UITableViewCell {
         itemTableView.backgroundColor = UIColor.blue
         itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
         itemTableView.isScrollEnabled = false
+        itemTableView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(itemTableView)
         
