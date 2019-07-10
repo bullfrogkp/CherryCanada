@@ -11,6 +11,7 @@ import UIKit
 class ItemTableViewController: UITableViewController {
 
     var items = ["Item 1", "Item 2", "Item 3"]
+    var itemTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,9 @@ class ItemTableViewController: UITableViewController {
     }
     
     @objc func deleteCell(cell: UITableViewCell) {
-        if let deletionIndexPath = self.tableView.indexPath(for: cell) {
+        if let deletionIndexPath = itemTableView.indexPath(for: cell) {
             items.remove(at: deletionIndexPath.row)
-            self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
+            itemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
 

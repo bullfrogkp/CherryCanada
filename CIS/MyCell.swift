@@ -66,6 +66,8 @@ class MyCell: UITableViewCell {
         itemTableView.isScrollEnabled = false
         itemTableView.translatesAutoresizingMaskIntoConstraints = false
         
+        itemTableController.itemTableView = itemTableView
+        
         addSubview(itemTableView)
         
         deleteCustomerButton.addTarget(self, action: Selector(("deleteCustomer")), for: .touchUpInside)
