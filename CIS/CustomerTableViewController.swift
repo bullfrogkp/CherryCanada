@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyTableViewController: UITableViewController {
+class CustomerTableViewController: UITableViewController {
     
     var items = ["Customer 1", "Customer 2", "Customer 3"]
     
@@ -17,12 +17,12 @@ class MyTableViewController: UITableViewController {
         
         navigationItem.title = "货单"
         
-        tableView.register(MyCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(CustomerCell.self, forCellReuseIdentifier: "customerId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
         
         tableView.sectionHeaderHeight = 100
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Insert", style: .plain, target: self, action: Selector(("insert")))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Insert", style: .plain, target: self, action: Selector(("添加客户")))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Batch Insert", style: .plain, target: self, action: Selector(("insertBatch")))
         
