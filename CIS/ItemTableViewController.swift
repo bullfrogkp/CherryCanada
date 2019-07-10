@@ -24,7 +24,7 @@ class ItemTableViewController: UITableViewController {
         
         let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
         
-        tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        itemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

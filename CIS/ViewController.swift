@@ -79,18 +79,6 @@ class MyTableViewController: UITableViewController {
             self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
-    @objc func insertItem(cell: MyCell) {
-        
-        let tblView = cell.itemTableView!
-        let tblController = cell.itemTableController
-        var allItems = tblController!.items
-        
-        allItems.append("Item \(items.count + 1)")
-        
-        let insertionIndexPath = NSIndexPath(row: allItems.count - 1, section: 0)
-        
-        tblView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
-    }
 }
 
 class Header: UITableViewHeaderFooterView {

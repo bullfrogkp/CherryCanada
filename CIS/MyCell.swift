@@ -95,7 +95,7 @@ class MyCell: UITableViewCell {
     }
     
     @objc func addItem() {
-        customerTableViewController.insertItem(cell: self)
+        itemTableController.insert()
     }
     /*
     @objc func insert() {
