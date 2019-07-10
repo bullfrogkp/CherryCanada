@@ -12,6 +12,7 @@ class MyCell: UITableViewCell {
     
     var customerTableViewController: MyTableViewController!
     var itemTableView: UITableView!
+    var itemTableController: ItemTableViewController!
     let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -56,7 +57,7 @@ class MyCell: UITableViewCell {
         addSubview(addItemButton)
         addSubview(customerNameTextField)
         
-        let itemTableController = ItemTableViewController()
+        itemTableController = ItemTableViewController()
         
         itemTableView = UITableView()
         itemTableView.delegate = itemTableController
@@ -94,7 +95,7 @@ class MyCell: UITableViewCell {
     }
     
     @objc func addItem() {
-        print("click")
+        customerTableViewController.insertItem(cell: self)
     }
     /*
     @objc func insert() {
