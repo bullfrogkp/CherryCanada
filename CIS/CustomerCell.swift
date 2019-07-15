@@ -1,5 +1,5 @@
 //
-//  MyCell.swift
+//  CustomerCell.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-06-28.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MyCell: UITableViewCell {
+class CustomerCell: UITableViewCell {
     
-    var customerTableViewController: MyTableViewController!
+    var customerTableViewController: CustomerTableViewController!
     var itemTableView: UITableView!
     var itemTableController: ItemTableViewController!
     let cellId = "itemCellId"
@@ -18,7 +18,6 @@ class MyCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
-        itemTableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,16 +39,16 @@ class MyCell: UITableViewCell {
     }()
     
     let customerNameTextField: UITextField = {
-        let sampleTextField =  UITextField(frame: CGRect(x: 15, y: 15, width: 300, height: 20))
-        sampleTextField.placeholder = "Customer Name"
-        sampleTextField.font = UIFont.systemFont(ofSize: 15)
-        sampleTextField.borderStyle = UITextField.BorderStyle.roundedRect
-        sampleTextField.autocorrectionType = UITextAutocorrectionType.no
-        sampleTextField.keyboardType = UIKeyboardType.default
-        sampleTextField.returnKeyType = UIReturnKeyType.done
-        sampleTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-        sampleTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        return sampleTextField
+        let textField =  UITextField(frame: CGRect(x: 15, y: 15, width: 300, height: 20))
+        textField.placeholder = "Customer Name"
+        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.keyboardType = UIKeyboardType.default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        return textField
     }()
     
     func setupViews() {
@@ -59,12 +58,11 @@ class MyCell: UITableViewCell {
         
         itemTableController = ItemTableViewController()
         
-        itemTableView = UITableView()
+        itemTableView = MyOwnTableView()
         itemTableView.delegate = itemTableController
         itemTableView.dataSource = itemTableController
         itemTableView.backgroundColor = UIColor.blue
         itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
-        itemTableView.isScrollEnabled = false
         itemTableView.translatesAutoresizingMaskIntoConstraints = false
         
         itemTableController.itemTableView = itemTableView
@@ -87,7 +85,6 @@ class MyCell: UITableViewCell {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[customerNameTextField]-20-[addItemButton]-20-[itemTableView]-15-|", metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemTableView]-15-|", metrics: nil, views: views))
-        
     }
     
     @objc func deleteCustomer() {
@@ -97,13 +94,4 @@ class MyCell: UITableViewCell {
     @objc func addItem() {
         itemTableController.insert()
     }
-    /*
-    @objc func insert() {
-        items.append("Item \(items.count + 1)")
-        
-        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
-        
-        tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
-    }
-    */
 }

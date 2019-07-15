@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CustomerTableViewController.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-06-20.
@@ -17,16 +17,17 @@ class CustomerTableViewController: UITableViewController {
         
         navigationItem.title = "货单"
         
-        tableView.register(CustomerCell.self, forCellReuseIdentifier: "customerId")
+        tableView.register(CustomerCell.self, forCellReuseIdentifier: "customerCellId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
         
-        tableView.sectionHeaderHeight = 100
+        tableView.sectionHeaderHeight = 240
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Insert", style: .plain, target: self, action: Selector(("添加客户")))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "存储", style: .plain, target: self, action: Selector(("saveData")))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Batch Insert", style: .plain, target: self, action: Selector(("insertBatch")))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: Selector(("cancelEdit")))
         
-        self.tableView.rowHeight = 800
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
     }
     
     @objc func insertBatch() {
@@ -49,7 +50,7 @@ class CustomerTableViewController: UITableViewController {
         tableView.endUpdates()
     }
     
-    @objc func insert() {
+    @objc func addCustomer() {
         items.append("Item \(items.count + 1)")
         
         let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
@@ -57,12 +58,16 @@ class CustomerTableViewController: UITableViewController {
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     
+    @objc func deleteShipping() {
+        print("Shipping deleted")
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath as IndexPath) as! MyCell
+        let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
         myCell.customerNameTextField.text = items[indexPath.row]
         myCell.customerTableViewController = self
         return myCell
@@ -70,7 +75,10 @@ class CustomerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId")
+        let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
+        myHeader.customerTableViewController = self
+        
+        return myHeader
     }
     
     @objc func deleteCell(cell: UITableViewCell) {
@@ -82,6 +90,7 @@ class CustomerTableViewController: UITableViewController {
 }
 
 class Header: UITableViewHeaderFooterView {
+    var customerTableViewController: CustomerTableViewController!
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -97,18 +106,63 @@ class Header: UITableViewHeaderFooterView {
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         let screenSize: CGRect = UIScreen.main.bounds
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: 150)
         return imageView
+    }()
+    
+    let addCustomerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("添加客户", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
+    let deleteShippingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("删除货单", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.red
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.setTitleColor(.white, for: .normal)
+        return button
     }()
     
     func setupViews() {
         addSubview(itemImageView)
+        addSubview(addCustomerButton)
+        addSubview(deleteShippingButton)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": itemImageView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": itemImageView]))
+        addCustomerButton.addTarget(self, action: Selector(("addCustomer")), for: .touchUpInside)
+        deleteShippingButton.addTarget(self, action: Selector(("deleteShipping")), for: .touchUpInside)
+        
+        let views: [String: Any] = [
+            "itemImageView": itemImageView,
+            "addCustomerButton": addCustomerButton,
+            "deleteShippingButton": deleteShippingButton
+        ]
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteShippingButton]-20-[addCustomerButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteShippingButton]", metrics: nil, views: views))
         
     }
     
+    @objc func addCustomer() {
+        customerTableViewController.addCustomer()
+    }
+    
+    @objc func deleteShipping() {
+        customerTableViewController.deleteShipping()
+    }
 }
 
 

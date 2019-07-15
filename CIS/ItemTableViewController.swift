@@ -17,14 +17,8 @@ class ItemTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(ItemCell.self, forCellReuseIdentifier: "itemCellId")
-    }
-    
-    @objc func insert() {
-        items.append("Item \(items.count + 1)")
-        
-        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
-        
-        itemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,6 +30,14 @@ class ItemTableViewController: UITableViewController {
         myCell.itemNameTextField.text = items[indexPath.row]
         myCell.itemTableViewController = self
         return myCell
+    }
+    
+    @objc func insert() {
+        items.append("Item \(items.count + 1)")
+        
+        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
+        
+        itemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     
     @objc func deleteCell(cell: UITableViewCell) {
