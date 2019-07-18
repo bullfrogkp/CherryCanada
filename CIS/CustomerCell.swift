@@ -26,28 +26,39 @@ class CustomerCell: UITableViewCell {
     
     let deleteCustomerButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete Customer", for: .normal)
+        button.setTitle("删除客户", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.red
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.setTitleColor(.white, for: .normal)
+        button.sizeToFit()
         return button
     }()
     
     let addItemButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Add Item", for: .normal)
+        button.setTitle("添加货物", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.setTitleColor(.white, for: .normal)
+        button.sizeToFit()
         return button
     }()
     
     let customerNameTextField: UITextField = {
-        let textField =  UITextField(frame: CGRect(x: 15, y: 15, width: 300, height: 20))
-        textField.placeholder = "Customer Name"
-        textField.font = UIFont.systemFont(ofSize: 15)
+        let textField =  UITextField()
+        textField.placeholder = "客户名字"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.autocorrectionType = UITextAutocorrectionType.no
-        textField.keyboardType = UIKeyboardType.default
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.sizeToFit()
         return textField
     }()
     
@@ -80,12 +91,14 @@ class CustomerCell: UITableViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[customerNameTextField]-15-|", metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[addItemButton]-20-[deleteCustomerButton]-15-|", options: .alignAllCenterY, metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[deleteCustomerButton]-20-[addItemButton]-15-|", options: .alignAllCenterY, metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[customerNameTextField]-20-[deleteCustomerButton]-20-[itemTableView]-15-|", metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[customerNameTextField]-20-[addItemButton]-20-[itemTableView]-15-|", metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemTableView]-15-|", metrics: nil, views: views))
-    }
+        }
     
     @objc func deleteCustomer() {
         customerTableViewController?.deleteCell(cell: self)

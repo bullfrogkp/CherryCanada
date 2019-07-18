@@ -25,9 +25,42 @@ class CustomerTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "存储", style: .plain, target: self, action: Selector(("saveData")))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: Selector(("cancelEdit")))
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
+        myCell.customerNameTextField.text = items[indexPath.row]
+        myCell.customerTableViewController = self
+        myCell.backgroundColor = UIColor(red: 0.5961, green: 0.8431, blue: 0.949, alpha: 1.0)
+        return myCell
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
+        let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
+        myHeader.customerTableViewController = self
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
+        return myHeader
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 500
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    @objc func deleteCell(cell: UITableViewCell) {
+        if let deletionIndexPath = self.tableView.indexPath(for: cell) {
+            items.remove(at: deletionIndexPath.row)
+            self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
+        }
     }
     
     @objc func insertBatch() {
@@ -60,32 +93,6 @@ class CustomerTableViewController: UITableViewController {
     
     @objc func deleteShipping() {
         print("Shipping deleted")
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
-        myCell.customerNameTextField.text = items[indexPath.row]
-        myCell.customerTableViewController = self
-        return myCell
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            viewForHeaderInSection section: Int) -> UIView? {
-        let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
-        myHeader.customerTableViewController = self
-        
-        return myHeader
-    }
-    
-    @objc func deleteCell(cell: UITableViewCell) {
-        if let deletionIndexPath = self.tableView.indexPath(for: cell) {
-            items.remove(at: deletionIndexPath.row)
-            self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
-        }
     }
 }
 
@@ -120,6 +127,7 @@ class Header: UITableViewHeaderFooterView {
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
         button.setTitleColor(.white, for: .normal)
+        button.sizeToFit()
         return button
     }()
     
@@ -133,6 +141,7 @@ class Header: UITableViewHeaderFooterView {
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
         button.setTitleColor(.white, for: .normal)
+        button.sizeToFit()
         return button
     }()
     
@@ -153,7 +162,6 @@ class Header: UITableViewHeaderFooterView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteShippingButton]-20-[addCustomerButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteShippingButton]", metrics: nil, views: views))
-        
     }
     
     @objc func addCustomer() {

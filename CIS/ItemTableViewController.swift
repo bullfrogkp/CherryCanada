@@ -17,8 +17,6 @@ class ItemTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(ItemCell.self, forCellReuseIdentifier: "itemCellId")
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +28,15 @@ class ItemTableViewController: UITableViewController {
         myCell.itemNameTextField.text = items[indexPath.row]
         myCell.itemTableViewController = self
         return myCell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     @objc func insert() {

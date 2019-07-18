@@ -24,16 +24,25 @@ class ItemCell: UITableViewCell {
     
     let deleteItemButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete Item", for: .normal)
+        button.setTitle("删除货物", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.red
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.setTitleColor(.white, for: .normal)
+        button.sizeToFit()
         return button
     }()
     
     let itemNameTextField: UITextField = {
         let name = UITextField()
-        name.placeholder = "Item Name"
+        name.placeholder = "货物名字"
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.borderStyle = UITextField.BorderStyle.roundedRect
+        name.sizeToFit()
         return name
     }()
     
