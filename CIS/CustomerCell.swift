@@ -72,10 +72,9 @@ class CustomerCell: UITableViewCell {
         itemTableView = MyOwnTableView()
         itemTableView.delegate = itemTableController
         itemTableView.dataSource = itemTableController
-        itemTableView.backgroundColor = UIColor.blue
         itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
         itemTableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        itemTableView.allowsSelection = false
         itemTableController.itemTableView = itemTableView
         
         addSubview(itemTableView)

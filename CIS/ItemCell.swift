@@ -38,7 +38,47 @@ class ItemCell: UITableViewCell {
     
     let itemNameTextField: UITextField = {
         let name = UITextField()
-        name.placeholder = "货物名字"
+        name.placeholder = "名字"
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.borderStyle = UITextField.BorderStyle.roundedRect
+        name.sizeToFit()
+        return name
+    }()
+    
+    let itemPriceBoughtTextField: UITextField = {
+        let name = UITextField()
+        name.placeholder = "进价"
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.borderStyle = UITextField.BorderStyle.roundedRect
+        name.sizeToFit()
+        return name
+    }()
+    
+    let itemPriceSoldTextField: UITextField = {
+        let name = UITextField()
+        name.placeholder = "卖价"
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.borderStyle = UITextField.BorderStyle.roundedRect
+        name.sizeToFit()
+        return name
+    }()
+    
+    let itemQuantityTextField: UITextField = {
+        let name = UITextField()
+        name.placeholder = "数量"
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.borderStyle = UITextField.BorderStyle.roundedRect
+        name.sizeToFit()
+        return name
+    }()
+    
+    let itemCommentTextField: UITextField = {
+        let name = UITextField()
+        name.placeholder = "描述"
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.boldSystemFont(ofSize: 14)
         name.borderStyle = UITextField.BorderStyle.roundedRect
@@ -49,18 +89,34 @@ class ItemCell: UITableViewCell {
     func setupViews() {
         let views: [String: Any] = [
             "deleteItemButton": deleteItemButton,
+            "itemPriceBoughtTextField": itemPriceBoughtTextField,
+            "itemPriceSoldTextField": itemPriceSoldTextField,
+            "itemQuantityTextField": itemQuantityTextField,
+            "itemCommentTextField": itemCommentTextField,
             "itemNameTextField": itemNameTextField]
         
         addSubview(deleteItemButton)
         addSubview(itemNameTextField)
+        addSubview(itemPriceBoughtTextField)
+        addSubview(itemPriceSoldTextField)
+        addSubview(itemQuantityTextField)
+        addSubview(itemCommentTextField)
         
         deleteItemButton.addTarget(self, action: Selector(("deleteItem")), for: .touchUpInside)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemNameTextField]-15-|", metrics: nil, views: views))
         
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemPriceBoughtTextField]-15-|", metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemPriceSoldTextField]-15-|", metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemQuantityTextField]-15-|", metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemCommentTextField]-15-|", metrics: nil, views: views))
+        
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[deleteItemButton(100)]-15-|", metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[itemNameTextField]-20-[deleteItemButton]-15-|", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[itemNameTextField]-[itemPriceBoughtTextField]-[itemPriceSoldTextField]-[itemQuantityTextField]-[itemCommentTextField]-[deleteItemButton]-15-|", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views))
     }
     
     @objc func deleteItem() {

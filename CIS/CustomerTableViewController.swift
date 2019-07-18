@@ -20,7 +20,8 @@ class CustomerTableViewController: UITableViewController {
         tableView.register(CustomerCell.self, forCellReuseIdentifier: "customerCellId")
         tableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
         
-        tableView.sectionHeaderHeight = 240
+        tableView.sectionHeaderHeight = 390
+        tableView.allowsSelection = false
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "存储", style: .plain, target: self, action: Selector(("saveData")))
         
@@ -113,7 +114,13 @@ class Header: UITableViewHeaderFooterView {
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         let screenSize: CGRect = UIScreen.main.bounds
-        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: 150)
+        imageView.frame = CGRect(x: 10, y: 10, width: screenSize.width - 20, height: 300)
+        
+        imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+        imageView.layer.cornerRadius = 5.0
+        imageView.layer.borderWidth = 2
+        imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
