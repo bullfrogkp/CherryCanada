@@ -30,7 +30,7 @@ class ItemCell: UITableViewCell {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
-        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         button.setTitleColor(.white, for: .normal)
         button.sizeToFit()
         return button
