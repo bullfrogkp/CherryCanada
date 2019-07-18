@@ -91,7 +91,7 @@ class CustomerCell: UITableViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[customerNameTextField]-15-|", metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[deleteCustomerButton]-20-[addItemButton]-15-|", options: .alignAllCenterY, metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[deleteCustomerButton(100)]-20-[addItemButton]-15-|", options: .alignAllCenterY, metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[customerNameTextField]-20-[deleteCustomerButton]-20-[itemTableView]-15-|", metrics: nil, views: views))
         

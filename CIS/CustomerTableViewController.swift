@@ -160,7 +160,7 @@ class Header: UITableViewHeaderFooterView {
         ]
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteShippingButton]-20-[addCustomerButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteShippingButton(100)]-20-[addCustomerButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteShippingButton]", metrics: nil, views: views))
     }
     

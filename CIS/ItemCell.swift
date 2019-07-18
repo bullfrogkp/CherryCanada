@@ -58,6 +58,8 @@ class ItemCell: UITableViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[itemNameTextField]-15-|", metrics: nil, views: views))
         
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[deleteItemButton(100)]-15-|", metrics: nil, views: views))
+        
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[itemNameTextField]-20-[deleteItemButton]-15-|", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views))
     }
     
