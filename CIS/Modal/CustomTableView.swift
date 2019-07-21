@@ -1,5 +1,5 @@
 //
-//  MyOwnTableView.swift
+//  CustomTableView.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-07-15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyOwnTableView: UITableView {
+class CustomTableView: UITableView {
     override var intrinsicContentSize: CGSize {
         self.layoutIfNeeded()
         return self.contentSize

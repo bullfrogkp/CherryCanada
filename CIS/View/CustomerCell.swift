@@ -69,7 +69,7 @@ class CustomerCell: UITableViewCell {
         
         itemTableController = ItemTableViewController()
         
-        itemTableView = MyOwnTableView()
+        itemTableView = CustomTableView()
         itemTableView.delegate = itemTableController
         itemTableView.dataSource = itemTableController
         itemTableView.register(ItemCell.self, forCellReuseIdentifier: cellId)
