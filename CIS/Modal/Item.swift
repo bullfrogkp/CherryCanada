@@ -13,19 +13,19 @@ class Item {
     var image: String
     var name: String
     var priceBought: Decimal
-    var priceCharged: Decimal
+    var priceSold: Decimal
     var quantity: Int
     
-    init(comment: String, image: String, name: String, priceBought: Decimal, priceCharged: Decimal, quantity: Int) {
+    init(comment: String, image: String, name: String, priceBought: Decimal, priceSold: Decimal, quantity: Int) {
         self.comment = comment
         self.image = image
         self.name = name
         self.priceBought = priceBought
-        self.priceCharged = priceCharged
+        self.priceSold = priceSold
         self.quantity = quantity
     }
     
     convenience init() {
-        self.init(comment: "", image: "", name: "", priceBought: 0, priceCharged: 0, quantity: 0)
+        self.init(comment: "", image: "", name: "", priceBought: 0, priceSold: 0, quantity: 0)
     }
 }

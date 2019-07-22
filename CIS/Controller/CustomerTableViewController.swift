@@ -21,12 +21,12 @@ class CustomerTableViewController: UITableViewController {
         ]
         
         let items1: [Item] = [
-            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceCharged: 2.00, quantity: 3),
-            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceCharged: 3.00, quantity: 5),
+            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
+            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
         ]
         
         let items2: [Item] = [
-            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceCharged: 22.00, quantity: 1)
+            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
         ]
         
         customers[0].items = items1
@@ -58,6 +58,7 @@ class CustomerTableViewController: UITableViewController {
         myCell.customerNameTextField.text = customers[indexPath.row].name
         myCell.customerTableViewController = self
         myCell.backgroundColor = UIColor(red: 0.5961, green: 0.8431, blue: 0.949, alpha: 1.0)
+        myCell.items = customers[indexPath.row].items
         return myCell
     }
     

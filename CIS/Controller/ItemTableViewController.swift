@@ -10,7 +10,7 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
 
-    var items = ["Item 1", "Item 2", "Item 3"]
+    var items: [Item] = []
     var itemTableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,7 +25,11 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "itemCellId", for: indexPath as IndexPath) as! ItemCell
-        myCell.itemNameTextField.text = items[indexPath.row]
+        myCell.itemNameTextField.text = items[indexPath.row].name
+        myCell.itemCommentTextField.text = items[indexPath.row].comment
+        myCell.itemQuantityTextField.text = items[indexPath.row].quantity.description
+        myCell.itemPriceSoldTextField.text = items[indexPath.row].priceSold.description
+        myCell.itemPriceBoughtTextField.text = items[indexPath.row].priceBought.description
         myCell.itemTableViewController = self
         return myCell
     }
@@ -40,7 +44,7 @@ class ItemTableViewController: UITableViewController {
     }
     
     @objc func insert() {
-        items.append("Item \(items.count + 1)")
+        items.append(Item())
         
         let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
         

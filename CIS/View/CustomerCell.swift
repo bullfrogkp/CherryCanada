@@ -13,6 +13,7 @@ class CustomerCell: UITableViewCell {
     var customerTableViewController: CustomerTableViewController!
     var itemTableView: UITableView!
     var itemTableController: ItemTableViewController!
+    var items: [Item]!
     let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -76,6 +77,7 @@ class CustomerCell: UITableViewCell {
         itemTableView.translatesAutoresizingMaskIntoConstraints = false
         itemTableView.allowsSelection = false
         itemTableController.itemTableView = itemTableView
+        itemTableController.items = items
         
         addSubview(itemTableView)
         
