@@ -10,7 +10,10 @@ import UIKit
 
 class CustomerTableViewController: UITableViewController {
     
-    var items = ["Customer 1", "Customer 2", "Customer 3"]
+    var customers:[Customer] = [
+        Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
+        Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()

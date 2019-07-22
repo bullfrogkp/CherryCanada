@@ -14,7 +14,7 @@ class Customer {
     var phone: String
     var wechat: String
     
-    init(comment: String, name: String, phone: String, wechat: String) {
+    init(name: String, phone: String, wechat: String, comment: String) {
         self.comment = comment
         self.name = name
         self.phone = phone
@@ -22,6 +22,6 @@ class Customer {
     }
     
     convenience init() {
-        self.init(comment: "", name: "", phone: "", wechat: "")
+        self.init(name: "", phone: "", wechat: "", comment: "")
     }
 }
