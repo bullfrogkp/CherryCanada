@@ -10,13 +10,27 @@ import UIKit
 
 class CustomerTableViewController: UITableViewController {
     
-    var customers:[Customer] = [
-        Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
-        Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
-    ]
+    var customers:[Customer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        customers = [
+            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
+            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+        ]
+        
+        let items1: [Item] = [
+            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceCharged: 2.00, quantity: 3),
+            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceCharged: 3.00, quantity: 5),
+        ]
+        
+        let items2: [Item] = [
+            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceCharged: 22.00, quantity: 1)
+        ]
+        
+        customers[0].items = items1
+        customers[1].items = items2
         
         navigationItem.title = "货单"
         
@@ -36,12 +50,12 @@ class CustomerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return customers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
-        myCell.customerNameTextField.text = items[indexPath.row]
+        myCell.customerNameTextField.text = customers[indexPath.row].name
         myCell.customerTableViewController = self
         myCell.backgroundColor = UIColor(red: 0.5961, green: 0.8431, blue: 0.949, alpha: 1.0)
         return myCell
@@ -66,35 +80,15 @@ class CustomerTableViewController: UITableViewController {
     
     @objc func deleteCell(cell: UITableViewCell) {
         if let deletionIndexPath = self.tableView.indexPath(for: cell) {
-            items.remove(at: deletionIndexPath.row)
+            customers.remove(at: deletionIndexPath.row)
             self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
     
-    @objc func insertBatch() {
-        var indexPaths = [NSIndexPath]()
-        for i in items.count...items.count + 5 {
-            items.append("Item \(i + 1)")
-            indexPaths.append(NSIndexPath(row: i, section: 0))
-        }
-        
-        var bottomHalfIndexPaths = [NSIndexPath]()
-        for _ in 0...indexPaths.count / 2 - 1 {
-            bottomHalfIndexPaths.append(indexPaths.removeLast())
-        }
-        
-        tableView.beginUpdates()
-        
-        tableView.insertRows(at: indexPaths as [IndexPath], with: .right)
-        tableView.insertRows(at: bottomHalfIndexPaths as [IndexPath], with: .left)
-        
-        tableView.endUpdates()
-    }
-    
     @objc func addCustomer() {
-        items.append("Item \(items.count + 1)")
+        customers.append(Customer())
         
-        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
+        let insertionIndexPath = NSIndexPath(row: customers.count - 1, section: 0)
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }

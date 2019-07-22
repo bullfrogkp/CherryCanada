@@ -13,12 +13,14 @@ class Customer {
     var name: String
     var phone: String
     var wechat: String
+    var items: [Item]
     
     init(name: String, phone: String, wechat: String, comment: String) {
         self.comment = comment
         self.name = name
         self.phone = phone
         self.wechat = wechat
+        self.items = [Item]()
     }
     
     convenience init() {
