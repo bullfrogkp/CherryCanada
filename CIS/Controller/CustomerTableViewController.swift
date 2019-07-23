@@ -58,7 +58,6 @@ class CustomerTableViewController: UITableViewController {
         myCell.customerNameTextField.text = customers[indexPath.row].name
         myCell.customerTableViewController = self
         myCell.backgroundColor = UIColor(red: 0.5961, green: 0.8431, blue: 0.949, alpha: 1.0)
-        myCell.items = customers[indexPath.row].items
         return myCell
     }
     

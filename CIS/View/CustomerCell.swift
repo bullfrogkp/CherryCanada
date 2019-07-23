@@ -14,6 +14,7 @@ class CustomerCell: UITableViewCell {
     var itemTableView: UITableView!
     var itemTableController: ItemTableViewController!
     var items: [Item]!
+    
     let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -10,7 +10,7 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
 
-    var items: [Item] = []
+    var items:[Item]!
     var itemTableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "itemCellId", for: indexPath as IndexPath) as! ItemCell
+        
         myCell.itemNameTextField.text = items[indexPath.row].name
         myCell.itemCommentTextField.text = items[indexPath.row].comment
         myCell.itemQuantityTextField.text = items[indexPath.row].quantity.description
