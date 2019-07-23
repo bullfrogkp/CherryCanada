@@ -118,9 +118,9 @@ class ItemCell: UITableViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[itemNameTextField]-[itemPriceBoughtTextField]-[itemPriceSoldTextField]-[itemQuantityTextField]-[itemCommentTextField]-[deleteItemButton]-15-|", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views))
     }
-    
+    /*
     @objc func deleteItem() {
         itemTableViewController?.deleteCell(cell: self)
     }
-    
+    */
 }
