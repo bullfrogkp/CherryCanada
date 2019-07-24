@@ -13,13 +13,12 @@ class CustomerCell: UITableViewCell {
     var customerTableViewController: CustomerTableViewController!
     var itemTableView: UITableView!
     var itemTableController: ItemTableViewController!
-    var items: [Item]!
+    var items: [Item] = []
     
     let cellId = "itemCellId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,6 +63,10 @@ class CustomerCell: UITableViewCell {
         return textField
     }()
     
+    func setupVars(items customerItems: [Item]) {
+        self.items = customerItems
+    }
+    
     func setupViews() {
         addSubview(deleteCustomerButton)
         addSubview(addItemButton)
@@ -78,7 +81,7 @@ class CustomerCell: UITableViewCell {
         itemTableView.translatesAutoresizingMaskIntoConstraints = false
         itemTableView.allowsSelection = false
         itemTableController.itemTableView = itemTableView
-        itemTableController.items = items
+        itemTableController.items = self.items
         
         addSubview(itemTableView)
         

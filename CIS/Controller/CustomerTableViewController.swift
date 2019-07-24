@@ -55,10 +55,14 @@ class CustomerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
-        myCell.customerNameTextField.text = customers[indexPath.row].name
+        
+        let cust = customers[indexPath.row]
+        
+        myCell.customerNameTextField.text = cust.name
         myCell.customerTableViewController = self
         myCell.backgroundColor = UIColor(red: 0.5961, green: 0.8431, blue: 0.949, alpha: 1.0)
-        myCell.items = customers[indexPath.row].items
+        myCell.setupVars(items: cust.items)
+        myCell.setupViews()
         return myCell
     }
     
