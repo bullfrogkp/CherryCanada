@@ -10,6 +10,8 @@ import UIKit
 
 class ShippingListTableViewController: UITableViewController {
 
+    var shippings: [Shipping] = []
+    
     @IBOutlet weak var shippingDateLabel: UILabel!
     @IBOutlet weak var shippingCityLabel: UILabel!
     @IBOutlet weak var shippingDepositLabel: UILabel!
@@ -18,11 +20,10 @@ class ShippingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        shippings = [
+        Shipping(comment: "", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(Now()),
+        
+        ]
     }
 
     // MARK: - Table view data source
