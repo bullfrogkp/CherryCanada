@@ -23,6 +23,7 @@
 		3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D322E41D2700F1A0B3 /* Type.swift */; };
 		3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D422E41D2700F1A0B3 /* Brand.swift */; };
 		3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */; };
+		3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3E3AC8D322E41D2700F1A0B3 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		3E3AC8D422E41D2700F1A0B3 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewController.swift; sourceTree = "<group>"; };
+		3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				3E3AC8C222C68C8000F1A0B3 /* CustomerCell.swift */,
 				3E3AC8C422C692B200F1A0B3 /* ItemCell.swift */,
+				3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
 				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
+				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

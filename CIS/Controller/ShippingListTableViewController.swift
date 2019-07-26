@@ -12,17 +12,12 @@ class ShippingListTableViewController: UITableViewController {
 
     var shippings: [Shipping] = []
     
-    @IBOutlet weak var shippingDateLabel: UILabel!
-    @IBOutlet weak var shippingCityLabel: UILabel!
-    @IBOutlet weak var shippingDepositLabel: UILabel!
-    @IBOutlet weak var shippingStatusLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         shippings = [
-        Shipping(comment: "", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成"),
-        Shipping(comment: "hahaha", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定")
+            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成"),
+            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定")
         ]
     }
 
@@ -30,23 +25,28 @@ class ShippingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return shippings.count
+        return  1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return shippings.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shippingId", for: indexPath as IndexPath) as! ShippingListTableViewCell
 
-        // Configure the cell...
+        let shippingDetail = shippings[indexPath.row]
+        
+        cell.shippingCityLabel.text = shippingDetail.city
+        cell.shippingDateLabel.text = "\(shippingDetail.shippingDate)"
+        cell.shippingStatusLabel.text = shippingDetail.shippingStatus
+        cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
