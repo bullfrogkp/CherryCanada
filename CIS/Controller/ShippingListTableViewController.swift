@@ -21,8 +21,8 @@ class ShippingListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         shippings = [
-        Shipping(comment: "", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(Now()),
-        
+        Shipping(comment: "", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成"),
+        Shipping(comment: "hahaha", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定")
         ]
     }
 
@@ -30,7 +30,7 @@ class ShippingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return shippings.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
