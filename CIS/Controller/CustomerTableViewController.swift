@@ -11,28 +11,9 @@ import UIKit
 class CustomerTableViewController: UITableViewController {
     
     var shipping: Shipping!
-    var customers: [Customer] = []
-    var imageName: String = "test.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        customers = [
-            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
-            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
-        ]
-        
-        let items1: [Item] = [
-            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
-            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
-        ]
-        
-        let items2: [Item] = [
-            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
-        ]
-        
-        customers[0].items = items1
-        customers[1].items = items2
         
         navigationItem.title = "货单"
         
@@ -52,13 +33,13 @@ class CustomerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customers.count
+        return shipping.customers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "customerCellId", for: indexPath as IndexPath) as! CustomerCell
         
-        let cust = customers[indexPath.row]
+        let cust = shipping.customers[indexPath.row]
         
         myCell.customerNameTextField.text = cust.name
         myCell.customerTableViewController = self
@@ -72,7 +53,7 @@ class CustomerTableViewController: UITableViewController {
                             viewForHeaderInSection section: Int) -> UIView? {
         let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
         myHeader.customerTableViewController = self
-        myHeader.imageName = imageName
+        myHeader.shippingImageName = shipping.imageName
         
         return myHeader
     }
@@ -88,15 +69,15 @@ class CustomerTableViewController: UITableViewController {
     
     @objc func deleteCell(cell: UITableViewCell) {
         if let deletionIndexPath = self.tableView.indexPath(for: cell) {
-            customers.remove(at: deletionIndexPath.row)
+            shipping.customers.remove(at: deletionIndexPath.row)
             self.tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
     
     @objc func addCustomer() {
-        customers.append(Customer())
+        shipping.customers.append(Customer())
         
-        let insertionIndexPath = NSIndexPath(row: customers.count - 1, section: 0)
+        let insertionIndexPath = NSIndexPath(row: shipping.customers.count - 1, section: 0)
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
@@ -108,7 +89,7 @@ class CustomerTableViewController: UITableViewController {
 
 class Header: UITableViewHeaderFooterView {
     var customerTableViewController: CustomerTableViewController!
-    var imageName: String!
+    var shippingImageName: String!
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -120,7 +101,7 @@ class Header: UITableViewHeaderFooterView {
     }
     
     let itemImageView: UIImageView = {
-        let imageName = imageName
+        let imageName = shippingImageName
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         let screenSize: CGRect = UIScreen.main.bounds

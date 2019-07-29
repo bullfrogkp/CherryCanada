@@ -15,9 +15,27 @@ class ShippingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var customers = [
+            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
+            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+        ]
+        
+        var items1: [Item] = [
+            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
+            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
+        ]
+        
+        var items2: [Item] = [
+            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
+        ]
+        
+        customers[0].items = items1
+        customers[1].items = items2
+        customers[0].items = items2
+        
         shippings = [
-            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成"),
-            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定")
+            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", imageName: "test2.jpg", customers: customers),
+            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", imageName: "test.jpg", customers: customers)
         ]
     }
 
@@ -86,7 +104,6 @@ class ShippingListTableViewController: UITableViewController {
         if segue.identifier == "showShippingDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerTableViewController
-                destinationController.imageName = "test2.jpg"
                 destinationController.shipping = shippings[indexPath.row]
             }
         }

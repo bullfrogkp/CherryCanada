@@ -16,8 +16,10 @@ class Shipping {
     var priceNational: Decimal
     var shippingDate: Date
     var shippingStatus: String
+    var customers: [Customer]
+    var imageName: String
     
-    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String) {
+    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String, imageName: String, customers: [Customer]) {
         self.comment = comment
         self.deposit = deposit
         self.city = city
@@ -25,9 +27,10 @@ class Shipping {
         self.priceNational = priceNational
         self.shippingDate = shippingDate
         self.shippingStatus = shippingStatus
+        self.customers = customers
     }
     
     convenience init() {
-        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "")
+        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", imageName: "", customers: [])
     }
 }
