@@ -10,7 +10,9 @@ import UIKit
 
 class CustomerTableViewController: UITableViewController {
     
-    var customers:[Customer] = []
+    var shipping: Shipping!
+    var customers: [Customer] = []
+    var imageName: String = "test.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,7 @@ class CustomerTableViewController: UITableViewController {
                             viewForHeaderInSection section: Int) -> UIView? {
         let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
         myHeader.customerTableViewController = self
+        myHeader.imageName = imageName
         
         return myHeader
     }
@@ -105,6 +108,7 @@ class CustomerTableViewController: UITableViewController {
 
 class Header: UITableViewHeaderFooterView {
     var customerTableViewController: CustomerTableViewController!
+    var imageName: String!
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -116,7 +120,7 @@ class Header: UITableViewHeaderFooterView {
     }
     
     let itemImageView: UIImageView = {
-        let imageName = "test.jpg"
+        let imageName = imageName
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         let screenSize: CGRect = UIScreen.main.bounds

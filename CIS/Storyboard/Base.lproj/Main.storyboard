@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--货单-->
+        <!--货单列表-->
         <scene sceneID="cEf-iF-rbL">
             <objects>
                 <tableViewController id="bCB-A9-oWe" customClass="ShippingListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,6 +75,7 @@
                                     <outlet property="shippingDateLabel" destination="XY0-R6-Kyx" id="kf2-EP-bYG"/>
                                     <outlet property="shippingDepositLabel" destination="c2B-xJ-AUZ" id="p8V-7g-Fhi"/>
                                     <outlet property="shippingStatusLabel" destination="iDT-UV-9LU" id="Wph-fM-O1a"/>
+                                    <segue destination="rMe-Gx-fpx" kind="show" identifier="showShippingDetail" id="pAd-FX-2mE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,10 +84,10 @@
                             <outlet property="delegate" destination="bCB-A9-oWe" id="f7d-ga-Lwq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="货单" id="Lm1-p2-3Z5">
+                    <navigationItem key="navigationItem" title="货单列表" id="Lm1-p2-3Z5">
                         <barButtonItem key="rightBarButtonItem" title="添加" id="htd-m4-46S">
                             <connections>
-                                <segue destination="rMe-Gx-fpx" kind="show" id="uqD-Lf-1oE"/>
+                                <segue destination="rMe-Gx-fpx" kind="presentation" identifier="newShippingDetail" id="Agt-us-D2R"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="967" y="-632"/>
         </scene>
-        <!--Customer Table View Controller-->
+        <!--货单信息-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CustomerTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,7 +123,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="O1g-e4-wde"/>
+                    <navigationItem key="navigationItem" title="货单信息" id="O1g-e4-wde"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,6 +235,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GRF-I3-qeh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2wL-dE-YL3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -253,4 +255,7 @@
         <image name="discover" width="35" height="20"/>
         <image name="favorite" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Agt-us-D2R"/>
+    </inferredMetricsTieBreakers>
 </document>
