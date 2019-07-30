@@ -27,6 +27,7 @@ class Shipping {
         self.priceNational = priceNational
         self.shippingDate = shippingDate
         self.shippingStatus = shippingStatus
+        self.imageName = imageName
         self.customers = customers
     }
     

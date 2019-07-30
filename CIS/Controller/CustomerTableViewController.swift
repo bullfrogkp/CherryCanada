@@ -28,8 +28,6 @@ class CustomerTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "存储", style: .plain, target: self, action: Selector(("saveData")))
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: Selector(("cancelEdit")))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +52,7 @@ class CustomerTableViewController: UITableViewController {
         let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! Header
         myHeader.customerTableViewController = self
         myHeader.shippingImageName = shipping.imageName
-        
+        myHeader.setupViews()
         return myHeader
     }
     
@@ -93,7 +91,6 @@ class Header: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -101,7 +98,7 @@ class Header: UITableViewHeaderFooterView {
     }
     
     let itemImageView: UIImageView = {
-        let imageName = shippingImageName
+        let imageName = "test.jpg"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         let screenSize: CGRect = UIScreen.main.bounds
@@ -144,6 +141,7 @@ class Header: UITableViewHeaderFooterView {
     }()
     
     func setupViews() {
+        itemImageView.image = UIImage(named: "test2.jpg")
         addSubview(itemImageView)
         addSubview(addCustomerButton)
         addSubview(deleteShippingButton)
