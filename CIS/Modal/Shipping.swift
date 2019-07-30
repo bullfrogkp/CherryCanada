@@ -32,6 +32,10 @@ class Shipping {
     }
     
     convenience init() {
-        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", imageName: "", customers: [])
+        
+        let cust = Customer()
+        cust.items = [Item()]
+        
+        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", imageName: "", customers: [cust])
     }
 }

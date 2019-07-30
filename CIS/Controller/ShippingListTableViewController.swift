@@ -20,12 +20,12 @@ class ShippingListTableViewController: UITableViewController {
             Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
         ]
         
-        var items1: [Item] = [
+        let items1: [Item] = [
             Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
             Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
         ]
         
-        var items2: [Item] = [
+        let items2: [Item] = [
             Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
         ]
         
@@ -106,7 +106,9 @@ class ShippingListTableViewController: UITableViewController {
                 let destinationController = segue.destination as! CustomerTableViewController
                 destinationController.shipping = shippings[indexPath.row]
             }
+        } else {
+            let destinationController = segue.destination as! CustomerTableViewController
+            destinationController.shipping = Shipping()
         }
     }
-
 }
