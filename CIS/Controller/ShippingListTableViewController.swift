@@ -110,5 +110,11 @@ class ShippingListTableViewController: UITableViewController {
             let destinationController = segue.destination as! ShippingDetailViewController
             destinationController.shipping = Shipping()
         }
+        
+        if let destination = (segue.destination as? UITabBarController)?.viewControllers.first as? EventViewController {
+            
+            destination.event = events[(tableView.indexPathForSelectedRow?.row)!]
+            
+        }
     }
 }
