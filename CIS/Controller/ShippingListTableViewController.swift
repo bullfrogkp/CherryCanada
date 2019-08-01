@@ -103,18 +103,10 @@ class ShippingListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShippingDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destinationController = segue.destination as! ShippingDetailViewController
-                destinationController.shipping = shippings[indexPath.row]
+                let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
+                let desView: CustomerTableViewController = tabBarC.viewControllers?[1] as! CustomerTableViewController
+                desView.shipping = shippings[indexPath.row]
             }
-        } else {
-            let destinationController = segue.destination as! ShippingDetailViewController
-            destinationController.shipping = Shipping()
-        }
-        
-        if let destination = (segue.destination as? UITabBarController)?.viewControllers.first as? EventViewController {
-            
-            destination.event = events[(tableView.indexPathForSelectedRow?.row)!]
-            
         }
     }
 }
