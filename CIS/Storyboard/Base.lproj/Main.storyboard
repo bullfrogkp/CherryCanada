@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7D-J9-6ed">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GVd-nz-glf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,7 +62,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
-                        <barButtonItem key="rightBarButtonItem" title="添加" id="htd-m4-46S">
+                        <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="newCustomerDetail" id="oa8-nj-BcM"/>
                             </connections>
@@ -133,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVT-kK-9tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1883" y="56"/>
+            <point key="canvasLocation" x="2821.5999999999999" y="55.322338830584712"/>
         </scene>
         <!--货单信息导航-->
         <scene sceneID="LAw-m5-naZ">
@@ -150,7 +150,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CL-VA-emm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="56"/>
+            <point key="canvasLocation" x="1925.5999999999999" y="55.322338830584712"/>
         </scene>
         <!--货单图片-->
         <scene sceneID="4nB-Aq-9d7">
@@ -205,7 +205,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-MA-PvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.971014492753625" y="55.580357142857139"/>
+            <point key="canvasLocation" x="996" y="55.322338830584712"/>
         </scene>
         <!--货单列表-->
         <scene sceneID="t1P-wa-W8b">
@@ -282,12 +282,34 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="货单列表" id="i9y-TH-3He">
-                        <barButtonItem key="rightBarButtonItem" title="添加" id="7tq-a5-KBh"/>
+                        <barButtonItem key="rightBarButtonItem" title="添加货单" id="7tq-a5-KBh">
+                            <connections>
+                                <segue destination="GRF-I3-qeh" kind="presentation" id="fgr-qk-9Nd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNU-w8-fTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-753" y="55"/>
+            <point key="canvasLocation" x="184.80000000000001" y="54.422788605697157"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Guq-sp-v8a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GVd-nz-glf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wL6-rS-ShK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i7D-J9-6ed" kind="relationship" relationship="rootViewController" id="b9r-dw-nBx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P76-sO-BJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-754.39999999999998" y="54.422788605697157"/>
         </scene>
     </scenes>
     <resources>
@@ -296,6 +318,7 @@
         <image name="favorite" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xiD-FO-9Gx"/>
         <segue reference="oa8-nj-BcM"/>
     </inferredMetricsTieBreakers>
 </document>
