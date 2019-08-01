@@ -1,5 +1,5 @@
 //
-//  ItemListTableViewController.swift
+//  CustomerListTableViewController.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-08-01.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemListTableViewController: UITableViewController {
+class CustomerListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

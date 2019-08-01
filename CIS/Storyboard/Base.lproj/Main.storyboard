@@ -13,47 +13,30 @@
         <!--客户列表-->
         <scene sceneID="cEf-iF-rbL">
             <objects>
-                <tableViewController title="客户列表" id="bCB-A9-oWe" customClass="ItemListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="客户列表" id="bCB-A9-oWe" customClass="CustomerListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Xq-b9-UyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customerId" rowHeight="120" id="B2y-vN-Ind" customClass="ItemListTableViewCell" customModule="CIS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customerId" rowHeight="120" id="B2y-vN-Ind" customClass="CustomerListTableViewCell" customModule="CIS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B2y-vN-Ind" id="1EC-rk-Ks4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="ZfM-2d-x14">
-                                            <rect key="frame" x="16" y="11" width="131" height="98"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="9tM-jM-h0a">
+                                            <rect key="frame" x="16" y="11" width="343" height="98"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY0-R6-Kyx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="108" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xR-Ux-bLY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Deposit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2B-xJ-AUZ">
-                                                    <rect key="frame" x="0.0" y="77.5" width="131" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="F41-yJ-vdE">
-                                            <rect key="frame" x="257" y="11" width="102" height="98"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Shipping City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZ4-xx-eC5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="23.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDT-UV-9LU">
-                                                    <rect key="frame" x="0.0" y="77.5" width="102" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-BQ-tAz">
+                                                    <rect key="frame" x="300.5" y="0.0" width="42.5" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -62,20 +45,14 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ZfM-2d-x14" firstAttribute="top" secondItem="1EC-rk-Ks4" secondAttribute="topMargin" id="3I9-tj-iXH"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="F41-yJ-vdE" secondAttribute="trailing" id="ETU-2J-dof"/>
-                                        <constraint firstItem="ZfM-2d-x14" firstAttribute="bottom" secondItem="1EC-rk-Ks4" secondAttribute="bottomMargin" id="TUD-zo-SuK"/>
-                                        <constraint firstItem="ZfM-2d-x14" firstAttribute="leading" secondItem="1EC-rk-Ks4" secondAttribute="leadingMargin" id="awe-cA-hKv"/>
-                                        <constraint firstItem="F41-yJ-vdE" firstAttribute="top" secondItem="1EC-rk-Ks4" secondAttribute="topMargin" id="gY7-cO-NGu"/>
-                                        <constraint firstItem="F41-yJ-vdE" firstAttribute="bottom" secondItem="1EC-rk-Ks4" secondAttribute="bottomMargin" id="oIx-CO-ecN"/>
+                                        <constraint firstItem="9tM-jM-h0a" firstAttribute="trailing" secondItem="1EC-rk-Ks4" secondAttribute="trailingMargin" id="1mi-hb-BLe"/>
+                                        <constraint firstItem="9tM-jM-h0a" firstAttribute="top" secondItem="1EC-rk-Ks4" secondAttribute="topMargin" id="MLA-0O-WnP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9tM-jM-h0a" secondAttribute="bottom" id="ql1-Be-axW"/>
+                                        <constraint firstItem="9tM-jM-h0a" firstAttribute="leading" secondItem="1EC-rk-Ks4" secondAttribute="leadingMargin" id="teO-w3-qLl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="shippingCityLabel" destination="fZ4-xx-eC5" id="eCB-K5-fHb"/>
-                                    <outlet property="shippingDateLabel" destination="XY0-R6-Kyx" id="kf2-EP-bYG"/>
-                                    <outlet property="shippingDepositLabel" destination="c2B-xJ-AUZ" id="p8V-7g-Fhi"/>
-                                    <outlet property="shippingStatusLabel" destination="iDT-UV-9LU" id="Wph-fM-O1a"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showShippingDetail" id="kMO-2A-EqM"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showCustomerDetail" id="kMO-2A-EqM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -87,7 +64,7 @@
                     <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
                         <barButtonItem key="rightBarButtonItem" title="添加" id="htd-m4-46S">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="newShippingDetail" id="oa8-nj-BcM"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="newCustomerDetail" id="oa8-nj-BcM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -319,6 +296,6 @@
         <image name="favorite" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kMO-2A-EqM"/>
+        <segue reference="oa8-nj-BcM"/>
     </inferredMetricsTieBreakers>
 </document>

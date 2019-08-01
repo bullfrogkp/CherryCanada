@@ -1,5 +1,5 @@
 //
-//  ItemListTableViewCell.swift
+//  CustomerListTableViewCell.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-08-01.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemListTableViewCell: UITableViewCell {
+class CustomerListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

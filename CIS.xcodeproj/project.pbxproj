@@ -23,8 +23,8 @@
 		3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D422E41D2700F1A0B3 /* Brand.swift */; };
 		3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */; };
 		3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */; };
-		3E3AC8DF22F3647100F1A0B3 /* ItemListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DE22F3647100F1A0B3 /* ItemListTableViewController.swift */; };
-		3E3AC8E122F3649100F1A0B3 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E022F3649100F1A0B3 /* ItemListTableViewCell.swift */; };
+		3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */; };
+		3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,8 @@
 		3E3AC8D422E41D2700F1A0B3 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewCell.swift; sourceTree = "<group>"; };
-		3E3AC8DE22F3647100F1A0B3 /* ItemListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewController.swift; sourceTree = "<group>"; };
-		3E3AC8E022F3649100F1A0B3 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
+		3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewController.swift; sourceTree = "<group>"; };
+		3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 				3E3AC8C622D3E57200F1A0B3 /* ItemTableViewController.swift */,
 				3E3AC8A922BC067000F1A0B3 /* CustomerTableViewController.swift */,
 				3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */,
-				3E3AC8DE22F3647100F1A0B3 /* ItemListTableViewController.swift */,
+				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 				3E3AC8C222C68C8000F1A0B3 /* CustomerCell.swift */,
 				3E3AC8C422C692B200F1A0B3 /* ItemCell.swift */,
 				3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */,
-				3E3AC8E022F3649100F1A0B3 /* ItemListTableViewCell.swift */,
+				3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 				3E3AC8AA22BC067000F1A0B3 /* CustomerTableViewController.swift in Sources */,
 				3E3AC8C322C68C8000F1A0B3 /* CustomerCell.swift in Sources */,
 				3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */,
-				3E3AC8E122F3649100F1A0B3 /* ItemListTableViewCell.swift in Sources */,
+				3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */,
 				3E3AC8CF22E41C0600F1A0B3 /* Customer.swift in Sources */,
 				3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */,
 				3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */,
@@ -217,7 +217,7 @@
 				3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
-				3E3AC8DF22F3647100F1A0B3 /* ItemListTableViewController.swift in Sources */,
+				3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */,
 				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
