@@ -25,6 +25,7 @@
 		3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */; };
 		3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */; };
 		3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */; };
+		3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewCell.swift; sourceTree = "<group>"; };
 		3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewCell.swift; sourceTree = "<group>"; };
+		3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				3E3AC8A922BC067000F1A0B3 /* CustomerTableViewController.swift */,
 				3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */,
 				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
+				3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
 				3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */,
+				3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */,
 				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,

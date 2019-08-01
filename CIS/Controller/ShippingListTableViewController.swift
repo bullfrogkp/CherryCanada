@@ -103,11 +103,11 @@ class ShippingListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShippingDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destinationController = segue.destination as! CustomerTableViewController
+                let destinationController = segue.destination as! ShippingDetailViewController
                 destinationController.shipping = shippings[indexPath.row]
             }
         } else {
-            let destinationController = segue.destination as! CustomerTableViewController
+            let destinationController = segue.destination as! ShippingDetailViewController
             destinationController.shipping = Shipping()
         }
     }
