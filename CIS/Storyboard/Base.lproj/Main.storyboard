@@ -13,7 +13,7 @@
         <!--客户列表-->
         <scene sceneID="cEf-iF-rbL">
             <objects>
-                <tableViewController id="bCB-A9-oWe" customClass="ItemListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="客户列表" id="bCB-A9-oWe" customClass="ItemListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Xq-b9-UyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="1882.4000000000001" y="-632.83358320839591"/>
         </scene>
-        <!--客户列表-->
+        <!--客户列表导航-->
         <scene sceneID="L3A-vd-C2g">
             <objects>
-                <navigationController id="fdF-Kp-GZR" sceneMemberID="viewController">
+                <navigationController title="客户列表导航" id="fdF-Kp-GZR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="客户列表" image="discover" id="xh3-x6-RRb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NfN-eI-YkJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -116,7 +116,7 @@
         <!--客户信息-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CustomerTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="客户信息" id="BYZ-38-t0r" customClass="CustomerTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CustomTableView" customModule="CIS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
         <!--货单信息-->
         <scene sceneID="fQs-v9-42f">
             <objects>
-                <tableViewController id="TDh-24-JOR" sceneMemberID="viewController">
+                <tableViewController title="货单信息" id="TDh-24-JOR" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QZn-68-8HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="1883" y="56"/>
         </scene>
-        <!--货单信息-->
+        <!--货单信息导航-->
         <scene sceneID="LAw-m5-naZ">
             <objects>
-                <navigationController id="DHR-m3-o48" sceneMemberID="viewController">
+                <navigationController title="货单信息导航" id="DHR-m3-o48" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="货单信息" image="favorite" id="JQ5-60-Ec5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V5u-RM-OLD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -178,7 +178,7 @@
         <!--货单图片-->
         <scene sceneID="4nB-Aq-9d7">
             <objects>
-                <collectionViewController id="D46-sd-esV" sceneMemberID="viewController">
+                <collectionViewController title="货单图片" id="D46-sd-esV" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Jei-cr-DsB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
