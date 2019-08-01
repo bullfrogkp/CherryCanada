@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GRF-I3-qeh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7D-J9-6ed">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--货单列表-->
+        <!--客户列表-->
         <scene sceneID="cEf-iF-rbL">
             <objects>
-                <tableViewController id="bCB-A9-oWe" customClass="ShippingListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bCB-A9-oWe" customClass="ItemListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Xq-b9-UyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shippingId" rowHeight="120" id="B2y-vN-Ind" customClass="ShippingListTableViewCell" customModule="CIS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customerId" rowHeight="120" id="B2y-vN-Ind" customClass="ItemListTableViewCell" customModule="CIS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B2y-vN-Ind" id="1EC-rk-Ks4">
@@ -84,7 +84,7 @@
                             <outlet property="delegate" destination="bCB-A9-oWe" id="f7d-ga-Lwq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="货单列表" id="Lm1-p2-3Z5">
+                    <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
                         <barButtonItem key="rightBarButtonItem" title="添加" id="htd-m4-46S">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="newShippingDetail" id="oa8-nj-BcM"/>
@@ -96,11 +96,11 @@
             </objects>
             <point key="canvasLocation" x="1882.4000000000001" y="-632.83358320839591"/>
         </scene>
-        <!--货单-->
+        <!--客户列表-->
         <scene sceneID="L3A-vd-C2g">
             <objects>
                 <navigationController id="fdF-Kp-GZR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="货单" image="discover" id="xh3-x6-RRb"/>
+                    <tabBarItem key="tabBarItem" title="客户列表" image="discover" id="xh3-x6-RRb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NfN-eI-YkJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -113,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="967" y="-632"/>
         </scene>
-        <!--货单信息-->
+        <!--客户信息-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CustomerTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,13 +123,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="货单信息" id="O1g-e4-wde"/>
+                    <navigationItem key="navigationItem" title="客户信息" id="O1g-e4-wde"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2788" y="-633"/>
         </scene>
-        <!--客户-->
+        <!--货单信息-->
         <scene sceneID="fQs-v9-42f">
             <objects>
                 <tableViewController id="TDh-24-JOR" sceneMemberID="viewController">
@@ -152,17 +152,17 @@
                             <outlet property="delegate" destination="TDh-24-JOR" id="qCP-BC-RtC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="客户" id="Ex2-wu-djo"/>
+                    <navigationItem key="navigationItem" title="货单信息" id="Ex2-wu-djo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVT-kK-9tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1883" y="56"/>
         </scene>
-        <!--客户-->
+        <!--货单信息-->
         <scene sceneID="LAw-m5-naZ">
             <objects>
                 <navigationController id="DHR-m3-o48" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="客户" image="favorite" id="JQ5-60-Ec5"/>
+                    <tabBarItem key="tabBarItem" title="货单信息" image="favorite" id="JQ5-60-Ec5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V5u-RM-OLD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -175,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="987" y="56"/>
         </scene>
-        <!--图片-->
+        <!--货单图片-->
         <scene sceneID="4nB-Aq-9d7">
             <objects>
                 <collectionViewController id="D46-sd-esV" sceneMemberID="viewController">
@@ -204,7 +204,7 @@
                             <outlet property="delegate" destination="D46-sd-esV" id="lRl-Se-oeE"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="图片" image="about" id="LDG-oq-mis"/>
+                    <tabBarItem key="tabBarItem" title="货单图片" image="about" id="LDG-oq-mis"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r5-ab-dvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,6 +229,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-MA-PvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="55.580357142857139"/>
+        </scene>
+        <!--货单列表-->
+        <scene sceneID="t1P-wa-W8b">
+            <objects>
+                <tableViewController id="i7D-J9-6ed" customClass="ShippingListTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N8s-Pa-TJ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shippingId" rowHeight="120" id="yhf-fM-ec2" customClass="ShippingListTableViewCell" customModule="CIS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhf-fM-ec2" id="8Qq-sl-jh9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-UO-dLP">
+                                            <rect key="frame" x="16" y="11" width="131" height="98"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aom-jV-fH3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="108" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Deposit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="914-FG-Qwk">
+                                                    <rect key="frame" x="0.0" y="77.5" width="131" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="c7G-Ox-NRm">
+                                            <rect key="frame" x="257" y="11" width="102" height="98"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Shipping City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mj5-mJ-F9s">
+                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAD-ei-Wxp">
+                                                    <rect key="frame" x="0.0" y="77.5" width="102" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oGu-UO-dLP" firstAttribute="leading" secondItem="8Qq-sl-jh9" secondAttribute="leadingMargin" id="OhA-bD-uQQ"/>
+                                        <constraint firstItem="oGu-UO-dLP" firstAttribute="bottom" secondItem="8Qq-sl-jh9" secondAttribute="bottomMargin" id="P5i-gp-Pa3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="c7G-Ox-NRm" secondAttribute="trailing" id="bMP-zY-CSC"/>
+                                        <constraint firstItem="c7G-Ox-NRm" firstAttribute="top" secondItem="8Qq-sl-jh9" secondAttribute="topMargin" id="dgR-uo-wz4"/>
+                                        <constraint firstItem="c7G-Ox-NRm" firstAttribute="bottom" secondItem="8Qq-sl-jh9" secondAttribute="bottomMargin" id="jww-DX-FxJ"/>
+                                        <constraint firstItem="oGu-UO-dLP" firstAttribute="top" secondItem="8Qq-sl-jh9" secondAttribute="topMargin" id="v0B-o3-pzk"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="shippingCityLabel" destination="mj5-mJ-F9s" id="BK1-6B-tqm"/>
+                                    <outlet property="shippingDateLabel" destination="Aom-jV-fH3" id="ubS-sN-flO"/>
+                                    <outlet property="shippingDepositLabel" destination="914-FG-Qwk" id="PeR-ua-Otr"/>
+                                    <outlet property="shippingStatusLabel" destination="eAD-ei-Wxp" id="Xnk-yn-Iis"/>
+                                    <segue destination="GRF-I3-qeh" kind="show" identifier="showShippingDetail" id="xiD-FO-9Gx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="i7D-J9-6ed" id="Evp-pJ-bp7"/>
+                            <outlet property="delegate" destination="i7D-J9-6ed" id="6ZQ-R8-h8f"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="货单列表" id="i9y-TH-3He">
+                        <barButtonItem key="rightBarButtonItem" title="添加" id="7tq-a5-KBh"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNU-w8-fTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-753" y="55"/>
         </scene>
     </scenes>
     <resources>
