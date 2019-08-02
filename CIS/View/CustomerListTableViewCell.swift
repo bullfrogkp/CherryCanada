@@ -9,7 +9,9 @@
 import UIKit
 
 class CustomerListTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var customerNameLabel: UILabel!
+    @IBOutlet weak var customerItemsLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
