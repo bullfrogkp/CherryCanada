@@ -35,9 +35,14 @@ class CustomerListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
         let customerDetail = customers[indexPath.row]
+        var itemsText = ""
         
         cell.customerNameLabel.text = customerDetail.name
-        cell.customerItemsLabel.text = ""
+        
+        for item in customerDetail.items {
+            itemsText += "\(item.name) [\(item.quantity)]\r\n"
+        }
+        cell.customerItemsLabel.text = itemsText
         
         return cell
     }
