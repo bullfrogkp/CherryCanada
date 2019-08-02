@@ -104,8 +104,10 @@ class ShippingListTableViewController: UITableViewController {
         if segue.identifier == "showShippingDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
-                let cvs = tabBarC.viewControllers?[1]
-                let desView: UINavigationController = tabBarC.viewControllers?[1] as! UINavigationController
+                let naviView: UINavigationController = tabBarC.viewControllers?[1] as! UINavigationController
+                let descView: CustomerListTableViewController = naviView.viewControllers[0] as! CustomerListTableViewController
+                
+                descView.shipping = shippings[indexPath.row]
                 
             }
         }
