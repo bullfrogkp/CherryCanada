@@ -28,7 +28,7 @@ class CustomerListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return shipping.count
+        return customers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,8 +36,8 @@ class CustomerListTableViewController: UITableViewController {
         
         let customerDetail = customers[indexPath.row]
         
-        cell.shippingCityLabel.text = shippingDetail.city
-        cell.shippingDateLabel.text = "\(shippingDetail.shippingDate)"
+        cell.customerNameLabel.text = customerDetail.name
+        cell.customerItemsLabel.text = ""
         
         return cell
     }

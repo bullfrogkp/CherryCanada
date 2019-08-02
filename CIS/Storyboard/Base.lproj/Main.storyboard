@@ -52,6 +52,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="customerItemsLabel" destination="dLa-BQ-tAz" id="TUK-4e-LGt"/>
+                                    <outlet property="customerNameLabel" destination="1xR-Ux-bLY" id="w0c-ia-OvK"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="showCustomerDetail" id="kMO-2A-EqM"/>
                                 </connections>
                             </tableViewCell>
