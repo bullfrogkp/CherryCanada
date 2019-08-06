@@ -14,10 +14,10 @@ class ShippingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var customers = [
-            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy"),
-            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: []),
+            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: [])
         ]
         
         let items1: [Item] = [

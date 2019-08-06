@@ -89,7 +89,9 @@ class CustomerListTableViewController: UITableViewController {
         if segue.identifier == "showCustomerDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerTableViewController
-                destinationController.customer = customers[indexPath.row]
+                let shippingDetail = shipping
+                shippingDetail!.customers = [customers[indexPath.row]]
+                destinationController.shipping = shippingDetail
             }
         }
     }
