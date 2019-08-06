@@ -11,12 +11,9 @@ import UIKit
 class CustomerListTableViewController: UITableViewController {
 
     var shipping: Shipping!
-    var customers: [Customer]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        customers = shipping.customers
     }
 
     // MARK: - Table view data source
@@ -28,13 +25,13 @@ class CustomerListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return customers.count
+        return shipping.customers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = customers[indexPath.row]
+        let customerDetail = shipping.customers[indexPath.row]
         var itemsText = ""
         
         cell.customerNameLabel.text = customerDetail.name
@@ -90,7 +87,7 @@ class CustomerListTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerTableViewController
                 let shippingDetail = shipping
-                shippingDetail!.customers = [customers[indexPath.row]]
+                shippingDetail!.customers = [shipping.customers[indexPath.row]]
                 destinationController.shipping = shippingDetail
             }
         }
