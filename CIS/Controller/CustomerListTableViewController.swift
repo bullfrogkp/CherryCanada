@@ -85,13 +85,12 @@ class CustomerListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCustomerDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let naviView : UINavigationController = segue.destination as! UINavigationController
-                let descView: CustomerTableViewController = naviView.viewControllers[0] as! CustomerTableViewController
-                
+                let destinationController = segue.destination as! CustomerTableViewController
                 let shippingDetail = shipping
                 shippingDetail!.customers = [shipping.customers[indexPath.row]]
-                descView.shipping = shippingDetail
+                destinationController.shipping = shippingDetail
             }
         }
     }
+
 }
