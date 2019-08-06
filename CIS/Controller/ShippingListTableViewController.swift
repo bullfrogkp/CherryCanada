@@ -31,7 +31,6 @@ class ShippingListTableViewController: UITableViewController {
         
         customers[0].items = items1
         customers[1].items = items2
-        customers[0].items = items2
         
         shippings = [
             Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", imageName: "test2.jpg", customers: customers),
