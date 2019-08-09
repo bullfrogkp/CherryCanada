@@ -10,6 +10,8 @@ import UIKit
 
 class ShippingListTableViewController: UITableViewController {
 
+    @IBOutlet var emptyShippingView: UIView!
+    
     var shippings: [Shipping] = []
     
     override func viewDidLoad() {
@@ -36,13 +38,23 @@ class ShippingListTableViewController: UITableViewController {
             Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", imageName: "test2.jpg", customers: customers),
             Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", imageName: "test.jpg", customers: customers)
         ]
+        
+        tableView.backgroundView = emptyShippingView
+        tableView.backgroundView?.isHidden = true
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return  1
+        if shippings.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

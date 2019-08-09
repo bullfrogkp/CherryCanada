@@ -259,15 +259,35 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emptyShippingView" destination="dkY-YJ-3Qb" id="qGs-YQ-SdQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNU-w8-fTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="dkY-YJ-3Qb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="操啥也没有" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgX-66-JEI">
+                            <rect key="frame" x="144" y="240" width="87" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="RgX-66-JEI" firstAttribute="centerX" secondItem="dkY-YJ-3Qb" secondAttribute="centerX" id="7JT-bk-pch"/>
+                        <constraint firstItem="RgX-66-JEI" firstAttribute="centerY" secondItem="dkY-YJ-3Qb" secondAttribute="centerY" id="GzC-Ra-bLA"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="8lr-60-aXt"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="54.422788605697157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Guq-sp-v8a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P76-sO-BJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GVd-nz-glf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wL6-rS-ShK">
@@ -279,6 +299,7 @@
                         <segue destination="i7D-J9-6ed" kind="relationship" relationship="rootViewController" id="b9r-dw-nBx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P76-sO-BJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-754.39999999999998" y="54.422788605697157"/>
         </scene>
