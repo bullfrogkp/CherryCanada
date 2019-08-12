@@ -7,15 +7,41 @@
 //
 
 import UIKit
+import CoreData
 
-class ShippingListTableViewController: UITableViewController {
+class ShippingListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     @IBOutlet var emptyShippingView: UIView!
     
+    var fetchResultController: NSFetchedResultsController<ShippingMO>!
+    
+    var shippingMOs: [ShippingMO] = []
     var shippings: [Shipping] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<ShippingMO> = ShippingMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    shippingMOs = fetchedObjects
+                    
+                    shippings = convertShipping(shippingMOs)
+                }
+            } catch {
+                print(error)
+            }
+        }
         
         var customers = [
             Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: []),
@@ -121,5 +147,11 @@ class ShippingListTableViewController: UITableViewController {
                 
             }
         }
+    }
+    
+    func convertShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
+        var sps: [Shipping] = []
+        
+        return sps
     }
 }
