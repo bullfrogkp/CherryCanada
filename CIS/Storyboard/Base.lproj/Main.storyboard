@@ -54,7 +54,7 @@
                                 <connections>
                                     <outlet property="customerItemsLabel" destination="dLa-BQ-tAz" id="TUK-4e-LGt"/>
                                     <outlet property="customerNameLabel" destination="1xR-Ux-bLY" id="w0c-ia-OvK"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showCustomerDetail" id="kMO-2A-EqM"/>
+                                    <segue destination="Bbx-RP-Nmu" kind="show" identifier="showCustomerDetail" id="Zdh-5p-LDh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,11 +65,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="客户列表" id="dFn-YY-fVK"/>
                     <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
-                        <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="newCustomerDetail" id="oa8-nj-BcM"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhh-r3-WZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,6 +342,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xiD-FO-9Gx"/>
-        <segue reference="kMO-2A-EqM"/>
     </inferredMetricsTieBreakers>
 </document>
