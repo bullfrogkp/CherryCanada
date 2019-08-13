@@ -54,7 +54,7 @@
                                 <connections>
                                     <outlet property="customerItemsLabel" destination="dLa-BQ-tAz" id="TUK-4e-LGt"/>
                                     <outlet property="customerNameLabel" destination="1xR-Ux-bLY" id="w0c-ia-OvK"/>
-                                    <segue destination="Bbx-RP-Nmu" kind="show" identifier="showCustomerDetail" id="Zdh-5p-LDh"/>
+                                    <segue destination="Bbx-RP-Nmu" kind="show" identifier="showCustomerDetail" id="SSi-ja-sL1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomerItemId" rowHeight="100" id="ZwF-vm-mNE" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomerItemId" rowHeight="100" id="ZwF-vm-mNE" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZwF-vm-mNE" id="Ts8-xj-Toh">
