@@ -35,15 +35,13 @@ class CustomerItemTableViewController: UITableViewController {
         return items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
 
-        // Configure the cell...
+        cell.itemNameLabel.text = shipping.customers[indexPath.section].items[indexPath.row].name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
