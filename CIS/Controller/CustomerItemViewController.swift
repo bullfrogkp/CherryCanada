@@ -8,17 +8,12 @@
 
 import UIKit
 
-struct customerItemData {
-    var imageName: String
-    var customers: [Customer]
-}
-
 class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var customerItemTableView: UITableView!
     
-    var pageData: customerItemData!
+    var pageData: CustomerItemData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
