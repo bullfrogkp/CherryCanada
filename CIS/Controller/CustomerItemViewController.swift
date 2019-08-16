@@ -8,12 +8,44 @@
 
 import UIKit
 
-class CustomerItemViewController: UIViewController {
+class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var customerItemTableView: UITableView!
+    
+    struct pageData {
+        var imageName: String
+        var customers: [Customer]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        itemImageView.image = UIImage(named: pageData.imageName)
+        
+        customerItemTableView.delegate = self
+        customerItemTableView.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return pageData.customers.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let items = pageData.customers[section].items
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
+        
+        cell.itemNameLabel.text = pageData.customers[indexPath.section].items[indexPath.row].name
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return pageData.customers[section].name
     }
     
 
