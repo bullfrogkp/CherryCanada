@@ -26,7 +26,6 @@
 		3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */; };
 		3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */; };
 		3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */; };
-		3E75F99C2301DD7400667BD4 /* CustomerItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99B2301DD7400667BD4 /* CustomerItemTableViewController.swift */; };
 		3E75F99E23033FD800667BD4 /* CustomerItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */; };
 		3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +52,6 @@
 		3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewCell.swift; sourceTree = "<group>"; };
 		3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDetailViewController.swift; sourceTree = "<group>"; };
-		3E75F99B2301DD7400667BD4 /* CustomerItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemTableViewController.swift; sourceTree = "<group>"; };
 		3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemTableViewCell.swift; sourceTree = "<group>"; };
 		3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +106,6 @@
 				3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */,
 				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
 				3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */,
-				3E75F99B2301DD7400667BD4 /* CustomerItemTableViewController.swift */,
 				3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */,
 			);
 			path = Controller;
@@ -235,7 +232,6 @@
 				3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */,
 				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
-				3E75F99C2301DD7400667BD4 /* CustomerItemTableViewController.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
