@@ -13,7 +13,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var customerItemTableView: UITableView!
     
-    var pageData: CustomerItemData!
+    var customers: [Customer]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +25,24 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pageData.customers.count
+        return customers.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let items = pageData.customers[section].items
+        let items = customers[section].items
         return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
         
-        cell.itemNameLabel.text = pageData.customers[indexPath.section].items[indexPath.row].name
+        cell.itemNameLabel.text = customers[indexPath.section].items[indexPath.row].name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return pageData.customers[section].name
+        return customers[section].name
     }
     
 

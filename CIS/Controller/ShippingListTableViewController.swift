@@ -45,25 +45,22 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         }
         */
         
-        let images1 = ["test","test2"]
-        let images2 = ["test2"]
-        
         let items1: [Item] = [
-            Item(comment: "Item1", image: "", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
-            Item(comment: "Item2", image: "", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
+            Item(comment: "Item1", image: "test", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
+            Item(comment: "Item2", image: "test2", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
         ]
         
         let items2: [Item] = [
-            Item(comment: "Item1", image: "", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
+            Item(comment: "Item1", image: "test2", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
         ]
         
         let customers1 = [
-            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1, images: images1),
-            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: items2, images: images2)
+            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1),
+            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: items2)
         ]
         
         let customers2 = [
-            Customer(name: "Kevin2", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1, images: images1)
+            Customer(name: "Kevin2", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1)
         ]
         
         shippings = [
