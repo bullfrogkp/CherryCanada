@@ -10,8 +10,11 @@ import UIKit
 
 class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var customerNameLabel: UILabel!
+    @IBAction func addItemButton(_ sender: Any) {
+    }
+    @IBAction func deleteCustomerButton(_ sender: Any) {
+    }
     
     var customers: [Customer]!
     
