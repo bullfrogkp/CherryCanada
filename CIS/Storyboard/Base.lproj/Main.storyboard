@@ -86,8 +86,8 @@
                                     <constraint firstAttribute="width" secondItem="W0y-NN-Hpe" secondAttribute="height" multiplier="343:200" id="DK1-6Z-fLc"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO">
-                                <rect key="frame" x="16" y="272" width="343" height="375"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO">
+                                <rect key="frame" x="16" y="328" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="44" id="4Fd-cM-WKK">
@@ -109,16 +109,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-gb-E4e">
+                                <rect key="frame" x="16" y="272" width="343" height="48"/>
+                                <state key="normal" title="添加客户"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-5v-3nT">
+                                <rect key="frame" x="16" y="598" width="343" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="VFB-1R-3eQ"/>
+                                </constraints>
+                                <state key="normal" title="删除"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W0y-NN-Hpe" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="1Ui-SW-r79"/>
-                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="FrB-01-1sl"/>
-                            <constraint firstItem="9dL-ap-Psq" firstAttribute="bottom" secondItem="mZ9-iu-wJO" secondAttribute="bottom" constant="20" id="NDC-zv-fu3"/>
-                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="top" secondItem="W0y-NN-Hpe" secondAttribute="bottom" constant="8" id="UT0-2J-XrS"/>
-                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="top" secondItem="W0y-NN-Hpe" secondAttribute="bottom" constant="8" id="gz2-i1-SDy"/>
-                            <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="mZ9-iu-wJO" secondAttribute="trailing" constant="16" id="szr-9g-TZb"/>
+                            <constraint firstItem="9dL-ap-Psq" firstAttribute="bottom" secondItem="rfv-5v-3nT" secondAttribute="bottom" constant="20" id="6ob-Kj-QK7"/>
+                            <constraint firstItem="rfv-5v-3nT" firstAttribute="top" secondItem="mZ9-iu-wJO" secondAttribute="bottom" constant="8" id="CoN-Vk-zmI"/>
+                            <constraint firstItem="rfv-5v-3nT" firstAttribute="top" secondItem="mZ9-iu-wJO" secondAttribute="bottom" constant="8" id="RDS-Xy-Ij9"/>
+                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="top" secondItem="ojZ-gb-E4e" secondAttribute="bottom" constant="8" id="V0O-7I-4Ev"/>
+                            <constraint firstItem="rfv-5v-3nT" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="g73-z9-cAc"/>
+                            <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="mZ9-iu-wJO" secondAttribute="trailing" constant="16" id="m4Q-0S-HKO"/>
+                            <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="rfv-5v-3nT" secondAttribute="trailing" constant="16" id="s0w-nv-U64"/>
                             <constraint firstItem="W0y-NN-Hpe" firstAttribute="top" secondItem="9dL-ap-Psq" secondAttribute="top" id="ttc-gA-1CG"/>
+                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="upM-tv-OPg"/>
                             <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="W0y-NN-Hpe" secondAttribute="trailing" constant="16" id="yxY-g0-4Bb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9dL-ap-Psq"/>
@@ -130,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrz-fn-Xe2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3502" y="807"/>
+            <point key="canvasLocation" x="3501.5999999999999" y="806.44677661169419"/>
         </scene>
         <!--Customer Item View Controller-->
         <scene sceneID="gn0-V9-zaU">
@@ -157,19 +171,30 @@
                                 <state key="normal" title="添加物品"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-Df-as3">
-                                <rect key="frame" x="16" y="158" width="343" height="489"/>
+                                <rect key="frame" x="16" y="157" width="343" height="426"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-IN-ek3">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="A4e-1V-MwM"/>
+                                </constraints>
+                                <state key="normal" title="删除"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="21" id="00q-6W-rWB"/>
                             <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="2Qy-Wo-vK8"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="PLe-IN-ek3" secondAttribute="trailing" constant="16" id="3H7-0g-b9M"/>
                             <constraint firstItem="1O0-r6-dtk" firstAttribute="top" secondItem="uVz-sN-Xma" secondAttribute="top" id="9ua-Pq-q8s"/>
-                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="21" id="PRG-9m-85w"/>
-                            <constraint firstItem="HTc-Df-as3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="ZLw-F1-AHn"/>
+                            <constraint firstItem="HTc-Df-as3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="GUX-hk-6MG"/>
+                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="20" id="Im5-P3-5nm"/>
+                            <constraint firstItem="PLe-IN-ek3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="Nsv-eM-qeN"/>
+                            <constraint firstItem="PLe-IN-ek3" firstAttribute="top" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="OH2-JV-pOV"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="HTc-Df-as3" secondAttribute="trailing" constant="16" id="dPG-9C-mTJ"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="bottom" secondItem="PLe-IN-ek3" secondAttribute="bottom" constant="20" id="da4-t9-dyq"/>
+                            <constraint firstItem="PLe-IN-ek3" firstAttribute="top" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="fzX-RS-mND"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="1O0-r6-dtk" secondAttribute="trailing" constant="16" id="hZn-Km-5He"/>
-                            <constraint firstItem="uVz-sN-Xma" firstAttribute="bottom" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="jXM-oW-ZsX"/>
                             <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="n9k-fL-gp9"/>
                             <constraint firstItem="1O0-r6-dtk" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="r0D-pR-JYl"/>
                             <constraint firstItem="eqM-nG-ncU" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="wrP-0L-X4K"/>
