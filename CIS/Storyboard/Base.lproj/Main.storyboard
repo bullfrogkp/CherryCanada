@@ -54,7 +54,7 @@
                                 <connections>
                                     <outlet property="customerItemsLabel" destination="dLa-BQ-tAz" id="TUK-4e-LGt"/>
                                     <outlet property="customerNameLabel" destination="1xR-Ux-bLY" id="w0c-ia-OvK"/>
-                                    <segue destination="78I-me-Egn" kind="show" identifier="showCustomerDetail" id="Ayt-hy-AMt"/>
+                                    <segue destination="ebj-hp-FVD" kind="show" id="2CI-sA-4xN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -130,7 +130,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrz-fn-Xe2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3574" y="-1469"/>
+            <point key="canvasLocation" x="3502" y="807"/>
+        </scene>
+        <!--Customer Item View Controller-->
+        <scene sceneID="gn0-V9-zaU">
+            <objects>
+                <viewController id="ebj-hp-FVD" customClass="CustomerItemViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tt6-7d-hdB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O0-r6-dtk">
+                                <rect key="frame" x="16" y="64" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="JUs-qD-e8F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-nG-ncU">
+                                <rect key="frame" x="16" y="107" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BcI-HB-IKF"/>
+                                </constraints>
+                                <state key="normal" title="添加物品"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-Df-as3">
+                                <rect key="frame" x="16" y="158" width="343" height="489"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="21" id="00q-6W-rWB"/>
+                            <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="2Qy-Wo-vK8"/>
+                            <constraint firstItem="1O0-r6-dtk" firstAttribute="top" secondItem="uVz-sN-Xma" secondAttribute="top" id="9ua-Pq-q8s"/>
+                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="21" id="PRG-9m-85w"/>
+                            <constraint firstItem="HTc-Df-as3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="ZLw-F1-AHn"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="1O0-r6-dtk" secondAttribute="trailing" constant="16" id="hZn-Km-5He"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="bottom" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="jXM-oW-ZsX"/>
+                            <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="n9k-fL-gp9"/>
+                            <constraint firstItem="1O0-r6-dtk" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="r0D-pR-JYl"/>
+                            <constraint firstItem="eqM-nG-ncU" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="wrP-0L-X4K"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="eqM-nG-ncU" secondAttribute="trailing" constant="16" id="xE4-Gk-ffl"/>
+                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="HTc-Df-as3" secondAttribute="trailing" constant="16" id="xNj-bZ-Qlw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uVz-sN-Xma"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xch-tF-yvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3576.8000000000002" y="-752.47376311844084"/>
         </scene>
         <!--客户信息-->
         <scene sceneID="tne-QT-ifu">
@@ -146,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3598" y="-751"/>
+            <point key="canvasLocation" x="1343" y="-879"/>
         </scene>
         <!--货单信息-->
         <scene sceneID="fQs-v9-42f">
@@ -193,13 +244,16 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nRe-W9-av5">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageItemId" id="nRe-W9-av5">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <connections>
+                                    <segue destination="78I-me-Egn" kind="show" id="OcI-Rz-K2k"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

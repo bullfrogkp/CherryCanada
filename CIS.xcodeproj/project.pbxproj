@@ -28,6 +28,8 @@
 		3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */; };
 		3E75F99E23033FD800667BD4 /* CustomerItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */; };
 		3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */; };
+		3EF9013A230C698B00173DE3 /* ImageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */; };
+		3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDetailViewController.swift; sourceTree = "<group>"; };
 		3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemTableViewCell.swift; sourceTree = "<group>"; };
 		3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemViewController.swift; sourceTree = "<group>"; };
+		3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemTableViewCell.swift; sourceTree = "<group>"; };
+		3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
 				3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */,
 				3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */,
+				3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */,
 				3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */,
 				3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */,
+				3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF9013A230C698B00173DE3 /* ImageItemTableViewCell.swift in Sources */,
 				3E3AC8D622E41D2700F1A0B3 /* Item.swift in Sources */,
 				3E3AC8AA22BC067000F1A0B3 /* CustomerTableViewController.swift in Sources */,
 				3E3AC8C322C68C8000F1A0B3 /* CustomerCell.swift in Sources */,
@@ -223,6 +230,7 @@
 				3E3AC8CF22E41C0600F1A0B3 /* Customer.swift in Sources */,
 				3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */,
 				3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */,
+				3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */,
 				3E3AC8C722D3E57200F1A0B3 /* ItemTableViewController.swift in Sources */,
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
 				3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */,
