@@ -16,7 +16,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func deleteCustomerButton(_ sender: Any) {
     }
     
-    var pageData: CustomerItemData!
+    var customer: Customer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
