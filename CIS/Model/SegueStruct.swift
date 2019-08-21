@@ -12,7 +12,7 @@ struct CustomerItemData {
     let customerName: String?
     let items: [Item]?
     
-    init(customerName: String? = nil, //👈
+    init(customerName: String? = nil,
         items: [Item]? = nil) {
         
         self.customerName = customerName
@@ -24,7 +24,7 @@ struct ImageItemData {
     let imageName: String?
     let customers: [Customer]?
     
-    init(imageName: String? = nil, //👈
+    init(imageName: String? = nil, 
         customers: [Customer]? = nil) {
         
         self.imageName = imageName
