@@ -46,6 +46,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         cell.quantityLabel.text = "/(item.quantity)"
         cell.priceSoldLabel.text = "/(item.priceSold)"
         cell.priceBoughtLabel.text = "/(item.priceBought)"
+        cell.descriptionTextView.text = "/(item.description)"
         
         return cell
     }
