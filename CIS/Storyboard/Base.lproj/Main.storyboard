@@ -192,6 +192,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-gb-E4e">
                                 <rect key="frame" x="16" y="272" width="343" height="48"/>
                                 <state key="normal" title="添加客户"/>
+                                <connections>
+                                    <action selector="addCustomerButton:" destination="78I-me-Egn" eventType="touchUpInside" id="1PP-dG-oXv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-5v-3nT">
                                 <rect key="frame" x="16" y="598" width="343" height="49"/>
@@ -199,6 +202,9 @@
                                     <constraint firstAttribute="height" constant="49" id="VFB-1R-3eQ"/>
                                 </constraints>
                                 <state key="normal" title="删除"/>
+                                <connections>
+                                    <action selector="deleteItemImageButton:" destination="78I-me-Egn" eventType="touchUpInside" id="qCd-1C-PYP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,8 +224,8 @@
                         <viewLayoutGuide key="safeArea" id="9dL-ap-Psq"/>
                     </view>
                     <connections>
-                        <outlet property="customerItemTableView" destination="mZ9-iu-wJO" id="iLc-xF-oQZ"/>
-                        <outlet property="itemImageView" destination="W0y-NN-Hpe" id="0uk-oH-HsL"/>
+                        <outlet property="customerItemTableView" destination="mZ9-iu-wJO" id="JOy-TR-wIM"/>
+                        <outlet property="itemImageView" destination="W0y-NN-Hpe" id="g4K-CL-Hgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrz-fn-Xe2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +254,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BcI-HB-IKF"/>
                                 </constraints>
-                                <state key="normal" title="添加物品"/>
+                                <state key="normal" title="添加图片"/>
                                 <connections>
                                     <action selector="addItemButton:" destination="ebj-hp-FVD" eventType="touchUpInside" id="BiV-hu-Ok0"/>
                                 </connections>
