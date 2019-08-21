@@ -30,6 +30,7 @@
 		3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */; };
 		3EF9013A230C698B00173DE3 /* ImageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */; };
 		3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */; };
+		3EF9013E230D8C5B00173DE3 /* SegueStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9013D230D8C5B00173DE3 /* SegueStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemViewController.swift; sourceTree = "<group>"; };
 		3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemTableViewCell.swift; sourceTree = "<group>"; };
 		3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemViewController.swift; sourceTree = "<group>"; };
+		3EF9013D230D8C5B00173DE3 /* SegueStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				3E3AC8D322E41D2700F1A0B3 /* Type.swift */,
 				3E3AC8C822DD107700F1A0B3 /* CustomTableView.swift */,
 				3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */,
+				3EF9013D230D8C5B00173DE3 /* SegueStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
 				3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */,
 				3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */,
+				3EF9013E230D8C5B00173DE3 /* SegueStruct.swift in Sources */,
 				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
