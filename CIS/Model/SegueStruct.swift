@@ -9,20 +9,20 @@
 import Foundation
 
 struct CustomerItemData {
-    let customerName: String?
-    let items: [Item]?
+    var customerName: String?
+    var images: [CustomerImage]?
     
     init(customerName: String? = nil,
-        items: [Item]? = nil) {
+        images: [CustomerImage]? = nil) {
         
         self.customerName = customerName
-        self.items = items
+        self.images = images
     }
 }
 
 struct ImageItemData {
-    let imageName: String?
-    let customers: [Customer]?
+    var imageName: String?
+    var customers: [Customer]?
     
     init(imageName: String? = nil, 
         customers: [Customer]? = nil) {

@@ -11,12 +11,14 @@ import UIKit
 class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var customerNameLabel: UILabel!
+    @IBOutlet weak var customerItemTableView: UITableView!
+    
     @IBAction func addItemButton(_ sender: Any) {
     }
     @IBAction func deleteCustomerButton(_ sender: Any) {
     }
     
-    var customer: Customer!
+    var pageData: CustomerItemData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +30,11 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return customers.count
+        return customer.items.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let items = customers[section].items
-        return items.count
+        return customer.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
