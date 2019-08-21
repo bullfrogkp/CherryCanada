@@ -1,5 +1,5 @@
 //
-//  CustomerImage.swift
+//  ItemImage.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-08-21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CustomerImage {
+class ItemImage {
     var name: String
     var items: [Item]
     
@@ -19,5 +19,9 @@ class CustomerImage {
     
     convenience init() {
         self.init(name: "", items: [])
+    }
+    
+    func getCustomers() -> [Customer] {
+        return []
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 struct CustomerItemData {
     var customerName: String?
-    var images: [CustomerImage]?
+    var images: [ItemImage]?
     
     init(customerName: String? = nil,
-        images: [CustomerImage]? = nil) {
+        images: [ItemImage]? = nil) {
         
         self.customerName = customerName
         self.images = images

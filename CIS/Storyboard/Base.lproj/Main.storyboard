@@ -388,6 +388,7 @@
                         <viewLayoutGuide key="safeArea" id="uVz-sN-Xma"/>
                     </view>
                     <connections>
+                        <outlet property="customerItemTableView" destination="HTc-Df-as3" id="0vu-zJ-PD7"/>
                         <outlet property="customerNameLabel" destination="1O0-r6-dtk" id="3Jd-3k-HLr"/>
                     </connections>
                 </viewController>

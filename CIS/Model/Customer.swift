@@ -26,4 +26,8 @@ class Customer {
     convenience init() {
         self.init(name: "", phone: "", wechat: "", comment: "", items: [])
     }
+    
+    func getImages() -> [ItemImage] {
+        return []
+    }
 }

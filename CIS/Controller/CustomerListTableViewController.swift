@@ -89,7 +89,7 @@ class CustomerListTableViewController: UITableViewController {
                 var pageData = CustomerItemData()
                 
                 pageData.customerName = customer.name
-                pageData.images = []
+                pageData.images = customer.getImages()
                 
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.pageData = pageData

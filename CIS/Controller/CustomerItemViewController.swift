@@ -30,23 +30,28 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return customer.items.count
+        return pageData.images?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customer.items.count
+        return pageData.images?[section].items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
         
-        cell.itemNameLabel.text = customers[indexPath.section].items[indexPath.row].name
+        let item = pageData.images![indexPath.section].items[indexPath.row]
+        
+        cell.nameLabel.text = item.name
+        cell.quantityLabel.text = "/(item.quantity)"
+        cell.priceSoldLabel.text = "/(item.priceSold)"
+        cell.priceBoughtLabel.text = "/(item.priceBought)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return customers[section].name
+        return pageData.images?[section].name ?? ""
     }
     
 
