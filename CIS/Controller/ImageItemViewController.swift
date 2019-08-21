@@ -20,17 +20,37 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func deleteItemImageButton(_ sender: Any) {
     }
     
+    var pageData: ImageItemData!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        itemImageView.image = UIImage(contentsOfFile: pageData.imageName!)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return pageData.customers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return pageData.customers?[section].items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
+        
+        let item = pageData.customers![indexPath.section].items[indexPath.row]
+        
+        cell.nameLabel.text = item.name
+        cell.quantityLabel.text = "/(item.quantity)"
+        cell.priceSoldLabel.text = "/(item.priceSold)"
+        cell.priceBoughtLabel.text = "/(item.priceBought)"
+        cell.descriptionTextView.text = "/(item.description)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return pageData.customers?[section].name ?? ""
     }
 }
