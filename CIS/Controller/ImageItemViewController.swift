@@ -26,6 +26,8 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         itemImageView.image = UIImage(contentsOfFile: pageData.imageName!)
+        customerItemTableView.delegate = self
+        customerItemTableView.dataSource = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

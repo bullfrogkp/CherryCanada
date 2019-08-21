@@ -353,7 +353,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionTextView" destination="c6F-MA-91D" id="ZJU-9I-ZIG"/>
-                                            <outlet property="itemNameLabel" destination="9bV-mP-fjF" id="xOp-nT-4QD"/>
+                                            <outlet property="nameLabel" destination="9bV-mP-fjF" id="WLR-Gc-6jV"/>
                                             <outlet property="priceBoughtLabel" destination="wDW-1Y-KNB" id="M6r-aB-XaS"/>
                                             <outlet property="priceSoldLabel" destination="8S7-wc-Enp" id="9UR-jn-CYU"/>
                                             <outlet property="quantityLabel" destination="9Co-oD-bSw" id="Nl7-S9-lcJ"/>
