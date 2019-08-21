@@ -249,25 +249,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-nG-ncU">
-                                <rect key="frame" x="16" y="107" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="BcI-HB-IKF"/>
-                                </constraints>
-                                <state key="normal" title="添加图片"/>
-                                <connections>
-                                    <action selector="addItemButton:" destination="ebj-hp-FVD" eventType="touchUpInside" id="BiV-hu-Ok0"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-Df-as3">
-                                <rect key="frame" x="16" y="157" width="343" height="426"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-Df-as3">
+                                <rect key="frame" x="16" y="107" width="343" height="426"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="220" id="9Vm-W7-xPl" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="220"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="179" id="9Vm-W7-xPl" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="179"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Vm-W7-xPl" id="rQc-d1-QOb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="219.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="178.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="物品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TC2-Ui-yGW">
@@ -334,14 +324,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ven-ci-Kk9">
-                                                    <rect key="frame" x="274" y="179" width="62" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="删除物品"/>
-                                                    <connections>
-                                                        <action selector="deleteItemButton:" destination="9Vm-W7-xPl" eventType="touchUpInside" id="xhL-Bj-FpM"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3y-pb-PYu">
                                                     <rect key="frame" x="191" y="11" width="35" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -361,8 +343,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-IN-ek3">
-                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-IN-ek3">
+                                <rect key="frame" x="16" y="541" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="A4e-1V-MwM"/>
                                 </constraints>
@@ -374,21 +356,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="2Qy-Wo-vK8"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="PLe-IN-ek3" secondAttribute="trailing" constant="16" id="3H7-0g-b9M"/>
                             <constraint firstItem="1O0-r6-dtk" firstAttribute="top" secondItem="uVz-sN-Xma" secondAttribute="top" id="9ua-Pq-q8s"/>
                             <constraint firstItem="HTc-Df-as3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="GUX-hk-6MG"/>
-                            <constraint firstItem="HTc-Df-as3" firstAttribute="top" secondItem="eqM-nG-ncU" secondAttribute="bottom" constant="20" id="Im5-P3-5nm"/>
                             <constraint firstItem="PLe-IN-ek3" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="Nsv-eM-qeN"/>
                             <constraint firstItem="PLe-IN-ek3" firstAttribute="top" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="OH2-JV-pOV"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="HTc-Df-as3" secondAttribute="trailing" constant="16" id="dPG-9C-mTJ"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="bottom" secondItem="PLe-IN-ek3" secondAttribute="bottom" constant="20" id="da4-t9-dyq"/>
                             <constraint firstItem="PLe-IN-ek3" firstAttribute="top" secondItem="HTc-Df-as3" secondAttribute="bottom" constant="20" id="fzX-RS-mND"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="1O0-r6-dtk" secondAttribute="trailing" constant="16" id="hZn-Km-5He"/>
-                            <constraint firstItem="eqM-nG-ncU" firstAttribute="top" secondItem="1O0-r6-dtk" secondAttribute="bottom" constant="8" id="n9k-fL-gp9"/>
                             <constraint firstItem="1O0-r6-dtk" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="r0D-pR-JYl"/>
-                            <constraint firstItem="eqM-nG-ncU" firstAttribute="leading" secondItem="uVz-sN-Xma" secondAttribute="leading" constant="16" id="wrP-0L-X4K"/>
-                            <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="eqM-nG-ncU" secondAttribute="trailing" constant="16" id="xE4-Gk-ffl"/>
                             <constraint firstItem="uVz-sN-Xma" firstAttribute="trailing" secondItem="HTc-Df-as3" secondAttribute="trailing" constant="16" id="xNj-bZ-Qlw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVz-sN-Xma"/>
