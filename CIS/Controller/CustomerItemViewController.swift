@@ -72,10 +72,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         print("Shipping deleted")
     }
     
-    @objc func addItem() {
-        shipping.customers.append(Customer())
-        
-        let insertionIndexPath = NSIndexPath(row: shipping.customers.count - 1, section: 0)
+    @objc func addItem(_ section: Int) {
+        let insertionIndexPath = NSIndexPath(row: pageData.images![section].items.count - 1, section: section)
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
