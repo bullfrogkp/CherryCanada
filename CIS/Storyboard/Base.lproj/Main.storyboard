@@ -54,7 +54,7 @@
                                 <connections>
                                     <outlet property="customerItemsLabel" destination="dLa-BQ-tAz" id="TUK-4e-LGt"/>
                                     <outlet property="customerNameLabel" destination="1xR-Ux-bLY" id="w0c-ia-OvK"/>
-                                    <segue destination="ebj-hp-FVD" kind="show" id="2CI-sA-4xN"/>
+                                    <segue destination="ebj-hp-FVD" kind="show" identifier="showCustomerDetail" id="2CI-sA-4xN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -464,7 +464,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <connections>
-                                    <segue destination="78I-me-Egn" kind="show" id="OcI-Rz-K2k"/>
+                                    <segue destination="78I-me-Egn" kind="show" identifier="showImageDetail" id="OcI-Rz-K2k"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

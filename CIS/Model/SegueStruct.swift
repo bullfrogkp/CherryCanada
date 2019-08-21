@@ -9,11 +9,25 @@
 import Foundation
 
 struct CustomerItemData {
-    var customerName: String
-    var items: [Item]
+    let customerName: String?
+    let items: [Item]?
+    
+    init(customerName: String? = nil, //👈
+        items: [Item]? = nil) {
+        
+        self.customerName = customerName
+        self.items = items
+    }
 }
 
 struct ImageItemData {
-    var imageName: String
-    var customers: [Customer]
+    let imageName: String?
+    let customers: [Customer]?
+    
+    init(imageName: String? = nil, //👈
+        customers: [Customer]? = nil) {
+        
+        self.imageName = imageName
+        self.customers = customers
+    }
 }

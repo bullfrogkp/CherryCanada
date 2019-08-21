@@ -16,12 +16,12 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func deleteCustomerButton(_ sender: Any) {
     }
     
-    var customers: [Customer]!
+    var pageData: CustomerItemData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        itemImageView.image = UIImage(named: pageData.imageName)
+        customerNameLabel.text = pageData.customerName
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
