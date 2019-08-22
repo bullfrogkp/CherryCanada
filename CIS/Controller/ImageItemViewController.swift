@@ -25,6 +25,8 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         itemImageView.image = UIImage(named: pageData.imageName!)
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,5 +71,15 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+    
+    @objc func editData() {
+        self.performSegue(withIdentifier: "editCustomerItem", sender: self)
+        func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+            if segue.identifier == "editCustomerItem" {
+                let destinationController = segue.destination as! CustomerItemEditViewController
+                destinationController.pageData = pageData
+            }
+        }
     }
 }
