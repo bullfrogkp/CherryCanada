@@ -87,7 +87,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO">
-                                <rect key="frame" x="16" y="328" width="343" height="262"/>
+                                <rect key="frame" x="16" y="272" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="220" id="4Fd-cM-WKK" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -189,15 +189,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-gb-E4e">
-                                <rect key="frame" x="16" y="272" width="343" height="48"/>
-                                <state key="normal" title="添加客户"/>
-                                <connections>
-                                    <action selector="addCustomerButton:" destination="78I-me-Egn" eventType="touchUpInside" id="1PP-dG-oXv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-5v-3nT">
-                                <rect key="frame" x="16" y="598" width="343" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-5v-3nT">
+                                <rect key="frame" x="16" y="542" width="343" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="VFB-1R-3eQ"/>
                                 </constraints>
@@ -210,10 +203,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W0y-NN-Hpe" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="1Ui-SW-r79"/>
-                            <constraint firstItem="9dL-ap-Psq" firstAttribute="bottom" secondItem="rfv-5v-3nT" secondAttribute="bottom" constant="20" id="6ob-Kj-QK7"/>
                             <constraint firstItem="rfv-5v-3nT" firstAttribute="top" secondItem="mZ9-iu-wJO" secondAttribute="bottom" constant="8" id="CoN-Vk-zmI"/>
                             <constraint firstItem="rfv-5v-3nT" firstAttribute="top" secondItem="mZ9-iu-wJO" secondAttribute="bottom" constant="8" id="RDS-Xy-Ij9"/>
-                            <constraint firstItem="mZ9-iu-wJO" firstAttribute="top" secondItem="ojZ-gb-E4e" secondAttribute="bottom" constant="8" id="V0O-7I-4Ev"/>
                             <constraint firstItem="rfv-5v-3nT" firstAttribute="leading" secondItem="9dL-ap-Psq" secondAttribute="leading" constant="16" id="g73-z9-cAc"/>
                             <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="mZ9-iu-wJO" secondAttribute="trailing" constant="16" id="m4Q-0S-HKO"/>
                             <constraint firstItem="9dL-ap-Psq" firstAttribute="trailing" secondItem="rfv-5v-3nT" secondAttribute="trailing" constant="16" id="s0w-nv-U64"/>
@@ -250,102 +241,58 @@
                                 <rect key="frame" x="16" y="284" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="220" id="q1H-qd-kBi" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="220"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="344" id="q1H-qd-kBi" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="344"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q1H-qd-kBi" id="QeJ-g7-Zsk">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="219.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="343.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="物品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uma-SH-Y2S">
-                                                    <rect key="frame" x="25" y="21" width="35" height="21"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="物品" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dul-PG-zpp">
+                                                    <rect key="frame" x="15" y="11" width="313" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="卖价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c7-eZ-1VN">
-                                                    <rect key="frame" x="25" y="135" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq4-HR-oKt">
+                                                    <rect key="frame" x="15" y="45" width="313" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-Ie-czB">
-                                                    <rect key="frame" x="201" y="21" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="进价" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ql5-NQ-Owf">
+                                                    <rect key="frame" x="15" y="83" width="313" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="进价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdH-9f-GiT">
-                                                    <rect key="frame" x="25" y="98" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="卖价" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jc4-U8-ept">
+                                                    <rect key="frame" x="15" y="121" width="313" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjm-do-zB9">
-                                                    <rect key="frame" x="25" y="58" width="35" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z00-UR-ROt">
-                                                    <rect key="frame" x="94" y="21" width="45" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe0-OO-sSe">
-                                                    <rect key="frame" x="94" y="58" width="65" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price Bought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQP-KD-yGV">
-                                                    <rect key="frame" x="94" y="99" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price Sold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inq-hT-MAN">
-                                                    <rect key="frame" x="94" y="134" width="78" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ovh-4z-PVR">
-                                                    <rect key="frame" x="201" y="50" width="137" height="128"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="描述" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="842-hL-Hqr">
+                                                    <rect key="frame" x="15" y="159" width="313" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNf-ko-mUf">
-                                                    <rect key="frame" x="284" y="189" width="62" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-zd-TQC">
+                                                    <rect key="frame" x="15" y="303" width="313" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="删除物品"/>
                                                     <connections>
-                                                        <action selector="deleteItemButton:" destination="9Vm-W7-xPl" eventType="touchUpInside" id="8WQ-W1-sdU"/>
-                                                        <action selector="deleteItemButton:" destination="q1H-qd-kBi" eventType="touchUpInside" id="pH8-gg-1Po"/>
+                                                        <action selector="deleteItemButton:" destination="D4z-Uq-BSV" eventType="touchUpInside" id="53M-T5-rYg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="descriptionLabel" destination="ovh-4z-PVR" id="nRG-78-MhM"/>
-                                            <outlet property="nameLabel" destination="Z00-UR-ROt" id="RW0-6F-Hy9"/>
-                                            <outlet property="priceBoughtLabel" destination="JQP-KD-yGV" id="qUx-Iq-jgT"/>
-                                            <outlet property="priceSoldLabel" destination="Inq-hT-MAN" id="5hn-Dl-znd"/>
-                                            <outlet property="quantityLabel" destination="Pe0-OO-sSe" id="XSF-LO-s1T"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
