@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageItemEditViewController: UIViewController {
+class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var itemImageView: UIImageView!
     

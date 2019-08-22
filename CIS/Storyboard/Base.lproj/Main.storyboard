@@ -619,6 +619,7 @@
                         <barButtonItem key="rightBarButtonItem" title="完成" id="cRW-Wu-gtY"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="customerItemTableView" destination="Fb8-lX-sPr" id="FDG-3H-hXN"/>
                         <outlet property="customerNameTextField" destination="WL5-OF-odJ" id="B5O-S2-DYL"/>
                     </connections>
                 </viewController>

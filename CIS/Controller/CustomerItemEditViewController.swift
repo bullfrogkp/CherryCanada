@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerItemEditViewController: UIViewController {
+class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
@@ -25,8 +25,6 @@ class CustomerItemEditViewController: UIViewController {
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,11 +55,23 @@ class CustomerItemEditViewController: UIViewController {
     
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
-        let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! ItemHeader
-        myHeader.customerTableViewController = self
-        myHeader.customerName = shipping.imageName
-        myHeader.setupViews()
-        return myHeader
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let customerTextField: UITextField = {
+            let cTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
+            cTextField.placeholder = "客户"
+            
+            return cTextField
+        }()
+        
+        headerView.addSubview(customerTextField)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     @objc func editData() {
