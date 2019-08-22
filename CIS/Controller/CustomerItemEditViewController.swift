@@ -11,19 +11,17 @@ import UIKit
 class CustomerItemEditViewController: UIViewController {
 
     @IBOutlet weak var customerNameTextField: UITextField!
+    @IBOutlet weak var customerItemTableView: UITableView!
     
     @IBAction func addImage(_ sender: Any) {
     }
-    
     
     var pageData: CustomerItemData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customerItemTableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
-        
-        customerNameLabel.text = pageData.customerName
+        customerNameTextField.text = pageData.customerName
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self

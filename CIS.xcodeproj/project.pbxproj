@@ -123,8 +123,8 @@
 				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
 				3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */,
 				3E75F99F2304602400667BD4 /* CustomerItemViewController.swift */,
-				3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */,
 				3EF90141230EE41600173DE3 /* CustomerItemEditViewController.swift */,
+				3EF9013B230C69B000173DE3 /* ImageItemViewController.swift */,
 				3EF90143230EE43C00173DE3 /* ImageItemEditViewController.swift */,
 			);
 			path = Controller;

@@ -77,7 +77,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         self.performSegue(withIdentifier: "editCustomerItem", sender: self)
         func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
             if segue.identifier == "editCustomerItem" {
-                let destinationController = segue.destination as! CustomerItemEditViewController
+                let destinationController = segue.destination as! ImageItemEditViewController
                 destinationController.pageData = pageData
             }
         }
