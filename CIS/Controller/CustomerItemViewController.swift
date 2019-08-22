@@ -51,36 +51,24 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return pageData.images?[section].name ?? ""
-    }
-    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 200))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
-        let itemImageView: UIImageView = {
-            let imageName = pageData.images![section].name
-            let image = UIImage(named: imageName)
-            let imageView = UIImageView(image: image!)
-            let screenSize: CGRect = UIScreen.main.bounds
-            imageView.frame = CGRect(x: 10, y: 10, width: screenSize.width - 20, height: 200)
+        let customerTextField: UITextField = {
+            let cTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
+            cTextField.placeholder = "客户"
             
-            imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
-            imageView.layer.cornerRadius = 5.0
-            imageView.layer.borderWidth = 2
-            imageView.contentMode = .scaleAspectFit
-            
-            return imageView
+            return cTextField
         }()
         
-        headerView.addSubview(itemImageView)
+        headerView.addSubview(customerTextField)
         
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 50
     }
 }

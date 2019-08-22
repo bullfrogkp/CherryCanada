@@ -22,7 +22,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        itemImageView.image = UIImage(contentsOfFile: pageData.imageName!)
+        itemImageView.image = UIImage(named: pageData.imageName!)
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
     }
@@ -49,7 +49,32 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return pageData.customers?[section].name ?? ""
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 200))
+        
+        let itemImageView: UIImageView = {
+            let imageName = pageData.images![section].name
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            let screenSize: CGRect = UIScreen.main.bounds
+            imageView.frame = CGRect(x: 10, y: 10, width: screenSize.width - 20, height: 200)
+            
+            imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+            imageView.layer.cornerRadius = 5.0
+            imageView.layer.borderWidth = 2
+            imageView.contentMode = .scaleAspectFit
+            
+            return imageView
+        }()
+        
+        headerView.addSubview(itemImageView)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
 }
