@@ -10,6 +10,16 @@ import UIKit
 
 class CustomerItemEditTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var quantityTextField: UITextField!
+    
+    @IBOutlet weak var priceBoughtTextField: UITextField!
+    @IBOutlet weak var priceSoldTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBAction func deleteItem(_ sender: Any) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

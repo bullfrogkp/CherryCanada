@@ -10,6 +10,14 @@ import UIKit
 
 class ImageItemEditViewController: UIViewController {
 
+    @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBAction func addCustomer(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var customerItemTableView: UITableView!
+    
+    
     var pageData: ImageItemData!
     
     override func viewDidLoad() {

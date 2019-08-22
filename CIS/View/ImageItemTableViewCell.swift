@@ -14,6 +14,7 @@ class ImageItemTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceBoughtLabel: UILabel!
     @IBOutlet weak var priceSoldLabel: UILabel!
+    
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func deleteItemButton(_ sender: Any) {

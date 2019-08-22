@@ -10,6 +10,12 @@ import UIKit
 
 class CustomerItemEditViewController: UIViewController {
 
+    @IBOutlet weak var customerNameTextField: UITextField!
+    
+    @IBAction func addImage(_ sender: Any) {
+    }
+    
+    
     var pageData: CustomerItemData!
     
     override func viewDidLoad() {

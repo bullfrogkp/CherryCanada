@@ -12,9 +12,6 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var itemImageView: UIImageView!
     
-    @IBAction func addCustomerButton(_ sender: Any) {
-    }
-    
     @IBOutlet weak var customerItemTableView: UITableView!
     
     @IBAction func deleteItemImageButton(_ sender: Any) {

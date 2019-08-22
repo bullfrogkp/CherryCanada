@@ -13,8 +13,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var customerNameLabel: UILabel!
     @IBOutlet weak var customerItemTableView: UITableView!
     
-    @IBAction func addItemImageButton(_ sender: Any) {
-    }
     @IBAction func deleteCustomerButton(_ sender: Any) {
     }
     
