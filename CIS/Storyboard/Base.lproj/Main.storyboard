@@ -228,7 +228,7 @@
             <objects>
                 <viewController id="zF0-yn-k6n" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6u-VU-5Ny">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="767"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8C-ea-qfc">
@@ -238,7 +238,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-dT-t6T">
-                                <rect key="frame" x="16" y="284" width="343" height="262"/>
+                                <rect key="frame" x="16" y="284" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="344" id="q1H-qd-kBi" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -311,10 +311,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N6R-dZ-fZ3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JtL-5b-hSU"/>
+                    <size key="freeformSize" width="375" height="767"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy3-Fh-WSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4222" y="806"/>
+            <point key="canvasLocation" x="5160.8000000000002" y="805.54722638680664"/>
         </scene>
         <!--Customer Item View Controller-->
         <scene sceneID="gn0-V9-zaU">
@@ -810,6 +812,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BU2-0D-2SL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4346.3999999999996" y="-753.37331334332839"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yIo-Hb-DLh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wzc-lR-t45" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3bb-Mb-2Og">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zF0-yn-k6n" kind="relationship" relationship="rootViewController" id="gbQ-ff-9D9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4BV-mx-axu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4221.6000000000004" y="805.54722638680664"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
