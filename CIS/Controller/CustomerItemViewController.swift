@@ -21,8 +21,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customerItemTableView.register(Header.self, forHeaderFooterViewReuseIdentifier: "headerId")
-        
         customerNameLabel.text = pageData.customerName
         
         customerItemTableView.delegate = self
@@ -59,11 +57,20 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
-        let myHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId") as! ItemHeader
-        myHeader.customerTableViewController = self
-        myHeader.customerName = shipping.imageName
-        myHeader.setupViews()
-        return myHeader
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let label = UILabel()
+        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.text = "Notification Times"
+        
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     @objc func editData() {
@@ -106,20 +113,6 @@ class ItemHeader: UITableViewHeaderFooterView {
         imageView.contentMode = .scaleAspectFit
         
         return imageView
-    }()
-    
-    let addItemButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("添加物品", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
-        button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
-        button.setTitleColor(.white, for: .normal)
-        button.sizeToFit()
-        return button
     }()
     
     let deleteImageButton: UIButton = {
