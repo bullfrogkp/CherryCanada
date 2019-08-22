@@ -223,25 +223,25 @@
             </objects>
             <point key="canvasLocation" x="3501.5999999999999" y="806.44677661169419"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Item Edit View Controller-->
         <scene sceneID="uJa-h6-M3Y">
             <objects>
-                <viewController id="zF0-yn-k6n" sceneMemberID="viewController">
+                <viewController id="zF0-yn-k6n" customClass="ImageItemEditViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6u-VU-5Ny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="767"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8C-ea-qfc">
-                                <rect key="frame" x="16" y="20" width="343" height="200"/>
+                                <rect key="frame" x="16" y="77" width="343" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d8C-ea-qfc" secondAttribute="height" multiplier="343:200" id="eu3-Dj-EyQ"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-dT-t6T">
-                                <rect key="frame" x="16" y="284" width="343" height="416"/>
+                                <rect key="frame" x="16" y="341" width="343" height="406"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="344" id="q1H-qd-kBi" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="344" id="q1H-qd-kBi" customClass="ImageItemEditTableViewCell" customModule="CIS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="344"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q1H-qd-kBi" id="QeJ-g7-Zsk">
@@ -297,7 +297,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mb-MP-ukh">
-                                <rect key="frame" x="16" y="228" width="343" height="48"/>
+                                <rect key="frame" x="16" y="285" width="343" height="48"/>
                                 <state key="normal" title="添加客户"/>
                                 <connections>
                                     <action selector="addCustomerButton:" destination="78I-me-Egn" eventType="touchUpInside" id="tHD-Ta-fBH"/>
@@ -311,7 +311,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N6R-dZ-fZ3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JtL-5b-hSU"/>
+                    <navigationItem key="navigationItem" id="JtL-5b-hSU">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="Vm9-c0-csz"/>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="KCO-ef-YXy"/>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="767"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy3-Fh-WSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -465,10 +468,10 @@
             </objects>
             <point key="canvasLocation" x="3576.8000000000002" y="-752.47376311844084"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer Item Edit View Controller-->
         <scene sceneID="Ity-gL-Ljl">
             <objects>
-                <viewController id="CmB-KA-nGx" sceneMemberID="viewController">
+                <viewController id="CmB-KA-nGx" customClass="CustomerItemEditViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvr-lQ-kjT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,7 +497,7 @@
                                 <rect key="frame" x="16" y="159" width="343" height="426"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="344" id="D4z-Uq-BSV" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="344" id="D4z-Uq-BSV" customClass="CustomerItemEditTableViewCell" customModule="CIS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="344"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D4z-Uq-BSV" id="FbD-xM-SEj">
