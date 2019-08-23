@@ -9,7 +9,6 @@
 import UIKit
 
 class ShippingDetailViewController: UITabBarController {
-    var shipping: Shipping!
     
     override func viewDidLoad() {
         super.viewDidLoad()

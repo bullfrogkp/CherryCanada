@@ -80,13 +80,14 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         return 100
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editCustomerItem" {
+            let destinationController = segue.destination as! CustomerItemEditViewController
+            destinationController.pageData = pageData
+        }
+    }
+    
     @objc func editData() {
         self.performSegue(withIdentifier: "editCustomerItem", sender: self)
-        func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-            if segue.identifier == "editCustomerItem" {
-                let destinationController = segue.destination as! CustomerItemEditViewController
-                destinationController.pageData = pageData
-            }
-        }
     }
 }
