@@ -56,15 +56,15 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
-        let customerTextField: UITextField = {
-            let cTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
-            cTextField.placeholder = "客户"
-            cTextField.text = pageData.customers![section].name
+        let customerLabel: UILabel = {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 21))
+            label.center = CGPoint(x: 160, y: 285)
+            label.text = pageData.customers![section].name
             
-            return cTextField
+            return label
         }()
         
-        headerView.addSubview(customerTextField)
+        headerView.addSubview(customerLabel)
         
         return headerView
     }
