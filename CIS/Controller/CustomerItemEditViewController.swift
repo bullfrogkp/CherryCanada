@@ -101,7 +101,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         headerView.addSubview(addItemButton)
         headerView.addSubview(deleteImageButton)
         
+        addItemButton.tag = section
         addItemButton.addTarget(self, action: Selector(("addItem")), for: .touchUpInside)
+        
+        deleteImageButton.tag = section
         deleteImageButton.addTarget(self, action: Selector(("deleteImage")), for: .touchUpInside)
         
         let views: [String: Any] = [
@@ -121,13 +124,19 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         return 150
     }
     
-    @objc func addItem(_ section: Int) {
+    @objc func addItem(sender:UIButton)
+    {
         let insertionIndexPath = NSIndexPath(row: pageData.images![section].items.count - 1, section: section)
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        
     }
     
-    @objc func deleteImage() {
-        print("Shipping deleted")
+    @objc func deleteImage(sender:UIButton)
+    {
+        let insertionIndexPath = NSIndexPath(row: pageData.images![section].items.count - 1, section: section)
+        
+        tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        
     }
 }
