@@ -82,7 +82,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editCustomerItem" {
-            let destinationController = segue.destination as! CustomerItemEditViewController
+            let naviController : UINavigationController = segue.destination as! UINavigationController
+            let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
             destinationController.pageData = pageData
         }
     }
