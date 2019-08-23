@@ -58,7 +58,6 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let customerLabel: UILabel = {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 21))
-            label.center = CGPoint(x: 160, y: 285)
             label.text = pageData.customers![section].name
             
             return label

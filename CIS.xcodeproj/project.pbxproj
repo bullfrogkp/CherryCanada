@@ -8,13 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */; };
-		3E3AC8AA22BC067000F1A0B3 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A922BC067000F1A0B3 /* CustomerTableViewController.swift */; };
 		3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */; };
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
 		3E3AC8B222BC067100F1A0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8B122BC067100F1A0B3 /* Assets.xcassets */; };
-		3E3AC8C322C68C8000F1A0B3 /* CustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8C222C68C8000F1A0B3 /* CustomerCell.swift */; };
-		3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8C422C692B200F1A0B3 /* ItemCell.swift */; };
-		3E3AC8C722D3E57200F1A0B3 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8C622D3E57200F1A0B3 /* ItemTableViewController.swift */; };
 		3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8C822DD107700F1A0B3 /* CustomTableView.swift */; };
 		3E3AC8CF22E41C0600F1A0B3 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */; };
 		3E3AC8D622E41D2700F1A0B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D122E41D2700F1A0B3 /* Item.swift */; };
@@ -41,14 +37,10 @@
 /* Begin PBXFileReference section */
 		3E3AC8A422BC067000F1A0B3 /* CIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E3AC8A922BC067000F1A0B3 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8AC22BC067000F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E3AC8AF22BC067000F1A0B3 /* CIS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CIS.xcdatamodel; sourceTree = "<group>"; };
 		3E3AC8B122BC067100F1A0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E3AC8B622BC067100F1A0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E3AC8C222C68C8000F1A0B3 /* CustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCell.swift; sourceTree = "<group>"; };
-		3E3AC8C422C692B200F1A0B3 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		3E3AC8C622D3E57200F1A0B3 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8C822DD107700F1A0B3 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		3E3AC8D122E41D2700F1A0B3 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -117,8 +109,6 @@
 		3E3AC8CA22E41AE000F1A0B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3E3AC8C622D3E57200F1A0B3 /* ItemTableViewController.swift */,
-				3E3AC8A922BC067000F1A0B3 /* CustomerTableViewController.swift */,
 				3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */,
 				3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */,
 				3E3AC8E222F378D000F1A0B3 /* ShippingDetailViewController.swift */,
@@ -133,8 +123,6 @@
 		3E3AC8CB22E41B0D00F1A0B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E3AC8C222C68C8000F1A0B3 /* CustomerCell.swift */,
-				3E3AC8C422C692B200F1A0B3 /* ItemCell.swift */,
 				3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */,
 				3E3AC8E022F3649100F1A0B3 /* CustomerListTableViewCell.swift */,
 				3E75F99D23033FD800667BD4 /* CustomerItemTableViewCell.swift */,
@@ -241,8 +229,6 @@
 				3EF9013A230C698B00173DE3 /* ImageItemTableViewCell.swift in Sources */,
 				3E3AC8D622E41D2700F1A0B3 /* Item.swift in Sources */,
 				3EF90140230D943B00173DE3 /* ItemImage.swift in Sources */,
-				3E3AC8AA22BC067000F1A0B3 /* CustomerTableViewController.swift in Sources */,
-				3E3AC8C322C68C8000F1A0B3 /* CustomerCell.swift in Sources */,
 				3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */,
 				3E75F99E23033FD800667BD4 /* CustomerItemTableViewCell.swift in Sources */,
 				3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */,
@@ -252,7 +238,6 @@
 				3EF90144230EE43C00173DE3 /* ImageItemEditViewController.swift in Sources */,
 				3EF90148230EE48500173DE3 /* ImageItemEditTableViewCell.swift in Sources */,
 				3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */,
-				3E3AC8C722D3E57200F1A0B3 /* ItemTableViewController.swift in Sources */,
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
 				3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
@@ -260,7 +245,6 @@
 				3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */,
 				3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */,
 				3EF9013E230D8C5B00173DE3 /* SegueStruct.swift in Sources */,
-				3E3AC8C522C692B200F1A0B3 /* ItemCell.swift in Sources */,
 				3EF90142230EE41600173DE3 /* CustomerItemEditViewController.swift in Sources */,
 				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
 				3EF90146230EE47300173DE3 /* CustomerItemEditTableViewCell.swift in Sources */,
