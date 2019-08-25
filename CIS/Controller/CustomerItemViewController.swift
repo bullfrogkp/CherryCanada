@@ -43,10 +43,10 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         let item = pageData.images![indexPath.section].items[indexPath.row]
         
         cell.nameLabel.text = item.name
-        cell.quantityLabel.text = "/(item.quantity)"
-        cell.priceSoldLabel.text = "/(item.priceSold)"
-        cell.priceBoughtLabel.text = "/(item.priceBought)"
-        cell.descriptionTextView.text = "/(item.description)"
+        cell.quantityLabel.text = "\(item.quantity)"
+        cell.priceSoldLabel.text = "\(item.priceSold)"
+        cell.priceBoughtLabel.text = "\(item.priceBought)"
+        cell.descriptionTextView.text = "\(item.comment)"
         
         return cell
     }
