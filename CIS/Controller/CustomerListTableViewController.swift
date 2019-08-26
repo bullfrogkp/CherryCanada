@@ -32,16 +32,37 @@ class CustomerListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
         let customerDetail = shipping.customers[indexPath.row]
-        var itemsText = ""
+        var itemsTextArrar = [String]()
         
         cell.customerNameLabel.text = customerDetail.name
         
         for item in customerDetail.items {
-            itemsText += "\(item.name) [\(item.quantity)]\r\n"
+            itemsTextArrar.append("\(item.name) [\(item.quantity)]")
         }
-        cell.customerItemsLabel.text = itemsText
+        
+        cell.customerItemsLabel.numberOfLines = 0
+        cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
         
         return cell
+    }
+    
+    func bulletPointList(strings: [String]) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = 15
+        paragraphStyle.minimumLineHeight = 20
+        paragraphStyle.maximumLineHeight = 20
+        paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: 15)]
+        
+        let stringAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.paragraphStyle: paragraphStyle
+        ]
+        
+        let string = strings.map({ "•\t\($0)" }).joined(separator: "\n")
+        
+        return NSAttributedString(string: string,
+                                  attributes: stringAttributes)
     }
 
     // MARK: - Navigation

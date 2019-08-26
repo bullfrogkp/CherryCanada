@@ -26,17 +26,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="9tM-jM-h0a">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9tM-jM-h0a">
                                             <rect key="frame" x="16" y="11" width="343" height="98"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xR-Ux-bLY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="98"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="166.5" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-BQ-tAz">
-                                                    <rect key="frame" x="300.5" y="0.0" width="42.5" height="98"/>
+                                                    <rect key="frame" x="176.5" y="0.0" width="166.5" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -745,8 +745,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TDh-24-JOR" kind="relationship" relationship="viewControllers" id="e3p-ei-Zzq"/>
                         <segue destination="bCB-A9-oWe" kind="relationship" relationship="viewControllers" id="VvC-MK-5Tq"/>
+                        <segue destination="TDh-24-JOR" kind="relationship" relationship="viewControllers" id="e3p-ei-Zzq"/>
                         <segue destination="D46-sd-esV" kind="relationship" relationship="viewControllers" id="fEl-IN-aE2"/>
                     </connections>
                 </tabBarController>
