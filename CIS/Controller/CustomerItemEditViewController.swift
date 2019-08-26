@@ -54,7 +54,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 150))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 160))
         
         let itemImageView: UIImageView = {
             let imageName = pageData.images![section].name
@@ -78,7 +78,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
             button.setTitleColor(.white, for: .normal)
             button.sizeToFit()
             return button
@@ -92,7 +92,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
+            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
             button.setTitleColor(.white, for: .normal)
             button.sizeToFit()
             return button
@@ -122,7 +122,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
+        return 160
     }
     
     @objc func addItem(sender:UIButton)

@@ -551,7 +551,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbs-gE-g4J">
-                                <rect key="frame" x="16" y="102" width="343" height="30"/>
+                                <rect key="frame" x="16" y="122" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gcH-of-jY0"/>
@@ -564,7 +564,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="客户名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-OF-odJ">
-                                <rect key="frame" x="16" y="64" width="343" height="30"/>
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SbB-dk-Ljg"/>
                                 </constraints>
@@ -573,7 +573,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fb8-lX-sPr">
-                                <rect key="frame" x="16" y="140" width="343" height="511"/>
+                                <rect key="frame" x="16" y="160" width="343" height="491"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="344" id="D4z-Uq-BSV" customClass="CustomerItemEditTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -652,7 +652,7 @@
                             <constraint firstItem="WL5-OF-odJ" firstAttribute="leading" secondItem="kVc-Zd-bYJ" secondAttribute="leading" constant="16" id="7Wu-2e-Zm2"/>
                             <constraint firstItem="kVc-Zd-bYJ" firstAttribute="trailing" secondItem="Vbs-gE-g4J" secondAttribute="trailing" constant="16" id="C8y-fr-9lv"/>
                             <constraint firstItem="Fb8-lX-sPr" firstAttribute="top" secondItem="Vbs-gE-g4J" secondAttribute="bottom" constant="8" id="JeG-Kc-96g"/>
-                            <constraint firstItem="WL5-OF-odJ" firstAttribute="top" secondItem="kVc-Zd-bYJ" secondAttribute="top" id="Kba-h6-oZi"/>
+                            <constraint firstItem="WL5-OF-odJ" firstAttribute="top" secondItem="kVc-Zd-bYJ" secondAttribute="top" constant="20" id="Kba-h6-oZi"/>
                             <constraint firstItem="kVc-Zd-bYJ" firstAttribute="trailing" secondItem="WL5-OF-odJ" secondAttribute="trailing" constant="16" id="ZAG-Fu-GJO"/>
                             <constraint firstItem="Fb8-lX-sPr" firstAttribute="leading" secondItem="kVc-Zd-bYJ" secondAttribute="leading" constant="16" id="e0U-er-z91"/>
                             <constraint firstItem="Vbs-gE-g4J" firstAttribute="top" secondItem="WL5-OF-odJ" secondAttribute="bottom" constant="8" id="ekO-MQ-Lrf"/>
