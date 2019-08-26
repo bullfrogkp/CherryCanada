@@ -26,6 +26,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
         
+        customerItemTableView.backgroundColor = UIColor.white
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
@@ -54,17 +56,19 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width - 16, height: 100))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width - 16, height: 115))
+        
+        headerView.backgroundColor = UIColor.white
         
         let itemImageView: UIImageView = {
             let imageName = pageData.images![section].name
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 10, y: 10, width: tableView.frame.width - 16, height: 100)
+            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
             
             imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
             imageView.layer.cornerRadius = 5.0
-            imageView.layer.borderWidth = 2
+            imageView.layer.borderWidth = 1
             imageView.contentMode = .scaleAspectFit
             
             return imageView
@@ -76,7 +80,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 115
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
