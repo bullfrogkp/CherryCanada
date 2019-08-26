@@ -96,11 +96,15 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         let cell = tableView.dequeueReusableCell(withIdentifier: "shippingId", for: indexPath as IndexPath) as! ShippingListTableViewCell
 
         let shippingDetail = shippings[indexPath.row]
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd"
         
         cell.shippingCityLabel.text = shippingDetail.city
-        cell.shippingDateLabel.text = "\(shippingDetail.shippingDate)"
+        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
         cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
+        
+        
 
         return cell
     }
