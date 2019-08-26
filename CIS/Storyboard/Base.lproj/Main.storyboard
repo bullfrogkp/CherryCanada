@@ -63,7 +63,7 @@
                             <outlet property="delegate" destination="bCB-A9-oWe" id="f7d-ga-Lwq"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="客户列表" id="dFn-YY-fVK"/>
+                    <tabBarItem key="tabBarItem" title="客户列表" image="about" selectedImage="about" id="dFn-YY-fVK"/>
                     <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
                         <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S"/>
                     </navigationItem>
@@ -688,7 +688,7 @@
                             <outlet property="delegate" destination="TDh-24-JOR" id="qCP-BC-RtC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="货单信息" id="4lp-8X-jME"/>
+                    <tabBarItem key="tabBarItem" title="货单信息" image="discover" selectedImage="discover" id="4lp-8X-jME"/>
                     <navigationItem key="navigationItem" title="货单信息" id="Ex2-wu-djo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVT-kK-9tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -727,7 +727,7 @@
                             <outlet property="delegate" destination="D46-sd-esV" id="lRl-Se-oeE"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="货单图片" id="QfC-ny-c1H"/>
+                    <tabBarItem key="tabBarItem" title="货单图片" image="favorite" selectedImage="favorite" id="QfC-ny-c1H"/>
                     <navigationItem key="navigationItem" id="hCu-hf-tI4"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r5-ab-dvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -916,6 +916,11 @@
             <point key="canvasLocation" x="4221.6000000000004" y="805.54722638680664"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="about" width="23" height="21"/>
+        <image name="discover" width="35" height="20"/>
+        <image name="favorite" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xiD-FO-9Gx"/>
     </inferredMetricsTieBreakers>
