@@ -25,6 +25,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
+        
+        customerItemTableView.backgroundColor = UIColor.white
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,12 +60,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             let imageName = pageData.images![section].name
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            let screenSize: CGRect = UIScreen.main.bounds
-            imageView.frame = CGRect(x: 10, y: 10, width: screenSize.width - 20, height: 100)
+            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
             
             imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
             imageView.layer.cornerRadius = 5.0
-            imageView.layer.borderWidth = 2
+            imageView.layer.borderWidth = 1
             imageView.contentMode = .scaleAspectFit
             
             return imageView
