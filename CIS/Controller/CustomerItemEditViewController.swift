@@ -135,10 +135,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func addItem(sender:UIButton)
     {
-        pageData.images![sender.tag].items.append(Item())
+        pageData.images![sender.tag].items.insert(Item(), at: 0)
         
-        let insertionIndexPath = NSIndexPath(row: pageData.images![sender.tag].items.count - 1, section: sender.tag)
-        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        let insertionIndexPath = NSIndexPath(row: 0, section: sender.tag)
+        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
     }
     
     @objc func deleteImage(sender:UIButton)
