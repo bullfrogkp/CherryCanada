@@ -18,9 +18,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let itemImage = ItemImage()
         itemImage.name = "test"
         itemImage.items = [Item()]
-        pageData.images!.append(itemImage)
+        pageData.images!.insert(itemImage, at: 0)
         
-        customerItemTableView.insertSections(IndexSet(integer: 1), with: .top)
+        customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
         
     }
     
