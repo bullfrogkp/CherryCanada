@@ -14,6 +14,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var customerItemTableView: UITableView!
     
     @IBAction func addImage(_ sender: Any) {
+        
+        let itemImage = ItemImage()
+        itemImage.name = "test"
+        itemImage.items = [Item()]
+        pageData.images!.append(itemImage)
+        
+        customerItemTableView.insertSections(IndexSet(integer: 1), with: .top)
+        
     }
     
     var pageData: CustomerItemData!
@@ -115,7 +123,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         ]
         
         headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteImageButton(160)]-20-[addItemButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
+        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteImageButton]-20-[addItemButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
         headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteImageButton]", metrics: nil, views: views))
         
         return headerView
