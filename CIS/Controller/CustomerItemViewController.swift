@@ -110,4 +110,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @objc func editData() {
         self.performSegue(withIdentifier: "editCustomerItem", sender: self)
     }
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
 }

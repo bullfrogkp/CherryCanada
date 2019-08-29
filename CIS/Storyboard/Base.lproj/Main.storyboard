@@ -658,8 +658,16 @@
                         <viewLayoutGuide key="safeArea" id="kVc-Zd-bYJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="wfY-Xe-7lA">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="uof-8o-T0L"/>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="cRW-Wu-gtY"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="uof-8o-T0L">
+                            <connections>
+                                <segue destination="bl7-MN-hog" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Ffw-iS-d6R"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="cRW-Wu-gtY">
+                            <connections>
+                                <action selector="saveCustomerItem:" destination="CmB-KA-nGx" id="gF4-bc-jCn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="customerItemTableView" destination="Fb8-lX-sPr" id="FDG-3H-hXN"/>
@@ -667,6 +675,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7o-TB-Vdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bl7-MN-hog" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5285.6000000000004" y="-753.37331334332839"/>
         </scene>

@@ -13,6 +13,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
     
+    @IBAction func saveCustomerItem(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func addImage(_ sender: Any) {
         
         let itemImage = ItemImage()
