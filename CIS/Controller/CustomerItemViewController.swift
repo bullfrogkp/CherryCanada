@@ -14,6 +14,22 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var customerItemTableView: UITableView!
     
     @IBAction func deleteCustomerButton(_ sender: Any) {
+        
+        let optionMenu = UIAlertController(title: nil, message: "操真的删除吗?", preferredStyle: .actionSheet)
+        
+        // Add actions to the menu
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        
+        let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+        optionMenu.addAction(checkInAction)
+        
+        // Display the menu
+        present(optionMenu, animated: true, completion: nil)
     }
     
     var pageData: CustomerItemData!
