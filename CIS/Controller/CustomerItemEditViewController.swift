@@ -55,6 +55,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         cell.priceSoldTextField.text = "\(item.priceSold)"
         cell.priceBoughtTextField.text = "\(item.priceBought)"
         cell.descriptionTextView.text = "\(item.comment)"
+        cell.deleteItemButton.tag = (indexPath.section * 1000) + indexPath.row
+        cell.customerItemTableView = customerItemTableView
+        cell.customerItemEditViewController = self
         
         return cell
     }
@@ -143,7 +146,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func deleteImage(sender:UIButton)
     {
-        let indexSet = IndexSet(arrayLiteral: sender.tag)
-        customerItemTableView.deleteSections(indexSet, with: .automatic)
+        pageData.images?.remove(at: sender.tag)
+        customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
     }
 }
