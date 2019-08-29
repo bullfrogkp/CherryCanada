@@ -19,17 +19,9 @@ class CustomerItemEditTableViewCell: UITableViewCell {
     @IBOutlet weak var deleteItemButton: UIButton!
     
     @IBAction func deleteItem(_ sender: Any) {
-        
-        let row = (sender as AnyObject).tag % 1000
-        let section = (sender as AnyObject).tag / 1000
-        
-        customerItemEditViewController.pageData.images![section].items.remove(at: row)
-        
-        let deletionIndexPath = NSIndexPath(row: row, section: section)
-        customerItemTableView.deleteRows(at: [deletionIndexPath as IndexPath], with: .top)
+        customerItemEditViewController.deleteCell(cell: self)
     }
     
-    var customerItemTableView: UITableView!
     var customerItemEditViewController: CustomerItemEditViewController!
     
     override func awakeFromNib() {
