@@ -14,6 +14,8 @@ class CustomerListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
     }
 
     // MARK: - Table view data source
@@ -97,4 +99,7 @@ class CustomerListTableViewController: UITableViewController {
         }
     }
 
+    @objc func addCustomerItem() {
+        self.performSegue(withIdentifier: "addCustomerItem", sender: self)
+    }
 }

@@ -67,6 +67,9 @@
                     <navigationItem key="navigationItem" title="客户列表" id="Lm1-p2-3Z5">
                         <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ebj-hp-FVD" kind="presentation" identifier="addCustomerItem" id="aAj-OX-7gV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhh-r3-WZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -377,7 +380,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O0-r6-dtk">
-                                <rect key="frame" x="0.0" y="72" width="375" height="32"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="LUK-r1-0PW"/>
@@ -405,7 +408,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-Df-as3">
-                                <rect key="frame" x="16" y="119" width="343" height="490"/>
+                                <rect key="frame" x="16" y="75" width="343" height="534"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="117" id="9Vm-W7-xPl" customClass="CustomerItemTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -679,22 +682,6 @@
             </objects>
             <point key="canvasLocation" x="5285.6000000000004" y="-753.37331334332839"/>
         </scene>
-        <!--客户信息-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController title="客户信息" id="BYZ-38-t0r" customClass="CustomerTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CustomTableView" customModule="CIS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="货物信息" id="O1g-e4-wde"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1343" y="-879"/>
-        </scene>
         <!--货单信息-->
         <scene sceneID="fQs-v9-42f">
             <objects>
@@ -953,5 +940,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xiD-FO-9Gx"/>
+        <segue reference="aAj-OX-7gV"/>
     </inferredMetricsTieBreakers>
 </document>
