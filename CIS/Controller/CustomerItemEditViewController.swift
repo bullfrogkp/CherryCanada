@@ -25,7 +25,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         pageData.images!.insert(itemImage, at: 0)
         
         customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
-        
+        customerItemTableView.reloadData()
     }
     
     var pageData: CustomerItemData!
@@ -151,6 +151,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         pageData.images?.remove(at: sender.tag)
         customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
+        customerItemTableView.reloadData()
     }
     
     func deleteCell(cell: UITableViewCell) {
