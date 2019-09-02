@@ -29,6 +29,7 @@
         <attribute name="priceInternational" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="priceNational" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shippingDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="shippingStatus" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="shippingCustomerRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Customer" inverseName="customerShippingRela" inverseEntity="Customer" syncable="YES"/>
         <relationship name="shippingItemRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Item" inverseName="itemShippingRela" inverseEntity="Item" syncable="YES"/>
     </entity>
@@ -40,7 +41,7 @@
         <element name="Brand" positionX="0" positionY="90" width="128" height="75"/>
         <element name="Customer" positionX="-54" positionY="63" width="128" height="120"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="Shipping" positionX="-36" positionY="72" width="128" height="165"/>
+        <element name="Shipping" positionX="-36" positionY="72" width="128" height="180"/>
         <element name="Type" positionX="-18" positionY="81" width="128" height="75"/>
     </elements>
 </model>

@@ -14,9 +14,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     @IBOutlet var emptyShippingView: UIView!
     
     var fetchResultController: NSFetchedResultsController<ShippingMO>!
-    
-    var shippingMOs: [ShippingMO] = []
-    var shippings: [Shipping] = []
+    var shippings: [ShippingMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +35,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             do {
                 try fetchResultController.performFetch()
                 if let fetchedObjects = fetchResultController.fetchedObjects {
-                    shippingMOs = fetchedObjects
-                    shippings = convertToShippingObject(shippingMOs)
+                    shippings = fetchedObjects
                 }
             } catch {
                 print(error)
@@ -99,9 +96,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
         
         cell.shippingCityLabel.text = shippingDetail.city
-        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
+        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate!)
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
-        cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
+        cell.shippingDepositLabel.text = "\(shippingDetail.deposit ?? 0)"
         
         return cell
     }
@@ -125,19 +122,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
                 naviView.shipping = shippings[indexPath.row]
             }
         }
-    }
-    
-    func convertToShippingObject(_ shippingMOs: [ShippingMO]) -> [Shipping] {
-        var sps: [Shipping] = []
-        
-        for sp in shippingMOs {
-            let shipping: Shipping = Shipping()
-            shipping.city = sp.city
-            shipping.shippingDate = sp.shippingDate
-            
-        }
-        
-        return sps
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -164,8 +148,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         }
         
         if let fetchedObjects = controller.fetchedObjects {
-            shippingMOs = fetchedObjects as! [ShippingMO]
-            shippings = convertShipping(shippingMOs)
+            shippings = fetchedObjects as! [ShippingMO]
         }
     }
     
