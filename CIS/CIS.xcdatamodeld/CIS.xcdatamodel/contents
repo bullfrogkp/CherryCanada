@@ -9,7 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wechat" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="customerShippingRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Shipping" inverseName="shippingCustomerRela" inverseEntity="Shipping" syncable="YES"/>
+        <relationship name="customerItemRela" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="itemCustomerRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="ItemMO" syncable="YES" codeGenerationType="class">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,6 +19,7 @@
         <attribute name="priceCharged" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="quantity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="itemBrandRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Brand" inverseName="brandItemRela" inverseEntity="Brand" syncable="YES"/>
+        <relationship name="itemCustomerRela" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="customerItemRela" inverseEntity="Customer" syncable="YES"/>
         <relationship name="itemShippingRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Shipping" inverseName="shippingItemRela" inverseEntity="Shipping" syncable="YES"/>
         <relationship name="itemTypeRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Type" inverseName="typeItemRela" inverseEntity="Type" syncable="YES"/>
     </entity>
@@ -30,7 +31,7 @@
         <attribute name="priceNational" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shippingDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippingStatus" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="shippingCustomerRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Customer" inverseName="customerShippingRela" inverseEntity="Customer" syncable="YES"/>
+        <relationship name="shippingCustomerRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Customer" syncable="YES"/>
         <relationship name="shippingItemRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Item" inverseName="itemShippingRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Type" representedClassName="TypeMO" syncable="YES" codeGenerationType="class">
@@ -38,10 +39,10 @@
         <relationship name="typeItemRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Item" inverseName="itemTypeRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="0" positionY="90" width="128" height="75"/>
-        <element name="Customer" positionX="-54" positionY="63" width="128" height="120"/>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="Shipping" positionX="-36" positionY="72" width="128" height="180"/>
-        <element name="Type" positionX="-18" positionY="81" width="128" height="75"/>
+        <element name="Brand" positionX="71.48828125" positionY="114.69921875" width="128" height="75"/>
+        <element name="Customer" positionX="-248.390625" positionY="-69.3984375" width="128" height="118"/>
+        <element name="Item" positionX="85.13671875" positionY="-394.71875" width="128" height="193"/>
+        <element name="Shipping" positionX="-256.18359375" positionY="-354.12109375" width="128" height="178"/>
+        <element name="Type" positionX="-171.265625" positionY="109.74609375" width="128" height="75"/>
     </elements>
 </model>

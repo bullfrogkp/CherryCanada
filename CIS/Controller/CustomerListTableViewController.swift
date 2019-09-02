@@ -27,7 +27,8 @@ class CustomerListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return shipping.customers.count
+        let customers: [Customer] = shipping!.shippingCustomerRela.map(<#T##transform: (CustomerMO) throws -> U##(CustomerMO) throws -> U#>)
+        return customers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
