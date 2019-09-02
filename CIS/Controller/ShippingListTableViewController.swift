@@ -21,8 +21,10 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundView = emptyShippingView
+        tableView.backgroundView?.isHidden = true
+        
         // Fetch data from data store
-        /*
         let fetchRequest: NSFetchRequest<ShippingMO> = ShippingMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -36,15 +38,13 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
                 try fetchResultController.performFetch()
                 if let fetchedObjects = fetchResultController.fetchedObjects {
                     shippingMOs = fetchedObjects
-                    
-                    shippings = convertShipping(shippingMOs)
+                    shippings = convertToShippingObject(shippingMOs)
                 }
             } catch {
                 print(error)
             }
         }
-        */
-        
+        /*
         let items1: [Item] = [
             Item(comment: "Item1", image: "test", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
             Item(comment: "Item2", image: "test2", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
@@ -67,9 +67,8 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", customers: customers1),
             Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", customers: customers2)
         ]
+        */
         
-        tableView.backgroundView = emptyShippingView
-        tableView.backgroundView?.isHidden = true
     }
 
     // MARK: - Table view data source
@@ -104,8 +103,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
         cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
         
-        
-
         return cell
     }
 
@@ -130,42 +127,49 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         }
     }
     
-//    func convertShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
-//        var sps: [Shipping] = []
-//        
-//        return sps
-//    }
-//    
-//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.beginUpdates()
-//    }
-//    
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//        
-//        switch type {
-//        case .insert:
-//            if let newIndexPath = newIndexPath {
-//                tableView.insertRows(at: [newIndexPath], with: .fade)
-//            }
-//        case .delete:
-//            if let indexPath = indexPath {
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            }
-//        case .update:
-//            if let indexPath = indexPath {
-//                tableView.reloadRows(at: [indexPath], with: .fade)
-//            }
-//        default:
-//            tableView.reloadData()
-//        }
-//        
-//        if let fetchedObjects = controller.fetchedObjects {
-//            shippingMOs = fetchedObjects as! [ShippingMO]
-//            shippings = convertShipping(shippingMOs)
-//        }
-//    }
-//    
-//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.endUpdates()
-//    }
+    func convertToShippingObject(_ shippingMOs: [ShippingMO]) -> [Shipping] {
+        var sps: [Shipping] = []
+        
+        for sp in shippingMOs {
+            let shipping: Shipping = Shipping()
+            shipping.city = sp.city
+            shipping.shippingDate = sp.shippingDate
+            
+        }
+        
+        return sps
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchedObjects = controller.fetchedObjects {
+            shippingMOs = fetchedObjects as! [ShippingMO]
+            shippings = convertShipping(shippingMOs)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 }
