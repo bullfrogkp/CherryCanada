@@ -30,7 +30,7 @@
         <attribute name="priceNational" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shippingDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippingStatus" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="shippingCustomerRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Customer" inverseName="customerShippingRela" inverseEntity="Customer" syncable="YES"/>
+        <relationship name="shippingCustomerRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Customer" inverseName="customerShippingRela" inverseEntity="Customer" syncable="YES"/>
         <relationship name="shippingItemRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Item" inverseName="itemShippingRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Type" representedClassName="TypeMO" syncable="YES" codeGenerationType="class">

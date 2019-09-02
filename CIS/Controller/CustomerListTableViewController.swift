@@ -10,7 +10,7 @@ import UIKit
 
 class CustomerListTableViewController: UITableViewController {
 
-    var shipping: Shipping!
+    var shipping: ShippingMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
