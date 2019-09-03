@@ -16,11 +16,10 @@ class CustomerListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = shipping.shippingItemRela!.allObjects as! [ItemMO]
+        let items = shipping.items!.allObjects as! [ItemMO]
         
         for item in items {
-            let customer = item.itemCustomerRela!.customerItemRela?.allObjects as! [CustomerMO]
-            customers.append(customer[0])
+            customers.append(item.customer!)
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
@@ -45,7 +44,7 @@ class CustomerListTableViewController: UITableViewController {
         
         cell.customerNameLabel.text = customerDetail.name
         
-        let items = customerDetail.customerItemRela?.allObjects as! [ItemMO]
+        let items = customerDetail.items?.allObjects as! [ItemMO]
         
         for item in items {
             itemsTextArrar.append("\(item.name ?? "") [\(item.quantity)]")
