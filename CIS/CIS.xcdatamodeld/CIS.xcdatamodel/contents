@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Brand" representedClassName="BrandMO" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="brandItemRela" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Item" inverseName="itemBrandRela" inverseEntity="Item" syncable="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wechat" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="customerItemRela" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="itemCustomerRela" inverseEntity="Item" syncable="YES"/>
+        <relationship name="customerItemRela" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="itemCustomerRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="ItemMO" syncable="YES" codeGenerationType="class">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,6 @@
         <attribute name="priceNational" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shippingDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippingStatus" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="shippingCustomerRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Customer" syncable="YES"/>
         <relationship name="shippingItemRela" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Item" inverseName="itemShippingRela" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Type" representedClassName="TypeMO" syncable="YES" codeGenerationType="class">
@@ -40,9 +39,9 @@
     </entity>
     <elements>
         <element name="Brand" positionX="71.48828125" positionY="114.69921875" width="128" height="75"/>
-        <element name="Customer" positionX="-248.390625" positionY="-69.3984375" width="128" height="118"/>
+        <element name="Customer" positionX="-216.9765625" positionY="-383.64453125" width="128" height="118"/>
         <element name="Item" positionX="85.13671875" positionY="-394.71875" width="128" height="193"/>
-        <element name="Shipping" positionX="-256.18359375" positionY="-354.12109375" width="128" height="178"/>
+        <element name="Shipping" positionX="-219.18359375" positionY="-241.05859375" width="128" height="163"/>
         <element name="Type" positionX="-171.265625" positionY="109.74609375" width="128" height="75"/>
     </elements>
 </model>

@@ -11,9 +11,17 @@ import UIKit
 class CustomerListTableViewController: UITableViewController {
 
     var shipping: ShippingMO!
+    var customers:[CustomerMO]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let items = shipping.shippingItemRela!.allObjects as! [ItemMO]
+        
+        for item in items {
+            let customer = item.itemCustomerRela!.customerItemRela?.allObjects as! [CustomerMO]
+            customers.append(customer[0])
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
     }
@@ -26,21 +34,21 @@ class CustomerListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        let customers: [Customer] = shipping!.shippingCustomerRela.map(<#T##transform: (CustomerMO) throws -> U##(CustomerMO) throws -> U#>)
         return customers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = shipping.customers[indexPath.row]
+        let customerDetail = customers[indexPath.row]
         var itemsTextArrar = [String]()
         
         cell.customerNameLabel.text = customerDetail.name
         
-        for item in customerDetail.items {
-            itemsTextArrar.append("\(item.name) [\(item.quantity)]")
+        let items = customerDetail.customerItemRela?.allObjects as! [ItemMO]
+        
+        for item in items {
+            itemsTextArrar.append("\(item.name ?? "") [\(item.quantity)]")
         }
         
         cell.customerItemsLabel.numberOfLines = 0
@@ -88,7 +96,7 @@ class CustomerListTableViewController: UITableViewController {
             
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                let customer = shipping.customers[indexPath.row]
+                let customer = customers[indexPath.row]
                 var pageData = CustomerItemData()
                 
                 pageData.customerName = customer.name

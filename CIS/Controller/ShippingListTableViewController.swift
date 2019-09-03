@@ -24,7 +24,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         
         // Fetch data from data store
         let fetchRequest: NSFetchRequest<ShippingMO> = ShippingMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "shippingDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
