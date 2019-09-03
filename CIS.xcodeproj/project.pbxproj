@@ -15,8 +15,6 @@
 		3E3AC8CF22E41C0600F1A0B3 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */; };
 		3E3AC8D622E41D2700F1A0B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D122E41D2700F1A0B3 /* Item.swift */; };
 		3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D222E41D2700F1A0B3 /* Shipping.swift */; };
-		3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D322E41D2700F1A0B3 /* Type.swift */; };
-		3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8D422E41D2700F1A0B3 /* Brand.swift */; };
 		3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */; };
 		3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */; };
 		3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */; };
@@ -45,8 +43,6 @@
 		3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		3E3AC8D122E41D2700F1A0B3 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3E3AC8D222E41D2700F1A0B3 /* Shipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shipping.swift; sourceTree = "<group>"; };
-		3E3AC8D322E41D2700F1A0B3 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		3E3AC8D422E41D2700F1A0B3 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		3E3AC8DA22EB662B00F1A0B3 /* ShippingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewController.swift; sourceTree = "<group>"; };
 		3E3AC8DC22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingListTableViewCell.swift; sourceTree = "<group>"; };
 		3E3AC8DE22F3647100F1A0B3 /* CustomerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewController.swift; sourceTree = "<group>"; };
@@ -144,10 +140,8 @@
 		3E3AC8CD22E41B5900F1A0B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E3AC8D422E41D2700F1A0B3 /* Brand.swift */,
 				3E3AC8D122E41D2700F1A0B3 /* Item.swift */,
 				3E3AC8D222E41D2700F1A0B3 /* Shipping.swift */,
-				3E3AC8D322E41D2700F1A0B3 /* Type.swift */,
 				3E3AC8C822DD107700F1A0B3 /* CustomTableView.swift */,
 				3E3AC8CE22E41C0600F1A0B3 /* Customer.swift */,
 				3EF9013D230D8C5B00173DE3 /* SegueStruct.swift */,
@@ -239,14 +233,12 @@
 				3EF90148230EE48500173DE3 /* ImageItemEditTableViewCell.swift in Sources */,
 				3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */,
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
-				3E3AC8D922E41D2700F1A0B3 /* Brand.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
 				3E3AC8DF22F3647100F1A0B3 /* CustomerListTableViewController.swift in Sources */,
 				3E3AC8E322F378D000F1A0B3 /* ShippingDetailViewController.swift in Sources */,
 				3EF9013E230D8C5B00173DE3 /* SegueStruct.swift in Sources */,
 				3EF90142230EE41600173DE3 /* CustomerItemEditViewController.swift in Sources */,
-				3E3AC8D822E41D2700F1A0B3 /* Type.swift in Sources */,
 				3EF90146230EE47300173DE3 /* CustomerItemEditTableViewCell.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
 			);

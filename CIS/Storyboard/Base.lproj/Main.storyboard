@@ -84,13 +84,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-NN-Hpe">
-                                <rect key="frame" x="16" y="64" width="343" height="200"/>
+                                <rect key="frame" x="16" y="20" width="343" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="W0y-NN-Hpe" secondAttribute="height" multiplier="343:200" id="DK1-6Z-fLc"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO">
-                                <rect key="frame" x="16" y="272" width="343" height="262"/>
+                                <rect key="frame" x="16" y="228" width="343" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="220" id="4Fd-cM-WKK" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -939,7 +939,7 @@
         <image name="favorite" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xiD-FO-9Gx"/>
+        <segue reference="fgr-qk-9Nd"/>
         <segue reference="aAj-OX-7gV"/>
     </inferredMetricsTieBreakers>
 </document>

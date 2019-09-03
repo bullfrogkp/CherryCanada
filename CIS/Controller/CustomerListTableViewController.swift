@@ -10,16 +10,16 @@ import UIKit
 
 class CustomerListTableViewController: UITableViewController {
 
-    var shipping: ShippingMO!
-    var customers:[CustomerMO]!
+    var shipping: ShippingMO?
+    var customers:[CustomerMO]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = shipping.items!.allObjects as! [ItemMO]
+        let items = shipping?.items?.allObjects as! [ItemMO]
         
         for item in items {
-            customers.append(item.customer!)
+            customers?.append(item.customer!)
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
@@ -33,13 +33,13 @@ class CustomerListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customers.count
+        return customers?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = customers[indexPath.row]
+        let customerDetail = customers?[indexPath.row]
         var itemsTextArrar = [String]()
         
         cell.customerNameLabel.text = customerDetail.name
