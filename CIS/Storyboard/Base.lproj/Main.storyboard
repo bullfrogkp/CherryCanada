@@ -543,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xch-tF-yvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3576.8000000000002" y="-752.47376311844084"/>
+            <point key="canvasLocation" x="3591" y="-349"/>
         </scene>
         <!--Customer Item Edit View Controller-->
         <scene sceneID="Ity-gL-Ljl">
@@ -939,7 +939,7 @@
         <image name="favorite" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5eR-Kj-OF9"/>
+        <segue reference="GKB-zS-LNJ"/>
         <segue reference="fgr-qk-9Nd"/>
     </inferredMetricsTieBreakers>
 </document>
