@@ -20,9 +20,17 @@ class CustomerListTableViewController: UITableViewController {
             for item in items {
                 customers.append(item.customer!)
             }
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
+        } else {
+            let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+            view.addSubview(navBar)
+            
+            let navItem = UINavigationItem(title: "添加货单")
+            navItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
+            
+            navBar.setItems([navItem], animated: false)
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
     }
 
     // MARK: - Table view data source
