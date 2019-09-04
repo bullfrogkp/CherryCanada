@@ -10,13 +10,13 @@ import UIKit
 
 class CustomerListTableViewController: UITableViewController {
 
-    var shipping: ShippingMO?
+    var shipping: ShippingMO = ShippingMO()
     var customers:[CustomerMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = shipping?.items?.allObjects as! [ItemMO]? {
+        if let items = shipping.items?.allObjects as! [ItemMO]? {
             for item in items {
                 customers.append(item.customer!)
             }
