@@ -121,6 +121,11 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
                 
                 naviView.shipping = shippings[indexPath.row]
             }
+        } else if segue.identifier == "addCustomerItem" {
+            let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
+            let naviView: CustomerListTableViewController = tabBarC.viewControllers?[0] as! CustomerListTableViewController
+            
+            naviView.shipping = ShippingMO()
         }
     }
     

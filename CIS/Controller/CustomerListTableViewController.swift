@@ -10,7 +10,7 @@ import UIKit
 
 class CustomerListTableViewController: UITableViewController {
 
-    var shipping: ShippingMO = ShippingMO()
+    var shipping: ShippingMO!
     var customers:[CustomerMO] = []
     
     override func viewDidLoad() {
