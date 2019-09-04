@@ -848,7 +848,7 @@
                     <navigationItem key="navigationItem" title="货单列表" id="i9y-TH-3He">
                         <barButtonItem key="rightBarButtonItem" title="添加货单" id="7tq-a5-KBh">
                             <connections>
-                                <segue destination="GRF-I3-qeh" kind="presentation" id="fgr-qk-9Nd"/>
+                                <segue destination="GRF-I3-qeh" kind="presentation" identifier="addCustomerItem" id="fgr-qk-9Nd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
