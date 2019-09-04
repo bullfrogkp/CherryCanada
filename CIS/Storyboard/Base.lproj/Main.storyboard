@@ -68,7 +68,7 @@
                         <barButtonItem key="rightBarButtonItem" title="添加客户" id="htd-m4-46S"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="ebj-hp-FVD" kind="presentation" identifier="addCustomerItem" id="aAj-OX-7gV"/>
+                        <segue destination="Q1e-T1-Alz" kind="presentation" identifier="addCustomerItem" id="5eR-Kj-OF9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhh-r3-WZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -939,7 +939,7 @@
         <image name="favorite" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5eR-Kj-OF9"/>
         <segue reference="fgr-qk-9Nd"/>
-        <segue reference="aAj-OX-7gV"/>
     </inferredMetricsTieBreakers>
 </document>

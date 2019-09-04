@@ -110,7 +110,11 @@ class CustomerListTableViewController: UITableViewController {
                 
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.pageData = pageData
+                destinationController.shipping = shipping
             }
+        } else if segue.identifier == "addCustomerItem" {
+            let destinationController = segue.destination as! CustomerItemEditViewController
+            destinationController.shipping = shipping
         }
     }
 
