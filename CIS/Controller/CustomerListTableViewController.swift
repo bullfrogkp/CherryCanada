@@ -9,56 +9,53 @@
 import UIKit
 
 class CustomerListTableViewController: UITableViewController {
-
-    var shipping: ShippingMO!
-    var customers:[CustomerMO] = []
+    
+    var shipping: Shipping!
+    var modalView: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = shipping.items?.allObjects as! [ItemMO]? {
-            for item in items {
-                customers.append(item.customer!)
-            }
-            
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
-        } else {
+        if modalView {
             let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
             view.addSubview(navBar)
             
             let navItem = UINavigationItem(title: "添加货单")
             navItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
+            navItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: Selector(("cancel")))
             
             navBar.setItems([navItem], animated: false)
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
         }
     }
-
+    
     // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customers.count
+        // #warning Incomplete implementation, return the number of rows
+        return shipping.customers.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = customers[indexPath.row]
+        let customerDetail = shipping.customers[indexPath.row]
         var itemsTextArrar = [String]()
         
         cell.customerNameLabel.text = customerDetail.name
         
-        if let items = customerDetail.items?.allObjects as! [ItemMO]?{
-            for item in items {
-                itemsTextArrar.append("\(item.name) [\(item.quantity)]")
-            }
-            
-            cell.customerItemsLabel.numberOfLines = 0
-            cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
+        for item in customerDetail.items {
+            itemsTextArrar.append("\(item.name) [\(item.quantity)]")
         }
+        
+        cell.customerItemsLabel.numberOfLines = 0
+        cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
         
         return cell
     }
@@ -81,7 +78,7 @@ class CustomerListTableViewController: UITableViewController {
         return NSAttributedString(string: string,
                                   attributes: stringAttributes)
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCustomerDetail" {
@@ -102,7 +99,7 @@ class CustomerListTableViewController: UITableViewController {
             
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                let customer = customers[indexPath.row]
+                let customer = shipping.customers[indexPath.row]
                 var pageData = CustomerItemData()
                 
                 pageData.customerName = customer.name
@@ -110,15 +107,15 @@ class CustomerListTableViewController: UITableViewController {
                 
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.pageData = pageData
-                destinationController.shipping = shipping
             }
-        } else if segue.identifier == "addCustomerItem" {
-            let destinationController = segue.destination as! CustomerItemEditViewController
-            destinationController.shipping = shipping
         }
     }
-
+    
     @objc func addCustomerItem() {
         self.performSegue(withIdentifier: "addCustomerItem", sender: self)
+    }
+    
+    @objc func cancel() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -14,7 +14,8 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     @IBOutlet var emptyShippingView: UIView!
     
     var fetchResultController: NSFetchedResultsController<ShippingMO>!
-    var shippings: [ShippingMO] = []
+    var shippings: [Shipping] = []
+    var shippingMOs: [ShippingMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,37 +36,13 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             do {
                 try fetchResultController.performFetch()
                 if let fetchedObjects = fetchResultController.fetchedObjects {
-                    shippings = fetchedObjects
+                    shippingMOs = fetchedObjects
+                    shippings = convertToShipping(shippingMOs)
                 }
             } catch {
                 print(error)
             }
         }
-        /*
-        let items1: [Item] = [
-            Item(comment: "Item1", image: "test", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
-            Item(comment: "Item2", image: "test2", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
-        ]
-        
-        let items2: [Item] = [
-            Item(comment: "Item1", image: "test2", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
-        ]
-        
-        let customers1 = [
-            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1),
-            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: items2)
-        ]
-        
-        let customers2 = [
-            Customer(name: "Kevin2", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1)
-        ]
-        
-        shippings = [
-            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", customers: customers1),
-            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", customers: customers2)
-        ]
-        */
-        
     }
 
     // MARK: - Table view data source
@@ -96,9 +73,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
         
         cell.shippingCityLabel.text = shippingDetail.city
-        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate!)
+        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
-        cell.shippingDepositLabel.text = "\(shippingDetail.deposit ?? 0)"
+        cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
         
         return cell
     }
@@ -120,44 +97,42 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
                 let naviView: CustomerListTableViewController = tabBarC.viewControllers?[0] as! CustomerListTableViewController
                 
                 naviView.shipping = shippings[indexPath.row]
+                naviView.modalView = false
             }
-        } else if segue.identifier == "addCustomerItem" {
+        } else if segue.identifier == "addShipping" {
             let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
             let naviView: CustomerListTableViewController = tabBarC.viewControllers?[0] as! CustomerListTableViewController
             
-            naviView.shipping = ShippingMO()
+            naviView.shipping = Shipping()
+            naviView.modalView = true
         }
     }
     
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
-        switch type {
-        case .insert:
-            if let newIndexPath = newIndexPath {
-                tableView.insertRows(at: [newIndexPath], with: .fade)
-            }
-        case .delete:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        case .update:
-            if let indexPath = indexPath {
-                tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-        default:
-            tableView.reloadData()
-        }
+        let items1: [Item] = [
+            Item(comment: "Item1", image: "test", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
+            Item(comment: "Item2", image: "test2", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
+        ]
         
-        if let fetchedObjects = controller.fetchedObjects {
-            shippings = fetchedObjects as! [ShippingMO]
-        }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+        let items2: [Item] = [
+            Item(comment: "Item1", image: "test2", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
+        ]
+        
+        let customers1 = [
+            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1),
+            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: items2)
+        ]
+        
+        let customers2 = [
+            Customer(name: "Kevin2", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1)
+        ]
+        
+        let shippings = [
+            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", customers: customers1),
+            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", customers: customers2)
+        ]
+        
+        return shippings
     }
 }
