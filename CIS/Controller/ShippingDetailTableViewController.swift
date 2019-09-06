@@ -31,8 +31,8 @@ class ShippingDetailTableViewController: UITableViewController {
         shippingDepositLabel.text = "\(shipping.deposit)"
         shippingCommentLabel.text = "\(shipping.comment)"
         
-        customerItemTableView.dataSource = self
-        customerItemTableView.delegate = self
+        customerItemTableView.dataSource = CustomerListTableViewController
+        customerItemTableView.delegate = CustomerListTableViewController
     }
 
     // MARK: - Table view data source
