@@ -88,23 +88,29 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showShippingDetail", sender: self)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShippingDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
-                let naviView: CustomerListTableViewController = tabBarC.viewControllers?[0] as! CustomerListTableViewController
+                let naviView: UINavigationController = tabBarC.viewControllers?[0] as! UINavigationController
+                let custView: CustomerListTableViewController = naviView.viewControllers[0] as! CustomerListTableViewController
                 
-                naviView.shipping = shippings[indexPath.row]
-                naviView.modalView = false
+                custView.shipping = shippings[indexPath.row]
+                custView.modalView = false
             }
         } else if segue.identifier == "addShipping" {
             let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
-            let naviView: CustomerListTableViewController = tabBarC.viewControllers?[0] as! CustomerListTableViewController
+            let naviView: UINavigationController = tabBarC.viewControllers?[0] as! UINavigationController
+            let custView: CustomerListTableViewController = naviView.viewControllers[0] as! CustomerListTableViewController
             
-            naviView.shipping = Shipping()
-            naviView.modalView = true
+            custView.shipping = Shipping()
+            custView.modalView = true
         }
     }
     
