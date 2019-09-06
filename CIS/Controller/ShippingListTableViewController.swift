@@ -96,21 +96,14 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShippingDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
-                let naviView: UINavigationController = tabBarC.viewControllers?[0] as! UINavigationController
-                let custView: CustomerListTableViewController = naviView.viewControllers[0] as! CustomerListTableViewController
-                
-                custView.shipping = shippings[indexPath.row]
-                custView.modalView = false
-            }
-        } else if segue.identifier == "addShipping" {
-            let tabBarC : ShippingDetailViewController = segue.destination as! ShippingDetailViewController
-            let naviView: UINavigationController = tabBarC.viewControllers?[0] as! UINavigationController
-            let custView: CustomerListTableViewController = naviView.viewControllers[0] as! CustomerListTableViewController
             
-            custView.shipping = Shipping()
-            custView.modalView = true
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! ShippingDetailTableViewController
+                destinationController.shipping = shippings[indexPath.row]
+            }
+            
+        } else if segue.identifier == "addShipping" {
+            
         }
     }
     
