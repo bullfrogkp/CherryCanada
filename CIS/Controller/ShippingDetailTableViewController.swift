@@ -9,7 +9,15 @@
 import UIKit
 
 class ShippingDetailTableViewController: UITableViewController {
-
+    @IBOutlet weak var shippingDateLabel: UILabel!
+    @IBOutlet weak var shippingStatusLabel: UILabel!
+    @IBOutlet weak var shippingCityLabel: UILabel!
+    @IBOutlet weak var shippingCostLabel: UILabel!
+    @IBOutlet weak var shippingDepositLabel: UILabel!
+    @IBOutlet weak var shippingCommentLabel: UILabel!
+    
+    @IBOutlet weak var customerItemTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

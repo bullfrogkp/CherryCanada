@@ -754,10 +754,10 @@
             </objects>
             <point key="canvasLocation" x="1124" y="54.422788605697157"/>
         </scene>
-        <!--Shipping Detail Table View Controller-->
+        <!--货单-->
         <scene sceneID="oo8-Qi-nJF">
             <objects>
-                <tableViewController id="a2H-7I-kpA" customClass="ShippingDetailTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="货单" id="a2H-7I-kpA" customClass="ShippingDetailTableViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Az-H7-gEL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -943,6 +943,15 @@
                         </connections>
                     </tableView>
                     <size key="freeformSize" width="375" height="967"/>
+                    <connections>
+                        <outlet property="customerItemTableView" destination="v7G-Wl-RHg" id="db1-P9-0SC"/>
+                        <outlet property="shippingCityLabel" destination="2Pw-AL-OA9" id="hNy-UX-64Y"/>
+                        <outlet property="shippingCommentLabel" destination="UVQ-Kf-j85" id="bif-ek-SYk"/>
+                        <outlet property="shippingCostLabel" destination="j3b-md-wOC" id="zNP-PJ-Ks0"/>
+                        <outlet property="shippingDateLabel" destination="hqo-lG-9IB" id="KjK-hC-X3k"/>
+                        <outlet property="shippingDepositLabel" destination="nhw-Of-mnK" id="3C2-zy-UYo"/>
+                        <outlet property="shippingStatusLabel" destination="nvq-bV-cVq" id="OZm-4W-JRb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAG-OM-kcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
