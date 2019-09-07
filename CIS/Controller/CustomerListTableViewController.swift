@@ -11,23 +11,9 @@ import UIKit
 class CustomerListTableViewController: UITableViewController {
     
     var shipping: Shipping!
-    var modalView: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if modalView {
-            let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-            view.addSubview(navBar)
-            
-            let navItem = UINavigationItem(title: "添加货单")
-            navItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
-            navItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: Selector(("cancel")))
-            
-            navBar.setItems([navItem], animated: false)
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
-        }
     }
     
     // MARK: - Table view data source
@@ -108,22 +94,6 @@ class CustomerListTableViewController: UITableViewController {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.pageData = pageData
             }
-        } else if segue.identifier == "addCustomer" {
-            var pageData = CustomerItemData()
-            
-            pageData.customerName = ""
-            pageData.images = []
-            
-            let destinationController = segue.destination as! CustomerItemEditViewController
-            destinationController.pageData = pageData
-        }
-    }
-    
-    @objc func addCustomerItem() {
-        self.performSegue(withIdentifier: "addCustomerItem", sender: self)
-    }
-    
-    @objc func cancel() {
-        self.dismiss(animated: true, completion: nil)
+        } 
     }
 }

@@ -34,4 +34,18 @@ class ShippingDetailTableViewController: UITableViewController {
         customerItemTableView.dataSource = CustomerListTableViewController()
         customerItemTableView.delegate = CustomerListTableViewController()
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addCustomer" {
+            var pageData = CustomerItemData()
+            
+            pageData.customerName = ""
+            pageData.images = []
+            
+            let destinationController = segue.destination as! CustomerItemEditViewController
+            destinationController.pageData = pageData
+            destinationController.modalView = true
+        }
+    }
 }
