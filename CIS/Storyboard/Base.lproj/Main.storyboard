@@ -819,7 +819,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="编辑"/>
                                                     <connections>
-                                                        <segue destination="TDh-24-JOR" kind="presentation" id="uat-5N-N6J"/>
+                                                        <segue destination="TDh-24-JOR" kind="presentation" identifier="editShippingInfo" id="uat-5N-N6J"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="货单信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoP-YA-M3B">
@@ -858,7 +858,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="添加"/>
                                                     <connections>
-                                                        <segue destination="CmB-KA-nGx" kind="presentation" id="yU0-wF-YAW"/>
+                                                        <segue destination="CmB-KA-nGx" kind="presentation" identifier="addCustomer" id="yU0-wF-YAW"/>
                                                     </connections>
                                                 </button>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7G-Wl-RHg">
@@ -890,7 +890,7 @@
                                                                 </subviews>
                                                             </tableViewCellContentView>
                                                             <connections>
-                                                                <segue destination="ebj-hp-FVD" kind="show" id="eB7-nW-es1"/>
+                                                                <segue destination="ebj-hp-FVD" kind="show" identifier="showCustomerDetail" id="eB7-nW-es1"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>

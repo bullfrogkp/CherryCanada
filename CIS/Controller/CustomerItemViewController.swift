@@ -33,7 +33,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var pageData: CustomerItemData!
-    var shipping: ShippingMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()

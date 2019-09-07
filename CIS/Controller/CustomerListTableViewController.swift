@@ -108,6 +108,14 @@ class CustomerListTableViewController: UITableViewController {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.pageData = pageData
             }
+        } else if segue.identifier == "addCustomer" {
+            var pageData = CustomerItemData()
+            
+            pageData.customerName = ""
+            pageData.images = []
+            
+            let destinationController = segue.destination as! CustomerItemEditViewController
+            destinationController.pageData = pageData
         }
     }
     
