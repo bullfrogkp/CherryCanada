@@ -89,10 +89,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         }    
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showShippingDetail", sender: self)
-    }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShippingDetail" {
