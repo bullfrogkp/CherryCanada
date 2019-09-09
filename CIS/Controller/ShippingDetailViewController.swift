@@ -24,13 +24,29 @@ class ShippingDetailViewController: UIViewController {
             shipping = Shipping()
         }
         
-        shipping.shippingDate = shippingDateTextField.text
-        shipping.shippingStatus = shippingStatusTextField.text = shipping.shippingStatus
-        shipping.shippingCity = shippingCityTextField.text = shipping.shippingCity
-        shipping.shippingFeeNational = shippingFeeNationalTextField.text = shipping.shippingFeeNational
-        shipping.shippingFeeInternational = shippingFeeInternationalTextField.text = shipping.shippingFeeInternational
-        shipping.shippingDeposit = shippingDepositTextField.text = shipping.shippingDeposit
-        shipping.shippingComment = shippingCommentTextField.text = shipping.shippingComment
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        shipping!.shippingDate = dateFormatter.date(from: shippingDateTextField.text!)!
+        
+        shipping!.shippingStatus = shippingStatusTextField.text!
+        shipping!.city = shippingCityTextField.text!
+        shipping!.comment = shippingCommentTextField.text!
+        
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        
+        if let formattedNumber = formatter.number(from: shippingFeeNationalTextField.text!) as? NSDecimalNumber  {
+            shipping!.priceNational = formattedNumber as Decimal
+        }
+        
+        if let formattedNumber = formatter.number(from: shippingFeeInternationalTextField.text!) as? NSDecimalNumber  {
+            shipping!.priceInternational = formattedNumber as Decimal
+        }
+        
+        if let formattedNumber = formatter.number(from: shippingDepositTextField.text!) as? NSDecimalNumber  {
+            shipping!.deposit = formattedNumber as Decimal
+        }
     }
     
     var shipping: Shipping?
@@ -38,12 +54,24 @@ class ShippingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        shippingDateTextField.text = shipping?.shippingDate ?? ""
-        shippingStatusTextField.text = shipping?.shippingStatus ?? ""
-        shippingCityTextField.text = shipping?.shippingCity ?? ""
-        shippingFeeNationalTextField.text = shipping?.shippingFeeNational ?? ""
-        shippingFeeInternationalTextField.text = shipping?.shippingFeeInternational ?? ""
-        shippingDepositTextField.text = shipping?.shippingDeposit ?? ""
-        shippingCommentTextField.text = shipping?.shippingComment ?? ""
+        if shipping == nil {
+            shippingDateTextField.text = "\(shipping!.shippingDate)"
+            shippingStatusTextField.text = "\(shipping!.shippingStatus)"
+            shippingCityTextField.text = "\(shipping!.city)"
+            shippingFeeNationalTextField.text = "\(shipping!.priceNational)"
+            shippingFeeInternationalTextField.text = "\(shipping!.priceInternational)"
+            shippingDepositTextField.text = "\(shipping!.deposit)"
+            shippingCommentTextField.text = "\(shipping!.comment)"
+        }   else {
+            shippingDateTextField.text = ""
+            shippingStatusTextField.text = ""
+            shippingCityTextField.text = ""
+            shippingFeeNationalTextField.text = ""
+            shippingFeeInternationalTextField.text = ""
+            shippingDepositTextField.text = ""
+            shippingCommentTextField.text = ""
+        }
+        
+       
     }
 }
