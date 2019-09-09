@@ -38,7 +38,7 @@ class ShippingDetailViewController: UIViewController {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         shipping!.shippingDate = dateFormatter.date(from: shippingDateTextField.text!)!
         
         shipping!.shippingStatus = shippingStatusTextField.text!
@@ -71,7 +71,11 @@ class ShippingDetailViewController: UIViewController {
         super.viewDidLoad()
 
         if shipping != nil {
-            shippingDateTextField.text = "\(shipping!.shippingDate)"
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+            
+            shippingDateTextField.text = dateFormatterPrint.string(from: shipping!.shippingDate)
             shippingStatusTextField.text = "\(shipping!.shippingStatus)"
             shippingCityTextField.text = "\(shipping!.city)"
             shippingFeeNationalTextField.text = "\(shipping!.priceNational)"
