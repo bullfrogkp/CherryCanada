@@ -40,19 +40,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customerItemTableView.dataSource = self
         
         customerItemTableView.backgroundColor = UIColor.white
-        
-        if modalView {
-            let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-            view.addSubview(navBar)
-            
-            let navItem = UINavigationItem(title: "添加")
-            navItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
-            navItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: Selector(("cancel")))
-            
-            navBar.setItems([navItem], animated: false)
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: .plain, target: self, action: Selector(("addCustomerItem")))
-        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

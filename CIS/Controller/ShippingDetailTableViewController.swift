@@ -46,6 +46,9 @@ class ShippingDetailTableViewController: UITableViewController {
             let destinationController = segue.destination as! CustomerItemEditViewController
             destinationController.pageData = pageData
             destinationController.modalView = true
+        } else if segue.identifier == "editShippingDetail" {
+            let destinationController = segue.destination as! ShippingDetailViewController
+            destinationController.shipping = shipping
         }
     }
 }

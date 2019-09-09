@@ -473,7 +473,7 @@
                     <connections>
                         <outlet property="customerItemTableView" destination="HTc-Df-as3" id="0vu-zJ-PD7"/>
                         <outlet property="customerNameLabel" destination="1O0-r6-dtk" id="3Jd-3k-HLr"/>
-                        <segue destination="CmB-KA-nGx" kind="presentation" id="1ZG-1F-RM2"/>
+                        <segue destination="giW-2U-aqm" kind="presentation" id="1ZG-1F-RM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xch-tF-yvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,11 +542,29 @@
                         <viewLayoutGuide key="safeArea" id="8AB-8h-6i7"/>
                     </view>
                     <navigationItem key="navigationItem" id="bhd-fD-tF3">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="Vwu-dg-QbC"/>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="mRd-uQ-yty"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="Vwu-dg-QbC">
+                            <connections>
+                                <segue destination="bMz-5H-Vcs" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Rck-dy-oig"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="mRd-uQ-yty">
+                            <connections>
+                                <action selector="saveData:" destination="g5f-l0-LEk" id="EUG-6s-OsU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="shippingCityTextField" destination="vl4-Nw-OiR" id="1nw-mG-AQO"/>
+                        <outlet property="shippingCommentTextField" destination="hr2-qY-itF" id="diC-Wd-mHt"/>
+                        <outlet property="shippingDateTextField" destination="fTE-y5-i0G" id="qRY-5q-ipm"/>
+                        <outlet property="shippingDepositTextField" destination="oSw-ww-gVZ" id="bPP-MI-OtC"/>
+                        <outlet property="shippingFeeInternationalTextField" destination="hUt-ac-Gvk" id="6Kw-oQ-pDm"/>
+                        <outlet property="shippingFeeNationalTextField" destination="l6R-34-8Jk" id="MuT-sm-oRk"/>
+                        <outlet property="shippingStatusTextField" destination="2rn-sZ-azh" id="z9i-V7-ymR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwH-e0-OC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bMz-5H-Vcs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4048.8000000000002" y="-315.29235382308849"/>
         </scene>
@@ -559,7 +577,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbs-gE-g4J">
-                                <rect key="frame" x="16" y="78" width="343" height="30"/>
+                                <rect key="frame" x="16" y="122" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="添加图片">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -569,13 +587,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="客户名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-OF-odJ">
-                                <rect key="frame" x="16" y="40" width="343" height="30"/>
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fb8-lX-sPr">
-                                <rect key="frame" x="16" y="116" width="343" height="535"/>
+                                <rect key="frame" x="16" y="160" width="343" height="491"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerItemId" rowHeight="344" id="D4z-Uq-BSV" customClass="CustomerItemEditTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -668,7 +686,7 @@
                     <navigationItem key="navigationItem" id="wfY-Xe-7lA">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="uof-8o-T0L">
                             <connections>
-                                <segue destination="bl7-MN-hog" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Ffw-iS-d6R"/>
+                                <segue destination="bl7-MN-hog" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="zrf-df-Ewb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="cRW-Wu-gtY">
@@ -685,7 +703,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7o-TB-Vdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bl7-MN-hog" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4916" y="46.326836581709152"/>
+            <point key="canvasLocation" x="5840.8000000000002" y="81.409295352323838"/>
         </scene>
         <!--货单列表-->
         <scene sceneID="t1P-wa-W8b">
@@ -898,7 +916,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="添加"/>
                                                     <connections>
-                                                        <segue destination="CmB-KA-nGx" kind="presentation" identifier="addCustomer" id="yU0-wF-YAW"/>
+                                                        <segue destination="giW-2U-aqm" kind="presentation" identifier="addCustomer" id="yU0-wF-YAW"/>
                                                     </connections>
                                                 </button>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7G-Wl-RHg">
@@ -1041,9 +1059,27 @@
             </objects>
             <point key="canvasLocation" x="3109.5999999999999" y="-315.29235382308849"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xhK-xe-9m8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="giW-2U-aqm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zpl-WB-4iZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CmB-KA-nGx" kind="relationship" relationship="rootViewController" id="Qv1-iK-rjv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdt-KL-qht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4901.6000000000004" y="81.409295352323838"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eXT-mG-Iad"/>
         <segue reference="yU0-wF-YAW"/>
+        <segue reference="eXT-mG-Iad"/>
     </inferredMetricsTieBreakers>
 </document>

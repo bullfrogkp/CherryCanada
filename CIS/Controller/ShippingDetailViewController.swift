@@ -10,21 +10,40 @@ import UIKit
 
 class ShippingDetailViewController: UIViewController {
 
+    @IBOutlet weak var shippingDateTextField: UITextField!
+    @IBOutlet weak var shippingStatusTextField: UITextField!
+    @IBOutlet weak var shippingCityTextField: UITextField!
+    @IBOutlet weak var shippingFeeNationalTextField: UITextField!
+    @IBOutlet weak var shippingFeeInternationalTextField: UITextField!
+    @IBOutlet weak var shippingDepositTextField: UITextField!
+    @IBOutlet weak var shippingCommentTextField: UITextField!
+    
+    @IBAction func saveData(_ sender: Any) {
+        
+        if shipping == nil {
+            shipping = Shipping()
+        }
+        
+        shipping.shippingDate = shippingDateTextField.text
+        shipping.shippingStatus = shippingStatusTextField.text = shipping.shippingStatus
+        shipping.shippingCity = shippingCityTextField.text = shipping.shippingCity
+        shipping.shippingFeeNational = shippingFeeNationalTextField.text = shipping.shippingFeeNational
+        shipping.shippingFeeInternational = shippingFeeInternationalTextField.text = shipping.shippingFeeInternational
+        shipping.shippingDeposit = shippingDepositTextField.text = shipping.shippingDeposit
+        shipping.shippingComment = shippingCommentTextField.text = shipping.shippingComment
+    }
+    
+    var shipping: Shipping?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        shippingDateTextField.text = shipping?.shippingDate ?? ""
+        shippingStatusTextField.text = shipping?.shippingStatus ?? ""
+        shippingCityTextField.text = shipping?.shippingCity ?? ""
+        shippingFeeNationalTextField.text = shipping?.shippingFeeNational ?? ""
+        shippingFeeInternationalTextField.text = shipping?.shippingFeeInternational ?? ""
+        shippingDepositTextField.text = shipping?.shippingDeposit ?? ""
+        shippingCommentTextField.text = shipping?.shippingComment ?? ""
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
