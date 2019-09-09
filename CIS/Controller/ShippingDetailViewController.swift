@@ -20,8 +20,18 @@ class ShippingDetailViewController: UIViewController {
     
     @IBAction func saveData(_ sender: Any) {
         
+        if shippingDateTextField.text == "" {
+            let alertController = UIAlertController(title: "必填项目", message: "请填写日期", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
         if shipping == nil {
             shipping = Shipping()
+            shippings.append(shipping!)
         }
         
         let dateFormatter = DateFormatter()
@@ -47,9 +57,12 @@ class ShippingDetailViewController: UIViewController {
         if let formattedNumber = formatter.number(from: shippingDepositTextField.text!) as? NSDecimalNumber  {
             shipping!.deposit = formattedNumber as Decimal
         }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     var shipping: Shipping?
+    var shippings: [Shipping]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
