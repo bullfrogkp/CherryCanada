@@ -47,8 +47,9 @@ class ShippingDetailTableViewController: UITableViewController {
             destinationController.pageData = pageData
             destinationController.modalView = true
         } else if segue.identifier == "editShippingDetail" {
-            let destinationController = segue.destination as! ShippingDetailViewController
-            destinationController.shipping = shipping
+            let naviView: UINavigationController = segue.destination as!  UINavigationController
+            let shippingView: ShippingDetailViewController = naviView.viewControllers[0] as! ShippingDetailViewController
+            shippingView.shipping = shipping
         }
     }
 }
