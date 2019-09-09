@@ -96,6 +96,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! ShippingDetailTableViewController
                 destinationController.shipping = shippings[indexPath.row]
+                destinationController.shippings = shippings
             }
             
         } else if segue.identifier == "addShipping" {

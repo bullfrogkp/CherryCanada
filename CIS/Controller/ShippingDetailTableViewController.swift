@@ -19,6 +19,7 @@ class ShippingDetailTableViewController: UITableViewController {
     @IBOutlet weak var customerItemTableView: UITableView!
     
     var shipping: Shipping!
+    var shippings: [Shipping]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,7 @@ class ShippingDetailTableViewController: UITableViewController {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingDetailViewController = naviView.viewControllers[0] as! ShippingDetailViewController
             shippingView.shipping = shipping
+            shippingView.shippings = shippings
         }
     }
 }

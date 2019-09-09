@@ -544,7 +544,7 @@
                     <navigationItem key="navigationItem" id="bhd-fD-tF3">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="Vwu-dg-QbC">
                             <connections>
-                                <segue destination="bMz-5H-Vcs" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Rck-dy-oig"/>
+                                <action selector="unwind:" destination="g5f-l0-LEk" id="kwL-BF-zfr"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="mRd-uQ-yty">
@@ -564,7 +564,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwH-e0-OC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bMz-5H-Vcs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4048.8000000000002" y="-315.29235382308849"/>
         </scene>

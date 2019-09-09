@@ -18,6 +18,9 @@ class ShippingDetailViewController: UIViewController {
     @IBOutlet weak var shippingDepositTextField: UITextField!
     @IBOutlet weak var shippingCommentTextField: UITextField!
     
+    @IBAction func unwind(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func saveData(_ sender: Any) {
         
         if shippingDateTextField.text == "" {
@@ -67,7 +70,7 @@ class ShippingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if shipping == nil {
+        if shipping != nil {
             shippingDateTextField.text = "\(shipping!.shippingDate)"
             shippingStatusTextField.text = "\(shipping!.shippingStatus)"
             shippingCityTextField.text = "\(shipping!.city)"
@@ -84,7 +87,5 @@ class ShippingDetailViewController: UIViewController {
             shippingDepositTextField.text = ""
             shippingCommentTextField.text = ""
         }
-        
-       
     }
 }
