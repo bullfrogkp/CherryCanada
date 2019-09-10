@@ -32,8 +32,11 @@ class ShippingDetailTableViewController: UITableViewController {
         shippingDepositLabel.text = "\(shipping.deposit)"
         shippingCommentLabel.text = "\(shipping.comment)"
         
-        customerItemTableView.dataSource = CustomerListTableViewController()
-        customerItemTableView.delegate = CustomerListTableViewController()
+        var customerListController = CustomerListTableViewController()
+        customerListController.shipping = shipping
+        
+        customerItemTableView.dataSource = customerListController
+        customerItemTableView.delegate = customerListController
     }
     
     // MARK: - Navigation
@@ -44,9 +47,10 @@ class ShippingDetailTableViewController: UITableViewController {
             pageData.customerName = ""
             pageData.images = []
             
-            let destinationController = segue.destination as! CustomerItemEditViewController
-            destinationController.pageData = pageData
-            destinationController.modalView = true
+            let naviView: UINavigationController = segue.destination as!  UINavigationController
+            let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
+            
+            customerView.pageData = pageData
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingDetailViewController = naviView.viewControllers[0] as! ShippingDetailViewController

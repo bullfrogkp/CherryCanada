@@ -13,6 +13,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
     
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -29,7 +33,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var pageData: CustomerItemData!
-    var modalView: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
