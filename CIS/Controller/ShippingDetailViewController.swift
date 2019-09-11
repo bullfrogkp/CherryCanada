@@ -51,7 +51,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             customerView.pageData = pageData
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
-            let shippingView: ShippingDetailViewController = naviView.viewControllers[0] as! ShippingDetailViewController
+            let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
             shippingView.shipping = shipping
             shippingView.shippings = shippings
         } else if segue.identifier == "showCustomerDetail" {

@@ -695,10 +695,10 @@
             </objects>
             <point key="canvasLocation" x="3111" y="416"/>
         </scene>
-        <!--Shipping Detail View Controller-->
+        <!--Shipping Info View Controller-->
         <scene sceneID="BUH-Up-38z">
             <objects>
-                <viewController id="g5f-l0-LEk" customClass="ShippingDetailViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g5f-l0-LEk" customClass="ShippingInfoViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GSM-wX-2eJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
