@@ -25,7 +25,10 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shippingDateLabel.text = "\(shipping.shippingDate)"
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+        
+        shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate)
         shippingStatusLabel.text = shipping.shippingStatus
         shippingCityLabel.text = shipping.city
         shippingPriceNationalLabel.text = "\(shipping.priceNational)"
@@ -109,6 +112,10 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func bulletPointList(strings: [String]) -> NSAttributedString {
