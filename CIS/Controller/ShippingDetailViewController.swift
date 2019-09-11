@@ -19,6 +19,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var shippingCommentLabel: UILabel!
     @IBOutlet weak var customerItemTableView: UITableView!
     
+    @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var shippings: [Shipping]!
     
@@ -38,6 +39,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
     }
     
     // MARK: - Navigation

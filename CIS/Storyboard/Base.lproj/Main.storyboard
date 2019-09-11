@@ -310,12 +310,13 @@
         <scene sceneID="hiL-du-yRo">
             <objects>
                 <viewController id="Vn0-97-p9h" customClass="ShippingDetailViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="seB-2C-55L">
+                    <view key="view" contentMode="scaleToFill" id="seB-2C-55L" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-vP-iJz">
-                                <rect key="frame" x="16" y="36" width="343" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-vP-iJz">
+                                <rect key="frame" x="16" y="36" width="300.5" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="货单信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxB-DM-2eC">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="30"/>
@@ -324,7 +325,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZA-NJ-Fdf">
-                                        <rect key="frame" x="269.5" y="0.0" width="73.5" height="30"/>
+                                        <rect key="frame" x="269.5" y="0.0" width="31" height="30"/>
                                         <state key="normal" title="编辑"/>
                                         <connections>
                                             <segue destination="8KJ-JF-QcB" kind="presentation" identifier="editShippingDetail" id="8CE-QC-JYY"/>
@@ -332,8 +333,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-ZU-tW5">
-                                <rect key="frame" x="16" y="82" width="343" height="161.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-ZU-tW5">
+                                <rect key="frame" x="16" y="82" width="199.5" height="161.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="shippingDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb0-Kc-hOx">
                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="20.5"/>
@@ -461,8 +463,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="CtY-FM-RDh">
-                                <rect key="frame" x="16" y="259.5" width="343" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="CtY-FM-RDh">
+                                <rect key="frame" x="16" y="259.5" width="300.5" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkx-LX-bTt">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="30"/>
@@ -471,7 +474,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuC-h7-Muh">
-                                        <rect key="frame" x="269.5" y="0.0" width="73.5" height="30"/>
+                                        <rect key="frame" x="269.5" y="0.0" width="31" height="30"/>
                                         <state key="normal" title="添加"/>
                                         <connections>
                                             <segue destination="giW-2U-aqm" kind="presentation" identifier="addCustomer" id="zd2-nt-ntf"/>
@@ -481,24 +484,12 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="aNa-ZU-tW5" firstAttribute="top" secondItem="8kW-vP-iJz" secondAttribute="bottom" constant="16" id="0cL-cl-Mxu"/>
-                            <constraint firstItem="CtY-FM-RDh" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="59Z-Nc-jSo"/>
-                            <constraint firstItem="CtY-FM-RDh" firstAttribute="top" secondItem="aNa-ZU-tW5" secondAttribute="bottom" constant="16" id="KiY-oq-7vs"/>
-                            <constraint firstItem="0Sq-m0-KbC" firstAttribute="trailing" secondItem="8kW-vP-iJz" secondAttribute="trailing" constant="16" id="Ogz-ZA-pax"/>
-                            <constraint firstItem="aNa-ZU-tW5" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="SEE-wO-61h"/>
-                            <constraint firstItem="8kW-vP-iJz" firstAttribute="top" secondItem="0Sq-m0-KbC" secondAttribute="top" constant="16" id="XFn-uJ-fq1"/>
-                            <constraint firstItem="8kW-vP-iJz" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="adh-VY-Woz"/>
-                            <constraint firstItem="0Sq-m0-KbC" firstAttribute="trailing" secondItem="CtY-FM-RDh" secondAttribute="trailing" constant="16" id="dk9-cO-boG"/>
-                            <constraint firstItem="0Sq-m0-KbC" firstAttribute="trailing" secondItem="aNa-ZU-tW5" secondAttribute="trailing" constant="16" id="nm3-Y7-vwy"/>
-                            <constraint firstItem="CtY-FM-RDh" firstAttribute="top" secondItem="aNa-ZU-tW5" secondAttribute="bottom" constant="16" id="t2I-pv-gYf"/>
-                            <constraint firstItem="aNa-ZU-tW5" firstAttribute="top" secondItem="8kW-vP-iJz" secondAttribute="bottom" constant="16" id="xXd-ba-ZUQ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Sq-m0-KbC"/>
                     </view>
                     <size key="freeformSize" width="375" height="967"/>
                     <connections>
                         <outlet property="customerItemTableView" destination="ueG-ae-dql" id="9lw-TD-eqc"/>
+                        <outlet property="scrollView" destination="seB-2C-55L" id="Dgc-aq-OGM"/>
                         <outlet property="shippingCityLabel" destination="1i3-8c-j8K" id="Qyk-Oa-jhT"/>
                         <outlet property="shippingCommentLabel" destination="Y2e-Mn-eUW" id="IjE-e8-79x"/>
                         <outlet property="shippingDateLabel" destination="kb0-Kc-hOx" id="odh-FN-wK1"/>
