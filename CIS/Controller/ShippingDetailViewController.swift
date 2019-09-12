@@ -22,8 +22,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var shippings: [Shipping]!
-    var customers = [CustomerData]
-    var images = [ImageData]
+    var customers: [CustomerData] = []
+    var images:[ImageData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,20 +46,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
        
         var itemFoundInCustomer = false
-        var itemFoundInImage = false
+        var itemFoundInCustomerImage = false
         
         for item in shipping.items {
             itemFoundInCustomer = false
             for customer in customers {
                 if(customer === item.customer) {
+                    itemFoundInCustomerImage = false
                     for image in customer.images {
                         if(image === item.image) {
                             image.items.append(item)
+                            itemFoundInCustomerImage = true
                             break
                         }
                     }
                     
-                    if(itemFoundInImage == false) {
+                    if(itemFoundInCustomerImage == false) {
                         image = customer.images.append(item.image)
                         image.items.append(item)
                     }
@@ -72,21 +74,21 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if(itemFoundInCustomer == false) {
                 customers.append(item.customer)
             }
-            
-            
-            
-            itemFoundInImage = false
-            for image in images {
-                if(image === item.image) {
-                    images.items.append(item)
-                    itemFoundInImage = true
-                    break
-                }
-            }
-            
-            if(itemFoundInImage == false) {
-                images.append(item.image)
-            }
+//
+//
+//
+//            itemFoundInImage = false
+//            for image in images {
+//                if(image === item.image) {
+//                    images.items.append(item)
+//                    itemFoundInImage = true
+//                    break
+//                }
+//            }
+//
+//            if(itemFoundInImage == false) {
+//                images.append(item.image)
+//            }
         }
     }
     
