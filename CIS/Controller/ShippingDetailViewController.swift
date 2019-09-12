@@ -52,7 +52,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             itemFoundInCustomer = false
             for customer in customers {
                 if(customer === item.customer) {
-                    customer.items.append(item)
+                    for image in customer.images {
+                        if(image === item.image) {
+                            image.items.append(item)
+                            break
+                        }
+                    }
+                    
+                    if(itemFoundInImage == false) {
+                        image = customer.images.append(item.image)
+                        image.items.append(item)
+                    }
+                    
                     itemFoundInCustomer = true
                     break
                 }
@@ -61,6 +72,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if(itemFoundInCustomer == false) {
                 customers.append(item.customer)
             }
+            
+            
             
             itemFoundInImage = false
             for image in images {
