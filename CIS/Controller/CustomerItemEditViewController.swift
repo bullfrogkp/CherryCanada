@@ -37,7 +37,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customerNameTextField.text = ""
+        customerNameTextField.text = pageData.customerName
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self

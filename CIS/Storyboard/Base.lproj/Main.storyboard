@@ -670,7 +670,7 @@
                     <connections>
                         <outlet property="customerItemTableView" destination="HTc-Df-as3" id="0vu-zJ-PD7"/>
                         <outlet property="customerNameLabel" destination="1O0-r6-dtk" id="3Jd-3k-HLr"/>
-                        <segue destination="giW-2U-aqm" kind="presentation" id="1ZG-1F-RM2"/>
+                        <segue destination="giW-2U-aqm" kind="presentation" identifier="editCustomerItem" id="1ZG-1F-RM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xch-tF-yvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1063,7 +1063,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zd2-nt-ntf"/>
+        <segue reference="1ZG-1F-RM2"/>
         <segue reference="3kn-sg-ChC"/>
     </inferredMetricsTieBreakers>
 </document>
