@@ -41,6 +41,40 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         customerItemTableView.delegate = self
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+        
+        var pageData = [Customer]
+        var customers = [Customer]
+        var images = [ItemImage]
+        var itemFoundInCustomer = false
+        var itemFoundInImage = false
+        
+        for item in shipping.items {
+            itemFoundInCustomer = false
+            for customer in customers {
+                if(customer === item.customer) {
+                    customer.items.append(item)
+                    itemFoundInCustomer = true
+                    break
+                }
+            }
+            
+            if(itemFoundInCustomer == false) {
+                customers.append(item.customer)
+            }
+            
+            itemFoundInImage = false
+            for image in images {
+                if(image === item.image) {
+                    images.items.append(item)
+                    itemFoundInImage = true
+                    break
+                }
+            }
+            
+            if(itemFoundInImage == false) {
+                images.append(item.image)
+            }
+        }
     }
     
     // MARK: - Navigation
