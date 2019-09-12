@@ -106,27 +106,24 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     
     func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
-        let items1: [Item] = [
-            Item(comment: "Item1", image: "test", name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3),
-            Item(comment: "Item2", image: "test2", name: "货物2", priceBought: 2.00, priceSold: 3.00, quantity: 5),
-        ]
         
-        let items2: [Item] = [
-            Item(comment: "Item1", image: "test2", name: "大货物1", priceBought: 10.00, priceSold: 22.00, quantity: 1)
-        ]
         
-        let customers1 = [
-            Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1),
-            Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: items2)
-        ]
+        let image1 = ItemImage(name: "test")
+        let image2 = ItemImage(name: "test2")
         
-        let customers2 = [
-            Customer(name: "Kevin2", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: items1)
-        ]
+        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy")
+        let customer2 = Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+        
+        let item1 = Item(comment: "Item1", image: image1, name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
+        
+        let item2 = Item(comment: "Item1", image: image2, name: "货物2", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
+        
+        let item3 = Item(comment: "Item1", image: image1, name: "货物3", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer2)
+        
         
         let shippings = [
-            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", customers: customers1),
-            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", customers: customers2)
+            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", items: [item1, item2]),
+            Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", items: [item2, item3])
         ]
         
         return shippings

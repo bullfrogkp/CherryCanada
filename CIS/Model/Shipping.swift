@@ -16,9 +16,9 @@ class Shipping {
     var priceNational: Decimal
     var shippingDate: Date
     var shippingStatus: String
-    var customers: [Customer]
+    var items: [Item]
     
-    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String, customers: [Customer]) {
+    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String, items: [Item]) {
         self.comment = comment
         self.deposit = deposit
         self.city = city
@@ -26,14 +26,10 @@ class Shipping {
         self.priceNational = priceNational
         self.shippingDate = shippingDate
         self.shippingStatus = shippingStatus
-        self.customers = customers
+        self.items = items
     }
     
     convenience init() {
-        
-        let cust = Customer()
-        cust.items = [Item()]
-        
-        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", customers: [cust])
+        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", items: [])
     }
 }

@@ -13,21 +13,15 @@ class Customer {
     var name: String
     var phone: String
     var wechat: String
-    var items: [Item]
     
-    init(name: String, phone: String, wechat: String, comment: String, items: [Item]) {
+    init(name: String, phone: String, wechat: String, comment: String) {
         self.comment = comment
         self.name = name
         self.phone = phone
         self.wechat = wechat
-        self.items = items
     }
     
     convenience init() {
-        self.init(name: "", phone: "", wechat: "", comment: "", items: [])
-    }
-    
-    func getImages() -> [ItemImage] {
-        return []
+        self.init(name: "", phone: "", wechat: "", comment: "")
     }
 }

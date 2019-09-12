@@ -10,18 +10,12 @@ import Foundation
 
 class ItemImage {
     var name: String
-    var items: [Item]
     
-    init(name: String, items: [Item]) {
+    init(name: String) {
         self.name = name
-        self.items = items
     }
     
     convenience init() {
-        self.init(name: "", items: [])
-    }
-    
-    func getCustomers() -> [Customer] {
-        return []
+        self.init(name: "")
     }
 }
