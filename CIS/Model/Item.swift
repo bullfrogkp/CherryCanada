@@ -10,14 +10,14 @@ import Foundation
 
 class Item {
     var comment: String
-    var image: ItemImage
+    var image: Image
     var customer: Customer
     var name: String
     var priceBought: Decimal
     var priceSold: Decimal
     var quantity: Int
     
-    init(comment: String, image: ItemImage, name: String, priceBought: Decimal, priceSold: Decimal, quantity: Int, customer: Customer) {
+    init(comment: String, image: Image, name: String, priceBought: Decimal, priceSold: Decimal, quantity: Int, customer: Customer) {
         self.comment = comment
         self.image = image
         self.name = name
@@ -28,6 +28,6 @@ class Item {
     }
     
     convenience init() {
-        self.init(comment: "", image: ItemImage(), name: "", priceBought: 0, priceSold: 0, quantity: 0, customer: Customer())
+        self.init(comment: "", image: Image(), name: "", priceBought: 0, priceSold: 0, quantity: 0, customer: Customer())
     }
 }

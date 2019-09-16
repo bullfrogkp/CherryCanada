@@ -1,5 +1,5 @@
 //
-//  ItemImage.swift
+//  Image.swift
 //  CIS
 //
 //  Created by Kevin Pan on 2019-08-21.
@@ -8,14 +8,16 @@
 
 import Foundation
 
-class ItemImage {
+class Image {
     var name: String
+    var items: [Item]
     
-    init(name: String) {
+    init(name: String, items: [Item]) {
         self.name = name
+        self.items = items
     }
     
     convenience init() {
-        self.init(name: "")
+        self.init(name: "", items: [])
     }
 }

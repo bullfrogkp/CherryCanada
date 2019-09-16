@@ -45,25 +45,28 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         
        
-        var itemFoundInCustomer = false
-        var itemFoundInCustomerImage = false
+        var foundCustomer = false
+        var foundImage = false
+        var customers: [Customer] = []
         
         for item in shipping.items {
-            itemFoundInCustomer = false
+            foundCustomer = false
             for customer in customers {
                 if(customer === item.customer) {
-                    itemFoundInCustomerImage = false
+                    foundImage = false
                     for image in customer.images {
                         if(image === item.image) {
                             image.items.append(item)
-                            itemFoundInCustomerImage = true
+                            foundImage = true
                             break
                         }
                     }
                     
-                    if(itemFoundInCustomerImage == false) {
-                        image = customer.images.append(item.image)
+                    if(foundImage == false) {
+                        var image = Image()
+                        image.name = item.image.name
                         image.items.append(item)
+                        customer.images.append(image)
                     }
                     
                     itemFoundInCustomer = true
