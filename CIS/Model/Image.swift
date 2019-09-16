@@ -11,13 +11,15 @@ import Foundation
 class Image {
     var name: String
     var items: [Item]
+    var customers: [Customer]
     
-    init(name: String, items: [Item]) {
+    init(name: String, items: [Item], customers: [Customer]) {
         self.name = name
         self.items = items
+        self.customers = customers
     }
     
     convenience init() {
-        self.init(name: "", items: [])
+        self.init(name: "", items: [], customers: [])
     }
 }

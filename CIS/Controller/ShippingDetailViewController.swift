@@ -63,35 +63,28 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                     
                     if(foundImage == false) {
-                        var image = Image()
+                        let image = Image()
                         image.name = item.image.name
                         image.items.append(item)
                         customer.images.append(image)
                     }
                     
-                    itemFoundInCustomer = true
+                    foundCustomer = true
                     break
                 }
             }
             
-            if(itemFoundInCustomer == false) {
-                customers.append(item.customer)
+            if(foundCustomer == false) {
+                let customer = Customer()
+                customer.name = item.customer.name
+                
+                let image = Image()
+                image.name = item.image.name
+                image.items.append(item)
+                customer.images.append(image)
+                
+                customers.append(customer)
             }
-//
-//
-//
-//            itemFoundInImage = false
-//            for image in images {
-//                if(image === item.image) {
-//                    images.items.append(item)
-//                    itemFoundInImage = true
-//                    break
-//                }
-//            }
-//
-//            if(itemFoundInImage == false) {
-//                images.append(item.image)
-//            }
         }
     }
     
