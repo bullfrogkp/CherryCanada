@@ -18,6 +18,20 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func saveCustomerItem(_ sender: Any) {
+        
+        customer.name = customerNameTextField.text!
+        
+        for (section,img) in customer!.images.enumerated() {
+            for (row,itm) in img.items.enumerated() {
+                
+                let indexPath = IndexPath(row: row, section: section)
+                let currentCell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
+                
+                itm.name = currentCell.nameTextField.text!
+            }
+        }
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     
