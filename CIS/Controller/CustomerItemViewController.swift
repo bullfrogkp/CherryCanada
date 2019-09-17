@@ -24,6 +24,9 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
+            self.customer.active = false
+            self.shippingDetailViewController.deleteCell(rowIndex: self.cellIndex)
+            
             self.navigationController?.popViewController(animated: true)
         })
         optionMenu.addAction(checkInAction)
@@ -33,7 +36,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var customer: Customer!
-    var shipping: Shipping!
+    var cellIndex: Int!
+    var shippingDetailViewController: ShippingDetailViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

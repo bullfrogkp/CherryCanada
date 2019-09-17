@@ -127,7 +127,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
             customerView.customer = Customer()
-            customerView.shipping = shipping
+            customerView.cellIndex = -1
+            customerView.shippingDetailViewController = self
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
@@ -136,7 +137,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.customer = customers[indexPath.row]
-                destinationController.shipping = shipping
+                destinationController.cellIndex = indexPath.row
+                destinationController.shippingDetailViewController = self
             }
         }
     }
@@ -190,5 +192,10 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         return NSAttributedString(string: string,
                                   attributes: stringAttributes)
+    }
+    
+    func deleteCell(rowIndex: Int) {
+        customers.remove(at: rowIndex)
+        customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
 }
