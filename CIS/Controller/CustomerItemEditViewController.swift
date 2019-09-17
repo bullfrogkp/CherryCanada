@@ -31,6 +31,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var customer: Customer!
+    var shipping: Shipping!
     
     override func viewDidLoad() {
         super.viewDidLoad()

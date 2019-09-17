@@ -91,6 +91,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
             customerView.customer = Customer()
+            customerView.shipping = shipping
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
@@ -99,6 +100,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.customer = customers[indexPath.row]
+                destinationController.shipping = shipping
             }
         }
     }
