@@ -127,8 +127,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
             customerView.customer = Customer()
-            customerView.cellIndex = -1
-            customerView.shippingDetailViewController = self
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
