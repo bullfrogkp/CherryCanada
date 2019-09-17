@@ -23,6 +23,27 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     var shipping: Shipping!
     var customers: [Customer] = []
     
+    @IBAction func deleteShipping(_ sender: Any) {
+        
+        let optionMenu = UIAlertController(title: nil, message: "操真的删除吗?", preferredStyle: .actionSheet)
+        
+        // Add actions to the menu
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        
+        let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            self.shipping.active = false
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+        optionMenu.addAction(checkInAction)
+        
+        // Display the menu
+        present(optionMenu, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
