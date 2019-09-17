@@ -18,10 +18,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var shippingDepositLabel: UILabel!
     @IBOutlet weak var shippingCommentLabel: UILabel!
     @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var customers: [Customer] = []
+    var cellIndex: Int!
+    var shippingListTableViewController: ShippingListTableViewController!
     
     @IBAction func deleteShipping(_ sender: Any) {
         
@@ -35,6 +38,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             (action:UIAlertAction!) -> Void in
             
             self.shipping.active = false
+            self.shippingListTableViewController.deleteCell(rowIndex: self.cellIndex)
             
             self.navigationController?.popViewController(animated: true)
         })
@@ -47,17 +51,20 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "yyyy-MM-dd"
-        
-        shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
-        shippingStatusLabel.text = shipping.shippingStatus
-        shippingCityLabel.text = shipping.city
-        shippingPriceNationalLabel.text = "\(shipping.priceNational)"
-        shippingPriceInternationalLabel.text = "\(shipping.priceInternational)"
-        shippingDepositLabel.text = "\(shipping.deposit)"
-        shippingCommentLabel.text = "\(shipping.comment)"
-        
+        if cellIndex != -1 {
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+            
+            shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
+            shippingStatusLabel.text = shipping.shippingStatus
+            shippingCityLabel.text = shipping.city
+            shippingPriceNationalLabel.text = "\(shipping.priceNational)"
+            shippingPriceInternationalLabel.text = "\(shipping.priceInternational)"
+            shippingDepositLabel.text = "\(shipping.deposit)"
+            shippingCommentLabel.text = "\(shipping.comment)"
+        } else {
+            deleteButton.isHidden = true
+        }
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
         

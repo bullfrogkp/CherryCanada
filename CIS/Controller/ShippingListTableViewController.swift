@@ -96,11 +96,15 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! ShippingDetailViewController
                 destinationController.shipping = shippings[indexPath.row]
+                destinationController.cellIndex = indexPath.row
+                destinationController.shippingListTableViewController = self
             }
             
-        } else if segue.identifier == "addShipping" {
+        } else if segue.identifier == "addShippingDetail" {
             let destinationController = segue.destination as! ShippingDetailViewController
             destinationController.shipping = Shipping()
+            destinationController.cellIndex = -1
+            destinationController.shippingListTableViewController = self
         }
     }
     
@@ -126,4 +130,10 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         
         return shippings
     }
+    
+    func deleteCell(rowIndex: Int) {
+        shippings.remove(at: rowIndex)
+        tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
+    }
+
 }

@@ -500,6 +500,7 @@
                     <size key="freeformSize" width="375" height="967"/>
                     <connections>
                         <outlet property="customerItemTableView" destination="ueG-ae-dql" id="9lw-TD-eqc"/>
+                        <outlet property="deleteButton" destination="lIB-et-KRR" id="C6B-vc-HXJ"/>
                         <outlet property="scrollView" destination="seB-2C-55L" id="Dgc-aq-OGM"/>
                         <outlet property="shippingCityLabel" destination="1i3-8c-j8K" id="Qyk-Oa-jhT"/>
                         <outlet property="shippingCommentLabel" destination="Y2e-Mn-eUW" id="IjE-e8-79x"/>
@@ -1074,7 +1075,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1ZG-1F-RM2"/>
+        <segue reference="zd2-nt-ntf"/>
         <segue reference="3kn-sg-ChC"/>
     </inferredMetricsTieBreakers>
 </document>
