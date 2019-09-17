@@ -25,6 +25,10 @@ class Customer {
         self.images = images
     }
     
+    convenience init(name: String) {
+        self.init(name: name, phone: "", wechat: "", comment: "", items: [], images: [])
+    }
+    
     convenience init() {
         self.init(name: "", phone: "", wechat: "", comment: "", items: [], images: [])
     }

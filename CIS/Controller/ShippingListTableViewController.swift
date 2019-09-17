@@ -106,8 +106,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     
     func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
-        
-        
         let image1 = Image(name: "test")
         let image2 = Image(name: "test2")
         

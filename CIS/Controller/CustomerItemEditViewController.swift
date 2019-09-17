@@ -32,12 +32,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customerItemTableView.reloadData()
     }
     
-    var pageData: CustomerItemData!
+    var customer: Customer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customerNameTextField.text = pageData.customerName
+        customerNameTextField.text = customer.name
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
@@ -46,17 +46,17 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pageData.images!.count
+        return customer.images.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pageData.images![section].items.count
+        return customer.images[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemEditTableViewCell
         
-        let item = pageData.images![indexPath.section].items[indexPath.row]
+        let item = customer.images[indexPath.section].items[indexPath.row]
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
@@ -75,7 +75,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 160))
         
         let itemImageView: UIImageView = {
-            let imageName = pageData.images![section].name
+            let imageName = customer.images[section].name
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
             imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -145,7 +145,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func addItem(sender:UIButton)
     {
-        pageData.images![sender.tag].items.insert(Item(), at: 0)
+        customer.images[sender.tag].items.insert(Item(), at: 0)
         
         let insertionIndexPath = NSIndexPath(row: 0, section: sender.tag)
         customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
@@ -153,14 +153,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func deleteImage(sender:UIButton)
     {
-        pageData.images?.remove(at: sender.tag)
+        customer.images.remove(at: sender.tag)
         customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
         customerItemTableView.reloadData()
     }
     
     func deleteCell(cell: UITableViewCell) {
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
-            pageData.images![deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
+            customer.images[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }

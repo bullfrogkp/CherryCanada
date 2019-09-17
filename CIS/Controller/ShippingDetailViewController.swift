@@ -22,8 +22,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var shippings: [Shipping]!
-    var customers: [CustomerData] = []
-    var images:[ImageData] = []
+    var customers: [Customer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +43,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         
-       
         var foundCustomer = false
         var foundImage = false
-        var customers: [Customer] = []
         
         for item in shipping.items {
             foundCustomer = false

@@ -19,6 +19,10 @@ class Image {
         self.customers = customers
     }
     
+    convenience init(name: String) {
+        self.init(name: name, items: [], customers: [])
+    }
+    
     convenience init() {
         self.init(name: "", items: [], customers: [])
     }

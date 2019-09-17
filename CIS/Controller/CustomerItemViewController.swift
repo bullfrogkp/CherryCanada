@@ -32,12 +32,12 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
-    var pageData: CustomerItemData!
+    var customer: Customer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customerNameLabel.text = pageData.customerName
+        customerNameLabel.text = customer.name
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
@@ -48,17 +48,17 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pageData.images?.count ?? 0
+        return customer.images.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pageData.images?[section].items.count ?? 0
+        return customer.images[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
         
-        let item = pageData.images![indexPath.section].items[indexPath.row]
+        let item = customer.images![indexPath.section].items[indexPath.row]
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"
@@ -77,7 +77,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         headerView.backgroundColor = UIColor.white
         
         let itemImageView: UIImageView = {
-            let imageName = pageData.images![section].name
+            let imageName = customer.images[section].name
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
             imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -103,7 +103,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "editCustomerItem" {
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
-            destinationController.pageData = pageData
+            destinationController.customer = customer
         }
     }
     
