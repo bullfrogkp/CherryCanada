@@ -15,21 +15,23 @@ class Customer {
     var wechat: String
     var items: [Item]
     var images: [Image]
+    var active: Bool
     
-    init(name: String, phone: String, wechat: String, comment: String, items: [Item], images: [Image]) {
+    init(name: String, phone: String, wechat: String, comment: String, items: [Item], images: [Image], active: Bool) {
         self.comment = comment
         self.name = name
         self.phone = phone
         self.wechat = wechat
         self.items = items
         self.images = images
+        self.active = active
     }
     
     convenience init(name: String) {
-        self.init(name: name, phone: "", wechat: "", comment: "", items: [], images: [])
+        self.init(name: name, phone: "", wechat: "", comment: "", items: [], images: [], active: true)
     }
     
     convenience init() {
-        self.init(name: "", phone: "", wechat: "", comment: "", items: [], images: [])
+        self.init(name: "", phone: "", wechat: "", comment: "", items: [], images: [], active: true)
     }
 }

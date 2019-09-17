@@ -12,18 +12,20 @@ class Image {
     var name: String
     var items: [Item]
     var customers: [Customer]
+    var active: Bool
     
-    init(name: String, items: [Item], customers: [Customer]) {
+    init(name: String, items: [Item], customers: [Customer], active: Bool) {
         self.name = name
         self.items = items
         self.customers = customers
+        self.active = active
     }
     
     convenience init(name: String) {
-        self.init(name: name, items: [], customers: [])
+        self.init(name: name, items: [], customers: [], active: true)
     }
     
     convenience init() {
-        self.init(name: "", items: [], customers: [])
+        self.init(name: "", items: [], customers: [], active: true)
     }
 }
