@@ -30,7 +30,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
         
-        shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate)
+        shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
         shippingStatusLabel.text = shipping.shippingStatus
         shippingCityLabel.text = shipping.city
         shippingPriceNationalLabel.text = "\(shipping.priceNational)"
@@ -88,15 +88,10 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addCustomer" {
-            var pageData = CustomerItemData()
-            
-            pageData.customerName = ""
-            pageData.images = []
-            
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
-            customerView.pageData = pageData
+            customerView.customer = Customer()
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController

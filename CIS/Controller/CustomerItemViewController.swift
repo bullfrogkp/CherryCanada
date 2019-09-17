@@ -58,7 +58,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
         
-        let item = customer.images![indexPath.section].items[indexPath.row]
+        let item = customer.images[indexPath.section].items[indexPath.row]
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"

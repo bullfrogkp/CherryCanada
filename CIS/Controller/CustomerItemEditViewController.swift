@@ -23,10 +23,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func addImage(_ sender: Any) {
         
-        let itemImage = ItemImage()
-        itemImage.name = "test"
-        itemImage.items = [Item()]
-        pageData.images!.insert(itemImage, at: 0)
+        let image = Image(name: "test")
+        customer.images.insert(image, at: 0)
         
         customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
         customerItemTableView.reloadData()

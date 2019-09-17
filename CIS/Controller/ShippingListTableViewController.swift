@@ -100,7 +100,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             }
             
         } else if segue.identifier == "addShipping" {
-            
+            let destinationController = segue.destination as! ShippingDetailViewController
+            destinationController.shipping = Shipping()
+            destinationController.shippings = shippings
         }
     }
     
@@ -109,8 +111,8 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         let image1 = Image(name: "test")
         let image2 = Image(name: "test2")
         
-        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy")
-        let customer2 = Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha")
+        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [])
+        let customer2 = Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: [], images: [])
         
         let item1 = Item(comment: "Item1", image: image1, name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
         
