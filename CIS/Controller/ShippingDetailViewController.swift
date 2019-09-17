@@ -64,6 +64,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingCommentLabel.text = "\(shipping.comment)"
         } else {
             deleteButton.isHidden = true
+            
+            shippingDateLabel.text = ""
+            shippingStatusLabel.text = ""
+            shippingCityLabel.text = ""
+            shippingPriceNationalLabel.text = ""
+            shippingPriceInternationalLabel.text = ""
+            shippingDepositLabel.text = ""
+            shippingCommentLabel.text = ""
         }
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
