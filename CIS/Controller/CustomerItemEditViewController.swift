@@ -28,6 +28,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let currentCell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
                 
                 itm.name = currentCell.nameTextField.text!
+                itm.customer = customer
+                itm.image = img
+                
+                if(newCustomer == true) {
+                    shipping.items.append(itm)
+                }
             }
         }
         
@@ -44,6 +50,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var customer: Customer!
+    var shipping: Shipping!
+    var newCustomer: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()

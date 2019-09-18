@@ -26,6 +26,6 @@ class Image {
     }
     
     convenience init() {
-        self.init(name: "", items: [], customers: [], active: true)
+        self.init(name: "test", items: [], customers: [], active: true)
     }
 }

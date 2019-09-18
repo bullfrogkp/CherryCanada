@@ -163,13 +163,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             
             let cust = Customer()
             let img = Image()
-            img.name = "test"
             let itm = Item()
             
             img.items = [itm]
             cust.images = [img]
             
             customerView.customer = cust
+            customerView.shipping = shipping
+            customerView.newCustomer = true
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
@@ -178,6 +179,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.customer = customers[indexPath.row]
+                destinationController.shipping = shipping
                 destinationController.cellIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }

@@ -35,6 +35,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var customer: Customer!
+    var shipping: Shipping!
     var cellIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     
@@ -111,6 +112,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
             destinationController.customer = customer
+            destinationController.shipping = shipping
+            destinationController.newCustomer = false
         }
     }
     
