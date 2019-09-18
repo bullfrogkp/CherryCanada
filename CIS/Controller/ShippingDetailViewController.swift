@@ -62,6 +62,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             deleteButton.isHidden = true
             
+            let screenSize: CGRect = UIScreen.main.bounds
+            let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+            let navItem = UINavigationItem(title: "新货单")
+            let backButton = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goBack))
+            navItem.leftBarButtonItem = backButton
+            navBar.setItems([navItem], animated: false)
+            navBar.isTranslucent = false
+            self.view.addSubview(navBar)
+            
+            let y = navBar.frame.size.height + navBar.frame.origin.y
+            self.scrollView.bounds.origin.y += y
+            
             shippingDateLabel.text = ""
             shippingStatusLabel.text = ""
             shippingCityLabel.text = ""
@@ -73,6 +85,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         customerItemTableView.reloadData()
     }
+    
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+//    func setNavigationBar() {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+//        let navItem = UINavigationItem(title: "新货单")
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
+//        let cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil, action: #selector(cancel))
+//        navItem.rightBarButtonItem = doneItem
+//        navItem.leftBarButtonItem = doneItem
+//        navBar.setItems([navItem], animated: false)
+//        self.view.addSubview(navBar)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
