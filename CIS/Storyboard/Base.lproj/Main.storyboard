@@ -314,9 +314,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-vP-iJz">
-                                <rect key="frame" x="16" y="20" width="300.5" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-vP-iJz">
+                                <rect key="frame" x="16" y="70" width="343" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="货单信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxB-DM-2eC">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="30"/>
@@ -325,7 +324,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZA-NJ-Fdf">
-                                        <rect key="frame" x="269.5" y="0.0" width="31" height="30"/>
+                                        <rect key="frame" x="269.5" y="0.0" width="73.5" height="30"/>
                                         <state key="normal" title="编辑"/>
                                         <connections>
                                             <segue destination="8KJ-JF-QcB" kind="presentation" identifier="editShippingDetail" id="8CE-QC-JYY"/>
@@ -333,9 +332,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-ZU-tW5">
-                                <rect key="frame" x="16" y="82" width="199.5" height="161.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-ZU-tW5">
+                                <rect key="frame" x="16" y="116" width="199.5" height="161.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="shippingDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb0-Kc-hOx">
                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="20.5"/>
@@ -495,6 +493,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8kW-vP-iJz" firstAttribute="top" secondItem="0Sq-m0-KbC" secondAttribute="top" constant="50" id="5JC-h7-g7R"/>
+                            <constraint firstItem="0Sq-m0-KbC" firstAttribute="trailing" secondItem="8kW-vP-iJz" secondAttribute="trailing" constant="16" id="FtP-J4-sep"/>
+                            <constraint firstItem="aNa-ZU-tW5" firstAttribute="top" secondItem="8kW-vP-iJz" secondAttribute="bottom" constant="16" id="gnC-FE-i2r"/>
+                            <constraint firstItem="8kW-vP-iJz" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="pl3-qg-ITy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Sq-m0-KbC"/>
                     </view>
                     <size key="freeformSize" width="375" height="967"/>
