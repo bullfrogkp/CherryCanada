@@ -162,7 +162,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
             let cust = Customer()
-            var img = Image()
+            let img = Image()
             img.name = "test"
             let itm = Item()
             
