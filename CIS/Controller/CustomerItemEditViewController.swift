@@ -31,7 +31,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
-        
         self.dismiss(animated: true, completion: nil)
     }
     

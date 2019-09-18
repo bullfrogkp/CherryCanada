@@ -40,8 +40,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        customerNameLabel.text = customer.name
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
@@ -49,6 +47,11 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         customerItemTableView.backgroundColor = UIColor.white
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customerNameLabel.text = customer.name
+        customerItemTableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
