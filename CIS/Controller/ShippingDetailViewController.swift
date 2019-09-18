@@ -82,37 +82,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingCommentLabel.text = ""
         }
         
-        customerItemTableView.reloadData()
-    }
-    
-    @objc func goBack(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func saveData(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-//    func setNavigationBar() {
-//        let screenSize: CGRect = UIScreen.main.bounds
-//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
-//        let navItem = UINavigationItem(title: "新货单")
-//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
-//        let cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil, action: #selector(cancel))
-//        navItem.rightBarButtonItem = doneItem
-//        navItem.leftBarButtonItem = doneItem
-//        navBar.setItems([navItem], animated: false)
-//        self.view.addSubview(navBar)
-//    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        customerItemTableView.dataSource = self
-        customerItemTableView.delegate = self
-        
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
-        
         var foundCustomer = false
         var foundImage = false
         
@@ -153,6 +122,36 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 customers.append(customer)
             }
         }
+        customerItemTableView.reloadData()
+    }
+    
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveData(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+//    func setNavigationBar() {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+//        let navItem = UINavigationItem(title: "新货单")
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
+//        let cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil, action: #selector(cancel))
+//        navItem.rightBarButtonItem = doneItem
+//        navItem.leftBarButtonItem = doneItem
+//        navBar.setItems([navItem], animated: false)
+//        self.view.addSubview(navBar)
+//    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        customerItemTableView.dataSource = self
+        customerItemTableView.delegate = self
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
     }
     
     // MARK: - Navigation
