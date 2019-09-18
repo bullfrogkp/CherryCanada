@@ -71,9 +71,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             navBar.isTranslucent = false
             self.view.addSubview(navBar)
             
-            let y = navBar.frame.size.height + navBar.frame.origin.y
-            self.scrollView.bounds.origin.y += y
-            
             shippingDateLabel.text = ""
             shippingStatusLabel.text = ""
             shippingCityLabel.text = ""
