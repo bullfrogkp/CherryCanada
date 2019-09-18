@@ -66,7 +66,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
             let navItem = UINavigationItem(title: "新货单")
             let backButton = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goBack))
+            let saveButton = UIBarButtonItem(title: "完成", style: UIBarButtonItem.Style.plain, target: self, action: #selector(saveData))
             navItem.leftBarButtonItem = backButton
+            navItem.rightBarButtonItem = saveButton
             navBar.setItems([navItem], animated: false)
             navBar.isTranslucent = false
             self.view.addSubview(navBar)
@@ -84,6 +86,10 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @objc func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveData(){
         dismiss(animated: true, completion: nil)
     }
     
@@ -155,7 +161,15 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
-            customerView.customer = Customer()
+            let cust = Customer()
+            var img = Image()
+            img.name = "test"
+            let itm = Item()
+            
+            img.items = [itm]
+            cust.images = [img]
+            
+            customerView.customer = cust
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
