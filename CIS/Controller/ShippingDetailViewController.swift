@@ -47,9 +47,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         present(optionMenu, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
         if cellIndex != -1 {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
@@ -72,6 +70,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingDepositLabel.text = ""
             shippingCommentLabel.text = ""
         }
+        
+        customerItemTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
         
