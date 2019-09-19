@@ -24,7 +24,11 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            self.shippingDetailViewController.deleteCell(rowIndex: self.cellIndex)
+            for (i,item) in self.shipping.items.enumerated() {
+                if(item.customer === self.customer) {
+                    self.shipping.items.remove(at: i)
+                }
+            }
             
             self.navigationController?.popViewController(animated: true)
         })
@@ -35,9 +39,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var customer: Customer!
-    var shipping: Shipping!
-    var cellIndex: Int!
-    var shippingDetailViewController: ShippingDetailViewController!
+    var items: [Item]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

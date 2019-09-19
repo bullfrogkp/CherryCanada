@@ -82,6 +82,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingCommentLabel.text = ""
         }
         
+        customers = []
         var foundCustomer = false
         var foundImage = false
         
@@ -177,10 +178,17 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         } else if segue.identifier == "showCustomerDetail" {
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
+                
+                var itemArray: [Item] = []
+                
+                for item in shipping.items {
+                    if(item.customer === customers[indexPath.row]) {
+                        itemArray.append(item)
+                    }
+                }
+                
                 destinationController.customer = customers[indexPath.row]
-                destinationController.shipping = shipping
-                destinationController.cellIndex = indexPath.row
-                destinationController.shippingDetailViewController = self
+                destinationController.items = itemArray
             }
         }
     }
@@ -234,10 +242,5 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         return NSAttributedString(string: string,
                                   attributes: stringAttributes)
-    }
-    
-    func deleteCell(rowIndex: Int) {
-        customers.remove(at: rowIndex)
-        customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
 }
