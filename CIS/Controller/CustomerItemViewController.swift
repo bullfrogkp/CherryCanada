@@ -39,7 +39,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var customer: Customer!
-    var items: [Item]!
+    var customerIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()

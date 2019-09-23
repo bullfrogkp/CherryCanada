@@ -130,6 +130,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.customer = shipping.customers[indexPath.row]
+                destinationController.customerIndex = indexPath.row
             }
         }
     }
@@ -183,5 +184,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         return NSAttributedString(string: string,
                                   attributes: stringAttributes)
+    }
+    
+    func deleteCell(rowIndex: Int) {
+        for (idx, itm) in shipping.items.enumerated() {
+            if(itm.customer === shipping.customers[rowIndex]) {
+                shipping.items.remove(at: idx)
+            }
+        }
+        
+        shipping.customers.remove(at: rowIndex)
+        customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
 }
