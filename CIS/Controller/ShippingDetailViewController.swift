@@ -131,6 +131,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 let destinationController = segue.destination as! CustomerItemViewController
                 destinationController.customer = shipping.customers[indexPath.row]
                 destinationController.customerIndex = indexPath.row
+                destinationController.shippingDetailViewController = self
             }
         }
     }
