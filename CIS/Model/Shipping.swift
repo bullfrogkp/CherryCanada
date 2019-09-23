@@ -17,9 +17,10 @@ class Shipping {
     var shippingDate: Date
     var shippingStatus: String
     var items: [Item]
-    var active: Bool
+    var images: [Image]
+    var customers: [Customer]
     
-    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String, items: [Item], active: Bool) {
+    init(comment: String, city: String, deposit: Decimal, priceInternational: Decimal, priceNational: Decimal, shippingDate: Date, shippingStatus: String, items: [Item], images: [Image], customers: [Customer]) {
         self.comment = comment
         self.deposit = deposit
         self.city = city
@@ -28,10 +29,11 @@ class Shipping {
         self.shippingDate = shippingDate
         self.shippingStatus = shippingStatus
         self.items = items
-        self.active = active
+        self.images = images
+        self.customers = customers
     }
     
     convenience init() {
-        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", items: [], active: true)
+        self.init(comment: "", city: "", deposit: 0, priceInternational: 0, priceNational: 0, shippingDate: Date(), shippingStatus: "", items: [], images: [], customers: [])
     }
 }

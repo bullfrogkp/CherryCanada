@@ -53,6 +53,9 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        customer = Utils.shared.convertItemsToCustomers(items: items)[0]
+        
         customerNameLabel.text = customer.name
         customerItemTableView.reloadData()
     }
@@ -113,8 +116,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "editCustomerItem" {
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
-            destinationController.customer = customer
-            destinationController.shipping = shipping
+            destinationController.items = items
             destinationController.newCustomer = false
         }
     }

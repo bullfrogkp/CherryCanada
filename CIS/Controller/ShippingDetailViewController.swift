@@ -82,47 +82,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingCommentLabel.text = ""
         }
         
-        customers = []
-        var foundCustomer = false
-        var foundImage = false
-        
-        for item in shipping.items {
-            foundCustomer = false
-            for customer in customers {
-                if(customer === item.customer) {
-                    foundImage = false
-                    for image in customer.images {
-                        if(image === item.image) {
-                            image.items.append(item)
-                            foundImage = true
-                            break
-                        }
-                    }
-                    
-                    if(foundImage == false) {
-                        let image = Image()
-                        image.name = item.image.name
-                        image.items.append(item)
-                        customer.images.append(image)
-                    }
-                    
-                    foundCustomer = true
-                    break
-                }
-            }
-            
-            if(foundCustomer == false) {
-                let customer = Customer()
-                customer.name = item.customer.name
-                
-                let image = Image()
-                image.name = item.image.name
-                image.items.append(item)
-                customer.images.append(image)
-                
-                customers.append(customer)
-            }
-        }
+        customers = Utils.shared.convertItemsToCustomers(items: shipping.items)
         customerItemTableView.reloadData()
     }
     
