@@ -46,7 +46,34 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         present(optionMenu, animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveData(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+//    func setNavigationBar() {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+//        let navItem = UINavigationItem(title: "新货单")
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
+//        let cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil, action: #selector(cancel))
+//        navItem.rightBarButtonItem = doneItem
+//        navItem.leftBarButtonItem = doneItem
+//        navBar.setItems([navItem], animated: false)
+//        self.view.addSubview(navBar)
+//    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        customerItemTableView.dataSource = self
+        customerItemTableView.delegate = self
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+        
         if cellIndex != -1 {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
@@ -80,35 +107,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingDepositLabel.text = ""
             shippingCommentLabel.text = ""
         }
-    }
-    
-    @objc func goBack(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func saveData(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-//    func setNavigationBar() {
-//        let screenSize: CGRect = UIScreen.main.bounds
-//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
-//        let navItem = UINavigationItem(title: "新货单")
-//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
-//        let cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil, action: #selector(cancel))
-//        navItem.rightBarButtonItem = doneItem
-//        navItem.leftBarButtonItem = doneItem
-//        navBar.setItems([navItem], animated: false)
-//        self.view.addSubview(navBar)
-//    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        customerItemTableView.dataSource = self
-        customerItemTableView.delegate = self
-        
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
     }
     
     // MARK: - Navigation

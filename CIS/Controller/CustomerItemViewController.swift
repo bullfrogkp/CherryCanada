@@ -46,15 +46,9 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         customerItemTableView.backgroundColor = UIColor.white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        customer = Utils.shared.convertItemsToCustomers(items: items)[0]
-        
         customerNameLabel.text = customer.name
-        customerItemTableView.reloadData()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,7 +107,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "editCustomerItem" {
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
-            destinationController.items = items
+            destinationController.customer = customer
             destinationController.newCustomer = false
         }
     }
