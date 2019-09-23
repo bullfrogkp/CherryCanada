@@ -22,7 +22,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
-    var customers: [Customer] = []
     var cellIndex: Int!
     var shippingListTableViewController: ShippingListTableViewController!
     
@@ -81,9 +80,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingDepositLabel.text = ""
             shippingCommentLabel.text = ""
         }
-        
-        customers = Utils.shared.convertItemsToCustomers(items: shipping.items)
-        customerItemTableView.reloadData()
     }
     
     @objc func goBack(){
@@ -122,11 +118,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let customerView: CustomerItemEditViewController = naviView.viewControllers[0] as! CustomerItemEditViewController
             
             let cust = Customer()
-            let img = Image()
-            let itm = Item()
-            
-            img.items = [itm]
-            cust.images = [img]
             
             customerView.customer = cust
             customerView.shipping = shipping
@@ -138,17 +129,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         } else if segue.identifier == "showCustomerDetail" {
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
-                
-                var itemArray: [Item] = []
-                
-                for item in shipping.items {
-                    if(item.customer === customers[indexPath.row]) {
-                        itemArray.append(item)
-                    }
-                }
-                
-                destinationController.customer = customers[indexPath.row]
-                destinationController.items = itemArray
+                destinationController.customer = shipping.customers[indexPath.row]
             }
         }
     }
@@ -160,13 +141,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return customers.count
+        return shipping.customers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = customers[indexPath.row]
+        let customerDetail = shipping.customers[indexPath.row]
         var itemsTextArrar = [String]()
         
         cell.customerNameLabel.text = customerDetail.name
