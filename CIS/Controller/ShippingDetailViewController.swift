@@ -118,8 +118,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let cust = Customer()
             
             customerView.customer = cust
-            customerView.shipping = shipping
             customerView.newCustomer = true
+            customerView.shippingDetailViewController = self
         } else if segue.identifier == "editShippingDetail" {
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
