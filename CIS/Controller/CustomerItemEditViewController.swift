@@ -21,19 +21,17 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         customer.name = customerNameTextField.text!
         
-        for (section,img) in customer!.images.enumerated() {
-            for (row,itm) in img.items.enumerated() {
-                
-                let indexPath = IndexPath(row: row, section: section)
-                let currentCell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
-                
-                itm.name = currentCell.nameTextField.text!
-                itm.customer = customer
-                itm.image = img
-                
-                if(newCustomer == true) {
-                    shipping.items.append(itm)
-                }
+        shippingDetailViewController.clearImageItems()
+        
+        let sections = customerItemTableView.numberOfSections
+        
+        for sectionIndex in sections {
+            let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
+            let img = Image()
+            shippingDetailViewController.addImage()
+            
+            for rowIndex in rows {
+                shippingDetailViewController.addItem(image: img, customer: customer)
             }
         }
         
@@ -50,8 +48,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var customer: Customer!
-    var shipping: Shipping!
     var newCustomer: Bool!
+    var shippingDetailViewController: ShippingDetailViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
