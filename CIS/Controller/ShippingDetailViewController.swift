@@ -204,7 +204,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    func addItem(item: Item, image: Image, customer: Customer) {
+    func addItem(item: Item) {
         
     }
 }

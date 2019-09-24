@@ -37,7 +37,13 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 
                 let itm = Item()
                 itm.name = cell.nameTextField.text!
-                shippingDetailViewController.addItem(item: itm, image: img, customer: customer)
+                itm.customer = customer
+                itm.image = img
+                itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
+                itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
+                itm.quantity = Int(cell.quantityTextField.text!)!
+                
+                shippingDetailViewController.addItem(item: itm)
             }
         }
         
