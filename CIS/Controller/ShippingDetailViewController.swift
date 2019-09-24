@@ -195,4 +195,12 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.customers.remove(at: rowIndex)
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
+    
+    func clearImageItems() {
+        
+    }
+    
+    func addImage() {
+        
+    }
 }

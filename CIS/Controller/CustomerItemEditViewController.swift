@@ -25,13 +25,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let sections = customerItemTableView.numberOfSections
         
-        for sectionIndex in sections {
+        for sectionIndex in 0..<sections {
             let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
             let img = Image()
-            shippingDetailViewController.addImage()
+            shippingDetailViewController.addImage(image: img)
             
-            for rowIndex in rows {
-                shippingDetailViewController.addItem(image: img, customer: customer)
+            for rowIndex in 0..<rows {
+                let itm = Item()
+                shippingDetailViewController.addItem(item: itm, image: img, customer: customer)
             }
         }
         
