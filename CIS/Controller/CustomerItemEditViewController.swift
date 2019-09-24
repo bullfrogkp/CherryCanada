@@ -31,7 +31,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             shippingDetailViewController.addImage(image: img)
             
             for rowIndex in 0..<rows {
+                let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+                
+                let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
+                
                 let itm = Item()
+                itm.name = cell.nameTextField.text!
                 shippingDetailViewController.addItem(item: itm, image: img, customer: customer)
             }
         }
