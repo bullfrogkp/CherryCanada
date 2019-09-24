@@ -26,10 +26,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let sections = customerItemTableView.numberOfSections
         
         for sectionIndex in 0..<sections {
-            let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
-            let img = Image()
+            let sectionHeaderView = customerItemTableView.headerView(forSection: sectionIndex)
+            let img = Image(name: (sectionHeaderView?.itemImageView as? UIImage).name)
             shippingDetailViewController.addImage(image: img)
             
+            let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
             for rowIndex in 0..<rows {
                 let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
                 
