@@ -26,10 +26,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHj-kv-tD6">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                             <state key="normal" title="添加物品"/>
+                            <connections>
+                                <action selector="addItem:" destination="-1" eventType="touchUpInside" id="tQs-IX-vyf"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-My-P8l">
                             <rect key="frame" x="0.0" y="90" width="100" height="30"/>
                             <state key="normal" title="删除图片"/>
+                            <connections>
+                                <action selector="deleteImage:" destination="-1" eventType="touchUpInside" id="npo-en-cSJ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

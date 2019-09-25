@@ -110,13 +110,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let title = "Title"
-        let subtitle = "Sub title"
-        
         // Dequeue with the reuse identifier
-        let header = customItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
-        header.titleLabel.text = title
-        header.subtitleLabel.text = subtitle
+        let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
+        
+        header.itemImageView.image = UIImage(named: customer.images[section].name)
         
         return header
         

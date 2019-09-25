@@ -14,4 +14,9 @@ class CustomerItemSectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var deleteImageButton: UIButton!
 
+    @IBAction func deleteImage(_ sender: Any) {
+    }
+    
+    @IBAction func addItem(_ sender: Any) {
+    }
 }
