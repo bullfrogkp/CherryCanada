@@ -78,6 +78,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customerItemTableView.dataSource = self
         
         customerItemTableView.backgroundColor = UIColor.white
+        
+        let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
+               customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -107,72 +110,81 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 160))
+        let title = "Title"
+        let subtitle = "Sub title"
         
-        let itemImageView: UIImageView = {
-            let imageName = customer.images[section].name
-            let image = UIImage(named: imageName)
-            let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-            
-            imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
-            imageView.layer.cornerRadius = 5.0
-            imageView.layer.borderWidth = 1
-            imageView.contentMode = .scaleAspectFit
-            
-            return imageView
-        }()
+        // Dequeue with the reuse identifier
+        let header = customItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
+        header.titleLabel.text = title
+        header.subtitleLabel.text = subtitle
         
-        let addItemButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("添加物品", for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
-            button.setTitleColor(.white, for: .normal)
-            button.sizeToFit()
-            return button
-        }()
+        return header
         
-        let deleteImageButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("删除图片", for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = UIColor.red
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
-            button.setTitleColor(.white, for: .normal)
-            button.sizeToFit()
-            return button
-        }()
-        
-        headerView.addSubview(itemImageView)
-        headerView.addSubview(addItemButton)
-        headerView.addSubview(deleteImageButton)
-        
-        addItemButton.tag = section
-        addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
-        
-        deleteImageButton.tag = section
-        deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
-        
-        let views: [String: Any] = [
-            "itemImageView": itemImageView,
-            "addItemButton": addItemButton,
-            "deleteImageButton": deleteImageButton
-        ]
-        
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteImageButton]-20-[addItemButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteImageButton]", metrics: nil, views: views))
-        
-        return headerView
-        return HeaderView()
+//        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 160))
+//
+//        let itemImageView: UIImageView = {
+//            let imageName = customer.images[section].name
+//            let image = UIImage(named: imageName)
+//            let imageView = UIImageView(image: image!)
+//            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//
+//            imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+//            imageView.layer.cornerRadius = 5.0
+//            imageView.layer.borderWidth = 1
+//            imageView.contentMode = .scaleAspectFit
+//
+//            return imageView
+//        }()
+//
+//        let addItemButton: UIButton = {
+//            let button = UIButton(type: .system)
+//            button.setTitle("添加物品", for: .normal)
+//            button.translatesAutoresizingMaskIntoConstraints = false
+//            button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
+//            button.layer.cornerRadius = 5
+//            button.layer.borderWidth = 1
+//            button.layer.borderColor = UIColor.black.cgColor
+//            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+//            button.setTitleColor(.white, for: .normal)
+//            button.sizeToFit()
+//            return button
+//        }()
+//
+//        let deleteImageButton: UIButton = {
+//            let button = UIButton(type: .system)
+//            button.setTitle("删除图片", for: .normal)
+//            button.translatesAutoresizingMaskIntoConstraints = false
+//            button.backgroundColor = UIColor.red
+//            button.layer.cornerRadius = 5
+//            button.layer.borderWidth = 1
+//            button.layer.borderColor = UIColor.black.cgColor
+//            button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+//            button.setTitleColor(.white, for: .normal)
+//            button.sizeToFit()
+//            return button
+//        }()
+//
+//        headerView.addSubview(itemImageView)
+//        headerView.addSubview(addItemButton)
+//        headerView.addSubview(deleteImageButton)
+//
+//        addItemButton.tag = section
+//        addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
+//
+//        deleteImageButton.tag = section
+//        deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
+//
+//        let views: [String: Any] = [
+//            "itemImageView": itemImageView,
+//            "addItemButton": addItemButton,
+//            "deleteImageButton": deleteImageButton
+//        ]
+//
+//        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[itemImageView]-|", metrics: nil, views: views))
+//        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteImageButton]-20-[addItemButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
+//        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteImageButton]", metrics: nil, views: views))
+//
+//        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
