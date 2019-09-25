@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E12B109233BDFC4004A6EA8 /* CustomerItemSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12B108233BDFC4004A6EA8 /* CustomerItemSectionHeaderView.swift */; };
 		3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */; };
 		3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */; };
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E12B108233BDFC4004A6EA8 /* CustomerItemSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemSectionHeaderView.swift; sourceTree = "<group>"; };
 		3E3AC8A422BC067000F1A0B3 /* CIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E3AC8AC22BC067000F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				3EF90139230C698B00173DE3 /* ImageItemTableViewCell.swift */,
 				3EF90145230EE47300173DE3 /* CustomerItemEditTableViewCell.swift */,
 				3EF90147230EE48500173DE3 /* ImageItemEditTableViewCell.swift */,
+				3E12B108233BDFC4004A6EA8 /* CustomerItemSectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				3E886ECB2333F62400932427 /* Utils.swift in Sources */,
 				3EF90142230EE41600173DE3 /* CustomerItemEditViewController.swift in Sources */,
 				3EF90146230EE47300173DE3 /* CustomerItemEditTableViewCell.swift in Sources */,
+				3E12B109233BDFC4004A6EA8 /* CustomerItemSectionHeaderView.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         for sectionIndex in 0..<sections {
             let sectionHeaderView = customerItemTableView.headerView(forSection: sectionIndex)
+            
+            let header = tableView.headerViewForSection(section: index) as! HeaderView
+            let button = header.button
+            let image = header.image
+            
             let img = Image(name: (sectionHeaderView?.itemImageView as? UIImage).name)
             shippingDetailViewController.addImage(image: img)
             
@@ -167,6 +172,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[itemImageView]-20-[deleteImageButton]", metrics: nil, views: views))
         
         return headerView
+        return HeaderView()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
