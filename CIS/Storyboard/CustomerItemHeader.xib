@@ -48,6 +48,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addItemButton" destination="OHj-kv-tD6" id="pKY-Yi-yU6"/>
+                <outlet property="deleteImageButton" destination="gp9-My-P8l" id="SXY-ZA-zjf"/>
+                <outlet property="itemImageView" destination="uDs-HV-4p8" id="lig-k1-zjS"/>
+            </connections>
             <point key="canvasLocation" x="142.40000000000001" y="-142.1289355322339"/>
         </view>
     </objects>
