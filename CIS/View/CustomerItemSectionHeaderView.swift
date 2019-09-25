@@ -6,13 +6,12 @@
 //  Copyright © 2019 Kevin Pan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class CustomerItemHeaderView: UIView {
-    var button: UIButton
-    var image: UIImage
+class CustomerItemSectionHeaderView: UITableViewHeaderFooterView {
 
-    func init() {
-        
-    }
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet weak var deleteImageButton: UIButton!
+
 }
