@@ -202,12 +202,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         for (idx, itm) in shipping.items.enumerated() {
             if itm.customer === customer {
-                itemImages.append(itm.image)
+                var imgCount = 0
+                for i in shipping.items {
+                    if(i.image === itm.image) {
+                        imgCount += 1
+                    }
+                }
+                
+                if(imgCount == 1) {
+                    itemImages.append(itm.image)
+                }
+                
                 shipping.items.remove(at: idx)
             }
         }
         
-        for (idxItem, imgItem) in itemImages.enumerated() {
+        for imgItem in itemImages {
             for (idxShipping, imgShipping) in shipping.images.enumerated() {
                 if(imgItem === imgShipping) {
                     shipping.images.remove(at: idxShipping)
