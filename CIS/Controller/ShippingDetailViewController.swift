@@ -197,9 +197,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func clearItems(customer: Customer) {
+        
+        var itemImages: [Image] = []
+        
         for (idx, itm) in shipping.items.enumerated() {
             if itm.customer === customer {
+                itemImages.append(itm.image)
                 shipping.items.remove(at: idx)
+            }
+        }
+        
+        for (idxItem, imgItem) in itemImages.enumerated() {
+            for (idxShipping, imgShipping) in shipping.images.enumerated() {
+                if(imgItem === imgShipping) {
+                    shipping.images.remove(at: idxShipping)
+                    break
+                }
             }
         }
     }
