@@ -31,7 +31,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
             let img = header.itemImageView.image
             
-            shippingDetailViewController.addImage(image: img)
+            shippingDetailViewController.addImage(image: img!)
             
             let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
             for rowIndex in 0..<rows {
