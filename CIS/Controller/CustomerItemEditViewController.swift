@@ -112,7 +112,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageView.image = UIImage(named: customer.images[section].name)
+        header.itemImageView.image = customer.images[section].imageFile
+        header.addItemButton.tag = section
+        header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
+
+        header.deleteImageButton.tag = section
+        header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
         
         return header
         
