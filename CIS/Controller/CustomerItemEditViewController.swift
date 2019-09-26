@@ -21,17 +21,18 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         customer.name = customerNameTextField.text!
         
-        shippingDetailViewController.clearImageItems()
+        shippingDetailViewController.clearItems(customer: customer)
         
         let sections = customerItemTableView.numberOfSections
         
         for sectionIndex in 0..<sections {
-            let sectionHeaderView = customerItemTableView.headerView(forSection: sectionIndex)
             
             let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
-            let img = header.itemImageView.image
             
-            shippingDetailViewController.addImage(image: img!)
+            let itemImage = Image()
+            itemImage.imageFile = header.itemImageView.image!
+            
+            shippingDetailViewController.addImage(image: itemImage)
             
             let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
             for rowIndex in 0..<rows {
@@ -42,7 +43,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let itm = Item()
                 itm.name = cell.nameTextField.text!
                 itm.customer = customer
-                itm.image = img
+                itm.image = itemImage
                 itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
                 itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
                 itm.quantity = Int(cell.quantityTextField.text!)!
