@@ -25,7 +25,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let sections = customerItemTableView.numberOfSections
         
-        for sectionIndex in 0..<sections {
+        for sectionIndex in 0..<sections-1 {
             
             let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
             
