@@ -81,9 +81,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         headerView.backgroundColor = UIColor.white
         
         let itemImageView: UIImageView = {
-            let imageName = customer.images[section].name
-            let image = UIImage(named: imageName)
-            let imageView = UIImageView(image: image!)
+            let imageView = UIImageView(image: customer.images[section].imageFile)
             imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
             
             imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor

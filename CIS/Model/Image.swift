@@ -23,8 +23,11 @@ class Image {
     }
     
     convenience init(name: String) {
-        let img = UIImage(named: name)
-        self.init(name: name, items: [], customers: [], imageFile: img!)
+        self.init(name: name, items: [], customers: [], imageFile: UIImage(named: name)!)
+    }
+    
+    convenience init(imageFile: UIImage) {
+        self.init(name: "", items: [], customers: [], imageFile: imageFile)
     }
     
     convenience init() {

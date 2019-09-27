@@ -136,22 +136,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 var foundImage = false
                 
                 for item in shipping.items {
-                    
-                if(selectedCustomer === item.customer) {
-                    foundImage = false
-                    for image in customer.images {
-                        if(image === item.image) {
-                            image.items.append(item)
-                            foundImage = true
-                            break
+                    if(selectedCustomer === item.customer) {
+                        foundImage = false
+                        for image in customer.images {
+                            if(image === item.image) {
+                                image.items.append(item)
+                                foundImage = true
+                                break
+                            }
                         }
-                    }
-                    
-                    if(foundImage == false) {
-                        let image = Image()
-                        image.name = item.image.name
-                        image.items.append(item)
-                        customer.images.append(image)
+                        
+                        if(foundImage == false) {
+                            let image = Image()
+                            image.name = item.image.name
+                            image.items.append(item)
+                            customer.images.append(image)
+                        }
                     }
                 }
                 

@@ -110,9 +110,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     
     func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
-        let image1 = Image(name: "test")
-        let image2 = Image(name: "test2")
-        let image3 = Image(name: "test2")
+        let image1 = Image(imageFile: UIImage(named: "test")!)
+        let image2 = Image(imageFile: UIImage(named: "test2")!)
+        let image3 = Image(imageFile: UIImage(named: "test2")!)
         
         let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [], active: true)
         let customer2 = Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: [], images: [], active: true)
@@ -125,7 +125,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         let item3 = Item(comment: "Item1", image: image1, name: "货物3", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer2)
         
         let shippings = [
-            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", items: [item1, item2], images: [image1, image2, image3], customers: [customer1, customer2, customer3]),
+            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", items: [item1, item2, item3], images: [image1, image2, image3], customers: [customer1, customer2, customer3]),
             Shipping(comment: "hahaha", city: "Toronto", deposit: 110, priceInternational: 210, priceNational: 130, shippingDate: Date(), shippingStatus: "待定", items: [item2, item3], images: [image1, image2], customers: [customer1, customer2])
         ]
         
