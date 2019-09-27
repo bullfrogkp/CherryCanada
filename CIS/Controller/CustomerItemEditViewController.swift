@@ -25,30 +25,32 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let sections = customerItemTableView.numberOfSections
         
-        for sectionIndex in 0..<sections-1 {
-            
-            let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
-            
-            let itemImage = Image()
-            itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
-            
-            shippingDetailViewController.addImage(image: itemImage)
-            
-            let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
-            for rowIndex in 0..<rows {
-                let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+        if(sections != 0) {
+            for sectionIndex in 0..<sections-1 {
                 
-                let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
+                let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
                 
-                let itm = Item()
-                itm.name = cell.nameTextField.text!
-                itm.customer = customer
-                itm.image = itemImage
-                itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
-                itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
-                itm.quantity = Int(cell.quantityTextField.text!)!
+                let itemImage = Image()
+                itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
                 
-                shippingDetailViewController.addItem(item: itm)
+                shippingDetailViewController.addImage(image: itemImage)
+                
+                let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
+                for rowIndex in 0..<rows {
+                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+                    
+                    let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
+                    
+                    let itm = Item()
+                    itm.name = cell.nameTextField.text!
+                    itm.customer = customer
+                    itm.image = itemImage
+                    itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
+                    itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
+                    itm.quantity = Int(cell.quantityTextField.text!)!
+                    
+                    shippingDetailViewController.addItem(item: itm)
+                }
             }
         }
         
