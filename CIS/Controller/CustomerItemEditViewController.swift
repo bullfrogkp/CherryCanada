@@ -30,7 +30,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
             
             let itemImage = Image()
-            itemImage.imageFile = header.itemImageView.image!
+            itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
             
             shippingDetailViewController.addImage(image: itemImage)
             
@@ -112,7 +112,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageView.image = customer.images[section].imageFile
+        header.itemImageView.image = UIImage(data: customer.images[section].imageFile as Data)
         header.addItemButton.tag = section
         header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
 

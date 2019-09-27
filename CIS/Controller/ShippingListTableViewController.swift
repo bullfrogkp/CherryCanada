@@ -110,9 +110,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     
     func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
-        let image1 = Image(imageFile: UIImage(named: "test")!)
-        let image2 = Image(imageFile: UIImage(named: "test2")!)
-        let image3 = Image(imageFile: UIImage(named: "test2")!)
+        let image1 = Image(imageFile: UIImage(named: "test")!.pngData()! as NSData)
+        let image2 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
+        let image3 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
         
         let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [], active: true)
         let customer2 = Customer(name: "Evita", phone: "416-666-8888", wechat: "cool", comment: "Haha", items: [], images: [], active: true)
