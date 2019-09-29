@@ -65,7 +65,6 @@ class ShippingInfoViewController: UIViewController {
     }
     
     var shipping: Shipping?
-    var shippings: [Shipping]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -124,6 +124,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let naviView: UINavigationController = segue.destination as!  UINavigationController
             let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
             shippingView.shipping = shipping
+            shippingView.shippingDetailViewController = self
         } else if segue.identifier == "showCustomerDetail" {
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
