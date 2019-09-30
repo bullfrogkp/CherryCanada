@@ -19,9 +19,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func saveCustomerItem(_ sender: Any) {
         
-        customer.name = customerNameTextField.text!
+        customer!.name = customerNameTextField.text!
         
-        shippingDetailViewController.clearItems(customer: customer)
+        shippingDetailViewController.clearItems(customer: customer!)
         
         let sections = customerItemTableView.numberOfSections
         
@@ -43,7 +43,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                     
                     let itm = Item()
                     itm.name = cell.nameTextField.text!
-                    itm.customer = customer
+                    itm.customer = customer!
                     itm.image = itemImage
                     itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
                     itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
@@ -105,11 +105,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let item = customer!.images[indexPath.section].items[indexPath.row]
         
-        cell.nameTextField.text = item!.name
-        cell.quantityTextField.text = "\(item!.quantity)"
-        cell.priceSoldTextField.text = "\(item!.priceSold)"
-        cell.priceBoughtTextField.text = "\(item!.priceBought)"
-        cell.descriptionTextView.text = "\(item!.comment)"
+        cell.nameTextField.text = item.name
+        cell.quantityTextField.text = "\(item.quantity)"
+        cell.priceSoldTextField.text = "\(item.priceSold)"
+        cell.priceBoughtTextField.text = "\(item.priceBought)"
+        cell.descriptionTextView.text = "\(item.comment)"
 
         cell.customerItemEditViewController = self
         
