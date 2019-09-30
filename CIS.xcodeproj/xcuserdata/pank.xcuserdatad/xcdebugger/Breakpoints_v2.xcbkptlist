@@ -24,23 +24,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6D829E33-680C-4B48-9E2C-CC6C2AED78CE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            timestampString = "590557103.119617"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "saveCustomerItem(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "330CB2F1-3EF0-4C62-A625-7D6190546822"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -73,109 +56,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9"
+            uuid = "D4D3F9C3-20F4-4DF1-A6B9-F81EA5A60712"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/CustomerItemViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "CustomerItemViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - 4df7f6c7107b31c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.customerIndex.getter : Swift.Optional&lt;Swift.Int&gt;"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - 94d4ffa8b2a3bdda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.customerIndex.setter : Swift.Optional&lt;Swift.Int&gt;"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "140">
-               </Location>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - 1877dcb688c41ecb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.customerIndex.modify : Swift.Optional&lt;Swift.Int&gt;"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - 65c84df4c9d7003a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.customerIndex.modify : Swift.Optional&lt;Swift.Int&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - 78d8ab172e937adb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CIS.CustomerItemViewController"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "453">
-               </Location>
-               <Location
-                  uuid = "1BDDD1A0-D4F4-49E2-8522-1B2DF17580B9 - b1da339c4d872d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CIS.CustomerItemViewController&gt;"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "391">
-               </Location>
-            </Locations>
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C07BFFCF-05D1-4909-B948-A588B6B086AC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "saveCustomerItem(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

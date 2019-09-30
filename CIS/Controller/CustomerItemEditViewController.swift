@@ -30,7 +30,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let sections = customerItemTableView.numberOfSections
         
         if(sections != 0) {
-            for sectionIndex in 0..<sections-1 {
+            for sectionIndex in 0..<sections {
                 
                 let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
                 
@@ -41,7 +41,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 
                 let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
                 for rowIndex in 0..<rows {
-                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+                      let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
                     
                     let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
                     
@@ -67,7 +67,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customer?.images.insert(image, at: 0)
         
         customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
-        customerItemTableView.reloadData()
     }
     
     var customer: Customer?
@@ -160,7 +159,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         customer!.images.remove(at: sender.tag)
         customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
-        customerItemTableView.reloadData()
     }
     
     func deleteCell(cell: UITableViewCell) {

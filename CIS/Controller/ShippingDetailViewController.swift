@@ -261,9 +261,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addCustomer(customer: Customer) {
         shipping.customers.insert(customer, at: 0)
-               
-        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
-        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
+        customerItemTableView.reloadData()
+//        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
+//        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
     }
     
     func updateShipping(_ sp: Shipping) {
