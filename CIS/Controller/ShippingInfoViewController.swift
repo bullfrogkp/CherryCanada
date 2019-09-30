@@ -73,6 +73,7 @@ class ShippingInfoViewController: UIViewController {
     
     var shipping: Shipping?
     var shippingDetailViewController: ShippingDetailViewController!
+    var shippingListTableViewController: shippingListTableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()

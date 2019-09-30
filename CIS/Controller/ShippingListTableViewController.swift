@@ -101,10 +101,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             }
             
         } else if segue.identifier == "addShippingDetail" {
-            let destinationController = segue.destination as! ShippingDetailViewController
-            destinationController.shipping = Shipping()
-            destinationController.cellIndex = -1
-            destinationController.shippingListTableViewController = self
+            let naviView: UINavigationController = segue.destination as!  UINavigationController
+            let shippingView: ShippingInfoViewController = naviView.viewControllers[0] as! ShippingInfoViewController
+            shippingView.shippingListTableViewController = self
         }
     }
     

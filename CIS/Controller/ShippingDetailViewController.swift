@@ -21,8 +21,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
-    var shipping: Shipping!
-    var cellIndex: Int!
+    var shipping: Shipping?
+    var cellIndex: Int?
     var shippingListTableViewController: ShippingListTableViewController!
     
     @IBAction func deleteShipping(_ sender: Any) {
@@ -74,17 +74,17 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         
-        if cellIndex != -1 {
+        if shipping != nil {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
             
-            shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
-            shippingStatusLabel.text = shipping.shippingStatus
-            shippingCityLabel.text = shipping.city
-            shippingPriceNationalLabel.text = "\(shipping.priceNational)"
-            shippingPriceInternationalLabel.text = "\(shipping.priceInternational)"
-            shippingDepositLabel.text = "\(shipping.deposit)"
-            shippingCommentLabel.text = "\(shipping.comment)"
+            shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate)
+            shippingStatusLabel.text = shipping!.shippingStatus
+            shippingCityLabel.text = shipping!.city
+            shippingPriceNationalLabel.text = "\(shipping!.priceNational)"
+            shippingPriceInternationalLabel.text = "\(shipping!.priceInternational)"
+            shippingDepositLabel.text = "\(shipping!.deposit)"
+            shippingCommentLabel.text = "\(shipping!.comment)"
         } else {
             deleteButton.isHidden = true
             
