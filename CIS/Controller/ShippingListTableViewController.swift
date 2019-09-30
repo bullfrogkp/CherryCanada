@@ -137,6 +137,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     }
 
     func addShipping(_ sp: Shipping) {
-        shippings.append(sp)
+        shippings.insert(sp, at: 0)
+               
+        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
     }
 }

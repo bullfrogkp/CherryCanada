@@ -62,7 +62,6 @@ class ShippingInfoViewController: UIViewController {
         
         if(shippingListTableViewController != nil) {
             shippingListTableViewController!.addShipping(shipping!)
-            shippingListTableViewController!.tableView.reloadData()
         } else {
             shippingDetailViewController!.updateShipping(shipping!)
         }
