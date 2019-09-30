@@ -137,4 +137,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
 
+    func addShipping(_ sp: Shipping) {
+        shippings.append(sp)
+    }
 }

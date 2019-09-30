@@ -266,6 +266,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addShipping(_ sp: Shipping) {
         shippingListTableViewController.addShipping(sp)
+        updateShippingView(sp)
     }
     
     func updateShipping(_ sp: Shipping) {
@@ -275,12 +276,19 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.priceInternational = sp.priceInternational
         shipping.priceNational = sp.priceNational
         
-        shippingDateLabel.text = 
-        shippingStatusLabel
-        shippingCityLabel
-        shippingPriceNationalLabel
-        shippingPriceInternationalLabel
-        shippingDepositLabel
-        shippingCommentLabel
+        updateShippingView(sp)
+    }
+    
+    func updateShippingView(_ sp: Shipping) {
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+
+        shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
+        shippingStatusLabel.text = shipping.shippingStatus
+        shippingCityLabel.text = shipping.city
+        shippingPriceNationalLabel.text = "\(shipping.priceNational)"
+        shippingPriceInternationalLabel.text = "\(shipping.priceInternational)"
+        shippingDepositLabel.text = "\(shipping.deposit)"
+        shippingCommentLabel.text = "\(shipping.comment)"
     }
 }
