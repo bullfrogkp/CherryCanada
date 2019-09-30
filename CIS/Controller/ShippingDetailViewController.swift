@@ -21,8 +21,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
-    var shipping: Shipping?
-    var cellIndex: Int?
+    var shipping: Shipping!
+    var cellIndex: Int!
     var shippingListTableViewController: ShippingListTableViewController!
     
     @IBAction func deleteShipping(_ sender: Any) {
@@ -262,11 +262,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addItem(item: Item) {
         shipping.items.append(item)
-    }
-    
-    func addShipping(_ sp: Shipping) {
-        shippingListTableViewController.addShipping(sp)
-        updateShippingView(sp)
     }
     
     func updateShipping(_ sp: Shipping) {
