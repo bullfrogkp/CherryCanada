@@ -21,7 +21,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         customer!.name = customerNameTextField.text!
         
-        shippingDetailViewController.clearItems(customer: customer!)
+        if(newCustomer == false) {
+            shippingDetailViewController.clearItems(customer: customer!)
+        } else {
+            shippingDetailViewController.addCustomer(customer: customer!)
+        }
         
         let sections = customerItemTableView.numberOfSections
         
@@ -68,6 +72,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     var customer: Customer?
     var shippingDetailViewController: ShippingDetailViewController!
+    var newCustomer: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +94,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             
             img.items = [itm]
             customer!.images = [img]
+            
+            newCustomer = true
         }
     }
     
