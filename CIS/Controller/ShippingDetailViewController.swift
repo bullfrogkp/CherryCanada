@@ -263,4 +263,24 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func addItem(item: Item) {
         shipping.items.append(item)
     }
+    
+    func addShipping(_ sp: Shipping) {
+        shippingListTableViewController.addShipping(sp)
+    }
+    
+    func updateShipping(_ sp: Shipping) {
+        shipping.city = sp.city
+        shipping.comment = sp.comment
+        shipping.deposit = sp.deposit
+        shipping.priceInternational = sp.priceInternational
+        shipping.priceNational = sp.priceNational
+        
+        shippingDateLabel.text = 
+        shippingStatusLabel
+        shippingCityLabel
+        shippingPriceNationalLabel
+        shippingPriceInternationalLabel
+        shippingDepositLabel
+        shippingCommentLabel
+    }
 }
