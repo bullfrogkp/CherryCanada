@@ -124,7 +124,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         } else if segue.identifier == "showCustomerDetail" {
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
-                destinationController.customer = Customer()
                 
                 let selectedCustomer = shipping.customers[indexPath.row]
                 let customer = Customer()
