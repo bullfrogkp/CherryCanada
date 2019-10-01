@@ -37,11 +37,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let itemImage = Image()
                 itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
                 
-                shippingDetailViewController.addImage(image: itemImage)
+                customer!.images.append(itemImage)
+                shippingDetailViewController.addImage(itemImage)
                 
                 let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
                 for rowIndex in 0..<rows {
-                      let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
                     
                     let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
                     
@@ -53,7 +54,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                     itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
                     itm.quantity = Int(cell.quantityTextField.text!)!
                     
-                    shippingDetailViewController.addItem(item: itm)
+                    itemImage.items.append(itm)
+                    customer!.items.append(itm)
+                    
+                    shippingDetailViewController.addItem(itm)
                 }
             }
         }

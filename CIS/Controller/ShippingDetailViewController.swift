@@ -129,24 +129,15 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 let customer = Customer()
                 customer.name = selectedCustomer.name
                 
-                var foundImage = false
+                customer.images = selectedCustomer.images
                 
                 for item in shipping.items {
                     if(selectedCustomer === item.customer) {
-                        foundImage = false
                         for image in customer.images {
                             if(image === item.image) {
                                 image.items.append(item)
-                                foundImage = true
                                 break
                             }
-                        }
-                        
-                        if(foundImage == false) {
-                            let image = Image()
-                            image.name = item.image.name
-                            image.items.append(item)
-                            customer.images.append(image)
                         }
                     }
                 }
@@ -251,13 +242,25 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func addImage(image: Image) {
+    func addCustomerImage(customer: Customer, image: Image) {
         shipping.images.append(image)
+        customer.images.append(image)
     }
     
-    func addItem(item: Item) {
+    func addCustomerItem(customer: Customer, item: Item) {
+        shipping.items.append(item)
+        customer.items.append(item)
+    }
+    
+    func addItem(_ item: Item) {
+        customer.images.append(item)
+    }
+    
+    func addItem(_ item: Item) {
         shipping.items.append(item)
     }
+    
+    
     
     func addCustomer(customer: Customer) {
         shipping.customers.insert(customer, at: 0)
