@@ -125,24 +125,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 
-                let selectedCustomer = shipping.customers[indexPath.row]
-                let customer = Customer()
-                customer.name = selectedCustomer.name
-                
-                customer.images = selectedCustomer.images
-                
-                for item in shipping.items {
-                    if(selectedCustomer === item.customer) {
-                        for image in customer.images {
-                            if(image === item.image) {
-                                image.items.append(item)
-                                break
-                            }
-                        }
-                    }
-                }
-                
-                destinationController.customer = customer
+                destinationController.customer = shipping.customers[indexPath.row]
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }
