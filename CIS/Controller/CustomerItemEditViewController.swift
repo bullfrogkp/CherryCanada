@@ -19,13 +19,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func saveCustomerItem(_ sender: Any) {
         
-        customer!.name = customerNameTextField.text!
-        
-        if(newCustomer == false) {
-            shippingDetailViewController.clearItems(customer: customer!)
+        if(customer == nil) {
+            customer = Customer()
+            shippingDetailViewController.addCustomer(customer!)
         } else {
-            shippingDetailViewController.addCustomer(customer: customer!)
+            shippingDetailViewController.clearItems(customer!)
         }
+        
+        customer!.name = customerNameTextField.text!
         
         let sections = customerItemTableView.numberOfSections
         
@@ -63,6 +64,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         customerItemViewController?.customerItemTableView.reloadData()
+        customerItemViewController?.customerNameLabel.text = customer!.name
         shippingDetailViewController.customerItemTableView.reloadData()
         
         self.dismiss(animated: true, completion: nil)
@@ -93,25 +95,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
                customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
-        
-        if(customer == nil) {
-            var img = Image()
-            var itm = Item()
-            customer = Customer()
-            
-            img.items = [itm]
-            customer!.images = [img]
-            
-            newCustomer = true
-        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return customer!.images.count
+        return customer?.images.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customer!.images[section].items.count
+        return customer?.images[section].items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

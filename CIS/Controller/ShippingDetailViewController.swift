@@ -194,7 +194,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
     
-    func clearItems(customer: Customer) {
+    func clearItems(_ customer: Customer) {
         //Remove shipping items
         for (idx, itm) in shipping.items.enumerated() {
             if itm.customer === customer {
@@ -217,18 +217,15 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addImage(_ image: Image) {
-        shipping.images.append(image)
+        shipping.images.insert(image, at: 0)
     }
     
     func addItem(_ item: Item) {
-        shipping.items.append(item)
+        shipping.items.insert(item, at: 0)
     }
     
-    func addCustomer(customer: Customer) {
+    func addCustomer(_ customer: Customer) {
         shipping.customers.insert(customer, at: 0)
-        customerItemTableView.reloadData()
-//        let insertionIndexPath = NSIndexPath(row: 0, section: 0)
-//        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
     }
     
     func updateShipping(_ sp: Shipping) {
