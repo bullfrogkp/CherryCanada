@@ -62,6 +62,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
+        customerItemViewController?.customerItemTableView.reloadData()
+        shippingDetailViewController.customerItemTableView.reloadData()
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -75,6 +78,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     var customer: Customer?
     var shippingDetailViewController: ShippingDetailViewController!
+    var customerItemViewController: CustomerItemViewController?
     var newCustomer: Bool = false
     
     override func viewDidLoad() {
