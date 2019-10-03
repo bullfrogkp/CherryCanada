@@ -37,9 +37,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let itemImage = Image()
                 itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
                 
-                customer!.images.append(itemImage)
-                shippingDetailViewController.addImage(itemImage)
-                
                 let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
                 for rowIndex in 0..<rows {
                     let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
@@ -59,6 +56,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                     
                     shippingDetailViewController.addItem(itm)
                 }
+                
+                customer!.images.append(itemImage)
+                shippingDetailViewController.addImage(itemImage)
             }
         }
         

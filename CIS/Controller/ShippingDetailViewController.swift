@@ -212,55 +212,34 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func clearItems(customer: Customer) {
-        
-        var itemImages: [Image] = []
-        
+        //Remove shipping items
         for (idx, itm) in shipping.items.enumerated() {
             if itm.customer === customer {
-                var imgCount = 0
-                for i in shipping.items {
-                    if(i.image === itm.image) {
-                        imgCount += 1
-                    }
-                }
-                
-                if(imgCount == 1) {
-                    itemImages.append(itm.image)
-                }
-                
                 shipping.items.remove(at: idx)
             }
         }
         
-        for imgItem in itemImages {
-            for (idxShipping, imgShipping) in shipping.images.enumerated() {
-                if(imgItem === imgShipping) {
-                    shipping.images.remove(at: idxShipping)
+        for cimg in customer.images {
+            for (idx, img) in shipping.images.enumerated() {
+                if(cimg === img && img.customers.count == 1) {
+                    shipping.images.remove(at: idx)
                     break
                 }
             }
         }
+        
+        //Remove customer items
+       customer.items.removeAll()
+       customer.images.removeAll()
     }
     
-    func addCustomerImage(customer: Customer, image: Image) {
+    func addImage(_ image: Image) {
         shipping.images.append(image)
-        customer.images.append(image)
-    }
-    
-    func addCustomerItem(customer: Customer, item: Item) {
-        shipping.items.append(item)
-        customer.items.append(item)
-    }
-    
-    func addItem(_ item: Item) {
-        customer.images.append(item)
     }
     
     func addItem(_ item: Item) {
         shipping.items.append(item)
     }
-    
-    
     
     func addCustomer(customer: Customer) {
         shipping.customers.insert(customer, at: 0)
