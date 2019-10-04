@@ -33,7 +33,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if(sections != 0) {
             for sectionIndex in 0..<sections {
                 
-                let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
+                let header = self.tableView(customerItemTableView, viewForHeaderInSection: sectionIndex) as! CustomerItemSectionHeaderView
                 
                 let itemImage = Image()
                 itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
