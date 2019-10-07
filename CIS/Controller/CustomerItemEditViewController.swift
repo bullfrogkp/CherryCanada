@@ -64,10 +64,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 //            }
 //        }
         
-        shippingDetailViewController.updateData(newCustomer)
+        if(customer == nil) {
+            shippingDetailViewController.addCustomer(newCustomer)
+        } else {
+            customer = newCustomer
+        }
         
-        customerItemViewController?.customerItemTableView.reloadData()
         customerItemViewController?.customerNameLabel.text = customer!.name
+        customerItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         
         self.dismiss(animated: true, completion: nil)
@@ -104,11 +108,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return customer?.images.count ?? 0
+        return newCustomer.images.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customer?.images[section].items.count ?? 0
+        return newCustomer.images[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
