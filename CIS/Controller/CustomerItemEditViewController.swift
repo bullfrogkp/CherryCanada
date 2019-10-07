@@ -70,7 +70,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             customer = newCustomer
         }
         
-        customerItemViewController?.customerNameLabel.text = newCustomer.name
+        customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
         customerItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         
@@ -162,11 +162,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        if let imageData = newCustomer.images[section].imageFile {
-            header.itemImageView.image = UIImage(data: imageData as Data)
-        } else {
-            header.itemImageView.image = UIImage(named: "test")
-        }
+        header.itemImageView.image = UIImage(data: newCustomer.images[section].imageFile as Data)
         
         header.addItemButton.tag = section
         header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
