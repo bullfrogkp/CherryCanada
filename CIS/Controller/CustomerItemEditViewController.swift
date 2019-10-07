@@ -67,7 +67,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if(customer == nil) {
             shippingDetailViewController.addCustomer(newCustomer)
         } else {
-            customer = newCustomer
+            customerItemViewController!.customer = newCustomer
+            shippingDetailViewController.updateData(newCustomer, customerIndex!)
         }
         
         customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
@@ -80,6 +81,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     
     var customer: Customer?
+    var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
     var newCustomer = Customer()

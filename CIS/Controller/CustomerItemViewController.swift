@@ -107,6 +107,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
             destinationController.customer = customer
+            destinationController.customerIndex = customerIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
             destinationController.customerItemViewController = self
         }

@@ -251,7 +251,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingCommentLabel.text = "\(shipping.comment)"
     }
     
-    func updateData(_ customer: Customer) {
-        
+    func updateData(_ customer: Customer, _ customerIndex: Int) {
+        shipping.customers[customerIndex] = customer
     }
 }
