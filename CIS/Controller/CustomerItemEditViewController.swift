@@ -131,9 +131,15 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextField textField: UITextField) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            if(textField.tag == 1) {
-                let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
-                itm.name = textField.text!
+           
+            let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
+                
+            switch textField.tag {
+            case 1: itm.name = textField.text!
+            case 2: itm.quantity = Int(textField.text!)!
+            case 3: itm.priceBought = Decimal(string: textField.text!)!
+            case 4: itm.priceSold = Decimal(string: textField.text!)!
+            default: print("Error")
             }
         }
     }
@@ -141,10 +147,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let string = textView.tag
-            print(indexPath.section)
-            print(indexPath.row)
-            print(string)
+            let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
+            itm.comment = textView.text!
         }
     }
     
@@ -183,7 +187,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func addItem(sender:UIButton)
     {
-        newCustomer.images[sender.tag].items.insert(Item(), at: 0)
+        let itm = Item()
+        newCustomer.images[sender.tag].items.insert(itm, at: 0)
+        newCustomer.items.insert(itm, at: 0)
         
         let insertionIndexPath = NSIndexPath(row: 0, section: sender.tag)
         customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
