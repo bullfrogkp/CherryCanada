@@ -70,7 +70,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             customer = newCustomer
         }
         
-        customerItemViewController?.customerNameLabel.text = customer!.name
+        customerItemViewController?.customerNameLabel.text = newCustomer.name
         customerItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         
@@ -86,8 +86,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        customerNameTextField.text = customer?.name
         
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
@@ -105,6 +103,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             newCustomer.items = customer!.items
             newCustomer.images = customer!.images
         }
+        
+        customerNameTextField.text = newCustomer.name
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -118,7 +118,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemEditTableViewCell
         
-        let item = customer!.images[indexPath.section].items[indexPath.row]
+        let item = newCustomer.images[indexPath.section].items[indexPath.row]
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
@@ -162,7 +162,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        if let imageData = customer?.images[section].imageFile {
+        if let imageData = newCustomer.images[section].imageFile {
             header.itemImageView.image = UIImage(data: imageData as Data)
         } else {
             header.itemImageView.image = UIImage(named: "test")
