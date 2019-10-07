@@ -19,53 +19,52 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func saveCustomerItem(_ sender: Any) {
         
-        var newCustomer = Customer()
         
-        newCustomer.name = customerNameTextField.text!
+//        if(customer == nil) {
+//            customer = Customer()
+//            shippingDetailViewController.addCustomer(customer!)
+//        } else {
+//            shippingDetailViewController.clearItems(customer!)
+//        }
+//
+//        customer!.name = customerNameTextField.text!
+//
+//        let sections = customerItemTableView.numberOfSections
+//
+//        if(sections != 0) {
+//            for sectionIndex in 0..<sections {
+//
+//                let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
+//
+//                let itemImage = Image()
+//                itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
+//
+//                let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
+//                for rowIndex in 0..<rows {
+//                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+//
+//                    let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
+//
+//                    let itm = Item()
+//                    itm.name = cell.nameTextField.text!
+//                    itm.customer = customer!
+//                    itm.image = itemImage
+//                    itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
+//                    itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
+//                    itm.quantity = Int(cell.quantityTextField.text!)!
+//
+//                    itemImage.items.append(itm)
+//                    customer!.items.append(itm)
+//
+//                    shippingDetailViewController.addItem(itm)
+//                }
+//
+//                customer!.images.append(itemImage)
+//                shippingDetailViewController.addImage(itemImage)
+//            }
+//        }
         
-        if(customer == nil) {
-            customer = Customer()
-            shippingDetailViewController.addCustomer(customer!)
-        } else {
-            shippingDetailViewController.clearItems(customer!)
-        }
-        
-        customer!.name = customerNameTextField.text!
-        
-        let sections = customerItemTableView.numberOfSections
-        
-        if(sections != 0) {
-            for sectionIndex in 0..<sections {
-                
-                let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
-                
-                let itemImage = Image()
-                itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
-                
-                let rows = customerItemTableView.numberOfRows(inSection: sectionIndex)
-                for rowIndex in 0..<rows {
-                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
-                    
-                    let cell = customerItemTableView.cellForRow(at: indexPath) as! CustomerItemEditTableViewCell
-                    
-                    let itm = Item()
-                    itm.name = cell.nameTextField.text!
-                    itm.customer = customer!
-                    itm.image = itemImage
-                    itm.priceBought = Decimal(string: cell.priceBoughtTextField.text!)!
-                    itm.priceSold = Decimal(string: cell.priceSoldTextField.text!)!
-                    itm.quantity = Int(cell.quantityTextField.text!)!
-                    
-                    itemImage.items.append(itm)
-                    customer!.items.append(itm)
-                    
-                    shippingDetailViewController.addItem(itm)
-                }
-                
-                customer!.images.append(itemImage)
-                shippingDetailViewController.addImage(itemImage)
-            }
-        }
+        shippingDetailViewController.updateData(newCustomer)
         
         customerItemViewController?.customerItemTableView.reloadData()
         customerItemViewController?.customerNameLabel.text = customer!.name
@@ -85,8 +84,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     var customer: Customer?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
-    var newCustomer: Bool = false
-    var sectionCollection: [CustomerItemSectionHeaderView] = []
+    var newCustomer = Customer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +98,15 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
         customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
+        
+        if(customer != nil) {
+            newCustomer.name = customer!.name
+            newCustomer.phone = customer!.phone
+            newCustomer.comment = customer!.comment
+            newCustomer.wechat = customer!.wechat
+            newCustomer.items = customer!.items
+            newCustomer.images = customer!.images
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,8 +171,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 
         header.deleteImageButton.tag = section
         header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
-        
-        sectionCollection.append(header)
         
         return header
     }

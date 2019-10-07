@@ -73,7 +73,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "851ADF6E-FB8A-4E6A-9DC1-D01B82AF7F0C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"

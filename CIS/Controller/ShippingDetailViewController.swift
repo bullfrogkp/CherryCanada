@@ -250,4 +250,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingDepositLabel.text = "\(shipping.deposit)"
         shippingCommentLabel.text = "\(shipping.comment)"
     }
+    
+    func updateData(_ customer: Customer) {
+        
+    }
 }
