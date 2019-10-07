@@ -64,6 +64,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 //            }
 //        }
         
+        newCustomer.name = customerNameTextField.text!
+        
         if(customer == nil) {
             shippingDetailViewController.addCustomer(newCustomer)
         } else {
