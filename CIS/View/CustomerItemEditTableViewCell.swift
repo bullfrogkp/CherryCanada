@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomerItemEditTableViewCell: UITableViewCell {
+    weak var delegate: CustomCellDelegate?
+    var customerItemEditViewController: CustomerItemEditViewController!
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
@@ -22,7 +24,13 @@ class CustomerItemEditTableViewCell: UITableViewCell {
         customerItemEditViewController.deleteCell(cell: self)
     }
     
-    var customerItemEditViewController: CustomerItemEditViewController!
+    @IBAction func didChangeTextFieldValue(_ sender: UITextField) {
+        delegate?.cell(self, didUpdateTextField: sender)
+    }
+    
+    @IBAction func didChangeTextViewValue(_ sender: UITextView) {
+        delegate?.cell(self, didUpdateTextView: sender)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

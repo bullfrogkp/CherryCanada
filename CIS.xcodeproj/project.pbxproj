@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E12B10D233BEBE8004A6EA8 /* CustomerItemSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12B10C233BEBE8004A6EA8 /* CustomerItemSectionHeaderView.swift */; };
 		3E12B10F233BF989004A6EA8 /* CustomerItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E12B10E233BF989004A6EA8 /* CustomerItemHeader.xib */; };
+		3E12B112234B9AAD004A6EA8 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */; };
 		3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */; };
 		3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */; };
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		3E12B10C233BEBE8004A6EA8 /* CustomerItemSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemSectionHeaderView.swift; sourceTree = "<group>"; };
 		3E12B10E233BF989004A6EA8 /* CustomerItemHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerItemHeader.xib; sourceTree = "<group>"; };
+		3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 		3E3AC8A422BC067000F1A0B3 /* CIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E3AC8AC22BC067000F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E12B110234B9A84004A6EA8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		3E3AC89B22BC067000F1A0B3 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		3E3AC8A622BC067000F1A0B3 /* CIS */ = {
 			isa = PBXGroup;
 			children = (
+				3E12B110234B9A84004A6EA8 /* Protocol */,
 				3E886EC92333F5FC00932427 /* Service */,
 				3E3AC8CD22E41B5900F1A0B3 /* Model */,
 				3E3AC8CC22E41B3300F1A0B3 /* Storyboard */,
@@ -252,6 +263,7 @@
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
+				3E12B112234B9AAD004A6EA8 /* CustomCellDelegate.swift in Sources */,
 				3E886ECB2333F62400932427 /* Utils.swift in Sources */,
 				3EF90142230EE41600173DE3 /* CustomerItemEditViewController.swift in Sources */,
 				3EF90146230EE47300173DE3 /* CustomerItemEditTableViewCell.swift in Sources */,

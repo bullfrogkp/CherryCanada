@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
 
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
@@ -18,6 +18,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func saveCustomerItem(_ sender: Any) {
+        
+        var newCustomer = Customer()
+        
+        newCustomer.name = customerNameTextField.text!
         
         if(customer == nil) {
             customer = Customer()
@@ -33,7 +37,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if(sections != 0) {
             for sectionIndex in 0..<sections {
                 
-                let header = self.tableView(customerItemTableView, viewForHeaderInSection: sectionIndex) as! CustomerItemSectionHeaderView
+                let header = customerItemTableView.headerView(forSection: sectionIndex) as! CustomerItemSectionHeaderView
                 
                 let itemImage = Image()
                 itemImage.imageFile = header.itemImageView.image!.pngData()! as NSData
@@ -82,6 +86,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
     var newCustomer: Bool = false
+    var sectionCollection: [CustomerItemSectionHeaderView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +99,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customerItemTableView.backgroundColor = UIColor.white
         
         let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
-               customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
+        customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,8 +122,29 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         cell.descriptionTextView.text = "\(item.comment)"
 
         cell.customerItemEditViewController = self
+        cell.delegate = self
         
         return cell
+    }
+    
+    func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextField textField: UITextField) {
+        
+        if let indexPath = customerItemTableView.indexPath(for: cell) {
+            let string = textField.tag
+            print(indexPath.section)
+            print(indexPath.row)
+            print(string)
+        }
+    }
+    
+    func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
+        
+        if let indexPath = customerItemTableView.indexPath(for: cell) {
+            let string = textView.tag
+            print(indexPath.section)
+            print(indexPath.row)
+            print(string)
+        }
     }
     
     func tableView(_ tableView: UITableView,
@@ -138,6 +164,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 
         header.deleteImageButton.tag = section
         header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
+        
+        sectionCollection.append(header)
         
         return header
     }
