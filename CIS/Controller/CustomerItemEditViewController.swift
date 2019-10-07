@@ -73,13 +73,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addImage(_ sender: Any) {
-        
-        let image = Image(name: "test")
-        customer?.images.insert(image, at: 0)
-        
-        customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
-    }
+    
     
     var customer: Customer?
     var shippingDetailViewController: ShippingDetailViewController!
@@ -137,10 +131,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextField textField: UITextField) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let string = textField.tag
-            print(indexPath.section)
-            print(indexPath.row)
-            print(string)
+            if(textField.tag == 1) {
+                let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
+                itm.name = textField.text!
+            }
         }
     }
     
@@ -179,9 +173,17 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         return 160
     }
     
+    @IBAction func addImage(_ sender: Any) {
+        
+        let image = Image(name: "test")
+        newCustomer.images.insert(image, at: 0)
+        
+        customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
+    }
+    
     @objc func addItem(sender:UIButton)
     {
-        customer?.images[sender.tag].items.insert(Item(), at: 0)
+        newCustomer.images[sender.tag].items.insert(Item(), at: 0)
         
         let insertionIndexPath = NSIndexPath(row: 0, section: sender.tag)
         customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
@@ -189,13 +191,13 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func deleteImage(sender:UIButton)
     {
-        customer!.images.remove(at: sender.tag)
+        newCustomer.images.remove(at: sender.tag)
         customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
     }
     
     func deleteCell(cell: UITableViewCell) {
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
-            customer!.images[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
+            newCustomer.images[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
