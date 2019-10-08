@@ -36,7 +36,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            self.shippingListTableViewController.deleteCell(rowIndex: self.cellIndex)
+            self.shippingListTableViewController.deleteShipping(rowIndex: self.cellIndex)
             
             self.navigationController?.popViewController(animated: true)
         })
@@ -145,17 +145,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = shipping.customers[indexPath.row]
-        var itemsTextArrar = [String]()
-        
-        cell.customerNameLabel.text = customerDetail.name
-        
-        for item in customerDetail.items {
-            itemsTextArrar.append("\(item.name) [\(item.quantity)]")
-        }
-        
-        cell.customerItemsLabel.numberOfLines = 0
-        cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
+        cell.customerNameLabel.text = shipping.customers[indexPath.row].name
         
         return cell
     }
@@ -183,15 +173,29 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func deleteCell(rowIndex: Int) {
+    func deleteCustomer(rowIndex: Int) {
         for (idx, itm) in shipping.items.enumerated() {
             if(itm.customer === shipping.customers[rowIndex]) {
                 shipping.items.remove(at: idx)
             }
         }
-        
+        cleanupImages()
         shipping.customers.remove(at: rowIndex)
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
+    }
+    
+    func cleanupImages() {
+        for (idx, img) in shipping.images.enumerated() {
+            var itemCount = 0
+            for itm in shipping.items {
+                if(itm.image === img) {
+                    itemCount += 1
+                }
+            }
+            if(itemCount == 0) {
+                shipping.images.remove(at: idx)
+            }
+        }
     }
     
     func clearItems(_ customer: Customer) {

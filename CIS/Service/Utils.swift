@@ -14,6 +14,34 @@ final class Utils {
     
     private init() { }
     
+    func cleanupImages(_ shipping: Shipping) {
+        for (idx, img) in shipping.images.enumerated() {
+            var itemCount = 0
+            for itm in shipping.items {
+                if(itm.image === img) {
+                    itemCount += 1
+                }
+            }
+            if(itemCount == 0) {
+                shipping.images.remove(at: idx)
+            }
+        }
+    }
+    
+    func cleanupCustomers(_ shipping: Shipping) {
+        for (idx, cus) in shipping.customers.enumerated() {
+            var itemCount = 0
+            for itm in shipping.items {
+                if(itm.customer === cus) {
+                    itemCount += 1
+                }
+            }
+            if(itemCount == 0) {
+                shipping.customers.remove(at: idx)
+            }
+        }
+    }
+    
     func convertItemsToCustomers(items: [Item]) -> [Customer] {
         var customers: [Customer] = []
         var foundCustomer = false

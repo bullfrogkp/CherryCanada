@@ -131,7 +131,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         return shippings
     }
     
-    func deleteCell(rowIndex: Int) {
+    func deleteShipping(rowIndex: Int) {
         shippings.remove(at: rowIndex)
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }

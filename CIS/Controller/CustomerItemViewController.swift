@@ -24,7 +24,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            self.shippingDetailViewController.deleteCell(rowIndex: self.customerIndex)
+            self.shippingDetailViewController.deleteCustomer(rowIndex: self.customerIndex)
             
             self.navigationController?.popViewController(animated: true)
         })
