@@ -193,6 +193,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @objc func addItem(sender:UIButton)
     {
         let itm = Item()
+        itm.image = newCustomer.images[sender.tag]
+        itm.customer = newCustomer
         newCustomer.images[sender.tag].items.insert(itm, at: 0)
         newCustomer.items.insert(itm, at: 0)
         
