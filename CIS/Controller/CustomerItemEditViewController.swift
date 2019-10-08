@@ -64,6 +64,81 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 //            }
 //        }
         
+        if(customer == nil) {
+            for img in newCustomer.images {
+                shippingDetailViewController.addImage(img)
+                for itm in img.items {
+                    shippingDetailViewController.addItem(itm)
+                }
+            }
+        } else {
+            
+            var newImages = [Image]()
+            var deletedImages = [Image]()
+            var newItems = [Item]()
+            var deletedItems = [Item]()
+            var imgFound = false
+            var itmFound = false
+            
+            for imgO in customer!.images {
+                imgFound = false
+                for imgN in newCustomer.images {
+                    if(imgO === imgN) {
+                        for itmO in imgO.items {
+                            itmFound = false
+                            for itmN in imgN.items {
+                                if(itmO === itmN) {
+                                    itmFound == true
+                                    break
+                                }
+                                
+                                if(itmFound == false) {
+                                    deletedItems.append(itmO)
+                                }
+                            }
+                        }
+                        
+                        imgFound = true
+                        break
+                    }
+                }
+                if(imgFound == false) {
+                    deletedImages.append(imgO)
+                }
+            }
+            
+            for imgN in newCustomer.images {
+                imgFound = false
+                for imgO in customer!.images {
+                    if(imgO === imgN) {
+                        for itmO in imgO.items {
+                            itmFound = false
+                            for itmN in imgN.items {
+                                if(itmO === itmN) {
+                                    itmFound == true
+                                    break
+                                }
+                                
+                                if(itmFound == false) {
+                                    deletedItems.append(itmO)
+                                }
+                            }
+                        }
+                        
+                        imgFound = true
+                        break
+                    }
+                }
+                if(imgFound == false) {
+                    deletedImages.append(imgO)
+                }
+            }
+        }
+        
+        
+        
+        
+        
         newCustomer.name = customerNameTextField.text!
         
         if(customer == nil) {
