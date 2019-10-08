@@ -184,6 +184,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func addImage(_ sender: Any) {
         
         let image = Image(name: "test")
+        image.customers = [newCustomer]
         newCustomer.images.insert(image, at: 0)
         
         customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
