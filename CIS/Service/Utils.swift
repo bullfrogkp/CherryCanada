@@ -42,7 +42,7 @@ final class Utils {
         }
     }
     
-    func convertItemsToCustomers(items: [Item]) -> [Customer] {
+    func convertItemsToCustomers(_ items: [Item]) -> [Customer] {
         var customers: [Customer] = []
         var foundCustomer = false
         var foundImage = false
