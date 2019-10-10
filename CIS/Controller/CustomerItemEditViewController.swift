@@ -231,8 +231,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         itm.customer = newCustomer
         newCustomer.images[sender.tag].items.insert(itm, at: 0)
         
-        let insertionIndexPath = NSIndexPath(row: 0, section: sender.tag)
-        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .top)
+        customerItemTableView.reloadData()
     }
     
     @objc func deleteImage(sender:UIButton)
