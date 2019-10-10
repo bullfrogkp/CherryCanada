@@ -267,7 +267,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         image.customers = [newCustomer]
         newCustomer.images.insert(image, at: 0)
         
-        customerItemTableView.insertSections(IndexSet(integer: 0), with: .top)
+        customerItemTableView.reloadData()
     }
     
     @objc func addItem(sender:UIButton)
@@ -285,7 +285,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @objc func deleteImage(sender:UIButton)
     {
         newCustomer.images.remove(at: sender.tag)
-        customerItemTableView.deleteSections(IndexSet(integer: sender.tag), with: .automatic)
+        customerItemTableView.reloadData()
     }
     
     func deleteCell(cell: UITableViewCell) {
