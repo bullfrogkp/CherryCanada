@@ -77,6 +77,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             var deletedImages = [Image]()
             var newItems = [Item]()
             var deletedItems = [Item]()
+            var commonImages = [Image]()
+            var commonItems = [Item]()
             var imgFound = false
             var itmFound = false
             
@@ -88,7 +90,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                             itmFound = false
                             for itmN in imgN.items {
                                 if(itmO === itmN) {
-                                    itmFound == true
+                                    itmFound = true
+                                    commonItems.append(itmO)
                                     break
                                 }
                                 
@@ -98,46 +101,43 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                             }
                         }
                         
+                        for itmN in imgN.items {
+                            for itmInCommon in commonItems {
+                                if(itmN === itmInCommon) {
+                                    continue
+                                } else {
+                                    newItems.append(itmN)
+                                }
+                            }
+                        }
+                        
                         imgFound = true
+                        commonImages.append(imgO)
                         break
                     }
                 }
                 if(imgFound == false) {
                     deletedImages.append(imgO)
+                    
+                    for itmO in imgO.items {
+                        deletedItems.append(itmO)
+                    }
                 }
             }
             
             for imgN in newCustomer.images {
-                imgFound = false
-                for imgO in customer!.images {
-                    if(imgO === imgN) {
-                        for itmO in imgO.items {
-                            itmFound = false
-                            for itmN in imgN.items {
-                                if(itmO === itmN) {
-                                    itmFound == true
-                                    break
-                                }
-                                
-                                if(itmFound == false) {
-                                    deletedItems.append(itmO)
-                                }
-                            }
+                for imgInCommon in commonImages {
+                    if(imgInCommon === imgN) {
+                        continue
+                    } else {
+                        newImages.append(imgN)
+                        for itmN in imgN.items {
+                            newItems.append(itmN)
                         }
-                        
-                        imgFound = true
-                        break
                     }
-                }
-                if(imgFound == false) {
-                    deletedImages.append(imgO)
                 }
             }
         }
-        
-        
-        
-        
         
         newCustomer.name = customerNameTextField.text!
         
