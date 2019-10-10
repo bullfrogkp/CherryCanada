@@ -139,6 +139,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
+        
+        shippingDetailViewController.addImages(<#T##image: Image##Image#>)
+        shippingDetailViewController.deleteImages(Image)
+        shippingDetailViewController.addItems(<#T##image: Image##Image#>)
+        shippingDetailViewController.deleteItems(<#T##image: Image##Image#>)
+        
         newCustomer.name = customerNameTextField.text!
         
         if(customer == nil) {
