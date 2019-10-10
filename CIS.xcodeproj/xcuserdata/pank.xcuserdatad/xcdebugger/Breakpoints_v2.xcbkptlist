@@ -79,8 +79,8 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -95,8 +95,8 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "saveCustomerItem(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -111,8 +111,8 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "saveCustomerItem(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -127,9 +127,9 @@
             filePath = "CIS/Controller/ShippingDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "addCustomer(_:)"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "addItems(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,8 +143,8 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "deleteImage(sender:)"
             landmarkType = "7">
          </BreakpointContent>

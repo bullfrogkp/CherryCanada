@@ -145,17 +145,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        let customerDetail = shipping.customers[indexPath.row]
-        var itemsTextArrar = [String]()
-        
-        cell.customerNameLabel.text = customerDetail.name
-        
-        for item in customerDetail.items {
-            itemsTextArrar.append("\(item.name) [\(item.quantity)]")
-        }
-        
-        cell.customerItemsLabel.numberOfLines = 0
-        cell.customerItemsLabel.attributedText = bulletPointList(strings: itemsTextArrar)
+        cell.customerNameLabel.text = shipping.customers[indexPath.row].name
         
         return cell
     }

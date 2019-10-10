@@ -123,9 +123,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         
         let item3 = Item(comment: "Item1", image: image1, name: "货物3", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer2)
         
-        customer1.items = [item1, item2, item3]
-        customer2.items = [item3]
-        
         image1.items = [item1, item3]
         image2.items = [item2]
         
