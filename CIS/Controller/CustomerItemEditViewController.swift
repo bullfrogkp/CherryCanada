@@ -200,7 +200,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageView.image = UIImage(data: newCustomer.images[section].imageFile as Data)
+        header.itemImageButton.setImage(UIImage(data: newCustomer.images[section].imageFile as Data), for: .normal)
+        header.itemImageButton.tag = section
+        header.itemImageButton.addTarget(self, action: #selector(chooseImage(sender:)), for: .touchUpInside)
         
         header.addItemButton.tag = section
         header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
@@ -213,6 +215,43 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 160
+    }
+    
+    @objc func chooseImage(sender:UIButton) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "选择图片", preferredStyle: .actionSheet)
+
+        let cameraAction = UIAlertAction(title: "摄像头", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .camera
+
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+
+        let photoLibraryAction = UIAlertAction(title: "图库", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+
+        // For iPad
+//        if let popoverController = photoSourceRequestController.popoverPresentationController {
+//            if let cell = tableView.cellForRow(at: indexPath) {
+//                popoverController.sourceView = cell
+//                popoverController.sourceRect = cell.bounds
+//            }
+//        }
+
+        present(photoSourceRequestController, animated: true, completion: nil)
     }
     
     @IBAction func addImage(_ sender: Any) {

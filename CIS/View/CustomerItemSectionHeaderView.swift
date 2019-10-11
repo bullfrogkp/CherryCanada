@@ -10,13 +10,7 @@ import UIKit
 
 class CustomerItemSectionHeaderView: UITableViewHeaderFooterView {
 
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemImageButton: UIButton!
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var deleteImageButton: UIButton!
-
-    @IBAction func deleteImage(_ sender: Any) {
-    }
-    
-    @IBAction func addItem(_ sender: Any) {
-    }
 }
