@@ -115,8 +115,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     var customer: Customer?
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
@@ -200,7 +198,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageButton.setImage(UIImage(data: newCustomer.images[section].imageFile as Data), for: .normal)
+        header.itemImageButton.setBackgroundImage(UIImage(data: newCustomer.images[section].imageFile as Data), for: .normal)
         header.itemImageButton.tag = section
         header.itemImageButton.addTarget(self, action: #selector(chooseImage(sender:)), for: .touchUpInside)
         
