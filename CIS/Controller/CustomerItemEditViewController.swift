@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
@@ -120,6 +120,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
     var newCustomer = Customer()
+    var curentImageSection = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,6 +217,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @objc func chooseImage(sender:UIButton) {
+        
+        curentImageSection = sender.tag
+        
         let photoSourceRequestController = UIAlertController(title: "", message: "选择图片", preferredStyle: .actionSheet)
 
         let cameraAction = UIAlertAction(title: "摄像头", style: .default, handler: { (action) in
@@ -223,6 +227,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .camera
+                imagePicker.delegate = self
 
                 self.present(imagePicker, animated: true, completion: nil)
             }
@@ -233,6 +238,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
 
                 self.present(imagePicker, animated: true, completion: nil)
             }
@@ -293,5 +299,21 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            let header = customerItemTableView.headerView(forSection: curentImageSection) as! CustomerItemSectionHeaderView
+            
+            header.itemImageButton.setBackgroundImage(selectedImage, for: .normal)
+            
+            newCustomer.images[curentImageSection] = Image(imageFile: selectedImage.pngData()! as NSData)
+        }
+
+        curentImageSection = -1
+        
+        dismiss(animated: true, completion: nil)
     }
 }
