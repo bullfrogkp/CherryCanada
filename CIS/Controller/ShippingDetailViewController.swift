@@ -74,6 +74,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         
+        customerItemTableView.contentInset = UIEdgeInsets(top: 0, left: -14, bottom: 0, right: 0)
+        
         if shipping != nil {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
