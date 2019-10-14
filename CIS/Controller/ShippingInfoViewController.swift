@@ -23,6 +23,8 @@ class ShippingInfoViewController: UIViewController {
     }
     @IBAction func saveData(_ sender: Any) {
         
+        var errorMsg = ""
+        
         if shippingDateTextField.text == "" {
             let alertController = UIAlertController(title: "必填项目", message: "请填写日期", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -42,12 +44,7 @@ class ShippingInfoViewController: UIViewController {
         if let shippingDate = dateFormatter.date(from: shippingDateTextField.text!) {
             shipping!.shippingDate = shippingDate
         } else {
-            let alertController = UIAlertController(title: "请填写正确日期格式", message: "dd/mm/yyyy", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
-            
-            return
+            errorMsg += "请填写正确日期格式\n"
         }
         
         
@@ -61,23 +58,37 @@ class ShippingInfoViewController: UIViewController {
         
         if let formattedNumber = formatter.number(from: shippingFeeNationalTextField.text!) as? NSDecimalNumber  {
             shipping!.priceNational = formattedNumber as Decimal
+        } else if(shippingFeeNationalTextField.text != ""){
+            errorMsg += "请填写正确国内运费\n"
         }
         
         if let formattedNumber = formatter.number(from: shippingFeeInternationalTextField.text!) as? NSDecimalNumber  {
             shipping!.priceInternational = formattedNumber as Decimal
+        } else if(shippingFeeInternationalTextField.text != "") {
+            errorMsg += "请填写正确国际运费\n"
         }
         
         if let formattedNumber = formatter.number(from: shippingDepositTextField.text!) as? NSDecimalNumber  {
             shipping!.deposit = formattedNumber as Decimal
+        } else if(shippingDepositTextField.text != "") {
+            errorMsg += "请填写正确押金\n"
         }
         
-        if(shippingListTableViewController != nil) {
-            shippingListTableViewController!.addShipping(shipping!)
+        if(errorMsg != "") {
+            let alertController = UIAlertController(title: "请填写正确数据", message: errorMsg, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+        
         } else {
-            shippingDetailViewController!.updateShipping(shipping!)
+            if(shippingListTableViewController != nil) {
+                shippingListTableViewController!.addShipping(shipping!)
+            } else {
+                shippingDetailViewController!.updateShipping(shipping!)
+            }
+            
+            dismiss(animated: true, completion: nil)
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     var shipping: Shipping?
