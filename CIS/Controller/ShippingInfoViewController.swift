@@ -38,7 +38,18 @@ class ShippingInfoViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        shipping!.shippingDate = dateFormatter.date(from: shippingDateTextField.text!)!
+        
+        if let shippingDate = dateFormatter.date(from: shippingDateTextField.text!) {
+            shipping!.shippingDate = shippingDate
+        } else {
+            let alertController = UIAlertController(title: "请填写正确日期格式", message: "dd/mm/yyyy", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
         
         shipping!.shippingStatus = shippingStatusTextField.text!
         shipping!.city = shippingCityTextField.text!
