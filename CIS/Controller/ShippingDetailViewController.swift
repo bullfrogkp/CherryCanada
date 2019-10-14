@@ -238,6 +238,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.priceNational = sp.priceNational
         
         updateShippingView(sp)
+        
+        shippingListTableViewController.tableView.reloadRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
     }
     
     func updateShippingView(_ sp: Shipping) {

@@ -37,7 +37,7 @@ class ShippingInfoViewController: UIViewController {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         shipping!.shippingDate = dateFormatter.date(from: shippingDateTextField.text!)!
         
         shipping!.shippingStatus = shippingStatusTextField.text!
@@ -72,6 +72,7 @@ class ShippingInfoViewController: UIViewController {
     var shipping: Shipping?
     var shippingDetailViewController: ShippingDetailViewController?
     var shippingListTableViewController: ShippingListTableViewController?
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,5 +98,37 @@ class ShippingInfoViewController: UIViewController {
             shippingDepositTextField.text = ""
             shippingCommentTextField.text = ""
         }
+        
+        showDatePicker()
     }
+    
+    func showDatePicker(){
+       //Formate Date
+       datePicker.datePickerMode = .date
+
+      //ToolBar
+      let toolbar = UIToolbar();
+      toolbar.sizeToFit()
+      let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+     let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+
+    toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+
+     shippingDateTextField.inputAccessoryView = toolbar
+     shippingDateTextField.inputView = datePicker
+
+    }
+
+     @objc func donedatePicker(){
+
+      let formatter = DateFormatter()
+      formatter.dateFormat = "dd/MM/yyyy"
+      shippingDateTextField.text = formatter.string(from: datePicker.date)
+      self.view.endEditing(true)
+    }
+
+    @objc func cancelDatePicker(){
+       self.view.endEditing(true)
+     }
 }
