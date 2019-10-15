@@ -812,50 +812,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-y5-i0G">
-                                <rect key="frame" x="16" y="77" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-y5-i0G">
+                                <rect key="frame" x="16" y="76" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="城市" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vl4-Nw-OiR">
-                                <rect key="frame" x="16" y="170" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="城市" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vl4-Nw-OiR">
+                                <rect key="frame" x="16" y="184" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="国内运费" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-34-8Jk">
-                                <rect key="frame" x="16" y="230" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="国内运费" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-34-8Jk">
+                                <rect key="frame" x="16" y="238" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="国际运费" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-ac-Gvk">
-                                <rect key="frame" x="16" y="289" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="国际运费" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-ac-Gvk">
+                                <rect key="frame" x="16" y="292" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="押金" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oSw-ww-gVZ">
-                                <rect key="frame" x="16" y="353" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="押金" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oSw-ww-gVZ">
+                                <rect key="frame" x="16" y="346" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="其他信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-qY-itF">
-                                <rect key="frame" x="16" y="405" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="其他信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-qY-itF">
+                                <rect key="frame" x="16" y="400" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="状态" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rn-sZ-azh">
-                                <rect key="frame" x="16" y="115" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="状态" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rn-sZ-azh">
+                                <rect key="frame" x="16" y="130" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vl4-Nw-OiR" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="2zm-bi-UVN"/>
+                            <constraint firstItem="2rn-sZ-azh" firstAttribute="top" secondItem="fTE-y5-i0G" secondAttribute="bottom" constant="20" id="35C-3G-RNo"/>
+                            <constraint firstItem="oSw-ww-gVZ" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="96g-pV-U8o"/>
+                            <constraint firstItem="l6R-34-8Jk" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="CHA-n8-9KG"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="oSw-ww-gVZ" secondAttribute="trailing" constant="16" id="Cj8-Df-yj5"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="hr2-qY-itF" secondAttribute="trailing" constant="16" id="El0-IX-RqJ"/>
+                            <constraint firstItem="hr2-qY-itF" firstAttribute="top" secondItem="oSw-ww-gVZ" secondAttribute="bottom" constant="20" id="FH3-5P-bU8"/>
+                            <constraint firstItem="2rn-sZ-azh" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="IaS-8V-Vwb"/>
+                            <constraint firstItem="fTE-y5-i0G" firstAttribute="top" secondItem="8AB-8h-6i7" secondAttribute="top" constant="20" id="SUL-2u-G0j"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="vl4-Nw-OiR" secondAttribute="trailing" constant="16" id="TCQ-j0-3Le"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="l6R-34-8Jk" secondAttribute="trailing" constant="16" id="VAE-pd-Qel"/>
+                            <constraint firstItem="hUt-ac-Gvk" firstAttribute="top" secondItem="l6R-34-8Jk" secondAttribute="bottom" constant="20" id="b73-ZW-S7a"/>
+                            <constraint firstItem="hUt-ac-Gvk" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="dGA-Aa-QQ8"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="fTE-y5-i0G" secondAttribute="trailing" constant="16" id="dK9-43-OUA"/>
+                            <constraint firstItem="fTE-y5-i0G" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="g3g-SY-LRp"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="hUt-ac-Gvk" secondAttribute="trailing" constant="16" id="laY-Ss-M0b"/>
+                            <constraint firstItem="hr2-qY-itF" firstAttribute="leading" secondItem="8AB-8h-6i7" secondAttribute="leading" constant="16" id="oaX-gt-5DZ"/>
+                            <constraint firstItem="l6R-34-8Jk" firstAttribute="top" secondItem="vl4-Nw-OiR" secondAttribute="bottom" constant="20" id="ogO-uw-qcT"/>
+                            <constraint firstItem="vl4-Nw-OiR" firstAttribute="top" secondItem="2rn-sZ-azh" secondAttribute="bottom" constant="20" id="r1t-wq-HRA"/>
+                            <constraint firstItem="oSw-ww-gVZ" firstAttribute="top" secondItem="hUt-ac-Gvk" secondAttribute="bottom" constant="20" id="uii-cz-ATW"/>
+                            <constraint firstItem="8AB-8h-6i7" firstAttribute="trailing" secondItem="2rn-sZ-azh" secondAttribute="trailing" constant="16" id="y1u-Ir-0Q8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8AB-8h-6i7"/>
                     </view>
                     <navigationItem key="navigationItem" id="bhd-fD-tF3">

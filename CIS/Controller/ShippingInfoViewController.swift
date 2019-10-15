@@ -133,9 +133,9 @@ class ShippingInfoViewController: UIViewController {
       //ToolBar
       let toolbar = UIToolbar();
       toolbar.sizeToFit()
-      let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+      let doneButton = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-     let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+     let cancelButton = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(cancelDatePicker));
 
     toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
 
