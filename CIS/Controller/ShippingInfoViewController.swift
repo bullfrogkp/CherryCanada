@@ -126,6 +126,8 @@ class ShippingInfoViewController: UIViewController {
     
     func showDatePicker(){
        //Formate Date
+        let loc = Locale(identifier: "zh")
+        datePicker.locale = loc
        datePicker.datePickerMode = .date
 
       //ToolBar
