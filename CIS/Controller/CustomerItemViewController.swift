@@ -11,7 +11,7 @@ import UIKit
 class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var customerNameLabel: UILabel!
-    @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var customerItemTableView: SelfSizedTableView!
     
     @IBAction func deleteCustomerButton(_ sender: Any) {
         
@@ -100,6 +100,10 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 115
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
