@@ -17,7 +17,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var shippingPriceInternationalLabel: UILabel!
     @IBOutlet weak var shippingDepositLabel: UILabel!
     @IBOutlet weak var shippingCommentLabel: UILabel!
-    @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var customerItemTableView: SelfSizedTableView!
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
@@ -75,6 +75,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         
         customerItemTableView.contentInset = UIEdgeInsets(top: 0, left: -14, bottom: 0, right: 0)
+        customerItemTableView.maxHeight = 672
         
         if shipping != nil {
             let dateFormatterPrint = DateFormatter()
