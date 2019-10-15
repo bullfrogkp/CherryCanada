@@ -72,7 +72,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
         
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 2000)
         
         customerItemTableView.contentInset = UIEdgeInsets(top: 0, left: -14, bottom: 0, right: 0)
         customerItemTableView.maxHeight = 672
