@@ -39,7 +39,7 @@ class ShippingInfoViewController: UIViewController {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         if let shippingDate = dateFormatter.date(from: shippingDateTextField.text!) {
             shipping!.shippingDate = shippingDate
@@ -145,7 +145,7 @@ class ShippingInfoViewController: UIViewController {
      @objc func donedatePicker(){
 
       let formatter = DateFormatter()
-      formatter.dateFormat = "dd/MM/yyyy"
+      formatter.dateFormat = "yyyy-MM-dd"
       shippingDateTextField.text = formatter.string(from: datePicker.date)
       self.view.endEditing(true)
     }
