@@ -38,6 +38,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var shippingDepositLabel: UILabel!
     @IBOutlet weak var shippingCommentLabel: UILabel!
     @IBOutlet weak var customerItemTableView: SelfSizedTableView!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
@@ -79,6 +80,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         customerItemTableView.dataSource = self
         customerItemTableView.delegate = self
+        
+        imageCollectionView.dataSource = self
+        imageCollectionView.delegate = self
         
         scrollView.contentInsetAdjustmentBehavior = .never
         
