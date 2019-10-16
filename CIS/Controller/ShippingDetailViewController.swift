@@ -8,7 +8,27 @@
 
 import UIKit
 
-class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return shipping.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
+
+        // Configure the cell
+        let img = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
+        let imgView = UIImageView(image: img)
+        cell.shippingImageView = imgView
+
+        return cell
+    }
+    
     
     @IBOutlet weak var shippingDateLabel: UILabel!
     @IBOutlet weak var shippingStatusLabel: UILabel!

@@ -65,8 +65,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "numberOfSections(in:)"
-            landmarkType = "7">
+            landmarkName = "CustomerItemViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -127,9 +127,9 @@
             filePath = "CIS/Controller/ShippingDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "addItems(_:)"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "deleteItems(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
