@@ -21,10 +21,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
 
-        // Configure the cell
-        let img = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
-        let imgView = UIImageView(image: img)
-        cell.shippingImageView = imgView
+        cell.shippingImageView.image = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
 
         return cell
     }

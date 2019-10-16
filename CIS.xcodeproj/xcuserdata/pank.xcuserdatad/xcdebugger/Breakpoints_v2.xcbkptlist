@@ -127,8 +127,8 @@
             filePath = "CIS/Controller/ShippingDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "deleteItems(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,14 +153,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1FAE7F15-E924-44F9-B7B2-0648DA42298B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/ShippingDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
