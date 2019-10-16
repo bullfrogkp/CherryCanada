@@ -386,7 +386,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ueG-ae-dql" customClass="SelfSizedTableView" customModule="CIS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="294" width="343" height="318"/>
+                                <rect key="frame" x="16" y="299" width="343" height="313"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerId" rowHeight="46" id="m3X-NI-vTe" customClass="CustomerListTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -600,7 +600,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ueG-ae-dql" firstAttribute="top" secondItem="Y2e-Mn-eUW" secondAttribute="bottom" constant="50" id="0jQ-oa-A0F"/>
+                            <constraint firstItem="ueG-ae-dql" firstAttribute="top" secondItem="Y2e-Mn-eUW" secondAttribute="bottom" constant="55" id="0jQ-oa-A0F"/>
                             <constraint firstItem="KU7-qQ-zoM" firstAttribute="top" secondItem="cUk-LK-FxX" secondAttribute="bottom" constant="16" id="0ui-aA-8H1"/>
                             <constraint firstItem="Xg9-ae-vV7" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="DRl-rs-tQr"/>
                             <constraint firstItem="Y2e-Mn-eUW" firstAttribute="leading" secondItem="0Sq-m0-KbC" secondAttribute="leading" constant="16" id="FF6-AH-FJU"/>
