@@ -99,7 +99,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editImageItem" {
             let naviController : UINavigationController = segue.destination as! UINavigationController
-            let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! ImageItemEditViewController
+            let destinationController: ImageItemEditViewController = naviController.viewControllers[0] as! ImageItemEditViewController
             destinationController.image = image
             destinationController.imageIndex = imageIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
