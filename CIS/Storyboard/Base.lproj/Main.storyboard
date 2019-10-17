@@ -201,21 +201,33 @@
                                                     <rect key="frame" x="15" y="11" width="313" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didChangeTextFieldValue:" destination="q1H-qd-kBi" eventType="editingDidEnd" id="ed2-e9-IMH"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq4-HR-oKt">
                                                     <rect key="frame" x="15" y="45" width="313" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didChangeTextFieldValue:" destination="q1H-qd-kBi" eventType="editingDidEnd" id="p29-YD-oDg"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="进价" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ql5-NQ-Owf">
                                                     <rect key="frame" x="15" y="83" width="313" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didChangeTextFieldValue:" destination="q1H-qd-kBi" eventType="editingDidEnd" id="P9w-js-4Wu"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="卖价" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jc4-U8-ept">
                                                     <rect key="frame" x="15" y="121" width="313" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didChangeTextFieldValue:" destination="q1H-qd-kBi" eventType="editingDidEnd" id="Rox-ep-TN9"/>
+                                                    </connections>
                                                 </textField>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="描述" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="842-hL-Hqr">
                                                     <rect key="frame" x="15" y="159" width="313" height="128"/>
@@ -226,6 +238,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-zd-TQC">
                                                     <rect key="frame" x="15" y="303" width="313" height="30"/>
                                                     <state key="normal" title="删除物品"/>
+                                                    <connections>
+                                                        <action selector="deleteItem:" destination="q1H-qd-kBi" eventType="touchUpInside" id="3vq-LY-xa4"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -251,7 +266,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemNameTextField" destination="Dul-PG-zpp" id="oLh-TR-IkF"/>
+                                            <outlet property="deleteItemButton" destination="EeP-zd-TQC" id="Gr6-3q-2dg"/>
+                                            <outlet property="descriptionTextView" destination="842-hL-Hqr" id="zQC-8R-VMc"/>
+                                            <outlet property="nameTextField" destination="Dul-PG-zpp" id="iI4-Z6-t3O"/>
+                                            <outlet property="priceBoughtTextField" destination="Ql5-NQ-Owf" id="eY9-uj-3Z9"/>
+                                            <outlet property="priceSoldTextField" destination="jc4-U8-ept" id="Y8o-Lr-kA9"/>
+                                            <outlet property="quantityTextField" destination="tq4-HR-oKt" id="zs5-Tn-JYL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

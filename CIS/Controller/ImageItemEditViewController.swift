@@ -166,6 +166,30 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextField textField: UITextField) {
+        
+        if let indexPath = customerItemTableView.indexPath(for: cell) {
+           
+            let itm = newImage.customers[(indexPath.section)].items[indexPath.row]
+                
+            switch textField.tag {
+            case 1: itm.name = textField.text!
+            case 2: itm.quantity = Int(textField.text!)!
+            case 3: itm.priceBought = Decimal(string: textField.text!)!
+            case 4: itm.priceSold = Decimal(string: textField.text!)!
+            default: print("Error")
+            }
+        }
+    }
+    
+    func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextView textView: UITextView) {
+        
+        if let indexPath = customerItemTableView.indexPath(for: cell) {
+            let itm = newImage.customers[(indexPath.section)].items[indexPath.row]
+            itm.comment = textView.text!
+        }
+    }
+    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
@@ -215,5 +239,13 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         newImage.customers.remove(at: sender.tag)
         customerItemTableView.reloadData()
+    }
+    
+    func deleteCell(cell: UITableViewCell) {
+        self.view.endEditing(true)
+        if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
+            newImage.customers[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
+            customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
+        }
     }
 }
