@@ -289,7 +289,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="JtL-5b-hSU">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="Vm9-c0-csz"/>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="KCO-ef-YXy"/>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="KCO-ef-YXy">
+                            <connections>
+                                <action selector="saveImageItemButton:" destination="zF0-yn-k6n" id="cBT-tC-CPo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="767"/>
                     <connections>
