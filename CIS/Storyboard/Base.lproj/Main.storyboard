@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-NN-Hpe">
-                                <rect key="frame" x="16" y="0.0" width="343" height="200"/>
+                                <rect key="frame" x="16" y="44" width="343" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="W0y-NN-Hpe" secondAttribute="height" multiplier="343:200" id="DK1-6Z-fLc"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO">
-                                <rect key="frame" x="16" y="208" width="343" height="326"/>
+                                <rect key="frame" x="16" y="252" width="343" height="282"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="220" id="4Fd-cM-WKK" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -175,6 +175,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9dL-ap-Psq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wir-xh-Hvo"/>
                     <connections>
                         <outlet property="customerItemTableView" destination="mZ9-iu-wJO" id="JOy-TR-wIM"/>
                         <outlet property="itemImageView" destination="W0y-NN-Hpe" id="g4K-CL-Hgf"/>
@@ -365,6 +366,7 @@
                                         <size key="customSize" width="100" height="100"/>
                                         <connections>
                                             <outlet property="shippingImageView" destination="pcd-XN-prn" id="dJb-7V-sLf"/>
+                                            <segue destination="78I-me-Egn" kind="show" identifier="showImageDetail" id="z7F-E3-lT5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1239,7 +1241,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1ZG-1F-RM2"/>
+        <segue reference="zd2-nt-ntf"/>
         <segue reference="8CE-QC-JYY"/>
     </inferredMetricsTieBreakers>
 </document>
