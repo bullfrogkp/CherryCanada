@@ -142,27 +142,25 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if(image != nil) {
             newImage.name = image!.name
-            newImage.phone = image!.phone
-            newImage.comment = image!.comment
-            newImage.wechat = image!.wechat
-            newImage.images = image!.images
+            newImage.customers = image!.customers
+            newImage.imageFile = image!.imageFile
         }
         
-        itemImageView.image = UIImage(data: image.imageFile as Data)
+        itemImageView.image = UIImage(data: newImage.imageFile as Data)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pageData.customers?.count ?? 0
+        return newImage.customers.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pageData.customers?[section].items.count ?? 0
+        return newImage.customers[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemTableViewCell
         
-        let item = pageData.customers![indexPath.section].items[indexPath.row]
+        let item = newImage.customers[indexPath.section].items[indexPath.row]
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "/(item.quantity)"
@@ -176,12 +174,27 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
+        
+        let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "imageSectionHeader") as! ImageItemSectionHeaderView
+        
+        header.customerNameTextField.text = newImage.customers[section].name
+        
+        header.addItemButton.tag = section
+        header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
+
+        header.deleteImageButton.tag = section
+        header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
+        
+        return header
+        
+        
+        
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
         
         let customerTextField: UITextField = {
             let cTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
             cTextField.placeholder = "客户"
-            cTextField.text = pageData.customers![section].name
+            cTextField.text = newImage.customers[section].name
             
             return cTextField
         }()
