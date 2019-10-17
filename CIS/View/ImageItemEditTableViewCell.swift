@@ -9,7 +9,11 @@
 import UIKit
 
 class ImageItemEditTableViewCell: UITableViewCell {
+    weak var delegate: ImageCellDelegate?
+    var imageItemEditViewController: ImageItemEditViewController!
 
+    @IBOutlet weak var itemNameTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

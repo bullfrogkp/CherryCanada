@@ -90,20 +90,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2FI-RA-yHA">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2FI-RA-yHA">
                                                     <rect key="frame" x="201" y="50" width="137" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-rw-j5F">
-                                                    <rect key="frame" x="284" y="189" width="62" height="30"/>
-                                                    <state key="normal" title="删除物品"/>
-                                                    <connections>
-                                                        <action selector="deleteItemButton:" destination="4Fd-cM-WKK" eventType="touchUpInside" id="JQd-Wl-6bF"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2FI-RA-yHA" firstAttribute="top" secondItem="OKw-Dt-hqQ" secondAttribute="bottom" constant="8" symbolic="YES" id="1oE-ew-Qgc"/>
@@ -122,9 +115,7 @@
                                                 <constraint firstItem="UTx-nd-XG0" firstAttribute="leading" secondItem="772-Ch-13K" secondAttribute="leading" id="MoO-ip-cGH"/>
                                                 <constraint firstItem="Rkw-TP-Mjk" firstAttribute="baseline" secondItem="OKw-Dt-hqQ" secondAttribute="baseline" id="QcG-48-PGa"/>
                                                 <constraint firstItem="yJG-Ue-1A2" firstAttribute="top" secondItem="a4K-PV-hSg" secondAttribute="bottom" constant="14" id="RRa-lz-okX"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qF0-rw-j5F" secondAttribute="bottom" constant="-10" id="RcH-WT-VLh"/>
                                                 <constraint firstItem="jZm-op-0Ce" firstAttribute="baseline" secondItem="qKo-dW-tZx" secondAttribute="baseline" id="THS-nI-OxQ"/>
-                                                <constraint firstItem="qF0-rw-j5F" firstAttribute="top" secondItem="2FI-RA-yHA" secondAttribute="bottom" constant="11" id="TLQ-Bd-zgN"/>
                                                 <constraint firstItem="jZm-op-0Ce" firstAttribute="top" secondItem="rXs-IV-fM6" secondAttribute="bottom" constant="16" id="VoO-2m-grk"/>
                                                 <constraint firstItem="Rkw-TP-Mjk" firstAttribute="leading" secondItem="qKo-dW-tZx" secondAttribute="leading" id="cy4-nW-oXw"/>
                                                 <constraint firstItem="Rkw-TP-Mjk" firstAttribute="leading" secondItem="rXs-IV-fM6" secondAttribute="trailing" constant="34" id="dil-xd-5lg"/>
@@ -133,7 +124,6 @@
                                                 <constraint firstItem="rXs-IV-fM6" firstAttribute="leading" secondItem="jZm-op-0Ce" secondAttribute="leading" id="ox7-DG-koo"/>
                                                 <constraint firstItem="rXs-IV-fM6" firstAttribute="leading" secondItem="bt7-Cl-8eB" secondAttribute="leadingMargin" constant="9" id="qr7-pd-CQ4"/>
                                                 <constraint firstItem="rXs-IV-fM6" firstAttribute="top" secondItem="bt7-Cl-8eB" secondAttribute="topMargin" constant="1" id="r6m-oG-Yq5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qF0-rw-j5F" secondAttribute="trailing" constant="-19" id="vNf-7l-E0d"/>
                                                 <constraint firstItem="a4K-PV-hSg" firstAttribute="leading" secondItem="yJG-Ue-1A2" secondAttribute="leading" id="x3r-HI-wqS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -260,6 +250,9 @@
                                                 <constraint firstItem="Dul-PG-zpp" firstAttribute="top" secondItem="QeJ-g7-Zsk" secondAttribute="topMargin" constant="-9" id="xIR-if-q3o"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemNameTextField" destination="Dul-PG-zpp" id="oLh-TR-IkF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

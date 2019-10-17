@@ -16,8 +16,8 @@ class CustomerItemTableViewCell: UITableViewCell {
     @IBOutlet weak var priceSoldLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBAction func deleteItemButton(_ sender: Any) {
-    }
+//    @IBAction func deleteItemButton(_ sender: Any) {
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

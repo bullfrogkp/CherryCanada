@@ -17,9 +17,6 @@ class ImageItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBAction func deleteItemButton(_ sender: Any) {
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
