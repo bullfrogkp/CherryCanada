@@ -288,7 +288,11 @@
                         <viewLayoutGuide key="safeArea" id="N6R-dZ-fZ3"/>
                     </view>
                     <navigationItem key="navigationItem" id="JtL-5b-hSU">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="Vm9-c0-csz"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="Vm9-c0-csz">
+                            <connections>
+                                <action selector="cancel:" destination="zF0-yn-k6n" id="tMi-IV-S9n"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="KCO-ef-YXy">
                             <connections>
                                 <action selector="saveImageItemButton:" destination="zF0-yn-k6n" id="cBT-tC-CPo"/>

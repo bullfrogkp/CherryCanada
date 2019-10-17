@@ -13,9 +13,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var customerItemTableView: UITableView!
     
-    @IBAction func addCustomer(_ sender: Any) {
-        
-    }
+    
     @IBAction func saveImageItemButton(_ sender: Any) {
         if(customer == nil) {
             for img in newCustomer.images {
@@ -114,12 +112,9 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     var image: Image?
     var imageIndex: Int?
@@ -186,83 +181,39 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
         
         return header
-        
-        
-        
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
-        
-        let customerTextField: UITextField = {
-            let cTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
-            cTextField.placeholder = "客户"
-            cTextField.text = newImage.customers[section].name
-            
-            return cTextField
-        }()
-        
-        let addItemButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("添加物品", for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 1.0)
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
-            button.setTitleColor(.white, for: .normal)
-            button.sizeToFit()
-            return button
-        }()
-        
-        let deleteCustomerButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("删除图片", for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = UIColor.red
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.black.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15)
-            button.setTitleColor(.white, for: .normal)
-            button.sizeToFit()
-            return button
-        }()
-        
-        headerView.addSubview(customerTextField)
-        headerView.addSubview(addItemButton)
-        headerView.addSubview(deleteCustomerButton)
-        
-        addItemButton.tag = section
-        addItemButton.addTarget(self, action: Selector(("addItem")), for: .touchUpInside)
-        
-        deleteCustomerButton.tag = section
-        deleteCustomerButton.addTarget(self, action: Selector(("deleteCustomer")), for: .touchUpInside)
-        
-        let views: [String: Any] = [
-            "customerTextField": customerTextField,
-            "addItemButton": addItemButton,
-            "deleteCustomerButton": deleteCustomerButton
-        ]
-        
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[customerTextField]-|", metrics: nil, views: views))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[deleteCustomerButton(160)]-20-[addItemButton]-|", options: .alignAllCenterY, metrics: nil, views: views))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[customerTextField]-20-[deleteCustomerButton]", metrics: nil, views: views))
-        
-        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
     }
     
+    @IBAction func addCustomer(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        let customer = Customer()
+        customer.images = [newImage]
+        newImage.customers.insert(customer, at: 0)
+        
+        customerItemTableView.reloadData()
+    }
+    
     @objc func addItem(sender:UIButton)
     {
-        let insertionIndexPath = NSIndexPath(row: pageData.customers![sender.tag].items.count - 1, section: sender.tag)
-        customerItemTableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
+        self.view.endEditing(true)
+        
+        let itm = Item()
+        itm.customer = newImage.customers[sender.tag]
+        itm.image = newImage
+        newImage.customers[sender.tag].items.insert(itm, at: 0)
+        
+        customerItemTableView.reloadData()
     }
     
     @objc func deleteCustomer(sender:UIButton)
     {
-        let indexSet = IndexSet(arrayLiteral: sender.tag)
-        customerItemTableView.deleteSections(indexSet, with: .automatic)
+        self.view.endEditing(true)
+        
+        newImage.customers.remove(at: sender.tag)
+        customerItemTableView.reloadData()
     }
 }

@@ -298,9 +298,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    @objc func cancel() {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @objc func cancel() {
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
