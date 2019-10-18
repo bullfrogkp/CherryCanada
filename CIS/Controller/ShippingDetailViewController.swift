@@ -141,12 +141,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 destinationController.shippingDetailViewController = self
             }
         } else if segue.identifier == "showImageDetail" {
-            if let indexPath = imageCollectionView.indexPathsForSelectedItems {
+            if let indexPaths = imageCollectionView.indexPathsForSelectedItems {
                 let destinationController = segue.destination as! ImageItemViewController
                 
-                destinationController.image = shipping.images[indexPath.count]
-                destinationController.imageIndex = indexPath.count
+                destinationController.image = shipping.images[indexPaths[0].row]
+                destinationController.imageIndex = indexPaths[0].row
                 destinationController.shippingDetailViewController = self
+                
+                imageCollectionView.deselectItem(at: indexPaths[0], animated: false)
             }
         }
         
