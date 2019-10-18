@@ -217,6 +217,17 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func deleteCustomers(_ customers: [Customer]) {
+        for cus in customers {
+            for (idx, cusO) in shipping.customers.enumerated() {
+                if(cusO === cus) {
+                    shipping.customers.remove(at: idx)
+                    break
+                }
+            }
+        }
+    }
+    
     func deleteItems(_ items: [Item]) {
         for itm in items {
             for (idx, itmO) in shipping.items.enumerated() {
@@ -231,6 +242,12 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func addImages(_ images: [Image]) {
         for img in images {
             addImage(img)
+        }
+    }
+    
+    func addCustomers(_ customers: [Customer]) {
+        for cus in customers {
+            addCustomer(cus)
         }
     }
     

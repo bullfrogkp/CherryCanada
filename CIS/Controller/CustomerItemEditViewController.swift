@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
 
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerItemTableView: UITableView!
@@ -168,6 +170,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         cell.delegate = self
         
         return cell
+    }
+    
+    func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextField textField: UITextField) {
+        
+    }
+    
+    func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextView textView: UITextView) {
+        
     }
     
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextField textField: UITextField) {

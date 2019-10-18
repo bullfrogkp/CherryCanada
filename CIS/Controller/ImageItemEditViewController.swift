@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomerCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var customerItemTableView: UITableView!
     
@@ -164,6 +164,14 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         cell.descriptionTextView.text = "/(item.description)"
         
         return cell
+    }
+    
+    func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextField textField: UITextField) {
+        
+    }
+    
+    func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
+        
     }
     
     func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextField textField: UITextField) {
