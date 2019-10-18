@@ -140,7 +140,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }
+        } else if segue.identifier == "showImageDetail" {
+            if let indexPath = imageCollectionView.indexPathsForSelectedItems {
+                let destinationController = segue.destination as! ImageItemViewController
+                
+                destinationController.image = shipping.images[indexPath.count]
+                destinationController.imageIndex = indexPath.count
+                destinationController.shippingDetailViewController = self
+            }
         }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
