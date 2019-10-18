@@ -11,6 +11,8 @@
 		3E12B10F233BF989004A6EA8 /* CustomerItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E12B10E233BF989004A6EA8 /* CustomerItemHeader.xib */; };
 		3E12B112234B9AAD004A6EA8 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */; };
 		3E1898082357A58300A0B59C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1898072357A58300A0B59C /* ImageCollectionViewCell.swift */; };
+		3E18980A235A06DC00A0B59C /* ImageItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E189809235A06DC00A0B59C /* ImageItemHeader.xib */; };
+		3E18980C235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E18980B235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift */; };
 		3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */; };
 		3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */; };
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 		3E12B10E233BF989004A6EA8 /* CustomerItemHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerItemHeader.xib; sourceTree = "<group>"; };
 		3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 		3E1898072357A58300A0B59C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E189809235A06DC00A0B59C /* ImageItemHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageItemHeader.xib; sourceTree = "<group>"; };
+		3E18980B235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemSectionHeaderView.swift; sourceTree = "<group>"; };
 		3E3AC8A422BC067000F1A0B3 /* CIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E3AC8AC22BC067000F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				3E12B10C233BEBE8004A6EA8 /* CustomerItemSectionHeaderView.swift */,
 				3ED2FCAD23561ADF0055EECD /* SelfSizedTableView.swift */,
 				3E1898072357A58300A0B59C /* ImageCollectionViewCell.swift */,
+				3E18980B235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */,
 				3E12B10E233BF989004A6EA8 /* CustomerItemHeader.xib */,
+				3E189809235A06DC00A0B59C /* ImageItemHeader.xib */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 				3E3AC8B222BC067100F1A0B3 /* Assets.xcassets in Resources */,
 				3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */,
 				3E12B10F233BF989004A6EA8 /* CustomerItemHeader.xib in Resources */,
+				3E18980A235A06DC00A0B59C /* ImageItemHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +273,7 @@
 				3EF90144230EE43C00173DE3 /* ImageItemEditViewController.swift in Sources */,
 				3EF90148230EE48500173DE3 /* ImageItemEditTableViewCell.swift in Sources */,
 				3E886EC42325FDFB00932427 /* ShippingInfoViewController.swift in Sources */,
+				3E18980C235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift in Sources */,
 				3EF9013C230C69B000173DE3 /* ImageItemViewController.swift in Sources */,
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
