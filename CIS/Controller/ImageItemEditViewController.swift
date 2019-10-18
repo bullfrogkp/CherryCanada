@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomerCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var customerItemTableView: UITableView!
@@ -201,8 +201,8 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         header.addItemButton.tag = section
         header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
 
-        header.deleteImageButton.tag = section
-        header.deleteImageButton.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
+        header.deleteCustomerButton.tag = section
+        header.deleteCustomerButton.addTarget(self, action: #selector(deleteCustomer(sender:)), for: .touchUpInside)
         
         return header
     }

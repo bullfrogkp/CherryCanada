@@ -11,6 +11,7 @@ import UIKit
 class ImageItemSectionHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var deleteCustomerButton: UIButton!
-    @IBOutlet weak var customerTextField: UITextField!
+    
+    @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var addItemButton: UIButton!
 }
