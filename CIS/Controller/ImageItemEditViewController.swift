@@ -95,17 +95,17 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             shippingDetailViewController.deleteItems(deletedItems)
         }
         
-        newCustomer.name = customerNameTextField.text!
+        newImage.imageFile = itemImageView.image!.pngData()! as NSData
         
-        if(customer == nil) {
-            shippingDetailViewController.addCustomer(newCustomer)
+        if(image == nil) {
+            shippingDetailViewController.addImage(newImage)
         } else {
-            customerItemViewController!.customer = newCustomer
-            shippingDetailViewController.updateData(newCustomer, customerIndex!)
+            imageItemViewController!.image = newImage
+            shippingDetailViewController.updateImageData(newImage, imageIndex!)
         }
         
-        customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
-        customerItemViewController?.customerItemTableView.reloadData()
+        imageItemViewController?.itemImageView.image = itemImageView.image
+        imageItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         shippingDetailViewController.imageCollectionView.reloadData()
         

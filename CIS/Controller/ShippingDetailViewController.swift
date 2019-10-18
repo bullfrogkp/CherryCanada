@@ -280,4 +280,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func updateData(_ customer: Customer, _ customerIndex: Int) {
         shipping.customers[customerIndex] = customer
     }
+    
+    func updateImageData(_ image: Image, _ imageIndex: Int) {
+        shipping.images[imageIndex] = image
+    }
 }
