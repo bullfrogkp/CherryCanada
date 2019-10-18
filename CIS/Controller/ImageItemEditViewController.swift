@@ -15,31 +15,31 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @IBAction func saveImageItemButton(_ sender: Any) {
-        if(customer == nil) {
-            for img in newCustomer.images {
-                shippingDetailViewController.addImage(img)
-                for itm in img.items {
+        if(image == nil) {
+            for cus in newImage.customers {
+                shippingDetailViewController.addCustomer(cus)
+                for itm in cus.items {
                     shippingDetailViewController.addItem(itm)
                 }
             }
         } else {
             
-            var newImages = [Image]()
-            var deletedImages = [Image]()
+            var newCustomers = [Customer]()
+            var deletedCustomers = [Customer]()
             var newItems = [Item]()
             var deletedItems = [Item]()
-            var commonImages = [Image]()
+            var commonCustomers = [Customer]()
             var commonItems = [Item]()
-            var imgFound = false
+            var cusFound = false
             var itmFound = false
             
-            for imgO in customer!.images {
-                imgFound = false
-                for imgN in newCustomer.images {
-                    if(imgO === imgN) {
-                        for itmO in imgO.items {
+            for cusO in image!.customers {
+                cusFound = false
+                for cusN in newImage.customers {
+                    if(cusO === cusN) {
+                        for itmO in cusO.items {
                             itmFound = false
-                            for itmN in imgN.items {
+                            for itmN in cusN.items {
                                 if(itmO === itmN) {
                                     itmFound = true
                                     commonItems.append(itmO)
@@ -52,7 +52,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                             }
                         }
                         
-                        for itmN in imgN.items {
+                        for itmN in cusN.items {
                             for itmInCommon in commonItems {
                                 if(itmN === itmInCommon) {
                                     continue
@@ -62,35 +62,35 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                             }
                         }
                         
-                        imgFound = true
-                        commonImages.append(imgO)
+                        cusFound = true
+                        commonCustomers.append(cusO)
                         break
                     }
                 }
-                if(imgFound == false) {
-                    deletedImages.append(imgO)
+                if(cusFound == false) {
+                    deletedCustomers.append(cusO)
                     
-                    for itmO in imgO.items {
+                    for itmO in cusO.items {
                         deletedItems.append(itmO)
                     }
                 }
             }
             
-            for imgN in newCustomer.images {
-                for imgInCommon in commonImages {
-                    if(imgInCommon === imgN) {
+            for cusN in newImage.customers {
+                for cusInCommon in commonCustomers {
+                    if(cusInCommon === cusN) {
                         continue
                     } else {
-                        newImages.append(imgN)
-                        for itmN in imgN.items {
+                        newCustomers.append(cusN)
+                        for itmN in cusN.items {
                             newItems.append(itmN)
                         }
                     }
                 }
             }
             
-            shippingDetailViewController.addImages(newImages)
-            shippingDetailViewController.deleteImages(deletedImages)
+            shippingDetailViewController.addCustomers(newCustomers)
+            shippingDetailViewController.deleteCustomers(deletedCustomers)
             shippingDetailViewController.addItems(newItems)
             shippingDetailViewController.deleteItems(deletedItems)
         }
