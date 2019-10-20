@@ -128,7 +128,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="2FI-RA-yHA" id="PP6-Do-WNL"/>
                                             <outlet property="descriptionTextView" destination="2FI-RA-yHA" id="1MC-88-eGt"/>
                                             <outlet property="nameLabel" destination="Rkw-TP-Mjk" id="DwP-2w-1Vp"/>
                                             <outlet property="priceBoughtLabel" destination="a4K-PV-hSg" id="zYx-ll-08e"/>

@@ -153,15 +153,15 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemEditTableViewCell
         
         let item = newImage.customers[indexPath.section].items[indexPath.row]
         
-        cell.nameLabel.text = item.name
-        cell.quantityLabel.text = "/(item.quantity)"
-        cell.priceSoldLabel.text = "/(item.priceSold)"
-        cell.priceBoughtLabel.text = "/(item.priceBought)"
-        cell.descriptionTextView.text = "/(item.description)"
+        cell.nameTextField.text = item.name
+        cell.quantityTextField.text = "\(item.quantity)"
+        cell.priceSoldTextField.text = "\(item.priceSold)"
+        cell.priceBoughtTextField.text = "\(item.priceBought)"
+        cell.descriptionTextView.text = item.comment
         
         return cell
     }
