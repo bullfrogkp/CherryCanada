@@ -11,7 +11,7 @@ import UIKit
 class ImageItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var customerItemTableView: SelfSizedTableView!
     
     @IBAction func deleteItemImageButton(_ sender: Any) {
         
