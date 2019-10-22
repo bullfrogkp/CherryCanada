@@ -125,8 +125,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
         
@@ -200,7 +198,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
-        
         
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "imageSectionHeader") as! ImageItemSectionHeaderView
         
