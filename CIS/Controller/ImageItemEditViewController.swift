@@ -213,7 +213,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 103
     }
     
     @IBAction func addCustomer(_ sender: Any) {
