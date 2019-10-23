@@ -22,12 +22,12 @@
                                     <constraint firstAttribute="height" constant="100" id="CsC-QZ-JLq"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO" customClass="SelfSizedTableView" customModule="CIS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-iu-wJO" customClass="SelfSizedTableView" customModule="CIS" customModuleProvider="target">
                                 <rect key="frame" x="16" y="152" width="343" height="382"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="117" id="4Fd-cM-WKK" customClass="ImageItemTableViewCell" customModule="CIS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="117"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="343" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Fd-cM-WKK" id="bt7-Cl-8eB">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="117"/>
@@ -74,13 +74,13 @@
                                                     <rect key="frame" x="81" y="19" width="65" height="47.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkw-TP-Mjk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKo-dW-tZx">
-                                                            <rect key="frame" x="0.0" y="26.5" width="65" height="21"/>
+                                                            <rect key="frame" x="0.0" y="27" width="65" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
