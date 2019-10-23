@@ -79,16 +79,26 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
             
-            for cusN in newImage.customers {
-                for cusInCommon in commonCustomers {
-                    if(cusInCommon === cusN) {
-                        continue
-                    } else {
-                        newCustomers.append(cusN)
-                        for itmN in cusN.items {
-                            newItems.append(itmN)
+            if(commonCustomers.count == 0) {
+                for cusN in newImage.customers {
+                    newCustomers.append(cusN)
+                }
+            } else {
+                var cusFound = false
+                for cusN in newImage.customers {
+                    for cusInCommon in commonCustomers {
+                        if(cusInCommon === cusN) {
+                            cusFound = true
+                            break
                         }
                     }
+                    
+                    if(cusFound == false) {
+                       newCustomers.append(cusN)
+                       for itmN in cusN.items {
+                           newItems.append(itmN)
+                       }
+                   }
                 }
             }
             
