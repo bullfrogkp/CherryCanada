@@ -203,6 +203,9 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         header.customerNameTextField.text = newImage.customers[section].name
         
+        header.customerNameTextField.tag = section
+        header.customerNameTextField.addTarget(self, action: #selector(updateCustomerName(sender:)), for: .editingDidEnd)
+        
         header.addItemButton.tag = section
         header.addItemButton.addTarget(self, action: #selector(addItem(sender:)), for: .touchUpInside)
 
@@ -224,6 +227,11 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         newImage.customers.insert(customer, at: 0)
         
         customerItemTableView.reloadData()
+    }
+    
+    @objc func updateCustomerName(sender:UIButton) {
+        let header = customerItemTableView.headerView(forSection: sender.tag) as! ImageItemSectionHeaderView
+        newImage.customers[sender.tag].name = header.customerNameTextField.text!
     }
     
     @objc func addItem(sender:UIButton)
