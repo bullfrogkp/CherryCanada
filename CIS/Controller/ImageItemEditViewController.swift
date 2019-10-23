@@ -15,6 +15,9 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @IBAction func saveImageItemButton(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
         if(image == nil) {
             for cus in newImage.customers {
                 shippingDetailViewController.addCustomer(cus)
@@ -230,6 +233,8 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc func updateCustomerName(sender:UIButton) {
+        self.view.endEditing(true)
+        
         let header = customerItemTableView.headerView(forSection: sender.tag) as! ImageItemSectionHeaderView
         newImage.customers[sender.tag].name = header.customerNameTextField.text!
     }

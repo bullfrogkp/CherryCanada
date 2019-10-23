@@ -20,6 +20,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func saveCustomerItem(_ sender: Any) {
+        self.view.endEditing(true)
         
         if(customer == nil) {
             for img in newCustomer.images {
