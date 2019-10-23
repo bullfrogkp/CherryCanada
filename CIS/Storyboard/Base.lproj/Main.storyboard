@@ -194,14 +194,24 @@
             <objects>
                 <viewController id="zF0-yn-k6n" customClass="ImageItemEditViewController" customModule="CIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6u-VU-5Ny">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="747"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8C-ea-qfc">
-                                <rect key="frame" x="16" y="69" width="343" height="200"/>
+                                <rect key="frame" x="16" y="56" width="343" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="26Y-tv-FHK"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mb-MP-ukh">
+                                <rect key="frame" x="16" y="164" width="343" height="30"/>
+                                <state key="normal" title="添加客户"/>
+                                <connections>
+                                    <action selector="addCustomer:" destination="zF0-yn-k6n" eventType="touchUpInside" id="6x8-SQ-t6W"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-dT-t6T">
-                                <rect key="frame" x="16" y="315" width="343" height="412"/>
+                                <rect key="frame" x="16" y="208" width="343" height="423"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageItemId" rowHeight="344" id="q1H-qd-kBi" customClass="ImageItemEditTableViewCell" customModule="CIS" customModuleProvider="target">
@@ -290,27 +300,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mb-MP-ukh">
-                                <rect key="frame" x="16" y="277" width="343" height="30"/>
-                                <state key="normal" title="添加客户"/>
-                                <connections>
-                                    <action selector="addCustomer:" destination="zF0-yn-k6n" eventType="touchUpInside" id="6x8-SQ-t6W"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="trailing" secondItem="6mb-MP-ukh" secondAttribute="trailing" id="Axz-cq-d2r"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="trailing" secondItem="C6u-VU-5Ny" secondAttribute="trailingMargin" id="Eex-Tk-8bi"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="leading" secondItem="Fl6-dT-t6T" secondAttribute="leading" id="Mbj-LA-IT1"/>
-                            <constraint firstItem="Fl6-dT-t6T" firstAttribute="top" secondItem="6mb-MP-ukh" secondAttribute="bottom" constant="8" id="Uce-ba-OPs"/>
-                            <constraint firstItem="6mb-MP-ukh" firstAttribute="top" secondItem="d8C-ea-qfc" secondAttribute="bottom" constant="8" symbolic="YES" id="d6G-bj-fnY"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="leading" secondItem="C6u-VU-5Ny" secondAttribute="leadingMargin" id="ehk-hy-xf1"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="trailing" secondItem="Fl6-dT-t6T" secondAttribute="trailing" id="fpQ-uL-hAc"/>
-                            <constraint firstAttribute="bottom" secondItem="Fl6-dT-t6T" secondAttribute="bottom" constant="20" symbolic="YES" id="g1n-9K-1cA"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="width" secondItem="d8C-ea-qfc" secondAttribute="height" multiplier="343:200" id="g4G-Ma-uwQ"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="top" secondItem="N6R-dZ-fZ3" secondAttribute="top" constant="13" id="sZA-s0-77t"/>
-                            <constraint firstItem="d8C-ea-qfc" firstAttribute="leading" secondItem="6mb-MP-ukh" secondAttribute="leading" id="xgt-nv-7Xb"/>
+                            <constraint firstItem="Fl6-dT-t6T" firstAttribute="leading" secondItem="N6R-dZ-fZ3" secondAttribute="leading" constant="16" id="1LA-dq-3c6"/>
+                            <constraint firstItem="N6R-dZ-fZ3" firstAttribute="trailing" secondItem="d8C-ea-qfc" secondAttribute="trailing" constant="16" id="Axn-Hw-5xP"/>
+                            <constraint firstItem="Fl6-dT-t6T" firstAttribute="top" secondItem="6mb-MP-ukh" secondAttribute="bottom" constant="14" id="CGx-9W-YGx"/>
+                            <constraint firstItem="N6R-dZ-fZ3" firstAttribute="trailing" secondItem="6mb-MP-ukh" secondAttribute="trailing" constant="16" id="I3U-DC-qo6"/>
+                            <constraint firstItem="N6R-dZ-fZ3" firstAttribute="bottom" secondItem="Fl6-dT-t6T" secondAttribute="bottom" constant="16" id="JVA-7K-Di7"/>
+                            <constraint firstItem="d8C-ea-qfc" firstAttribute="top" secondItem="N6R-dZ-fZ3" secondAttribute="top" id="Smz-9j-Xyr"/>
+                            <constraint firstItem="6mb-MP-ukh" firstAttribute="top" secondItem="d8C-ea-qfc" secondAttribute="bottom" constant="8" id="W8X-2B-Xl7"/>
+                            <constraint firstItem="6mb-MP-ukh" firstAttribute="leading" secondItem="N6R-dZ-fZ3" secondAttribute="leading" constant="16" id="XBQ-rH-EKp"/>
+                            <constraint firstItem="6mb-MP-ukh" firstAttribute="top" secondItem="d8C-ea-qfc" secondAttribute="bottom" constant="8" id="fZa-f2-o7b"/>
+                            <constraint firstItem="N6R-dZ-fZ3" firstAttribute="trailing" secondItem="Fl6-dT-t6T" secondAttribute="trailing" constant="16" id="mqN-OQ-fCJ"/>
+                            <constraint firstItem="d8C-ea-qfc" firstAttribute="leading" secondItem="N6R-dZ-fZ3" secondAttribute="leading" constant="16" id="yJN-Ow-1ZR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N6R-dZ-fZ3"/>
                     </view>
@@ -326,7 +329,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="375" height="767"/>
                     <connections>
                         <outlet property="customerItemTableView" destination="Fl6-dT-t6T" id="aI6-Aa-Jb1"/>
                         <outlet property="itemImageView" destination="d8C-ea-qfc" id="EUq-yd-yL6"/>
@@ -334,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy3-Fh-WSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4974" y="1170"/>
+            <point key="canvasLocation" x="4973.6000000000004" y="1169.865067466267"/>
         </scene>
         <!--Shipping Detail View Controller-->
         <scene sceneID="hiL-du-yRo">
