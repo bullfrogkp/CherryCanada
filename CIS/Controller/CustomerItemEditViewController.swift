@@ -83,11 +83,24 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
             
-            for imgN in newCustomer.images {
-                for imgInCommon in commonImages {
-                    if(imgInCommon === imgN) {
-                        continue
-                    } else {
+            if(commonImages.count == 0) {
+                for imgN in newCustomer.images {
+                    newImages.append(imgN)
+                    for itmN in imgN.items {
+                        newItems.append(itmN)
+                    }
+                }
+            } else {
+                imgFound = false
+                for imgN in newCustomer.images {
+                    for imgInCommon in commonImages {
+                        if(imgInCommon === imgN) {
+                            imgFound = true
+                            break
+                        }
+                    }
+                    
+                    if(imgFound == false) {
                         newImages.append(imgN)
                         for itmN in imgN.items {
                             newItems.append(itmN)
@@ -95,6 +108,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                     }
                 }
             }
+            
+            
             
             shippingDetailViewController.addImages(newImages)
             shippingDetailViewController.deleteImages(deletedImages)

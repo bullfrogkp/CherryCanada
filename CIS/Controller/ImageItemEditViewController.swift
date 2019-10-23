@@ -84,7 +84,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                     newCustomers.append(cusN)
                 }
             } else {
-                var cusFound = false
+                cusFound = false
                 for cusN in newImage.customers {
                     for cusInCommon in commonCustomers {
                         if(cusInCommon === cusN) {
