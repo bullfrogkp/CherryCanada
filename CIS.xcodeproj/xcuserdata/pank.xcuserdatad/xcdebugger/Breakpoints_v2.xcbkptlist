@@ -217,7 +217,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9F29EBA0-1D49-426A-83D4-50108633A188"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/ImageItemEditViewController.swift"
@@ -233,20 +233,20 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/ImageItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "cell(_:didUpdateTextField:)"
             landmarkType = "7">
             <Locations>
                <Location
                   uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
@@ -255,13 +255,13 @@
                   urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "1450">
                </Location>
                <Location
                   uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
@@ -270,13 +270,13 @@
                   urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "1528">
                </Location>
                <Location
                   uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
@@ -285,13 +285,13 @@
                   urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "2036">
                </Location>
                <Location
                   uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
@@ -300,13 +300,13 @@
                   urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "2853">
                </Location>
                <Location
                   uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
@@ -315,8 +315,8 @@
                   urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "4015">
                </Location>
             </Locations>
