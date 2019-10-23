@@ -173,6 +173,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         cell.priceSoldTextField.text = "\(item.priceSold)"
         cell.priceBoughtTextField.text = "\(item.priceBought)"
         cell.descriptionTextView.text = item.comment
+        cell.delegate = self
         
         return cell
     }

@@ -213,5 +213,114 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F29EBA0-1D49-426A-83D4-50108633A188"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/ImageItemEditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "saveImageItemButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/ImageItemEditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "cell(_:didUpdateTextField:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "1450">
+               </Location>
+               <Location
+                  uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "1528">
+               </Location>
+               <Location
+                  uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "2036">
+               </Location>
+               <Location
+                  uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "2853">
+               </Location>
+               <Location
+                  uuid = "EA3C9C36-0832-4F0F-B5C5-075BE06FB4B1 - b2e6479e99feb625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ImageItemEditViewController.cell(_: CIS.ImageItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ImageItemEditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "4015">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
