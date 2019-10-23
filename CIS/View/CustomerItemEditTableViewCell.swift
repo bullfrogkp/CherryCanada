@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerItemEditTableViewCell: UITableViewCell {
+class CustomerItemEditTableViewCell: UITableViewCell, UITextViewDelegate {
     weak var delegate: CustomCellDelegate?
     var customerItemEditViewController: CustomerItemEditViewController!
 
@@ -28,13 +28,10 @@ class CustomerItemEditTableViewCell: UITableViewCell {
         delegate?.cell(self, didUpdateTextField: sender)
     }
     
-    @IBAction func didChangeTextViewValue(_ sender: UITextView) {
-        delegate?.cell(self, didUpdateTextView: sender)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        descriptionTextView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,5 +39,8 @@ class CustomerItemEditTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        delegate?.cell(self, didUpdateTextView: textView)
+    }
 }
