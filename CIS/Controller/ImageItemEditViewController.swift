@@ -258,6 +258,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         itm.customer = newImage.customers[sender.tag]
         itm.image = newImage
         newImage.customers[sender.tag].items.insert(itm, at: 0)
+        newImage.items.insert(itm, at: 0)
         
         customerItemTableView.reloadData()
     }
