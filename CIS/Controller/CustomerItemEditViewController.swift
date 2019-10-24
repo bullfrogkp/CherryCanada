@@ -314,6 +314,16 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.view.endEditing(true)
         
         newCustomer.images.remove(at: sender.tag)
+        
+        for dItem in newCustomer.images[sender.tag].items {
+            for (idx, itm) in newCustomer.items.enumerated() {
+                if(itm === dItem) {
+                    newCustomer.items.remove(at: idx)
+                    break
+                }
+            }
+        }
+        
         customerItemTableView.reloadData()
     }
     
