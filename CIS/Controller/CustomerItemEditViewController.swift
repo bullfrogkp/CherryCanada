@@ -313,8 +313,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        newCustomer.images.remove(at: sender.tag)
-        
         for dItem in newCustomer.images[sender.tag].items {
             for (idx, itm) in newCustomer.items.enumerated() {
                 if(itm === dItem) {
@@ -324,13 +322,24 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
+        newCustomer.images.remove(at: sender.tag)
+        
         customerItemTableView.reloadData()
     }
     
     func deleteCell(cell: UITableViewCell) {
         self.view.endEditing(true)
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
+            
+            for (idx, itm) in newCustomer.items.enumerated() {
+                if(itm === newCustomer.images[deletionIndexPath.section].items[deletionIndexPath.row]) {
+                    newCustomer.items.remove(at: idx)
+                    break
+                }
+            }
+            
             newCustomer.images[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
+            
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
