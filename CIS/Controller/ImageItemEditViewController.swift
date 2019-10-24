@@ -18,94 +18,20 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.view.endEditing(true)
         
-        if(image == nil) {
-            for cus in newImage.customers {
-                shippingDetailViewController.addCustomer(cus)
+        if(image != nil) {
+            for cus in image!.customers {
                 for itm in cus.items {
-                    shippingDetailViewController.addItem(itm)
+                    shippingDetailViewController.removeItem(itm)
                 }
+                shippingDetailViewController.removeCustomer(cus)
             }
-        } else {
-            
-            var newCustomers = [Customer]()
-            var deletedCustomers = [Customer]()
-            var newItems = [Item]()
-            var deletedItems = [Item]()
-            var commonCustomers = [Customer]()
-            var commonItems = [Item]()
-            var cusFound = false
-            var itmFound = false
-            
-            for cusO in image!.customers {
-                cusFound = false
-                for cusN in newImage.customers {
-                    if(cusO === cusN) {
-                        for itmO in cusO.items {
-                            itmFound = false
-                            for itmN in cusN.items {
-                                if(itmO === itmN) {
-                                    itmFound = true
-                                    commonItems.append(itmO)
-                                    break
-                                }
-                                
-                                if(itmFound == false) {
-                                    deletedItems.append(itmO)
-                                }
-                            }
-                        }
-                        
-                        for itmN in cusN.items {
-                            for itmInCommon in commonItems {
-                                if(itmN === itmInCommon) {
-                                    continue
-                                } else {
-                                    newItems.append(itmN)
-                                }
-                            }
-                        }
-                        
-                        cusFound = true
-                        commonCustomers.append(cusO)
-                        break
-                    }
-                }
-                if(cusFound == false) {
-                    deletedCustomers.append(cusO)
-                    
-                    for itmO in cusO.items {
-                        deletedItems.append(itmO)
-                    }
-                }
+        }
+        
+        for cus in newImage.customers {
+            shippingDetailViewController.addCustomer(cus)
+            for itm in cus.items {
+                shippingDetailViewController.addItem(itm)
             }
-            
-            if(commonCustomers.count == 0) {
-                for cusN in newImage.customers {
-                    newCustomers.append(cusN)
-                }
-            } else {
-                cusFound = false
-                for cusN in newImage.customers {
-                    for cusInCommon in commonCustomers {
-                        if(cusInCommon === cusN) {
-                            cusFound = true
-                            break
-                        }
-                    }
-                    
-                    if(cusFound == false) {
-                       newCustomers.append(cusN)
-                       for itmN in cusN.items {
-                           newItems.append(itmN)
-                       }
-                   }
-                }
-            }
-            
-            shippingDetailViewController.addCustomers(newCustomers)
-            shippingDetailViewController.deleteCustomers(deletedCustomers)
-            shippingDetailViewController.addItems(newItems)
-            shippingDetailViewController.deleteItems(deletedItems)
         }
         
         newImage.imageFile = itemImageView.image!.pngData()! as NSData

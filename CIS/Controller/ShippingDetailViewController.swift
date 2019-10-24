@@ -245,6 +245,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.customers.insert(customer, at: 0)
     }
     
+    func removeCustomer(_ customer: Customer) {
+        for (idx, cus) in shipping.customers.enumerated() {
+            if(customer === cus) {
+                shipping.customers.remove(at: idx)
+            }
+        }
+    }
+    
     func updateShipping(_ sp: Shipping) {
         shipping.city = sp.city
         shipping.comment = sp.comment
