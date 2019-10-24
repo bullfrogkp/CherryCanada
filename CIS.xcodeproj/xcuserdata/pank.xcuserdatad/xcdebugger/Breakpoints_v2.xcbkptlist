@@ -79,9 +79,9 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,8 +95,10 @@
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314">
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "deleteImage(sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -141,8 +143,8 @@
             filePath = "CIS/Controller/ImageItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "cell(_:didUpdateTextField:)"
             landmarkType = "7">
             <Locations>
