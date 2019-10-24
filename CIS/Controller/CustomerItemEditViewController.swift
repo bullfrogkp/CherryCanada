@@ -22,99 +22,20 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.view.endEditing(true)
         
-        if(customer == nil) {
-            for img in newCustomer.images {
-                shippingDetailViewController.addImage(img)
+        if(customer != nil) {
+            for img in customer!.images {
                 for itm in img.items {
-                    shippingDetailViewController.addItem(itm)
+                    shippingDetailViewController.removeItem(itm)
                 }
+                shippingDetailViewController.removeImage(img)
             }
-        } else {
-            
-            var newImages = [Image]()
-            var deletedImages = [Image]()
-            var newItems = [Item]()
-            var deletedItems = [Item]()
-            var commonImages = [Image]()
-            var commonItems = [Item]()
-            var imgFound = false
-            var itmFound = false
-            
-            for imgO in customer!.images {
-                imgFound = false
-                for imgN in newCustomer.images {
-                    if(imgO === imgN) {
-                        for itmO in imgO.items {
-                            itmFound = false
-                            for itmN in imgN.items {
-                                if(itmO === itmN) {
-                                    itmFound = true
-                                    commonItems.append(itmO)
-                                    break
-                                }
-                                
-                                if(itmFound == false) {
-                                    deletedItems.append(itmO)
-                                }
-                            }
-                        }
-                        
-                        for itmN in imgN.items {
-                            for itmInCommon in commonItems {
-                                if(itmN === itmInCommon) {
-                                    continue
-                                } else {
-                                    newItems.append(itmN)
-                                }
-                            }
-                        }
-                        
-                        imgFound = true
-                        commonImages.append(imgO)
-                        break
-                    }
-                }
-                if(imgFound == false) {
-                    deletedImages.append(imgO)
-                    
-                    for itmO in imgO.items {
-                        deletedItems.append(itmO)
-                    }
-                }
+        }
+        
+        for img in newCustomer.images {
+            shippingDetailViewController.addImage(img)
+            for itm in img.items {
+                shippingDetailViewController.addItem(itm)
             }
-            
-            if(commonImages.count == 0) {
-                for imgN in newCustomer.images {
-                    newImages.append(imgN)
-                    for itmN in imgN.items {
-                        newItems.append(itmN)
-                    }
-                }
-            } else {
-                imgFound = false
-                for imgN in newCustomer.images {
-                    for imgInCommon in commonImages {
-                        if(imgInCommon === imgN) {
-                            imgFound = true
-                            break
-                        }
-                    }
-                    
-                    if(imgFound == false) {
-                        newImages.append(imgN)
-                        for itmN in imgN.items {
-                            newItems.append(itmN)
-                        }
-                    }
-                }
-            }
-            
-            
-            
-            shippingDetailViewController.addImages(newImages)
-            shippingDetailViewController.deleteImages(deletedImages)
-            shippingDetailViewController.addItems(newItems)
-            shippingDetailViewController.deleteItems(deletedItems)
         }
         
         newCustomer.name = customerNameTextField.text!

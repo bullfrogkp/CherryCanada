@@ -217,63 +217,28 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         imageCollectionView.deleteItems(at: [IndexPath(row: imgIndex, section: 0)])
     }
     
-    func deleteImages(_ images: [Image]) {
-        for img in images {
-            for (idx, imgO) in shipping.images.enumerated() {
-                if(imgO === img) {
-                    shipping.images.remove(at: idx)
-                    break
-                }
-            }
-        }
-    }
-    
-    func deleteCustomers(_ customers: [Customer]) {
-        for cus in customers {
-            for (idx, cusO) in shipping.customers.enumerated() {
-                if(cusO === cus) {
-                    shipping.customers.remove(at: idx)
-                    break
-                }
-            }
-        }
-    }
-    
-    func deleteItems(_ items: [Item]) {
-        for itm in items {
-            for (idx, itmO) in shipping.items.enumerated() {
-                if(itmO === itm) {
-                    shipping.items.remove(at: idx)
-                    break
-                }
-            }
-        }
-    }
-    
-    func addImages(_ images: [Image]) {
-        for img in images {
-            addImage(img)
-        }
-    }
-    
-    func addCustomers(_ customers: [Customer]) {
-        for cus in customers {
-            addCustomer(cus)
-        }
-    }
-    
-    func addItems(_ items: [Item]) {
-        for itm in items {
-            addItem(itm)
-        }
-    }
-    
     func addImage(_ image: Image) {
         shipping.images.insert(image, at: 0)
     }
     
+    func removeImage(_ image: Image) {
+        for (idx, img) in shipping.images.enumerated() {
+            if(image === img) {
+                shipping.images.remove(at: idx)
+            }
+        }
+    }
+    
     func addItem(_ item: Item) {
         shipping.items.insert(item, at: 0)
+    }
+    
+    func removeItem(_ item: Item) {
+        for (idx, itm) in shipping.items.enumerated() {
+            if(item === itm) {
+                shipping.items.remove(at: idx)
+            }
+        }
     }
     
     func addCustomer(_ customer: Customer) {
