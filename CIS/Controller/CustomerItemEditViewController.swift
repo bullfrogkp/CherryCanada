@@ -277,7 +277,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             
             header.itemImageButton.setBackgroundImage(selectedImage, for: .normal)
             
-            newCustomer.images[curentImageSection].imageFile = selectedImage.pngData()! as NSData
+            let oImg = newCustomer.images[curentImageSection]
+            let nImg = Image(imageFile: selectedImage.pngData()! as NSData)
+            
+            nImg.items = oImg.items
+            nImg.customers = oImg.customers
+            newCustomer.images[curentImageSection] = nImg
         }
 
         curentImageSection = -1
