@@ -60,7 +60,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
     var newCustomer = Customer()
-    var curentImageSection = -1
+    var currentImageSection = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,7 +166,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     @objc func chooseImage(sender:UIButton) {
         
-        curentImageSection = sender.tag
+        currentImageSection = sender.tag
         
         let photoSourceRequestController = UIAlertController(title: "", message: "选择图片", preferredStyle: .actionSheet)
 
@@ -273,19 +273,19 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
 
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            let header = customerItemTableView.headerView(forSection: curentImageSection) as! CustomerItemSectionHeaderView
+            let header = customerItemTableView.headerView(forSection: currentImageSection) as! CustomerItemSectionHeaderView
             
             header.itemImageButton.setBackgroundImage(selectedImage, for: .normal)
             
-            let oImg = newCustomer.images[curentImageSection]
+            let oImg = newCustomer.images[currentImageSection]
             let nImg = Image(imageFile: selectedImage.pngData()! as NSData)
             
             nImg.items = oImg.items
             nImg.customers = oImg.customers
-            newCustomer.images[curentImageSection] = nImg
+            newCustomer.images[currentImageSection] = nImg
         }
 
-        curentImageSection = -1
+        currentImageSection = -1
         
         dismiss(animated: true, completion: nil)
     }
