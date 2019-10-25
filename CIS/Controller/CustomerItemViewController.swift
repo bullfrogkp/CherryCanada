@@ -37,8 +37,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     var items:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
-    var images = [Image]()
-    var customer = Customer()
+    var customer: Customer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         customerItemTableView.backgroundColor = UIColor.white
         
-        customer = Utils.shared.convertItemsToCustomers(items)[0]
+        customer = Utils.shared.convertToPageData(customer, items)
         
         customerNameLabel.text = customer.name
         

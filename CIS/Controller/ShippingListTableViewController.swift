@@ -111,8 +111,9 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         
         let image1 = Image(imageFile: UIImage(named: "test")!.pngData()! as NSData)
         let image2 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
+        let image3 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
         
-        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [], active: true)
+        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [image1, image2, image3], active: true)
         let customer2 = Customer(name: "Test")
         
         let item1 = Item(comment: "Item1", image: image1, name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)

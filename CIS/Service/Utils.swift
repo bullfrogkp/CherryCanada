@@ -42,43 +42,57 @@ final class Utils {
         }
     }
     
-    func convertItemsToCustomers(_ items: [Item]) -> [Customer] {
-        var customers: [Customer] = []
-        var foundCustomer = false
+    func convertToPageData(_ customer: Customer, _ items: [Item]) -> Customer {
+        
         var foundImage = false
         
-        for item in items {
-            foundCustomer = false
-            
-            for customer in customers {
-                if(customer === item.customer) {
+        for itm in items {
+            for img in customer.images {
+                if(itm.image === img) {
+                    img.items.append(itm)
                     foundImage = false
-                    for image in customer.images {
-                        if(image === item.image) {
-                            image.items.append(item)
-                            foundImage = true
-                            break
-                        }
-                    }
-                    
-                    if(foundImage == false) {
-                        item.image.items = [item]
-                        customer.images.append(item.image)
-                    }
-                    
-                    foundCustomer = true
                     break
                 }
             }
-            
-            if(foundCustomer == false) {
-                item.image.items = [item]
-                item.customer.images = [item.image]
-                customers.append(item.customer)
-            }
         }
         
-        return customers
+        
+//        var customers: [Customer] = []
+//        var foundCustomer = false
+//        var foundImage = false
+//
+//        for item in items {
+//            foundCustomer = false
+//
+//            for customer in customers {
+//                if(customer === item.customer) {
+//                    foundImage = false
+//                    for image in customer.images {
+//                        if(image === item.image) {
+//                            image.items.append(item)
+//                            foundImage = true
+//                            break
+//                        }
+//                    }
+//
+//                    if(foundImage == false) {
+//                        item.image.items = [item]
+//                        customer.images.append(item.image)
+//                    }
+//
+//                    foundCustomer = true
+//                    break
+//                }
+//            }
+//
+//            if(foundCustomer == false) {
+//                item.image.items = [item]
+//                item.customer.images = [item.image]
+//                customers.append(item.customer)
+//            }
+//        }
+        
+        return customer
     }
 }
 

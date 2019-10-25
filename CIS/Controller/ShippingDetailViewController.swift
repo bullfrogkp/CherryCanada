@@ -146,6 +146,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
                 
+                destinationController.customer = customer
                 destinationController.items = items
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
