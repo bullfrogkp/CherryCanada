@@ -30,6 +30,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         for cus in newImage.customers {
             shippingDetailViewController.addCustomer(cus)
             for itm in cus.items {
+                itm.image = newImage
                 shippingDetailViewController.addItem(itm)
             }
         }

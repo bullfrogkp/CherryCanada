@@ -47,7 +47,18 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         customerItemTableView.backgroundColor = UIColor.white
         
-        customer = Utils.shared.assignItems(customer, items)
+        for img in customer.images {
+            img.items.removeAll()
+        }
+        
+        for itm in items {
+            for img in customer.images {
+                if(itm.image === img) {
+                    img.items.append(itm)
+                    break
+                }
+            }
+        }
         
         customerNameLabel.text = customer.name
         

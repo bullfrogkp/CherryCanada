@@ -35,6 +35,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     var image: Image!
+    var items: [Item]!
     var imageIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     
@@ -43,6 +44,19 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
 
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
+        
+        for cus in image.customers {
+            cus.items.removeAll()
+        }
+        
+        for itm in items {
+            for cus in image.customers {
+                if(itm.customer === cus) {
+                    cus.items.append(itm)
+                    break
+                }
+            }
+        }
         
         itemImageView.image = UIImage(data: image.imageFile as Data)
         

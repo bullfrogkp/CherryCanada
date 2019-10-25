@@ -155,7 +155,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPaths = imageCollectionView.indexPathsForSelectedItems {
                 let destinationController = segue.destination as! ImageItemViewController
                 
-                destinationController.image = shipping.images[indexPaths[0].row]
+                let image = shipping.images[indexPaths[0].row]
+                
+                var items = [Item]()
+                
+                for itm in shipping.items {
+                    if(itm.image === image) {
+                        items.append(itm)
+                    }
+                }
+                
+                destinationController.image = image
+                destinationController.items = items
                 destinationController.imageIndex = indexPaths[0].row
                 destinationController.shippingDetailViewController = self
                 
