@@ -316,6 +316,17 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func updateImageData(_ image: Image, _ imageIndex: Int) {
+        let oImage = shipping.images[imageIndex]
+        
+        for cus in shipping.customers {
+            for (idx, img) in cus.images.enumerated() {
+                if(img === oImage) {
+                    cus.images[idx] = image
+                    break
+                }
+            }
+        }
+        
         shipping.images[imageIndex] = image
     }
 }
