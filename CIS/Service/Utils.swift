@@ -49,6 +49,7 @@ final class Utils {
         
         for item in items {
             foundCustomer = false
+            
             for customer in customers {
                 if(customer === item.customer) {
                     foundImage = false
@@ -61,10 +62,8 @@ final class Utils {
                     }
                     
                     if(foundImage == false) {
-                        let image = Image()
-                        image.name = item.image.name
-                        image.items.append(item)
-                        customer.images.append(image)
+                        item.image.items = [item]
+                        customer.images.append(item.image)
                     }
                     
                     foundCustomer = true
@@ -73,15 +72,9 @@ final class Utils {
             }
             
             if(foundCustomer == false) {
-                let customer = Customer()
-                customer.name = item.customer.name
-                
-                let image = Image()
-                image.name = item.image.name
-                image.items.append(item)
-                customer.images.append(image)
-                
-                customers.append(customer)
+                item.image.items = [item]
+                item.customer.images = [item.image]
+                customers.append(item.customer)
             }
         }
         

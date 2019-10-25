@@ -34,9 +34,11 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
-    var customer: Customer!
+    var items:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
+    var images = [Image]()
+    var customer = Customer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,8 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         customerItemTableView.dataSource = self
         
         customerItemTableView.backgroundColor = UIColor.white
+        
+        customer = Utils.shared.convertItemsToCustomers(items)[0]
         
         customerNameLabel.text = customer.name
         
