@@ -47,7 +47,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         customerItemTableView.backgroundColor = UIColor.white
         
-        customer = Utils.shared.convertToPageData(customer, items)
+        customer = Utils.shared.assignItems(customer, items)
         
         customerNameLabel.text = customer.name
         

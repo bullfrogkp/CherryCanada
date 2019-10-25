@@ -42,15 +42,16 @@ final class Utils {
         }
     }
     
-    func convertToPageData(_ customer: Customer, _ items: [Item]) -> Customer {
+    func assignItems(_ customer: Customer, _ items: [Item]) -> Customer {
         
-        var foundImage = false
+        for img in customer.images {
+            img.items.removeAll()
+        }
         
         for itm in items {
             for img in customer.images {
                 if(itm.image === img) {
                     img.items.append(itm)
-                    foundImage = false
                     break
                 }
             }
