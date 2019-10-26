@@ -224,6 +224,15 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
+        for img in shipping.images {
+            for (idx, cus) in img.customers.enumerated() {
+                if(cus === shipping.customers[rowIndex]) {
+                    img.customers.remove(at: idx)
+                    break
+                }
+            }
+        }
+        
         shipping.customers.remove(at: rowIndex)
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
@@ -232,6 +241,15 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for (idx, itm) in shipping.items.enumerated() {
             if(itm.image === shipping.images[imgIndex]) {
                 shipping.items.remove(at: idx)
+            }
+        }
+        
+        for cus in shipping.customers {
+            for (idx, img) in cus.images.enumerated() {
+                if(img === shipping.images[imgIndex]) {
+                    cus.images.remove(at: idx)
+                    break
+                }
             }
         }
         
