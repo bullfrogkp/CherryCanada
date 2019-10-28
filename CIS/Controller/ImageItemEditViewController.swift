@@ -10,7 +10,12 @@ import UIKit
 
 class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBOutlet weak var itemImageButton: UIButton!
+    
+    @IBAction func itemImageButtonTapped(_ sender: Any) {
+    }
+    
     @IBOutlet weak var customerItemTableView: UITableView!
     
     
@@ -36,8 +41,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         
-        newImage.imageFile = itemImageView.image!.pngData()! as NSData
-        
         if(image == nil) {
             shippingDetailViewController.addImage(newImage)
         } else {
@@ -45,7 +48,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             shippingDetailViewController.updateImageData(newImage, imageIndex!)
         }
         
-        imageItemViewController?.itemImageView.image = itemImageView.image
+        imageItemViewController?.itemImageView.image = UIImage(data: newImage.imageFile as Data)
         imageItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         shippingDetailViewController.imageCollectionView.reloadData()
@@ -80,7 +83,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             newImage.imageFile = image!.imageFile
         }
         
-        itemImageView.image = UIImage(data: newImage.imageFile as Data)
+        itemImageButton.setBackgroundImage(UIImage(data: newImage.imageFile as Data), for: .normal)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
