@@ -10,14 +10,51 @@ import UIKit
 
 class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     @IBOutlet weak var itemImageButton: UIButton!
     
     @IBAction func itemImageButtonTapped(_ sender: Any) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "选择图片", preferredStyle: .actionSheet)
+
+                let cameraAction = UIAlertAction(title: "摄像头", style: .default, handler: { (action) in
+                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                        let imagePicker = UIImagePickerController()
+                        imagePicker.allowsEditing = false
+                        imagePicker.sourceType = .camera
+                        imagePicker.delegate = self
+
+                        self.present(imagePicker, animated: true, completion: nil)
+                    }
+                })
+
+                let photoLibraryAction = UIAlertAction(title: "图库", style: .default, handler: { (action) in
+                    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                        let imagePicker = UIImagePickerController()
+                        imagePicker.allowsEditing = false
+                        imagePicker.sourceType = .photoLibrary
+                        imagePicker.delegate = self
+
+                        self.present(imagePicker, animated: true, completion: nil)
+                    }
+                })
+
+                photoSourceRequestController.addAction(cameraAction)
+                photoSourceRequestController.addAction(photoLibraryAction)
+
+                present(photoSourceRequestController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            itemImageButton.setBackgroundImage(selectedImage, for: .normal)
+            newImage.imageFile = selectedImage.pngData()! as NSData
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var customerItemTableView: UITableView!
-    
     
     @IBAction func saveImageItemButton(_ sender: Any) {
         
