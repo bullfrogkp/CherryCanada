@@ -46,11 +46,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 
         bs_presentImagePickerController(vc, animated: true,
             select: { (asset: PHAsset) -> Void in
-                print("Selected: \(asset)")
+                
             }, deselect: { (asset: PHAsset) -> Void in
-                print("Deselected: \(asset)")
+                
             }, cancel: { (assets: [PHAsset]) -> Void in
-                print("Cancel: \(assets)")
+                
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
                     self.addImage(Image(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
