@@ -46,17 +46,30 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 
         bs_presentImagePickerController(vc, animated: true,
             select: { (asset: PHAsset) -> Void in
-              // User selected an asset.
-              // Do something with it, start upload perhaps?
+                print("Selected: \(asset)")
             }, deselect: { (asset: PHAsset) -> Void in
-              // User deselected an assets.
-              // Do something, cancel upload?
+                print("Deselected: \(asset)")
             }, cancel: { (assets: [PHAsset]) -> Void in
-              // User cancelled. And this where the assets currently selected.
+                print("Cancel: \(assets)")
             }, finish: { (assets: [PHAsset]) -> Void in
-              // User finished with these assets
-        }, completion: nil)
+                for ast in assets {
+                    self.addImage(Image(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
+                }
+                self.imageCollectionView.reloadData()
+            }, completion: nil)
     }
+    
+    func getAssetThumbnail(_ asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
+    }
+    
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var cellIndex: Int!
