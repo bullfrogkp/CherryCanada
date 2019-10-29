@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import BSImagePicker
+import Photos
 
 class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -38,6 +40,23 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var deleteButton: UIButton!
     
+    @IBAction func addImages(_ sender: Any) {
+        
+        let vc = BSImagePickerViewController()
+
+        bs_presentImagePickerController(vc, animated: true,
+            select: { (asset: PHAsset) -> Void in
+              // User selected an asset.
+              // Do something with it, start upload perhaps?
+            }, deselect: { (asset: PHAsset) -> Void in
+              // User deselected an assets.
+              // Do something, cancel upload?
+            }, cancel: { (assets: [PHAsset]) -> Void in
+              // User cancelled. And this where the assets currently selected.
+            }, finish: { (assets: [PHAsset]) -> Void in
+              // User finished with these assets
+        }, completion: nil)
+    }
     @IBOutlet var scrollView: UIScrollView!
     var shipping: Shipping!
     var cellIndex: Int!
