@@ -63,6 +63,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
+    //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return image.customers.count
     }
@@ -109,6 +110,8 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    //MARK: - Navigation Functions
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editImageItem" {

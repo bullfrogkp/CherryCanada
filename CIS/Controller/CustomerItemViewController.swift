@@ -65,6 +65,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
     }
     
+    //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return customer.images.count
     }
@@ -119,7 +120,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+    //MARK: - Navigation Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editCustomerItem" {
             let naviController : UINavigationController = segue.destination as! UINavigationController
@@ -134,8 +135,4 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     @objc func editData() {
         self.performSegue(withIdentifier: "editCustomerItem", sender: self)
     }
-    
-//    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
-//        dismiss(animated: true, completion: nil)
-//    }
 }

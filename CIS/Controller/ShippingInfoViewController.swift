@@ -21,6 +21,7 @@ class ShippingInfoViewController: UIViewController {
     @IBAction func unwind(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveData(_ sender: Any) {
         
         var errorMsg = ""
@@ -46,7 +47,6 @@ class ShippingInfoViewController: UIViewController {
         } else {
             errorMsg += "请填写正确日期格式\n"
         }
-        
         
         shipping!.shippingStatus = shippingStatusTextField.text!
         shipping!.city = shippingCityTextField.text!
@@ -124,6 +124,7 @@ class ShippingInfoViewController: UIViewController {
         showDatePicker()
     }
     
+    //MARK: - Helper Functions
     func showDatePicker(){
        //Formate Date
         let loc = Locale(identifier: "zh")
