@@ -38,7 +38,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             shippingDetailViewController.addCustomer(newCustomer)
         } else {
             customerItemViewController!.customer = newCustomer
-            shippingDetailViewController.updateData(newCustomer, customerIndex!)
+            shippingDetailViewController.updateShippingCustomer(newCustomer, customerIndex!)
         }
         
         customerItemViewController?.customerNameLabel.text = customerNameTextField.text!

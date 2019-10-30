@@ -378,33 +378,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingCommentLabel.text = "\(shipping.comment)"
     }
     
-    func updateData(_ customer: Customer, _ customerIndex: Int) {
-        let oCustomer = shipping.customers[customerIndex]
-        
-        for img in shipping.images {
-            for (idx, cus) in img.customers.enumerated() {
-                if(cus === oCustomer) {
-                    img.customers[idx] = customer
-                    break
-                }
-            }
-        }
-        
+    func updateShippingCustomer(_ customer: Customer, _ customerIndex: Int) {
         shipping.customers[customerIndex] = customer
     }
     
     func updateImageData(_ image: Image, _ imageIndex: Int) {
-        let oImage = shipping.images[imageIndex]
-        
-        for cus in shipping.customers {
-            for (idx, img) in cus.images.enumerated() {
-                if(img === oImage) {
-                    cus.images[idx] = image
-                    break
-                }
-            }
-        }
-        
         shipping.images[imageIndex] = image
     }
     
