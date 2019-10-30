@@ -237,10 +237,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for itm in customer.items {
             self.addItem(itm)
         }
-        
-        for img in customer.images {
-            img.customers.append(customer)
-        }
     }
     
     func deleteCustomer(_ customer: Customer) {
@@ -311,10 +307,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         for itm in image.items {
             self.addItem(itm)
-        }
-        
-        for cus in image.customers {
-            cus.images.append(image)
         }
     }
     
