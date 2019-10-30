@@ -30,11 +30,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         for img in newCustomer.images {
             shippingDetailViewController.addImage(img)
-            for itm in img.items {
-                itm.image = img
-                itm.customer = newCustomer
-                shippingDetailViewController.addItem(itm)
-            }
         }
         
         newCustomer.name = customerNameTextField.text!

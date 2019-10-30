@@ -233,6 +233,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addCustomer(_ customer: Customer) {
         shipping.customers.insert(customer, at: 0)
+        
+        for itm in customer.items {
+            self.addItem(itm)
+        }
+        
+        for img in customer.images {
+            img.customers.append(customer)
+        }
     }
     
     func deleteCustomer(_ customer: Customer) {
@@ -300,6 +308,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addImage(_ image: Image) {
         shipping.images.insert(image, at: 0)
+        
+        for itm in image.items {
+            self.addItem(itm)
+        }
+        
+        for cus in image.customers {
+            cus.images.append(image)
+        }
     }
     
     func deleteImage(_ image: Image) {

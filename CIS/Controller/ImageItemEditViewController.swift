@@ -62,20 +62,12 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if(image != nil) {
             for cus in image!.customers {
-                for itm in cus.items {
-                    shippingDetailViewController.removeItem(itm)
-                }
                 shippingDetailViewController.deleteCustomer(cus)
             }
         }
         
         for cus in newImage.customers {
             shippingDetailViewController.addCustomer(cus)
-            for itm in cus.items {
-                itm.image = newImage
-                itm.customer = cus
-                shippingDetailViewController.addItem(itm)
-            }
         }
         
         if(image == nil) {
