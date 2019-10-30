@@ -251,7 +251,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
     
-    func deleteImage(imgIndex: Int) {
+    func deleteImageByIndex(imgIndex: Int) {
         for (idx, itm) in shipping.items.enumerated() {
             if(itm.image === shipping.images[imgIndex]) {
                 shipping.items.remove(at: idx)
@@ -275,7 +275,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.images.insert(image, at: 0)
     }
     
-    func removeImage(_ image: Image) {
+    func deleteImage(_ image: Image) {
         for (idx, img) in shipping.images.enumerated() {
             if(image === img) {
                 shipping.images.remove(at: idx)

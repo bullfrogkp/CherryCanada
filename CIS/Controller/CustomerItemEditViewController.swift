@@ -27,7 +27,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 for itm in img.items {
                     shippingDetailViewController.removeItem(itm)
                 }
-                shippingDetailViewController.removeImage(img)
+                shippingDetailViewController.deleteImage(img)
             }
         }
         
