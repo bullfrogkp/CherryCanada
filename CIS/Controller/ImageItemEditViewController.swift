@@ -65,7 +65,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                 for itm in cus.items {
                     shippingDetailViewController.removeItem(itm)
                 }
-                shippingDetailViewController.removeCustomer(cus)
+                shippingDetailViewController.deleteCustomer(cus)
             }
         }
         

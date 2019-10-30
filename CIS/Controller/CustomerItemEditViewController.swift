@@ -24,9 +24,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         if(customer != nil) {
             for img in customer!.images {
-                for itm in img.items {
-                    shippingDetailViewController.removeItem(itm)
-                }
                 shippingDetailViewController.deleteImage(img)
             }
         }

@@ -231,7 +231,34 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func deleteCustomer(rowIndex: Int) {
+    func addCustomer(_ customer: Customer) {
+        shipping.customers.insert(customer, at: 0)
+    }
+    
+    func deleteCustomer(_ customer: Customer) {
+        for (idx, cus) in shipping.customers.enumerated() {
+            if(customer === cus) {
+                shipping.customers.remove(at: idx)
+            }
+        }
+        
+        for (idx, itm) in shipping.items.enumerated() {
+            if(itm.customer === customer) {
+                shipping.items.remove(at: idx)
+            }
+        }
+        
+        for img in shipping.images {
+            for (idx, cus) in img.customers.enumerated() {
+                if(cus === customer) {
+                    img.customers.remove(at: idx)
+                    break
+                }
+            }
+        }
+    }
+    
+    func deleteCustomerByIndex(rowIndex: Int) {
         for (idx, itm) in shipping.items.enumerated() {
             if(itm.customer === shipping.customers[rowIndex]) {
                 shipping.items.remove(at: idx)
@@ -276,9 +303,24 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteImage(_ image: Image) {
+        for (idx, itm) in shipping.items.enumerated() {
+            if(itm.image === image) {
+                shipping.items.remove(at: idx)
+            }
+        }
+        
         for (idx, img) in shipping.images.enumerated() {
             if(image === img) {
                 shipping.images.remove(at: idx)
+            }
+        }
+        
+        for cus in shipping.customers {
+            for (idx, img) in cus.images.enumerated() {
+                if(img === image) {
+                    cus.images.remove(at: idx)
+                    break
+                }
             }
         }
     }
@@ -291,18 +333,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for (idx, itm) in shipping.items.enumerated() {
             if(item === itm) {
                 shipping.items.remove(at: idx)
-            }
-        }
-    }
-    
-    func addCustomer(_ customer: Customer) {
-        shipping.customers.insert(customer, at: 0)
-    }
-    
-    func removeCustomer(_ customer: Customer) {
-        for (idx, cus) in shipping.customers.enumerated() {
-            if(customer === cus) {
-                shipping.customers.remove(at: idx)
             }
         }
     }
