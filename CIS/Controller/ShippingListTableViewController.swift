@@ -63,7 +63,6 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         // #warning Incomplete implementation, return the number of rows
         return shippings.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shippingId", for: indexPath as IndexPath) as! ShippingListTableViewCell
@@ -107,6 +106,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         }
     }
     
+    // MARK: - Helper Functions
     func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
         
         let image1 = Image(imageFile: UIImage(named: "test")!.pngData()! as NSData)
@@ -133,7 +133,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         return shippings
     }
     
-    func deleteCell(rowIndex: Int) {
+    func deleteShipping(_ rowIndex: Int) {
         shippings.remove(at: rowIndex)
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }

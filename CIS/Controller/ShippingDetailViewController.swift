@@ -86,7 +86,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         let checkInAction = UIAlertAction(title: "删除　", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            self.shippingListTableViewController.deleteCell(rowIndex: self.cellIndex)
+            self.shippingListTableViewController.deleteShipping(self.cellIndex)
             
             self.navigationController?.popViewController(animated: true)
         })
