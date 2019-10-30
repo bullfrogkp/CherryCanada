@@ -12,23 +12,6 @@ import Photos
 
 class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shipping.images.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
-
-        cell.shippingImageView.image = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
-
-        return cell
-    }
-    
-    
     @IBOutlet weak var shippingDateLabel: UILabel!
     @IBOutlet weak var shippingStatusLabel: UILabel!
     @IBOutlet weak var shippingCityLabel: UILabel!
@@ -39,9 +22,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var customerItemTableView: SelfSizedTableView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet var scrollView: UIScrollView!
+    
+    var shipping: Shipping!
+    var cellIndex: Int!
+    var shippingListTableViewController: ShippingListTableViewController!
     
     @IBAction func addImages(_ sender: Any) {
-        
         let vc = BSImagePickerViewController()
 
         bs_presentImagePickerController(vc, animated: true,
@@ -58,22 +45,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 self.imageCollectionView.reloadData()
             }, completion: nil)
     }
-    
-    func getAssetThumbnail(_ asset: PHAsset) -> UIImage {
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        var thumbnail = UIImage()
-        option.isSynchronous = true
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-            thumbnail = result!
-        })
-        return thumbnail
-    }
-    
-    @IBOutlet var scrollView: UIScrollView!
-    var shipping: Shipping!
-    var cellIndex: Int!
-    var shippingListTableViewController: ShippingListTableViewController!
     
     @IBAction func deleteShipping(_ sender: Any) {
         
@@ -94,14 +65,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         // Display the menu
         present(optionMenu, animated: true, completion: nil)
-    }
-    
-    @objc func goBack(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func saveData(){
-        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -208,6 +171,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -230,6 +194,24 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         return UITableView.automaticDimension
     }
     
+    //MARK: - CollectionView Functions
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return shipping.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
+
+        cell.shippingImageView.image = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
+
+        return cell
+    }
+    
+    //MARK: - Helper Functions
     func bulletPointList(strings: [String]) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.headIndent = 15
@@ -249,7 +231,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func deleteCell(rowIndex: Int) {
+    func deleteCustomer(rowIndex: Int) {
         for (idx, itm) in shipping.items.enumerated() {
             if(itm.customer === shipping.customers[rowIndex]) {
                 shipping.items.remove(at: idx)
@@ -378,5 +360,24 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         shipping.images[imageIndex] = image
+    }
+    
+    func getAssetThumbnail(_ asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
+    }
+    
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveData(){
+        dismiss(animated: true, completion: nil)
     }
 }
