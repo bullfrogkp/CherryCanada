@@ -55,11 +55,11 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         for cus in newImage.customers {
-            shippingDetailViewController.addCustomer(cus)
+            shippingDetailViewController.addCustomer(cus, newImage)
         }
         
         if(image == nil) {
-            shippingDetailViewController.addImage(newImage)
+            shippingDetailViewController.addShippingImage(newImage)
         } else {
             imageItemViewController!.image = newImage
             shippingDetailViewController.updateImageData(newImage, imageIndex!)

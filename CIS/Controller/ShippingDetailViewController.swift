@@ -40,7 +40,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
-                    self.addImage(Image(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
+                    self.addShippingImage(Image(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
                 }
                 self.imageCollectionView.reloadData()
             }, completion: nil)
@@ -231,18 +231,25 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func addCustomer(_ customer: Customer) {
+    func addCustomer(_ customer: Customer, _ image: Image) {
         shipping.customers.insert(customer, at: 0)
         
         for itm in customer.items {
+            itm.image = image
+            itm.customer = customer
             self.addItem(itm)
         }
+    }
+    
+    func addShippingCustomer(_ customer: Customer) {
+        shipping.customers.insert(customer, at: 0)
     }
     
     func deleteCustomer(_ customer: Customer) {
         for (idx, cus) in shipping.customers.enumerated() {
             if(customer === cus) {
                 shipping.customers.remove(at: idx)
+                break
             }
         }
         
@@ -302,12 +309,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         imageCollectionView.deleteItems(at: [IndexPath(row: imgIndex, section: 0)])
     }
     
-    func addImage(_ image: Image) {
+    func addImage(_ image: Image, _ customer: Customer) {
         shipping.images.insert(image, at: 0)
         
         for itm in image.items {
+            itm.image = image
+            itm.customer = customer
             self.addItem(itm)
         }
+    }
+    
+    func addShippingImage(_ image: Image) {
+        shipping.images.insert(image, at: 0)
     }
     
     func deleteImage(_ image: Image) {
@@ -320,6 +333,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for (idx, img) in shipping.images.enumerated() {
             if(image === img) {
                 shipping.images.remove(at: idx)
+                break
             }
         }
         

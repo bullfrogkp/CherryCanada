@@ -38,13 +38,13 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         for img in newCustomer.images {
-            shippingDetailViewController.addImage(img)
+            shippingDetailViewController.addImage(img, newCustomer)
         }
         
         newCustomer.name = customerNameTextField.text!
         
         if(customer == nil) {
-            shippingDetailViewController.addCustomer(newCustomer)
+            shippingDetailViewController.addShippingCustomer(newCustomer)
         } else {
             customerItemViewController!.customer = newCustomer
             shippingDetailViewController.updateShippingCustomer(newCustomer, customerIndex!)
