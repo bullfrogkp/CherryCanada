@@ -232,10 +232,12 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addCustomer(_ customer: Customer, _ image: Image) {
+        
+        customer.images = [image]
+        
         shipping.customers.insert(customer, at: 0)
         
         for itm in customer.items {
-            itm.image = image
             itm.customer = customer
             self.addItem(itm)
         }
@@ -310,11 +312,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addImage(_ image: Image, _ customer: Customer) {
+        
+        image.customers = [customer]
+        
         shipping.images.insert(image, at: 0)
         
         for itm in image.items {
             itm.image = image
-            itm.customer = customer
             self.addItem(itm)
         }
     }
