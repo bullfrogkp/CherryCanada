@@ -55,7 +55,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         for cus in newImage.customers {
-            shippingDetailViewController.addCustomer(cus, newImage)
+            shippingDetailViewController.addCustomer(cuse)
         }
         
         if(image == nil) {

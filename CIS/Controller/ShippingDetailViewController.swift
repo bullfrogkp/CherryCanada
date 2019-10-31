@@ -231,7 +231,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func addCustomer(_ customer: Customer, _ image: Image) {
+    func addCustomer(_ customer: Customer) {
         shipping.customers.insert(customer, at: 0)
         
         for itm in customer.items {
@@ -307,7 +307,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         imageCollectionView.deleteItems(at: [IndexPath(row: imgIndex, section: 0)])
     }
     
-    func addImage(_ image: Image, _ customer: Customer) {
+    func addImage(_ image: Image) {
         shipping.images.insert(image, at: 0)
         
         for itm in image.items {
