@@ -30,6 +30,10 @@ class Image {
         self.init(name: "", items: [], customers: [], imageFile: imageFile)
     }
     
+    convenience init(name: String, imageFile: NSData, customers: [Customer]) {
+        self.init(name: name, items: [], customers: customers, imageFile: imageFile)
+    }
+    
     convenience init() {
         self.init(name: "test", items: [], customers: [], imageFile: UIImage(named: "test")!.pngData()! as NSData)
     }

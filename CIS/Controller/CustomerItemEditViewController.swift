@@ -81,7 +81,15 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             newCustomer.phone = customer!.phone
             newCustomer.comment = customer!.comment
             newCustomer.wechat = customer!.wechat
-            newCustomer.images = customer!.images
+            
+            for img in customer!.images {
+                let newImg = Image(name: img.name, imageFile: img.imageFile, customers: [customer!])
+                for itm in img.items {
+                    let newItm = Item(comment: itm.comment, image: newImg, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCustomer)
+                    newImg.items.append(newItm)
+                }
+                newCustomer.images.append(newImg)
+            }
         }
         
         customerNameTextField.text = newCustomer.name

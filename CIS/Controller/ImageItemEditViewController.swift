@@ -106,8 +106,16 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if(image != nil) {
             newImage.name = image!.name
-            newImage.customers = image!.customers
             newImage.imageFile = image!.imageFile
+            
+            for cus in image!.customers {
+                let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment)
+                for itm in cus.items {
+                    let newItm = Item(comment: itm.comment, image: newImage, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCus)
+                    newCus.items.append(newItm)
+                }
+                newImage.customers.append(newCus)
+            }
         }
         
         itemImageButton.setBackgroundImage(UIImage(data: newImage.imageFile as Data), for: .normal)

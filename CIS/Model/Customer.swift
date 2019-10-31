@@ -27,6 +27,10 @@ class Customer {
         self.active = active
     }
     
+    convenience init(name: String, phone: String, wechat: String, comment: String) {
+        self.init(name: name, phone: phone, wechat: wechat, comment: comment, items: [], images: [], active: true)
+    }
+    
     convenience init(name: String) {
         self.init(name: name, phone: "", wechat: "", comment: "", items: [], images: [], active: true)
     }
