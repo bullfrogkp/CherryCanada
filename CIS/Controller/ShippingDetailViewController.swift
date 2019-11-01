@@ -244,16 +244,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteCustomer(_ customer: Customer) {
+        
+        shipping.items.removeAll(where: {$0.customer === customer})
+        
         for (idx, cus) in shipping.customers.enumerated() {
             if(customer === cus) {
                 shipping.customers.remove(at: idx)
                 break
-            }
-        }
-        
-        for (idx, itm) in shipping.items.enumerated() {
-            if(itm.customer === customer) {
-                shipping.items.remove(at: idx)
             }
         }
         
@@ -268,11 +265,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteCustomerByIndex(rowIndex: Int) {
-        for (idx, itm) in shipping.items.enumerated() {
-            if(itm.customer === shipping.customers[rowIndex]) {
-                shipping.items.remove(at: idx)
-            }
-        }
+        
+        shipping.items.removeAll(where: {$0.customer === shipping.customers[rowIndex]})
         
         for img in shipping.images {
             for (idx, cus) in img.customers.enumerated() {
@@ -288,11 +282,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteImageByIndex(imgIndex: Int) {
-        for (idx, itm) in shipping.items.enumerated() {
-            if(itm.image === shipping.images[imgIndex]) {
-                shipping.items.remove(at: idx)
-            }
-        }
+        
+        shipping.items.removeAll(where: {$0.image === shipping.images[imgIndex]})
         
         for cus in shipping.customers {
             for (idx, img) in cus.images.enumerated() {
@@ -320,11 +311,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteImage(_ image: Image) {
-        for (idx, itm) in shipping.items.enumerated() {
-            if(itm.image === image) {
-                shipping.items.remove(at: idx)
-            }
-        }
+        
+        shipping.items.removeAll(where: {$0.image === image})
         
         for (idx, img) in shipping.images.enumerated() {
             if(image === img) {

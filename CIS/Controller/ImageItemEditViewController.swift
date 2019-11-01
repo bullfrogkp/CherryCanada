@@ -109,7 +109,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             newImage.imageFile = image!.imageFile
             
             for cus in image!.customers {
-                let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment, images: [image!])
+                let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment, images: [newImage])
                 for itm in cus.items {
                     let newItm = Item(comment: itm.comment, image: newImage, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCus)
                     newCus.items.append(newItm)

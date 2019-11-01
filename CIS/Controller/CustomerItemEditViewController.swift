@@ -83,7 +83,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             newCustomer.wechat = customer!.wechat
             
             for img in customer!.images {
-                let newImg = Image(name: img.name, imageFile: img.imageFile, customers: [customer!])
+                let newImg = Image(name: img.name, imageFile: img.imageFile, customers: [newCustomer])
                 for itm in img.items {
                     let newItm = Item(comment: itm.comment, image: newImg, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCustomer)
                     newImg.items.append(newItm)
@@ -272,12 +272,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             
             header.itemImageButton.setBackgroundImage(selectedImage, for: .normal)
             
-            let oImg = newCustomer.images[currentImageSection]
-            let nImg = Image(imageFile: selectedImage.pngData()! as NSData)
-            
-            nImg.items = oImg.items
-            nImg.customers = oImg.customers
-            newCustomer.images[currentImageSection] = nImg
+            newCustomer.images[currentImageSection].imageFile = selectedImage.pngData()! as NSData
         }
 
         currentImageSection = -1
