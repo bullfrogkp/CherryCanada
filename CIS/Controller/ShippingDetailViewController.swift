@@ -364,7 +364,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         let oImg = shipping.images[imageIndex]
         
         for cus in oImg.customers {
-            image.customers.append(cus)
+            for img in cus.images {
+                cus.newCustomer!.images.append(img)
+                
+                for (idx, cus2) in img.customers.enumerated() {
+                    if(cus2 === cus) {
+                        img.customers[idx] = cus.newCustomer!
+                        break
+                    }
+                }
+                
+                for itm in shipping.items {
+                    if(itm.image === img && itm.customer === cus) {
+                        itm.customer = cus.newCustomer!
+                    }
+                }
+            }
         }
         
         shipping.images[imageIndex] = image

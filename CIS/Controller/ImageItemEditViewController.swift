@@ -116,6 +116,8 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                     newCus.items.append(newItm)
                 }
                 newImage.customers.append(newCus)
+                
+                cus.newCustomer = newCus
             }
         }
         
