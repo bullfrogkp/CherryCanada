@@ -36,7 +36,6 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var image: Image!
     var items: [Item]!
-    var allCustomerItems: [Item]!
     var imageIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     
@@ -120,7 +119,6 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
             let destinationController: ImageItemEditViewController = naviController.viewControllers[0] as! ImageItemEditViewController
             destinationController.image = image
             destinationController.items = items
-            destinationController.allCustomerItems = allCustomerItems
             destinationController.imageIndex = imageIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
             destinationController.imageItemViewController = self

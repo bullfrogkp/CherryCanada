@@ -134,7 +134,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 let customer = shipping.customers[indexPath.row]
                 
                 var items = [Item]()
-                var allCustomerItems = [Item]()
                 
                 for itm in shipping.items {
                     if(itm.customer === customer) {
@@ -142,17 +141,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
                 
-                for img in customer.images {
-                    for itm in shipping.items {
-                        if(itm.image === img) {
-                            allCustomerItems.append(itm)
-                        }
-                    }
-                }
-                
                 destinationController.customer = customer
                 destinationController.items = items
-                destinationController.allCustomerItems = allCustomerItems
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }
@@ -163,7 +153,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 let image = shipping.images[indexPaths[0].row]
                 
                 var items = [Item]()
-                var allCustomerItems = [Item]()
                 
                 for itm in shipping.items {
                     if(itm.image === image) {
@@ -171,17 +160,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
                 
-                for cus in image.customers {
-                    for itm in shipping.items {
-                        if(itm.customer === cus) {
-                            allCustomerItems.append(itm)
-                        }
-                    }
-                }
-                
                 destinationController.image = image
                 destinationController.items = items
-                destinationController.allCustomerItems = allCustomerItems
                 destinationController.imageIndex = indexPaths[0].row
                 destinationController.shippingDetailViewController = self
                 
@@ -273,15 +253,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 break
             }
         }
-        
-        for img in shipping.images {
-            for (idx, cus) in img.customers.enumerated() {
-                if(cus === customer) {
-                    img.customers.remove(at: idx)
-                    break
-                }
-            }
-        }
     }
     
     func deleteCustomerByIndex(rowIndex: Int) {
@@ -340,15 +311,6 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 break
             }
         }
-        
-        for cus in shipping.customers {
-            for (idx, img) in cus.images.enumerated() {
-                if(img === image) {
-                    cus.images.remove(at: idx)
-                    break
-                }
-            }
-        }
     }
     
     func addItem(_ item: Item) {
@@ -389,10 +351,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func updateShippingCustomer(_ customer: Customer, _ customerIndex: Int) {
+        let oCus = shipping.customers[customerIndex]
+               
+        for img in oCus.images {
+           customer.images.append(img)
+        }
+        
         shipping.customers[customerIndex] = customer
     }
     
     func updateImageData(_ image: Image, _ imageIndex: Int) {
+        let oImg = shipping.images[imageIndex]
+        
+        for cus in oImg.customers {
+            image.customers.append(cus)
+        }
+        
         shipping.images[imageIndex] = image
     }
     

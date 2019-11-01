@@ -35,7 +35,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var items:[Item]!
-    var allCustomerItems:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     var customer: Customer!
@@ -128,7 +127,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
             destinationController.customer = customer
             destinationController.items = items
-            destinationController.allCustomerItems = allCustomerItems
             destinationController.customerIndex = customerIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
             destinationController.customerItemViewController = self

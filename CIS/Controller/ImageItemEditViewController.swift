@@ -48,12 +48,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.view.endEditing(true)
         
-        if(allCustomerItems != nil) {
-            for itm in allCustomerItems! {
-                itm.image = newImage
-            }
-        }
-        
         if(image != nil) {
             for cus in image!.customers {
                 shippingDetailViewController.deleteCustomer(cus, image!)
@@ -95,7 +89,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     var image: Image?
     var items: [Item]?
-    var allCustomerItems: [Item]?
     var imageIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?
