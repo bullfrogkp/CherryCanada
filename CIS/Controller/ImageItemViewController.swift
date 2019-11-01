@@ -35,6 +35,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     var image: Image!
+    var items: [Item]!
     var imageIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     

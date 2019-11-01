@@ -34,6 +34,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
+    var items:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     var customer: Customer!

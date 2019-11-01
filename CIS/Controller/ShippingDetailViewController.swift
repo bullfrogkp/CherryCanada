@@ -133,7 +133,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let customer = shipping.customers[indexPath.row]
                 
+                var items = [Item]()
+                
+                for itm in shipping.items {
+                    if(itm.customer === customer) {
+                        items.append(itm)
+                    }
+                }
+                
                 destinationController.customer = customer
+                destinationController.items = items
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }
@@ -143,7 +152,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let image = shipping.images[indexPaths[0].row]
                 
+                var items = [Item]()
+                
+                for itm in shipping.items {
+                    if(itm.image === image) {
+                        items.append(itm)
+                    }
+                }
+                
                 destinationController.image = image
+                destinationController.items = items
                 destinationController.imageIndex = indexPaths[0].row
                 destinationController.shippingDetailViewController = self
                 
@@ -334,9 +352,26 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func updateShippingCustomer(_ customer: Customer, _ customerIndex: Int) {
         let oCus = shipping.customers[customerIndex]
-               
+        
         for img in oCus.images {
-           customer.images.append(img)
+            for cus in img.customers {
+                if(cus !== oCus) {
+                    img.newImage!.customers.append(cus)
+                    
+                    for (idx, img2) in cus.images.enumerated() {
+                        if(img2 === img) {
+                            cus.images[idx] = img.newImage!
+                            break
+                        }
+                    }
+                    
+                    for itm in shipping.items {
+                        if(itm.image === img && itm.customer === cus) {
+                            itm.image = img.newImage!
+                        }
+                    }
+                }
+            }
         }
         
         shipping.customers[customerIndex] = customer
