@@ -117,7 +117,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             
             for cus in image!.customers {
                 let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment, images: [newImage])
-                newCus.originalCustomer = cus
                 for itm in cus.items {
                     let newItm = Item(comment: itm.comment, image: newImage, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCus)
                     newCus.items.append(newItm)

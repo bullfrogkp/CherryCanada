@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EFCA2AE6-C433-430D-856E-41DBA76ABC13"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74E0D9BC-695E-49EC-A7E2-57EEE244258F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/ShippingDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "deleteCustomer(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "74E0D9BC-695E-49EC-A7E2-57EEE244258F - a8b97ee683733c7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CIS.ShippingDetailViewController.deleteCustomer(CIS.Customer) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ShippingDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "74E0D9BC-695E-49EC-A7E2-57EEE244258F - 58773eef3cdf2ff0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CIS.Item) -&gt; Swift.Bool in CIS.ShippingDetailViewController.deleteCustomer(CIS.Customer) -&gt; ()"
+                  moduleName = "CIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ShippingDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
