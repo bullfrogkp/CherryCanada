@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "79BA8B39-FDDB-492E-9CF5-D50AF6B9A21E"
+            uuid = "6D326850-A5BB-43D3-96B8-C78F25C2B9FB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/ImageItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "saveImageItemButton(_:)"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

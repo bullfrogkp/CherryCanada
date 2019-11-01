@@ -88,7 +88,6 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     var image: Image?
-    var items: [Item]?
     var imageIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?

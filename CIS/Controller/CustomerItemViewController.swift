@@ -34,7 +34,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
-    var items:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     var customer: Customer!
@@ -126,7 +125,6 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: CustomerItemEditViewController = naviController.viewControllers[0] as! CustomerItemEditViewController
             destinationController.customer = customer
-            destinationController.items = items
             destinationController.customerIndex = customerIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
             destinationController.customerItemViewController = self

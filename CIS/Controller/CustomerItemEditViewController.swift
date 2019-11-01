@@ -59,7 +59,6 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var customer: Customer?
-    var items: [Item]?
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
@@ -90,6 +89,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                     newImg.items.append(newItm)
                 }
                 newCustomer.images.append(newImg)
+                
+                img.newImage = newImg
             }
         }
         

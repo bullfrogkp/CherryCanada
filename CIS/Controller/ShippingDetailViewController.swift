@@ -133,16 +133,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let customer = shipping.customers[indexPath.row]
                 
-                var items = [Item]()
-                
-                for itm in shipping.items {
-                    if(itm.customer === customer) {
-                        items.append(itm)
-                    }
-                }
-                
                 destinationController.customer = customer
-                destinationController.items = items
                 destinationController.customerIndex = indexPath.row
                 destinationController.shippingDetailViewController = self
             }
@@ -152,16 +143,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let image = shipping.images[indexPaths[0].row]
                 
-                var items = [Item]()
-                
-                for itm in shipping.items {
-                    if(itm.image === image) {
-                        items.append(itm)
-                    }
-                }
-                
                 destinationController.image = image
-                destinationController.items = items
                 destinationController.imageIndex = indexPaths[0].row
                 destinationController.shippingDetailViewController = self
                 
@@ -365,18 +347,20 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         for cus in oImg.customers {
             for img in cus.images {
-                cus.newCustomer!.images.append(img)
-                
-                for (idx, cus2) in img.customers.enumerated() {
-                    if(cus2 === cus) {
-                        img.customers[idx] = cus.newCustomer!
-                        break
+                if(img !== oImg) {
+                    cus.newCustomer!.images.append(img)
+                    
+                    for (idx, cus2) in img.customers.enumerated() {
+                        if(cus2 === cus) {
+                            img.customers[idx] = cus.newCustomer!
+                            break
+                        }
                     }
-                }
-                
-                for itm in shipping.items {
-                    if(itm.image === img && itm.customer === cus) {
-                        itm.customer = cus.newCustomer!
+                    
+                    for itm in shipping.items {
+                        if(itm.image === img && itm.customer === cus) {
+                            itm.customer = cus.newCustomer!
+                        }
                     }
                 }
             }
