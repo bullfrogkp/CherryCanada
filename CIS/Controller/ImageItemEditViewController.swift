@@ -48,6 +48,12 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.view.endEditing(true)
         
+        if(items != nil) {
+            for itm in items! {
+                itm.image = newImage
+            }
+        }
+        
         if(image != nil) {
             for cus in image!.customers {
                 shippingDetailViewController.deleteCustomer(cus, image!)
@@ -88,6 +94,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     var image: Image?
+    var items: [Item]?
     var imageIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?
@@ -110,6 +117,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             
             for cus in image!.customers {
                 let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment, images: [newImage])
+                newCus.originalCustomer = cus
                 for itm in cus.items {
                     let newItm = Item(comment: itm.comment, image: newImage, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCus)
                     newCus.items.append(newItm)

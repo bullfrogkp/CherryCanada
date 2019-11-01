@@ -118,6 +118,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
             let naviController : UINavigationController = segue.destination as! UINavigationController
             let destinationController: ImageItemEditViewController = naviController.viewControllers[0] as! ImageItemEditViewController
             destinationController.image = image
+            destinationController.items = items
             destinationController.imageIndex = imageIndex
             destinationController.shippingDetailViewController = shippingDetailViewController
             destinationController.imageItemViewController = self

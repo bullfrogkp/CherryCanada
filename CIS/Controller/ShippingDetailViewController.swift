@@ -237,6 +237,12 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for itm in customer.items {
             self.addItem(itm)
         }
+        
+        for itm in shipping.items {
+            if(itm.customer === customer.originalCustomer) {
+                itm.customer = customer
+            }
+        }
     }
     
     func addShippingCustomer(_ customer: Customer) {

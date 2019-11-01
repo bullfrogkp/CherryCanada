@@ -31,6 +31,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.view.endEditing(true)
         
+        if(items != nil) {
+            for itm in items! {
+                itm.customer = newCustomer
+            }
+        }
+        
         if(customer != nil) {
             for img in customer!.images {
                 shippingDetailViewController.deleteImage(img, customer!)
@@ -59,6 +65,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     var customer: Customer?
+    var items: [Item]?
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
