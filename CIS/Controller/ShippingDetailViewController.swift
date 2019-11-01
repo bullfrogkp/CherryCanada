@@ -142,9 +142,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
                 
-                for cus in image.customers {
+                for img in customer.images {
                     for itm in shipping.items {
-                        if(itm.customer === cus) {
+                        if(itm.image === img) {
                             allCustomerItems.append(itm)
                         }
                     }
