@@ -243,9 +243,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.customers.insert(customer, at: 0)
     }
     
-    func deleteCustomer(_ customer: Customer) {
+    func deleteCustomer(_ customer: Customer, _ image: Image) {
         
-        shipping.items.removeAll(where: {$0.customer === customer})
+        shipping.items.removeAll(where: {$0.customer === customer && $0.image === image})
         
         for (idx, cus) in shipping.customers.enumerated() {
             if(customer === cus) {
@@ -310,9 +310,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.images.insert(image, at: 0)
     }
     
-    func deleteImage(_ image: Image) {
+    func deleteImage(_ image: Image, _ customer: Customer) {
         
-        shipping.items.removeAll(where: {$0.image === image})
+        shipping.items.removeAll(where: {$0.image === image && $0.customer === customer})
         
         for (idx, img) in shipping.images.enumerated() {
             if(image === img) {

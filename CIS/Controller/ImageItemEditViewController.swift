@@ -50,7 +50,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if(image != nil) {
             for cus in image!.customers {
-                shippingDetailViewController.deleteCustomer(cus)
+                shippingDetailViewController.deleteCustomer(cus, image!)
             }
         }
         
