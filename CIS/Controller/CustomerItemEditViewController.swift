@@ -31,8 +31,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.view.endEditing(true)
         
-        if(items != nil) {
-            for itm in items! {
+        if(allCustomerItems != nil) {
+            for itm in allCustomerItems! {
                 itm.customer = newCustomer
             }
         }
@@ -66,6 +66,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     var customer: Customer?
     var items: [Item]?
+    var allCustomerItems: [Item]?
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?

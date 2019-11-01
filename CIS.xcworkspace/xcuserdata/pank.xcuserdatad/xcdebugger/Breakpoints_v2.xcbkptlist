@@ -16,40 +16,24 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
             endingLineNumber = "253"
-            landmarkName = "deleteCustomer(_:_:)"
+            landmarkName = "addShippingCustomer(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "74E0D9BC-695E-49EC-A7E2-57EEE244258F - a8b97ee683733c7b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.ShippingDetailViewController.deleteCustomer(CIS.Customer) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ShippingDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "340">
-               </Location>
-               <Location
-                  uuid = "74E0D9BC-695E-49EC-A7E2-57EEE244258F - 58773eef3cdf2ff0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (CIS.Item) -&gt; Swift.Bool in CIS.ShippingDetailViewController.deleteCustomer(CIS.Customer) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/ShippingDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "34">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D46139F5-A57A-4925-8128-415F6100AB12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/ImageItemEditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "saveImageItemButton(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

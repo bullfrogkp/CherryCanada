@@ -48,8 +48,8 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.view.endEditing(true)
         
-        if(items != nil) {
-            for itm in items! {
+        if(allCustomerItems != nil) {
+            for itm in allCustomerItems! {
                 itm.image = newImage
             }
         }
@@ -95,6 +95,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     var image: Image?
     var items: [Item]?
+    var allCustomerItems: [Item]?
     var imageIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?
