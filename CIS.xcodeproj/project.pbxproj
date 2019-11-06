@@ -128,11 +128,11 @@
 			children = (
 				3E28D4BC23736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift */,
 				3E28D4BD23736B8A00EA0299 /* ItemMO+CoreDataProperties.swift */,
-				3E28D4BE23736B8A00EA0299 /* CustomerMO+CoreDataClass.swift */,
 				3E28D4BF23736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift */,
+				3E28D4C223736B8A00EA0299 /* ImageMO+CoreDataProperties.swift */,
+				3E28D4BE23736B8A00EA0299 /* CustomerMO+CoreDataClass.swift */,
 				3E28D4C023736B8A00EA0299 /* ItemMO+CoreDataClass.swift */,
 				3E28D4C123736B8A00EA0299 /* ShippingMO+CoreDataClass.swift */,
-				3E28D4C223736B8A00EA0299 /* ImageMO+CoreDataProperties.swift */,
 				3E28D4C323736B8A00EA0299 /* ImageMO+CoreDataClass.swift */,
 			);
 			path = Coredata;
