@@ -14,8 +14,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     @IBOutlet var emptyShippingView: UIView!
     
     var fetchResultController: NSFetchedResultsController<ShippingMO>!
-    var shippings: [Shipping] = []
-    var shippingMOs: [ShippingMO] = []
+    var shippings: [ShippingMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
