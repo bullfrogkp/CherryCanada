@@ -36,8 +36,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
             do {
                 try fetchResultController.performFetch()
                 if let fetchedObjects = fetchResultController.fetchedObjects {
-                    shippingMOs = fetchedObjects
-                    shippings = convertToShipping(shippingMOs)
+                    shippings = fetchedObjects
                 }
             } catch {
                 print(error)
@@ -107,31 +106,31 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     // MARK: - Helper Functions
-    func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
-        
-        let image1 = Image(imageFile: UIImage(named: "test")!.pngData()! as NSData)
-        let image2 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
-        let image3 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
-        
-        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [image1, image2, image3], active: true)
-        let customer2 = Customer(name: "Test")
-        
-        image1.customers = [customer1]
-        image2.customers = [customer1]
-        image3.customers = [customer1]
-        
-        let item1 = Item(comment: "Item1", image: image1, name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
-        
-        let item2 = Item(comment: "Item2", image: image1, name: "货物2", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
-        
-        let item3 = Item(comment: "Item3", image: image2, name: "货物3", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
-        
-        let shippings = [
-            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", items: [item1, item2, item3], images: [image1, image2, image3], customers: [customer1, customer2])
-        ]
-        
-        return shippings
-    }
+//    func convertToShipping(_ shippingMOs: [ShippingMO]) -> [Shipping] {
+//        
+//        let image1 = Image(imageFile: UIImage(named: "test")!.pngData()! as NSData)
+//        let image2 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
+//        let image3 = Image(imageFile: UIImage(named: "test2")!.pngData()! as NSData)
+//        
+//        let customer1 = Customer(name: "Kevin", phone: "416-666-6666", wechat: "nice", comment: "A good guy", items: [], images: [image1, image2, image3], active: true)
+//        let customer2 = Customer(name: "Test")
+//        
+//        image1.customers = [customer1]
+//        image2.customers = [customer1]
+//        image3.customers = [customer1]
+//        
+//        let item1 = Item(comment: "Item1", image: image1, name: "货物1", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
+//        
+//        let item2 = Item(comment: "Item2", image: image1, name: "货物2", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
+//        
+//        let item3 = Item(comment: "Item3", image: image2, name: "货物3", priceBought: 1.00, priceSold: 2.00, quantity: 3, customer: customer1)
+//        
+//        let shippings = [
+//            Shipping(comment: "", city: "哈尔滨", deposit: 100, priceInternational: 200, priceNational: 120, shippingDate: Date(), shippingStatus: "完成", items: [item1, item2, item3], images: [image1, image2, image3], customers: [customer1, customer2])
+//        ]
+//        
+//        return shippings
+//    }
     
     func deleteShipping(_ rowIndex: Int) {
         shippings.remove(at: rowIndex)

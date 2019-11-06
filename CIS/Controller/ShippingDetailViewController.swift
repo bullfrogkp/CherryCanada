@@ -24,7 +24,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     
-    var shipping: Shipping!
+    var shipping: ShippingMO!
     var cellIndex: Int!
     var shippingListTableViewController: ShippingListTableViewController!
     

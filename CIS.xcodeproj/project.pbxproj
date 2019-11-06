@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,14 @@
 		3E1898082357A58300A0B59C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1898072357A58300A0B59C /* ImageCollectionViewCell.swift */; };
 		3E18980A235A06DC00A0B59C /* ImageItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E189809235A06DC00A0B59C /* ImageItemHeader.xib */; };
 		3E18980C235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E18980B235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift */; };
+		3E28D4C423736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4BC23736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift */; };
+		3E28D4C523736B8A00EA0299 /* ItemMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4BD23736B8A00EA0299 /* ItemMO+CoreDataProperties.swift */; };
+		3E28D4C623736B8A00EA0299 /* CustomerMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4BE23736B8A00EA0299 /* CustomerMO+CoreDataClass.swift */; };
+		3E28D4C723736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4BF23736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift */; };
+		3E28D4C823736B8A00EA0299 /* ItemMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4C023736B8A00EA0299 /* ItemMO+CoreDataClass.swift */; };
+		3E28D4C923736B8A00EA0299 /* ShippingMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4C123736B8A00EA0299 /* ShippingMO+CoreDataClass.swift */; };
+		3E28D4CA23736B8A00EA0299 /* ImageMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4C223736B8A00EA0299 /* ImageMO+CoreDataProperties.swift */; };
+		3E28D4CB23736B8A00EA0299 /* ImageMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28D4C323736B8A00EA0299 /* ImageMO+CoreDataClass.swift */; };
 		3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */; };
 		3E3AC8AD22BC067000F1A0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AB22BC067000F1A0B3 /* Main.storyboard */; };
 		3E3AC8B022BC067000F1A0B3 /* CIS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AC8AE22BC067000F1A0B3 /* CIS.xcdatamodeld */; };
@@ -48,6 +56,14 @@
 		3E1898072357A58300A0B59C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E189809235A06DC00A0B59C /* ImageItemHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageItemHeader.xib; sourceTree = "<group>"; };
 		3E18980B235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemSectionHeaderView.swift; sourceTree = "<group>"; };
+		3E28D4BC23736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomerMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E28D4BD23736B8A00EA0299 /* ItemMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E28D4BE23736B8A00EA0299 /* CustomerMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomerMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3E28D4BF23736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShippingMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E28D4C023736B8A00EA0299 /* ItemMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3E28D4C123736B8A00EA0299 /* ShippingMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShippingMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3E28D4C223736B8A00EA0299 /* ImageMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E28D4C323736B8A00EA0299 /* ImageMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E3AC8A422BC067000F1A0B3 /* CIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AC8A722BC067000F1A0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E3AC8AC22BC067000F1A0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,7 +112,6 @@
 				1A7248A81EE9BE25C2CB358B /* Pods-CIS.debug.xcconfig */,
 				41F2E25AC526ABA49D8914B8 /* Pods-CIS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,6 +121,21 @@
 				3E12B111234B9AAD004A6EA8 /* CustomCellDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3E28D4BB23736B8A00EA0299 /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				3E28D4BC23736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift */,
+				3E28D4BD23736B8A00EA0299 /* ItemMO+CoreDataProperties.swift */,
+				3E28D4BE23736B8A00EA0299 /* CustomerMO+CoreDataClass.swift */,
+				3E28D4BF23736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift */,
+				3E28D4C023736B8A00EA0299 /* ItemMO+CoreDataClass.swift */,
+				3E28D4C123736B8A00EA0299 /* ShippingMO+CoreDataClass.swift */,
+				3E28D4C223736B8A00EA0299 /* ImageMO+CoreDataProperties.swift */,
+				3E28D4C323736B8A00EA0299 /* ImageMO+CoreDataClass.swift */,
+			);
+			path = Coredata;
 			sourceTree = "<group>";
 		};
 		3E3AC89B22BC067000F1A0B3 = {
@@ -129,6 +159,7 @@
 		3E3AC8A622BC067000F1A0B3 /* CIS */ = {
 			isa = PBXGroup;
 			children = (
+				3E28D4BB23736B8A00EA0299 /* Coredata */,
 				3E12B110234B9A84004A6EA8 /* Protocol */,
 				3E886EC92333F5FC00932427 /* Service */,
 				3E3AC8CD22E41B5900F1A0B3 /* Model */,
@@ -332,6 +363,7 @@
 				3E1898082357A58300A0B59C /* ImageCollectionViewCell.swift in Sources */,
 				3E3AC8D622E41D2700F1A0B3 /* Item.swift in Sources */,
 				3EF90140230D943B00173DE3 /* Image.swift in Sources */,
+				3E28D4C623736B8A00EA0299 /* CustomerMO+CoreDataClass.swift in Sources */,
 				3E3AC8A822BC067000F1A0B3 /* AppDelegate.swift in Sources */,
 				3E75F99E23033FD800667BD4 /* CustomerItemTableViewCell.swift in Sources */,
 				3E3AC8E122F3649100F1A0B3 /* CustomerListTableViewCell.swift in Sources */,
@@ -340,6 +372,7 @@
 				3E886EC62328460D00932427 /* ShippingDetailViewController.swift in Sources */,
 				3E3AC8DB22EB662B00F1A0B3 /* ShippingListTableViewController.swift in Sources */,
 				3EF90144230EE43C00173DE3 /* ImageItemEditViewController.swift in Sources */,
+				3E28D4C423736B8A00EA0299 /* CustomerMO+CoreDataProperties.swift in Sources */,
 				3EF90148230EE48500173DE3 /* ImageItemEditTableViewCell.swift in Sources */,
 				3E886EC42325FDFB00932427 /* ShippingInfoViewController.swift in Sources */,
 				3E18980C235A0E9F00A0B59C /* ImageItemSectionHeaderView.swift in Sources */,
@@ -347,12 +380,18 @@
 				3E75F9A02304602400667BD4 /* CustomerItemViewController.swift in Sources */,
 				3E3AC8D722E41D2700F1A0B3 /* Shipping.swift in Sources */,
 				3E3AC8C922DD107700F1A0B3 /* CustomTableView.swift in Sources */,
+				3E28D4C523736B8A00EA0299 /* ItemMO+CoreDataProperties.swift in Sources */,
 				3E12B112234B9AAD004A6EA8 /* CustomCellDelegate.swift in Sources */,
 				3E886ECB2333F62400932427 /* Utils.swift in Sources */,
 				3EF90142230EE41600173DE3 /* CustomerItemEditViewController.swift in Sources */,
+				3E28D4CA23736B8A00EA0299 /* ImageMO+CoreDataProperties.swift in Sources */,
+				3E28D4C723736B8A00EA0299 /* ShippingMO+CoreDataProperties.swift in Sources */,
 				3EF90146230EE47300173DE3 /* CustomerItemEditTableViewCell.swift in Sources */,
+				3E28D4C923736B8A00EA0299 /* ShippingMO+CoreDataClass.swift in Sources */,
 				3E12B10D233BEBE8004A6EA8 /* CustomerItemSectionHeaderView.swift in Sources */,
 				3E3AC8DD22EB7C6F00F1A0B3 /* ShippingListTableViewCell.swift in Sources */,
+				3E28D4CB23736B8A00EA0299 /* ImageMO+CoreDataClass.swift in Sources */,
+				3E28D4C823736B8A00EA0299 /* ItemMO+CoreDataClass.swift in Sources */,
 				3ED2FCAE23561ADF0055EECD /* SelfSizedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
