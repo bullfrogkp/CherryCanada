@@ -40,7 +40,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
-                    var imgMO = ImageMO()
+                    let imgMO = ImageMO()
                     imgMO.imageFile = self.getAssetThumbnail(ast).pngData()! as NSData
                     self.addShippingImage(imgMO)
                 }
@@ -135,7 +135,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let customer = shipping.customers[indexPath.row]
                 
-                var items = [Item]()
+                var items = [ItemMO]()
                 
                 for itm in shipping.items {
                     if(itm.customer === customer) {
