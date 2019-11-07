@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ImageItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
@@ -34,8 +35,8 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         present(optionMenu, animated: true, completion: nil)
     }
     
-    var image: Image!
-    var items: [Item]!
+    var image: ImageMO!
+    var items: [ItemMO]!
     var imageIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     

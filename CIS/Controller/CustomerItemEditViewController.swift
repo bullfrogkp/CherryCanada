@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,11 +59,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.dismiss(animated: true, completion: nil)
     }
     
-    var customer: Customer?
+    var customer: CustomerMO?
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
-    var newCustomer = Customer()
+    var newCustomer = CustomerMO()
     var currentImageSection = -1
     
     override func viewDidLoad() {

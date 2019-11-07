@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -87,11 +88,11 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         customerItemTableView.reloadData()
     }
     
-    var image: Image?
+    var image: ImageMO?
     var imageIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?
-    var newImage = Image()
+    var newImage = ImageMO()
     
     override func viewDidLoad() {
         super.viewDidLoad()

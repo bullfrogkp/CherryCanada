@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CustomerItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -37,7 +38,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     var items:[Item]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
-    var customer: Customer!
+    var customer: CustomerMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()

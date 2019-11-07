@@ -36,7 +36,7 @@ class ShippingInfoViewController: UIViewController {
         }
         
         if shipping == nil {
-            shipping = Shipping()
+            shipping = ShippingMO()
         }
         
         let dateFormatter = DateFormatter()
@@ -91,7 +91,7 @@ class ShippingInfoViewController: UIViewController {
         }
     }
     
-    var shipping: Shipping?
+    var shipping: ShippingMO?
     var shippingDetailViewController: ShippingDetailViewController?
     var shippingListTableViewController: ShippingListTableViewController?
     let datePicker = UIDatePicker()
