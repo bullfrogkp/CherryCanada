@@ -154,7 +154,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let image = shipping.images[indexPaths[0].row]
                 
-                var items = [Item]()
+                var items = [ItemMO]()
                 
                 for itm in shipping.items {
                     if(itm.image === image) {
