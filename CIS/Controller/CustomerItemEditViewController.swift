@@ -22,7 +22,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         self.view.endEditing(true)
         
-        let image = Image(name: "test")
+        let image = ImageMO()
+        image.name  = "test"
         image.customers = [newCustomer]
         newCustomer.images.insert(image, at: 0)
         
@@ -84,9 +85,21 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             newCustomer.wechat = customer!.wechat
             
             for img in customer!.images {
-                let newImg = Image(name: img.name, imageFile: img.imageFile, customers: [newCustomer])
+                let newImg = ImageMO()
+                newImg.name = img.name
+                newImg.imageFile = img.imageFile
+                newImg.customers = [newCustomer]
+                
                 for itm in img.items {
-                    let newItm = Item(comment: itm.comment, image: newImg, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCustomer)
+                    let newItm = ItemMO()
+                    newItm.comment = itm.comment
+                    newItm.image = newImg
+                    newItm.name = itm.name
+                    newItm.priceBought = itm.priceBought
+                    newItm.priceSold = itm.priceSold
+                    newItm.quantity = itm.quantity
+                    newItm.customer = newCustomer
+                    
                     newImg.items.append(newItm)
                 }
                 newCustomer.images.append(newImg)
@@ -241,7 +254,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        let itm = Item()
+        let itm = ItemMO()
         itm.image = newCustomer.images[sender.tag]
         itm.customer = newCustomer
         newCustomer.images[sender.tag].items.insert(itm, at: 0)

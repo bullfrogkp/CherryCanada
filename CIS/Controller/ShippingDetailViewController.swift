@@ -358,18 +358,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for img in oCus.images {
             for cus in img.customers {
                 if(cus !== oCus) {
-                    img.newImage!.customers.append(cus)
+                    img.newImage.customers.append(cus)
                     
                     for (idx, img2) in cus.images.enumerated() {
                         if(img2 === img) {
-                            cus.images[idx] = img.newImage!
+                            cus.images[idx] = img.newImage
                             break
                         }
                     }
                     
                     for itm in shipping.items {
                         if(itm.image === img && itm.customer === cus) {
-                            itm.image = img.newImage!
+                            itm.image = img.newImage
                         }
                     }
                 }
@@ -385,18 +385,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         for cus in oImg.customers {
             for img in cus.images {
                 if(img !== oImg) {
-                    cus.newCustomer!.images.append(img)
+                    cus.newCustomer.images.append(img)
                     
                     for (idx, cus2) in img.customers.enumerated() {
                         if(cus2 === cus) {
-                            img.customers[idx] = cus.newCustomer!
+                            img.customers[idx] = cus.newCustomer
                             break
                         }
                     }
                     
                     for itm in shipping.items {
                         if(itm.image === img && itm.customer === cus) {
-                            itm.customer = cus.newCustomer!
+                            itm.customer = cus.newCustomer
                         }
                     }
                 }

@@ -81,7 +81,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func addCustomer(_ sender: Any) {
         self.view.endEditing(true)
         
-        let customer = Customer()
+        let customer = CustomerMO()
         customer.images = [newImage]
         newImage.customers.insert(customer, at: 0)
         
@@ -110,9 +110,23 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             newImage.imageFile = image!.imageFile
             
             for cus in image!.customers {
-                let newCus = Customer(name: cus.name, phone: cus.phone, wechat: cus.wechat, comment: cus.comment, images: [newImage])
+                let newCus = CustomerMO()
+                newCus.name = cus.name
+                newCus.phone = cus.phone
+                newCus.wechat = cus.wechat
+                newCus.comment = cus.comment
+                newCus.images = [newImage]
+                
                 for itm in cus.items {
-                    let newItm = Item(comment: itm.comment, image: newImage, name: itm.name, priceBought: itm.priceBought, priceSold: itm.priceSold, quantity: itm.quantity, customer: newCus)
+                    let newItm = ItemMO()
+                    newItm.comment = itm.comment
+                    newItm.image = newImage
+                    newItm.name = itm.name
+                    newItm.priceBought = itm.priceBought
+                    newItm.priceSold = itm.priceSold
+                    newItm.quantity = itm.quantity
+                    newItm.customer = newCus
+                    
                     newCus.items.append(newItm)
                 }
                 newImage.customers.append(newCus)
@@ -232,7 +246,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     {
         self.view.endEditing(true)
         
-        let itm = Item()
+        let itm = ItemMO()
         itm.customer = newImage.customers[sender.tag]
         itm.image = newImage
         newImage.customers[sender.tag].items.insert(itm, at: 0)
