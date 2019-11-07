@@ -40,7 +40,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
-                    self.addShippingImage(ImageMO(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
+                    var imgMO = ImageMO()
+                    imgMO.imageFile = self.getAssetThumbnail(ast).pngData()! as NSData
+                    self.addShippingImage(imgMO)
                 }
                 self.imageCollectionView.reloadData()
             }, completion: nil)
