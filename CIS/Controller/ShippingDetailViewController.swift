@@ -40,7 +40,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
-                    self.addShippingImage(Image(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
+                    self.addShippingImage(ImageMO(imageFile: self.getAssetThumbnail(ast).pngData()! as NSData))
                 }
                 self.imageCollectionView.reloadData()
             }, completion: nil)
@@ -231,7 +231,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                   attributes: stringAttributes)
     }
     
-    func addCustomer(_ customer: Customer) {
+    func addCustomer(_ customer: CustomerMO) {
         shipping.customers.insert(customer, at: 0)
         
         for itm in customer.items {
@@ -239,11 +239,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func addShippingCustomer(_ customer: Customer) {
+    func addShippingCustomer(_ customer: CustomerMO) {
         shipping.customers.insert(customer, at: 0)
     }
     
-    func deleteCustomer(_ customer: Customer, _ image: Image) {
+    func deleteCustomer(_ customer: CustomerMO, _ image: ImageMO) {
         
         shipping.items.removeAll(where: {$0.customer === customer && $0.image === image})
         
@@ -289,7 +289,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         imageCollectionView.deleteItems(at: [IndexPath(row: imgIndex, section: 0)])
     }
     
-    func addImage(_ image: Image) {
+    func addImage(_ image: ImageMO) {
         shipping.images.insert(image, at: 0)
         
         for itm in image.items {
@@ -297,11 +297,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func addShippingImage(_ image: Image) {
+    func addShippingImage(_ image: ImageMO) {
         shipping.images.insert(image, at: 0)
     }
     
-    func deleteImage(_ image: Image, _ customer: Customer) {
+    func deleteImage(_ image: ImageMO, _ customer: CustomerMO) {
         
         shipping.items.removeAll(where: {$0.image === image && $0.customer === customer})
         
@@ -313,11 +313,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func addItem(_ item: Item) {
+    func addItem(_ item: ItemMO) {
         shipping.items.insert(item, at: 0)
     }
     
-    func removeItem(_ item: Item) {
+    func removeItem(_ item: ItemMO) {
         for (idx, itm) in shipping.items.enumerated() {
             if(item === itm) {
                 shipping.items.remove(at: idx)
@@ -325,7 +325,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func updateShipping(_ sp: Shipping) {
+    func updateShipping(_ sp: ShippingMO) {
         shipping.city = sp.city
         shipping.comment = sp.comment
         shipping.deposit = sp.deposit
@@ -337,7 +337,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingListTableViewController.tableView.reloadRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
     }
     
-    func updateShippingView(_ sp: Shipping) {
+    func updateShippingView(_ sp: ShippingMO) {
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
 
@@ -350,7 +350,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingCommentLabel.text = "\(shipping.comment)"
     }
     
-    func updateShippingCustomer(_ customer: Customer, _ customerIndex: Int) {
+    func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
         let oCus = shipping.customers[customerIndex]
         
         for img in oCus.images {
@@ -377,7 +377,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.customers[customerIndex] = customer
     }
     
-    func updateImageData(_ image: Image, _ imageIndex: Int) {
+    func updateImageData(_ image: ImageMO, _ imageIndex: Int) {
         let oImg = shipping.images[imageIndex]
         
         for cus in oImg.customers {
