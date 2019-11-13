@@ -18,9 +18,9 @@ extension ShippingMO {
 
     @NSManaged public var city: String
     @NSManaged public var comment: String
-    @NSManaged public var deposit: Decimal
-    @NSManaged public var priceInternational: Decimal
-    @NSManaged public var priceNational: Decimal
+    @NSManaged public var deposit: NSDecimalNumber
+    @NSManaged public var priceInternational: NSDecimalNumber
+    @NSManaged public var priceNational: NSDecimalNumber
     @NSManaged public var shippingDate: Date
     @NSManaged public var shippingStatus: String
     @NSManaged public var images: [ImageMO]

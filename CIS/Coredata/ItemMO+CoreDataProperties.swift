@@ -18,8 +18,8 @@ extension ItemMO {
 
     @NSManaged public var comment: String
     @NSManaged public var name: String
-    @NSManaged public var priceBought: Decimal
-    @NSManaged public var priceSold: Decimal
+    @NSManaged public var priceBought: NSDecimalNumber
+    @NSManaged public var priceSold: NSDecimalNumber
     @NSManaged public var quantity: Int
     @NSManaged public var customer: CustomerMO
     @NSManaged public var shipping: ShippingMO
