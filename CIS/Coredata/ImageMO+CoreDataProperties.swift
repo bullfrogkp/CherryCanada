@@ -17,11 +17,12 @@ extension ImageMO {
     }
 
     @NSManaged public var imageFile: NSData
-    @NSManaged public var name: String
-    @NSManaged public var shipping: ShippingMO
-    @NSManaged public var items: [ItemMO]
-    @NSManaged public var customers: [CustomerMO]
-    @NSManaged public var newImage: ImageMO
+    
+    @NSManaged public var name: String?
+    @NSManaged public var shipping: ShippingMO?
+    @NSManaged public var items: [ItemMO]?
+    @NSManaged public var customers: [CustomerMO]?
+    @NSManaged public var newImage: ImageMO?
 
 }
 

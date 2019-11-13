@@ -22,12 +22,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         self.view.endEditing(true)
         
-        let image = ImageMO()
-        image.name  = "test"
-        image.customers = [newCustomer]
-        newCustomer.images.insert(image, at: 0)
-        
-        customerItemTableView.reloadData()
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let image = ImageMO(context: appDelegate.persistentContainer.viewContext)
+            image.name  = "test"
+            image.customers = [newCustomer]
+            newCustomer.images.insert(image, at: 0)
+            
+            customerItemTableView.reloadData()
+        }
     }
     
     @IBAction func saveCustomerItem(_ sender: Any) {
@@ -64,7 +66,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     var customerIndex: Int?
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
-    var newCustomer = CustomerMO()
+    var newCustomer: CustomerMO!
     var currentImageSection = -1
     
     override func viewDidLoad() {
@@ -78,37 +80,41 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
         customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
         
-        if(customer != nil) {
-            newCustomer.name = customer!.name
-            newCustomer.phone = customer!.phone
-            newCustomer.comment = customer!.comment
-            newCustomer.wechat = customer!.wechat
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            newCustomer = CustomerMO(context: appDelegate.persistentContainer.viewContext)
             
-            for img in customer!.images {
-                let newImg = ImageMO()
-                newImg.name = img.name
-                newImg.imageFile = img.imageFile
-                newImg.customers = [newCustomer]
+            if(customer != nil) {
+                newCustomer.name = customer!.name
+                newCustomer.phone = customer!.phone
+                newCustomer.comment = customer!.comment
+                newCustomer.wechat = customer!.wechat
                 
-                for itm in img.items {
-                    let newItm = ItemMO()
-                    newItm.comment = itm.comment
-                    newItm.image = newImg
-                    newItm.name = itm.name
-                    newItm.priceBought = itm.priceBought
-                    newItm.priceSold = itm.priceSold
-                    newItm.quantity = itm.quantity
-                    newItm.customer = newCustomer
+                for img in customer!.images {
+                    let newImg = ImageMO(context: appDelegate.persistentContainer.viewContext)
+                    newImg.name = img.name
+                    newImg.imageFile = img.imageFile
+                    newImg.customers = [newCustomer]
                     
-                    newImg.items.append(newItm)
+                    for itm in img.items {
+                        let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                        newItm.comment = itm.comment
+                        newItm.image = newImg
+                        newItm.name = itm.name
+                        newItm.priceBought = itm.priceBought
+                        newItm.priceSold = itm.priceSold
+                        newItm.quantity = itm.quantity
+                        newItm.customer = newCustomer
+                        
+                        newImg.items.append(newItm)
+                    }
+                    newCustomer.images.append(newImg)
+                    
+                    img.newImage = newImg
                 }
-                newCustomer.images.append(newImg)
-                
-                img.newImage = newImg
             }
+            
+            customerNameTextField.text = newCustomer.name
         }
-        
-        customerNameTextField.text = newCustomer.name
     }
     
     //MARK: - TableView Functions

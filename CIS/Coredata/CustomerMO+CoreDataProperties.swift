@@ -16,14 +16,15 @@ extension CustomerMO {
         return NSFetchRequest<CustomerMO>(entityName: "Customer")
     }
 
-    @NSManaged public var comment: String
     @NSManaged public var name: String
-    @NSManaged public var phone: String
-    @NSManaged public var wechat: String
-    @NSManaged public var items: [ItemMO]
-    @NSManaged public var images: [ImageMO]
-    @NSManaged public var shipping: ShippingMO
-    @NSManaged public var newCustomer: CustomerMO
+    
+    @NSManaged public var comment: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var wechat: String?
+    @NSManaged public var items: [ItemMO]?
+    @NSManaged public var images: [ImageMO]?
+    @NSManaged public var shipping: ShippingMO?
+    @NSManaged public var newCustomer: CustomerMO?
 
 }
 

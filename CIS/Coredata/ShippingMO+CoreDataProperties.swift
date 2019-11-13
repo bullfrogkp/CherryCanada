@@ -15,17 +15,18 @@ extension ShippingMO {
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<ShippingMO> {
         return NSFetchRequest<ShippingMO>(entityName: "Shipping")
     }
-
-    @NSManaged public var city: String
-    @NSManaged public var comment: String
-    @NSManaged public var deposit: NSDecimalNumber
-    @NSManaged public var priceInternational: NSDecimalNumber
-    @NSManaged public var priceNational: NSDecimalNumber
+    
     @NSManaged public var shippingDate: Date
     @NSManaged public var shippingStatus: String
-    @NSManaged public var images: [ImageMO]
-    @NSManaged public var items: [ItemMO]
-    @NSManaged public var customers: [CustomerMO]
+    @NSManaged public var city: String
+    
+    @NSManaged public var comment: String?
+    @NSManaged public var deposit: NSDecimalNumber?
+    @NSManaged public var priceInternational: NSDecimalNumber?
+    @NSManaged public var priceNational: NSDecimalNumber?
+    @NSManaged public var images: [ImageMO]?
+    @NSManaged public var items: [ItemMO]?
+    @NSManaged public var customers: [CustomerMO]?
 
 }
 

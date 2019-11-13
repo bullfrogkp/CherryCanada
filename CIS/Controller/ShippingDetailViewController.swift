@@ -9,6 +9,7 @@
 import UIKit
 import BSImagePicker
 import Photos
+import CoreData
 
 class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     
