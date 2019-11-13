@@ -134,30 +134,32 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 
-                let customer = shipping.customers[indexPath.row]
+                let customer = shipping.customers![indexPath.row]
                 
-                var items = [ItemMO]()
-                
-                for itm in shipping.items {
-                    if(itm.customer === customer) {
-                        items.append(itm)
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    var items = [ItemMO(context: appDelegate.persistentContainer.viewContext)]
+                    
+                    for itm in shipping.items! {
+                        if(itm.customer === customer) {
+                            items.append(itm)
+                        }
                     }
+                    
+                    destinationController.customer = customer
+                    destinationController.items = items
+                    destinationController.customerIndex = indexPath.row
+                    destinationController.shippingDetailViewController = self
                 }
-                
-                destinationController.customer = customer
-                destinationController.items = items
-                destinationController.customerIndex = indexPath.row
-                destinationController.shippingDetailViewController = self
             }
         } else if segue.identifier == "showImageDetail" {
             if let indexPaths = imageCollectionView.indexPathsForSelectedItems {
                 let destinationController = segue.destination as! ImageItemViewController
                 
-                let image = shipping.images[indexPaths[0].row]
+                let image = shipping.images![indexPaths[0].row]
                 
                 var items = [ItemMO]()
                 
-                for itm in shipping.items {
+                for itm in shipping.items! {
                     if(itm.image === image) {
                         items.append(itm)
                     }
@@ -182,13 +184,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return shipping.customers.count
+        return shipping.customers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        cell.customerNameLabel.text = shipping.customers[indexPath.row].name
+        cell.customerNameLabel.text = shipping.customers?[indexPath.row].name
         
         return cell
     }
@@ -203,14 +205,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shipping.images.count
+        return shipping.images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
 
-        cell.shippingImageView.image = UIImage(data: shipping.images[indexPath.row].imageFile as Data)
-
+        if let imgData = shipping.images?[indexPath.row].imageFile as Data? {
+            cell.shippingImageView.image = UIImage(data: imgData)
+        }
+        
         return cell
     }
     
