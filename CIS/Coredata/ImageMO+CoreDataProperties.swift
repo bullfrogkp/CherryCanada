@@ -12,7 +12,7 @@ import CoreData
 
 extension ImageMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ImageMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<ImageMO> {
         return NSFetchRequest<ImageMO>(entityName: "Image")
     }
 

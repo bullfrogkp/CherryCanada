@@ -12,7 +12,7 @@ import CoreData
 
 extension ShippingMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ShippingMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<ShippingMO> {
         return NSFetchRequest<ShippingMO>(entityName: "Shipping")
     }
 

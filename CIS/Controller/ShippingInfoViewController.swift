@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ShippingInfoViewController: UIViewController {
 
@@ -24,70 +25,79 @@ class ShippingInfoViewController: UIViewController {
     
     @IBAction func saveData(_ sender: Any) {
         
-        var errorMsg = ""
-        
-        if shippingDateTextField.text == "" {
-            let alertController = UIAlertController(title: "必填项目", message: "请填写日期", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            var errorMsg = ""
             
-            return
-        }
-        
-        if shipping == nil {
-            shipping = ShippingMO()
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        if let shippingDate = dateFormatter.date(from: shippingDateTextField.text!) {
-            shipping!.shippingDate = shippingDate
-        } else {
-            errorMsg += "请填写正确日期格式\n"
-        }
-        
-        shipping!.shippingStatus = shippingStatusTextField.text!
-        shipping!.city = shippingCityTextField.text!
-        shipping!.comment = shippingCommentTextField.text!
-        
-        let formatter = NumberFormatter()
-        formatter.generatesDecimalNumbers = true
-        formatter.numberStyle = NumberFormatter.Style.decimal
-        
-        if let formattedNumber = formatter.number(from: shippingFeeNationalTextField.text!) as? NSDecimalNumber  {
-            shipping!.priceNational = formattedNumber as Decimal
-        } else if(shippingFeeNationalTextField.text != ""){
-            errorMsg += "请填写正确国内运费\n"
-        }
-        
-        if let formattedNumber = formatter.number(from: shippingFeeInternationalTextField.text!) as? NSDecimalNumber  {
-            shipping!.priceInternational = formattedNumber as Decimal
-        } else if(shippingFeeInternationalTextField.text != "") {
-            errorMsg += "请填写正确国际运费\n"
-        }
-        
-        if let formattedNumber = formatter.number(from: shippingDepositTextField.text!) as? NSDecimalNumber  {
-            shipping!.deposit = formattedNumber as Decimal
-        } else if(shippingDepositTextField.text != "") {
-            errorMsg += "请填写正确押金\n"
-        }
-        
-        if(errorMsg != "") {
-            let alertController = UIAlertController(title: "请填写正确数据", message: errorMsg, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
-        
-        } else {
-            if(shippingListTableViewController != nil) {
-                shippingListTableViewController!.addShipping(shipping!)
-            } else {
-                shippingDetailViewController!.updateShipping(shipping!)
+            if shippingDateTextField.text == "" {
+                let alertController = UIAlertController(title: "必填项目", message: "请填写日期", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+                
+                return
             }
             
+            if shipping == nil {
+                shipping = ShippingMO(context: appDelegate.persistentContainer.viewContext)
+            }
+            
+            
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            if let shippingDate = dateFormatter.date(from: shippingDateTextField.text!) {
+                shipping!.shippingDate = shippingDate
+            } else {
+                errorMsg += "请填写正确日期格式\n"
+            }
+            
+            appDelegate.saveContext()
             dismiss(animated: true, completion: nil)
+//            
+//            shipping!.shippingStatus = shippingStatusTextField.text!
+//            shipping!.city = shippingCityTextField.text!
+//            shipping!.comment = shippingCommentTextField.text!
+//            
+//            let formatter = NumberFormatter()
+//            formatter.generatesDecimalNumbers = true
+//            formatter.numberStyle = NumberFormatter.Style.decimal
+//            
+//            if let formattedNumber = formatter.number(from: shippingFeeNationalTextField.text!) as? NSDecimalNumber  {
+//                shipping!.priceNational = formattedNumber as Decimal
+//            } else if(shippingFeeNationalTextField.text != ""){
+//                errorMsg += "请填写正确国内运费\n"
+//            }
+//            
+//            if let formattedNumber = formatter.number(from: shippingFeeInternationalTextField.text!) as? NSDecimalNumber  {
+//                shipping!.priceInternational = formattedNumber as Decimal
+//            } else if(shippingFeeInternationalTextField.text != "") {
+//                errorMsg += "请填写正确国际运费\n"
+//            }
+//            
+//            if let formattedNumber = formatter.number(from: shippingDepositTextField.text!) as? NSDecimalNumber  {
+//                shipping!.deposit = formattedNumber as Decimal
+//            } else if(shippingDepositTextField.text != "") {
+//                errorMsg += "请填写正确押金\n"
+//            }
+//            
+//            if(errorMsg != "") {
+//                let alertController = UIAlertController(title: "请填写正确数据", message: errorMsg, preferredStyle: .alert)
+//                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alertController.addAction(alertAction)
+//                present(alertController, animated: true, completion: nil)
+//            
+//            } else {
+//                if(shippingListTableViewController != nil) {
+//                    shippingListTableViewController!.addShipping(shipping!)
+//                } else {
+//                    shippingDetailViewController!.updateShipping(shipping!)
+//                }
+//                
+//                appDelegate.saveContext()
+//                
+//                dismiss(animated: true, completion: nil)
+//            }
         }
     }
     

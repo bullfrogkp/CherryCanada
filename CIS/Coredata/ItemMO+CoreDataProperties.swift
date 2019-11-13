@@ -12,7 +12,7 @@ import CoreData
 
 extension ItemMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ItemMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<ItemMO> {
         return NSFetchRequest<ItemMO>(entityName: "Item")
     }
 
