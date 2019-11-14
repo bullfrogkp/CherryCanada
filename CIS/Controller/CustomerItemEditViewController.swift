@@ -26,7 +26,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             let image = ImageMO(context: appDelegate.persistentContainer.viewContext)
             image.name  = "test"
             image.customers = [newCustomer]
-            newCustomer.images.insert(image, at: 0)
+            
+            if(newCustomer.images != nil) {
+                newCustomer.images!.insert(image, at: 0)
+            } else {
+                newCustomer.images = [image]
+            }
             
             customerItemTableView.reloadData()
         }
@@ -35,14 +40,16 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.view.endEditing(true)
         
-        if(customer != nil) {
-            for img in customer!.images {
+        if(customer?.images != nil) {
+            for img in customer!.images! {
                 shippingDetailViewController.deleteImage(img, customer!)
             }
         }
         
-        for img in newCustomer.images {
-            shippingDetailViewController.addImage(img)
+        if(newCustomer.images != nil) {
+            for img in newCustomer.images! {
+                shippingDetailViewController.addImage(img)
+            }
         }
         
         newCustomer.name = customerNameTextField.text!
@@ -89,27 +96,40 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 newCustomer.comment = customer!.comment
                 newCustomer.wechat = customer!.wechat
                 
-                for img in customer!.images {
-                    let newImg = ImageMO(context: appDelegate.persistentContainer.viewContext)
-                    newImg.name = img.name
-                    newImg.imageFile = img.imageFile
-                    newImg.customers = [newCustomer]
-                    
-                    for itm in img.items {
-                        let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
-                        newItm.comment = itm.comment
-                        newItm.image = newImg
-                        newItm.name = itm.name
-                        newItm.priceBought = itm.priceBought
-                        newItm.priceSold = itm.priceSold
-                        newItm.quantity = itm.quantity
-                        newItm.customer = newCustomer
+                if(customer?.images != nil) {
+                    for img in customer!.images! {
+                        let newImg = ImageMO(context: appDelegate.persistentContainer.viewContext)
+                        newImg.name = img.name
+                        newImg.imageFile = img.imageFile
+                        newImg.customers = [newCustomer]
                         
-                        newImg.items.append(newItm)
+                        if(img.items != nil) {
+                            for itm in img.items! {
+                                let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                                newItm.comment = itm.comment
+                                newItm.image = newImg
+                                newItm.name = itm.name
+                                newItm.priceBought = itm.priceBought
+                                newItm.priceSold = itm.priceSold
+                                newItm.quantity = itm.quantity
+                                newItm.customer = newCustomer
+                                
+                                if(newImg.items != nil) {
+                                    newImg.items!.append(newItm)
+                                } else {
+                                    newImg.items = [newItm]
+                                }
+                            }
+                        }
+                        
+                        if(newCustomer.images != nil) {
+                            newCustomer.images!.append(newImg)
+                        } else {
+                            newCustomer.images = [newImg]
+                        }
+                        
+                        img.newImage = newImg
                     }
-                    newCustomer.images.append(newImg)
-                    
-                    img.newImage = newImg
                 }
             }
             
