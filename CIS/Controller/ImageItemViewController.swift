@@ -90,9 +90,18 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"
-        cell.priceSoldLabel.text = "\(item.priceSold)"
-        cell.priceBoughtLabel.text = "\(item.priceBought)"
-        cell.descriptionTextView.text = item.comment
+        
+        if(item.priceSold != nil) {
+            cell.priceSoldLabel.text = "\(item.priceSold!)"
+        }
+        
+        if(item.priceBought != nil) {
+            cell.priceBoughtLabel.text = "\(item.priceBought!)"
+        }
+        
+        if(item.comment != nil) {
+            cell.descriptionTextView.text = item.comment!
+        }
         
         return cell
     }
@@ -104,7 +113,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let customerLabel: UILabel = {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 21))
-            label.text = image.customers[section].name
+            label.text = image.customers![section].name
             
             return label
         }()
