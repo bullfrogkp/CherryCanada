@@ -48,15 +48,25 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         customerItemTableView.backgroundColor = UIColor.white
         
-        for img in customer.images {
-            img.items.removeAll()
+        if(customer.images != nil) {
+            for img in customer.images! {
+                if(img.items != nil) {
+                    img.items!.removeAll()
+                }
+            }
         }
         
         for itm in items {
-            for img in customer.images {
-                if(itm.image === img) {
-                    img.items.append(itm)
-                    break
+            if(customer.images != nil) {
+                for img in customer.images! {
+                    if(itm.image === img) {
+                        if(img.items != nil) {
+                            img.items!.append(itm)
+                        } else {
+                            img.items = [itm]
+                        }
+                        break
+                    }
                 }
             }
         }
