@@ -46,15 +46,25 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         customerItemTableView.delegate = self
         customerItemTableView.dataSource = self
         
-        for cus in image.customers {
-            cus.items.removeAll()
+        if(image.customers != nil) {
+            for cus in image.customers! {
+                if(cus.items != nil) {
+                    cus.items!.removeAll()
+                }
+            }
         }
         
         for itm in items {
-            for cus in image.customers {
-                if(itm.customer === cus) {
-                    cus.items.append(itm)
-                    break
+            if(image.customers != nil) {
+                for cus in image.customers! {
+                    if(itm.customer === cus) {
+                        if(cus.items == nil) {
+                            cus.items = [itm]
+                        } else {
+                            cus.items!.append(itm)
+                        }
+                        break
+                    }
                 }
             }
         }
@@ -66,17 +76,17 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return image.customers.count
+        return image.customers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return image.customers[section].items.count
+        return image.customers?[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemTableViewCell
         
-        let item = image.customers[indexPath.section].items[indexPath.row]
+        let item = image.customers![indexPath.section].items![indexPath.row]
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"
