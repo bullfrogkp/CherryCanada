@@ -223,7 +223,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
            
-            let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
+            let itm = newCustomer.images![(indexPath.section)].items![indexPath.row]
                 
             switch textField.tag {
             case 1: itm.name = textField.text!
@@ -238,7 +238,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let itm = newCustomer.images[(indexPath.section)].items[indexPath.row]
+            let itm = newCustomer.images![(indexPath.section)].items![indexPath.row]
             itm.comment = textView.text!
         }
     }
@@ -291,9 +291,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.view.endEditing(true)
         
         let itm = ItemMO()
-        itm.image = newCustomer.images[sender.tag]
+        itm.image = newCustomer.images![sender.tag]
         itm.customer = newCustomer
-        newCustomer.images[sender.tag].items.insert(itm, at: 0)
+        
+        if(newCustomer.images![sender.tag].items != nil) {
+            newCustomer.images![sender.tag].items!.insert(itm, at: 0)
+        } else {
+            newCustomer.images![sender.tag].items = [itm]
+        }
         
         customerItemTableView.reloadData()
     }
@@ -302,16 +307,18 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        for dItem in newCustomer.images[sender.tag].items {
-            for (idx, itm) in newCustomer.items.enumerated() {
-                if(itm === dItem) {
-                    newCustomer.items.remove(at: idx)
-                    break
+        if(newCustomer.images![sender.tag].items != nil) {
+            for dItem in newCustomer.images![sender.tag].items! {
+                for (idx, itm) in newCustomer.items!.enumerated() {
+                    if(itm === dItem) {
+                        newCustomer.items!.remove(at: idx)
+                        break
+                    }
                 }
             }
         }
         
-        newCustomer.images.remove(at: sender.tag)
+        newCustomer.images!.remove(at: sender.tag)
         
         customerItemTableView.reloadData()
     }
