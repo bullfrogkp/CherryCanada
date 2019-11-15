@@ -343,29 +343,43 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addShippingImage(_ image: ImageMO) {
-        shipping.images.insert(image, at: 0)
+        if(shipping.images != nil) {
+            shipping.images!.insert(image, at: 0)
+        } else {
+            shipping.images = [image]
+        }
     }
     
     func deleteImage(_ image: ImageMO, _ customer: CustomerMO) {
         
-        shipping.items.removeAll(where: {$0.image === image && $0.customer === customer})
+        if(shipping.items != nil) {
+            shipping.items!.removeAll(where: {$0.image === image && $0.customer === customer})
+        }
         
-        for (idx, img) in shipping.images.enumerated() {
-            if(image === img) {
-                shipping.images.remove(at: idx)
-                break
+        if(shipping.images != nil) {
+            for (idx, img) in shipping.images!.enumerated() {
+                if(image === img) {
+                    shipping.images!.remove(at: idx)
+                    break
+                }
             }
         }
     }
     
     func addItem(_ item: ItemMO) {
-        shipping.items.insert(item, at: 0)
+        if(shipping.items != nil) {
+            shipping.items!.insert(item, at: 0)
+        } else {
+            shipping.items = [item]
+        }
     }
     
     func removeItem(_ item: ItemMO) {
-        for (idx, itm) in shipping.items.enumerated() {
-            if(item === itm) {
-                shipping.items.remove(at: idx)
+        if(shipping.items != nil) {
+            for (idx, itm) in shipping.items!.enumerated() {
+                if(item === itm) {
+                    shipping.items!.remove(at: idx)
+                }
             }
         }
     }
@@ -389,10 +403,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
         shippingStatusLabel.text = shipping.shippingStatus
         shippingCityLabel.text = shipping.city
-        shippingPriceNationalLabel.text = "\(shipping.priceNational)"
-        shippingPriceInternationalLabel.text = "\(shipping.priceInternational)"
-        shippingDepositLabel.text = "\(shipping.deposit)"
-        shippingCommentLabel.text = "\(shipping.comment)"
+        
+        if(shipping.priceNational != nil) {
+            shippingPriceNationalLabel.text = "\(shipping.priceNational!)"
+        }
+        
+        if(shipping.priceInternational != nil) {
+            shippingPriceInternationalLabel.text = "\(shipping.priceInternational!)"
+        }
+        
+        if(shipping.deposit != nil) {
+            shippingDepositLabel.text = "\(shipping.deposit!)"
+        }
+        
+        if(shipping.comment != nil) {
+            shippingCommentLabel.text = "\(shipping.comment!)"
+        }
     }
     
     func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
