@@ -139,24 +139,33 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return newCustomer.images.count
+        return newCustomer.images?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newCustomer.images[section].items.count
+        return newCustomer.images?[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemEditTableViewCell
         
-        let item = newCustomer.images[indexPath.section].items[indexPath.row]
+        let item = newCustomer.images![indexPath.section].items![indexPath.row]
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
-        cell.priceSoldTextField.text = "\(item.priceSold)"
-        cell.priceBoughtTextField.text = "\(item.priceBought)"
-        cell.descriptionTextView.text = "\(item.comment)"
+        
+        if(item.priceSold != nil) {
+            cell.priceSoldTextField.text = "\(item.priceSold!)"
+        }
 
+        if(item.priceBought != nil) {
+            cell.priceBoughtTextField.text = "\(item.priceBought!)"
+        }
+
+        if(item.comment != nil) {
+            cell.descriptionTextView.text = item.comment!
+        }
+        
         cell.customerItemEditViewController = self
         cell.delegate = self
         
@@ -169,7 +178,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageButton.setBackgroundImage(UIImage(data: newCustomer.images[section].imageFile as Data), for: .normal)
+        header.itemImageButton.setBackgroundImage(UIImage(data: newCustomer.images![section].imageFile as Data), for: .normal)
         header.itemImageButton.tag = section
         header.itemImageButton.addTarget(self, action: #selector(chooseImage(sender:)), for: .touchUpInside)
         
@@ -189,15 +198,16 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func deleteCell(cell: UITableViewCell) {
         self.view.endEditing(true)
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
-            
-            for (idx, itm) in newCustomer.items.enumerated() {
-                if(itm === newCustomer.images[deletionIndexPath.section].items[deletionIndexPath.row]) {
-                    newCustomer.items.remove(at: idx)
-                    break
+            if(newCustomer.items != nil) {
+                for (idx, itm) in newCustomer.items!.enumerated() {
+                    if(itm === newCustomer.images?[deletionIndexPath.section].items?[deletionIndexPath.row]) {
+                        newCustomer.items!.remove(at: idx)
+                        break
+                    }
                 }
             }
             
-            newCustomer.images[deletionIndexPath.section].items.remove(at: deletionIndexPath.row)
+            newCustomer.images![deletionIndexPath.section].items!.remove(at: deletionIndexPath.row)
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
