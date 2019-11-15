@@ -85,7 +85,12 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         let customer = CustomerMO()
         customer.images = [newImage]
-        newImage.customers.insert(customer, at: 0)
+        
+        if(newImage.customers != nil) {
+            newImage.customers!.insert(customer, at: 0)
+        } else {
+            newImage.customers = [customer]
+        }
         
         customerItemTableView.reloadData()
     }
@@ -111,29 +116,42 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             newImage.name = image!.name
             newImage.imageFile = image!.imageFile
             
-            for cus in image!.customers {
-                let newCus = CustomerMO()
-                newCus.name = cus.name
-                newCus.phone = cus.phone
-                newCus.wechat = cus.wechat
-                newCus.comment = cus.comment
-                newCus.images = [newImage]
-                
-                for itm in cus.items {
-                    let newItm = ItemMO()
-                    newItm.comment = itm.comment
-                    newItm.image = newImage
-                    newItm.name = itm.name
-                    newItm.priceBought = itm.priceBought
-                    newItm.priceSold = itm.priceSold
-                    newItm.quantity = itm.quantity
-                    newItm.customer = newCus
+            if(image!.customers != nil) {
+                for cus in image!.customers! {
+                    let newCus = CustomerMO()
+                    newCus.name = cus.name
+                    newCus.phone = cus.phone
+                    newCus.wechat = cus.wechat
+                    newCus.comment = cus.comment
+                    newCus.images = [newImage]
                     
-                    newCus.items.append(newItm)
+                    if(cus.items != nil) {
+                        for itm in cus.items! {
+                            let newItm = ItemMO()
+                            newItm.comment = itm.comment
+                            newItm.image = newImage
+                            newItm.name = itm.name
+                            newItm.priceBought = itm.priceBought
+                            newItm.priceSold = itm.priceSold
+                            newItm.quantity = itm.quantity
+                            newItm.customer = newCus
+                            
+                            if(newCus.items != nil) {
+                                newCus.items!.append(newItm)
+                            } else {
+                                newCus.items = [newItm]
+                            }
+                        }
+                    }
+                    
+                    if(newImage.customers != nil) {
+                        newImage.customers!.append(newCus)
+                    } else {
+                        newImage.customers = [newCus]
+                    }
+                    
+                    cus.newCustomer = newCus
                 }
-                newImage.customers.append(newCus)
-                
-                cus.newCustomer = newCus
             }
         }
         
