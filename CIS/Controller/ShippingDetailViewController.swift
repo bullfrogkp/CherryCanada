@@ -328,10 +328,17 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addImage(_ image: ImageMO) {
-        shipping.images.insert(image, at: 0)
         
-        for itm in image.items {
-            self.addItem(itm)
+        if(shipping.images != nil) {
+            shipping.images!.insert(image, at: 0)
+        } else {
+            shipping.images = [image]
+        }
+        
+        if(image.items != nil) {
+            for itm in image.items! {
+                self.addItem(itm)
+            }
         }
     }
     
