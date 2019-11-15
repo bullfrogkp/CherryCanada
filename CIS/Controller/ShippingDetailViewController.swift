@@ -239,15 +239,26 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addCustomer(_ customer: CustomerMO) {
-        shipping.customers.insert(customer, at: 0)
         
-        for itm in customer.items {
-            self.addItem(itm)
+        if(shipping.customers != nil) {
+            shipping.customers!.insert(customer, at: 0)
+        } else {
+            shipping.customers = [customer]
+        }
+        
+        if(customer.items != nil) {
+            for itm in customer.items! {
+                self.addItem(itm)
+            }
         }
     }
     
     func addShippingCustomer(_ customer: CustomerMO) {
-        shipping.customers.insert(customer, at: 0)
+        if(shipping.customers != nil) {
+            shipping.customers!.insert(customer, at: 0)
+        } else {
+            shipping.customers = [customer]
+        }
     }
     
     func deleteCustomer(_ customer: CustomerMO, _ image: ImageMO) {

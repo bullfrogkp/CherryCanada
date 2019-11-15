@@ -160,23 +160,34 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return newImage.customers.count
+        return newImage.customers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newImage.customers[section].items.count
+        return newImage.customers?[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemEditTableViewCell
         
-        let item = newImage.customers[indexPath.section].items[indexPath.row]
+        let item = newImage.customers![indexPath.section].items![indexPath.row]
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
-        cell.priceSoldTextField.text = "\(item.priceSold)"
-        cell.priceBoughtTextField.text = "\(item.priceBought)"
-        cell.descriptionTextView.text = item.comment
+        
+        if(item.priceSold != nil) {
+            cell.priceSoldTextField.text = "\(item.priceSold!)"
+        }
+
+        if(item.priceBought != nil) {
+            cell.priceBoughtTextField.text = "\(item.priceBought!)"
+        }
+
+        if(item.comment != nil) {
+            cell.descriptionTextView.text = item.comment!
+        }
+        
+        cell.imageItemEditViewController = self
         cell.delegate = self
         
         return cell
