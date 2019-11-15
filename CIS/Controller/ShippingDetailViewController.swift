@@ -304,18 +304,26 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func deleteImageByIndex(imgIndex: Int) {
         
-        shipping.items.removeAll(where: {$0.image === shipping.images[imgIndex]})
+        if(shipping.items != nil) {
+            shipping.items!.removeAll(where: {$0.image === shipping.images![imgIndex]})
+        }
         
-        for cus in shipping.customers {
-            for (idx, img) in cus.images.enumerated() {
-                if(img === shipping.images[imgIndex]) {
-                    cus.images.remove(at: idx)
-                    break
+        if(shipping.customers != nil) {
+            for cus in shipping.customers! {
+                if(cus.images != nil) {
+                    for (idx, img) in cus.images!.enumerated() {
+                        if(img === shipping.images?[imgIndex]) {
+                            cus.images!.remove(at: idx)
+                            break
+                        }
+                    }
                 }
             }
         }
         
-        shipping.images.remove(at: imgIndex)
+        if(shipping.images != nil) {
+            shipping.images!.remove(at: imgIndex)
+        }
         imageCollectionView.deleteItems(at: [IndexPath(row: imgIndex, section: 0)])
     }
     
