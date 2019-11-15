@@ -501,7 +501,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
-        shipping.images[imageIndex] = image
+        shipping.images![imageIndex] = image
     }
     
     func getAssetThumbnail(_ asset: PHAsset) -> UIImage {
