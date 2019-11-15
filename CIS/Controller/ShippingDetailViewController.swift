@@ -422,30 +422,40 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
-        let oCus = shipping.customers[customerIndex]
+        let oCus = shipping.customers![customerIndex]
         
-        for img in oCus.images {
-            for cus in img.customers {
-                if(cus !== oCus) {
-                    img.newImage.customers.append(cus)
-                    
-                    for (idx, img2) in cus.images.enumerated() {
-                        if(img2 === img) {
-                            cus.images[idx] = img.newImage
-                            break
-                        }
-                    }
-                    
-                    for itm in shipping.items {
-                        if(itm.image === img && itm.customer === cus) {
-                            itm.image = img.newImage
+        if(oCus.images != nil) {
+            for img in oCus.images! {
+                if(img.customers != nil) {
+                    for cus in img.customers! {
+                        if(cus !== oCus) {
+                            if(img.newImage.customers != nil) {
+                                img.newImage.customers.append(cus)
+                            } else {
+                                img.newImage.customers = [cus]
+                            }
+                            
+                            if(cus.images != nil) {
+                                for (idx, img2) in cus.images!.enumerated() {
+                                    if(img2 === img) {
+                                        cus.images[idx] = img.newImage
+                                        break
+                                    }
+                                }
+                            }
+                            
+                            for itm in shipping.items {
+                                if(itm.image === img && itm.customer === cus) {
+                                    itm.image = img.newImage
+                                }
+                            }
                         }
                     }
                 }
             }
         }
         
-        shipping.customers[customerIndex] = customer
+        shipping.customers![customerIndex] = customer
     }
     
     func updateImageData(_ image: ImageMO, _ imageIndex: Int) {
