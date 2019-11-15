@@ -112,10 +112,18 @@ class ShippingInfoViewController: UIViewController {
             shippingDateTextField.text = dateFormatterPrint.string(from: shipping!.shippingDate)
             shippingStatusTextField.text = "\(shipping!.shippingStatus)"
             shippingCityTextField.text = "\(shipping!.city)"
-            shippingFeeNationalTextField.text = "\(shipping!.priceNational)"
-            shippingFeeInternationalTextField.text = "\(shipping!.priceInternational)"
-            shippingDepositTextField.text = "\(shipping!.deposit)"
-            shippingCommentTextField.text = "\(shipping!.comment)"
+            if(shipping!.priceNational != nil) {
+                shippingFeeNationalTextField.text = "\(shipping!.priceNational!)"
+            }
+            if(shipping!.priceInternational != nil) {
+                shippingFeeInternationalTextField.text = "\(shipping!.priceInternational!)"
+            }
+            if(shipping!.deposit != nil) {
+                shippingDepositTextField.text = "\(shipping!.deposit!)"
+            }
+            if(shipping!.comment != nil) {
+                shippingCommentTextField.text = "\(shipping!.comment!)"
+            }
         }   else {
             shippingDateTextField.text = ""
             shippingStatusTextField.text = ""

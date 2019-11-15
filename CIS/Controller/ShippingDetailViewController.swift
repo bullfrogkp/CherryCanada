@@ -90,10 +90,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate)
             shippingStatusLabel.text = shipping!.shippingStatus
             shippingCityLabel.text = shipping!.city
-            shippingPriceNationalLabel.text = "\(shipping!.priceNational)"
-            shippingPriceInternationalLabel.text = "\(shipping!.priceInternational)"
-            shippingDepositLabel.text = "\(shipping!.deposit)"
-            shippingCommentLabel.text = "\(shipping!.comment)"
+            if(shipping!.priceNational != nil) {
+                shippingPriceNationalLabel.text = "\(shipping!.priceNational!)"
+            }
+            if(shipping!.priceInternational != nil) {
+                shippingPriceInternationalLabel.text = "\(shipping!.priceInternational!)"
+            }
+            if(shipping!.deposit != nil) {
+                shippingDepositLabel.text = "\(shipping!.deposit!)"
+            }
+            if(shipping!.comment != nil) {
+                shippingCommentLabel.text = "\(shipping!.comment!)"
+            }
         } else {
             deleteButton.isHidden = true
             

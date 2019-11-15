@@ -70,10 +70,10 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
         cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
         cell.shippingCityLabel.text = shippingDetail.city
-        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
-        cell.shippingDepositLabel.text = "\(shippingDetail.deposit)"
-        
+        if(shippingDetail.deposit != nil) {
+            cell.shippingDepositLabel.text = "\(shippingDetail.deposit!)"
+        }
         return cell
     }
 
