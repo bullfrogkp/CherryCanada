@@ -429,24 +429,29 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 if(img.customers != nil) {
                     for cus in img.customers! {
                         if(cus !== oCus) {
-                            if(img.newImage.customers != nil) {
-                                img.newImage.customers.append(cus)
-                            } else {
-                                img.newImage.customers = [cus]
-                            }
                             
-                            if(cus.images != nil) {
-                                for (idx, img2) in cus.images!.enumerated() {
-                                    if(img2 === img) {
-                                        cus.images[idx] = img.newImage
-                                        break
+                            if(img.newImage != nil) {
+                                if(img.newImage!.customers != nil) {
+                                    img.newImage!.customers!.append(cus)
+                                } else {
+                                    img.newImage!.customers = [cus]
+                                }
+                                
+                                if(cus.images != nil) {
+                                    for (idx, img2) in cus.images!.enumerated() {
+                                        if(img2 === img) {
+                                            cus.images![idx] = img.newImage!
+                                            break
+                                        }
                                     }
                                 }
-                            }
-                            
-                            for itm in shipping.items {
-                                if(itm.image === img && itm.customer === cus) {
-                                    itm.image = img.newImage
+                                
+                                if(shipping.items != nil) {
+                                    for itm in shipping.items! {
+                                        if(itm.image === img && itm.customer === cus) {
+                                            itm.image = img.newImage!
+                                        }
+                                    }
                                 }
                             }
                         }
