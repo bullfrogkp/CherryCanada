@@ -263,30 +263,42 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func deleteCustomer(_ customer: CustomerMO, _ image: ImageMO) {
         
-        shipping.items.removeAll(where: {$0.customer === customer && $0.image === image})
+        if(shipping.items != nil) {
+            shipping.items!.removeAll(where: {$0.customer === customer && $0.image === image})
+        }
         
-        for (idx, cus) in shipping.customers.enumerated() {
-            if(customer === cus) {
-                shipping.customers.remove(at: idx)
-                break
+        if(shipping.customers != nil) {
+            for (idx, cus) in shipping.customers!.enumerated() {
+                if(customer === cus) {
+                    shipping.customers!.remove(at: idx)
+                    break
+                }
             }
         }
     }
     
     func deleteCustomerByIndex(rowIndex: Int) {
         
-        shipping.items.removeAll(where: {$0.customer === shipping.customers[rowIndex]})
+        if(shipping.items != nil) {
+            shipping.items!.removeAll(where: {$0.customer === shipping.customers![rowIndex]})
+        }
         
-        for img in shipping.images {
-            for (idx, cus) in img.customers.enumerated() {
-                if(cus === shipping.customers[rowIndex]) {
-                    img.customers.remove(at: idx)
-                    break
+        if(shipping.images != nil) {
+            for img in shipping.images! {
+                if(img.customers != nil) {
+                    for (idx, cus) in img.customers!.enumerated() {
+                        if(cus === shipping.customers![rowIndex]) {
+                            img.customers!.remove(at: idx)
+                            break
+                        }
+                    }
                 }
             }
         }
         
-        shipping.customers.remove(at: rowIndex)
+        if(shipping.customers != nil) {
+            shipping.customers!.remove(at: rowIndex)
+        }
         customerItemTableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
     }
     
