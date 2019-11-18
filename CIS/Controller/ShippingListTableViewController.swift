@@ -23,7 +23,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         tableView.backgroundView?.isHidden = true
         
         // Fetch data from data store
-        let fetchRequest: NSFetchRequest<ShippingMO> = ShippingMO.createFetchRequest()
+        let fetchRequest: NSFetchRequest<ShippingMO> = ShippingMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "shippingDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -68,7 +68,7 @@ class ShippingListTableViewController: UITableViewController, NSFetchedResultsCo
         let shippingDetail = shippings[indexPath.row]
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
-        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate)
+        cell.shippingDateLabel.text = dateFormatterPrint.string(from: shippingDetail.shippingDate!)
         cell.shippingCityLabel.text = shippingDetail.city
         cell.shippingStatusLabel.text = shippingDetail.shippingStatus
         if(shippingDetail.deposit != nil) {

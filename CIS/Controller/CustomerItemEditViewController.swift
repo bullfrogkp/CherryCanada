@@ -28,7 +28,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             image.customers = [newCustomer]
             
             if(newCustomer.images != nil) {
-                newCustomer.images!.insert(image, at: 0)
+                newCustomer.addToImages(image)
             } else {
                 newCustomer.images = [image]
             }

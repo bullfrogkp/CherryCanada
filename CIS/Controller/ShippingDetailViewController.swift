@@ -28,6 +28,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     var shipping: ShippingMO!
     var cellIndex: Int!
     var shippingListTableViewController: ShippingListTableViewController!
+    var customerArray: [CustomerMO]!
+    var imageArray: [ImageMO]!
     
     @IBAction func addImages(_ sender: Any) {
         let vc = BSImagePickerViewController()
@@ -42,7 +44,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             }, finish: { (assets: [PHAsset]) -> Void in
                 for ast in assets {
                     let imgMO = ImageMO()
-                    imgMO.imageFile = self.getAssetThumbnail(ast).pngData()! as NSData
+                    imgMO.imageFile = self.getAssetThumbnail(ast).pngData()! as Data
                     self.addShippingImage(imgMO)
                 }
                 self.imageCollectionView.reloadData()
@@ -87,7 +89,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
             
-            shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate)
+            shippingDateLabel.text = dateFormatterPrint.string(from: shipping!.shippingDate!)
             shippingStatusLabel.text = shipping!.shippingStatus
             shippingCityLabel.text = shipping!.city
             if(shipping!.priceNational != nil) {
@@ -102,6 +104,19 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if(shipping!.comment != nil) {
                 shippingCommentLabel.text = "\(shipping!.comment!)"
             }
+            
+            if(shipping!.customers != nil) {
+                customerArray = (shipping!.customers!.allObjects as! [CustomerMO])
+            } else {
+                customerArray = []
+            }
+            
+             if(shipping!.images != nil) {
+                imageArray = (shipping!.images!.allObjects as! [ImageMO])
+             } else {
+                imageArray = []
+            }
+            
         } else {
             deleteButton.isHidden = true
             
@@ -123,6 +138,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             shippingPriceInternationalLabel.text = ""
             shippingDepositLabel.text = ""
             shippingCommentLabel.text = ""
+            
+            customerArray = []
+            imageArray = []
         }
     }
     
@@ -142,14 +160,14 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPath = customerItemTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! CustomerItemViewController
                 
-                let customer = shipping.customers![indexPath.row]
+                let customer = customerArray[indexPath.row]
                 
                 if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
                     var items = [ItemMO(context: appDelegate.persistentContainer.viewContext)]
                     
                     for itm in shipping.items! {
-                        if(itm.customer === customer) {
-                            items.append(itm)
+                        if((itm as! ItemMO).customer === customer) {
+                            items.append(itm as! ItemMO)
                         }
                     }
                     
@@ -163,13 +181,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
             if let indexPaths = imageCollectionView.indexPathsForSelectedItems {
                 let destinationController = segue.destination as! ImageItemViewController
                 
-                let image = shipping.images![indexPaths[0].row]
+                let image = imageArray[indexPaths[0].row]
                 
                 var items = [ItemMO]()
                 
                 for itm in shipping.items! {
-                    if(itm.image === image) {
-                        items.append(itm)
+                    if((itm as! ItemMO).image === image) {
+                        items.append(itm as! ItemMO)
                     }
                 }
                 
@@ -198,7 +216,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerId", for: indexPath as IndexPath) as! CustomerListTableViewCell
         
-        cell.customerNameLabel.text = shipping.customers?[indexPath.row].name
+        cell.customerNameLabel.text = customerArray[indexPath.row].name
         
         return cell
     }
@@ -219,7 +237,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageId", for: indexPath) as! ImageCollectionViewCell
 
-        if let imgData = shipping.images?[indexPath.row].imageFile as Data? {
+        if let imgData = imageArray[indexPath.row].imageFile as Data? {
             cell.shippingImageView.image = UIImage(data: imgData)
         }
         
