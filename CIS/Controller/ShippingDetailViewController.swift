@@ -262,11 +262,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addShippingCustomer(_ customer: CustomerMO) {
-        if(shipping.customers != nil) {
-            shipping.customers!.insert(customer, at: 0)
-        } else {
-            shipping.customers = [customer]
-        }
+        print(type(of: customer))
+        shipping.addToCustomers(customer)
     }
     
     func deleteCustomer(_ customer: CustomerMO, _ image: ImageMO) {

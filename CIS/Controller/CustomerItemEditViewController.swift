@@ -54,11 +54,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         newCustomer.name = customerNameTextField.text!
         
-        if(customer == nil) {
-            shippingDetailViewController.addShippingCustomer(newCustomer)
-        } else {
+        if(customer != nil) {
             customerItemViewController!.customer = newCustomer
             shippingDetailViewController.updateShippingCustomer(newCustomer, customerIndex!)
+        } else {
+            shippingDetailViewController.addShippingCustomer(newCustomer)
         }
         
         customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
