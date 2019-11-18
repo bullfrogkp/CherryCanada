@@ -7,23 +7,39 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDACCA54-AA97-43B0-BAB2-5A389B162F25"
+            uuid = "50EA6860-8F8B-4470-A394-532EB2CF189A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CIS/Controller/CustomerItemEditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "93F5500A-4B79-4BA6-AA1E-01C5EEE16710"
+            uuid = "6EA13F49-AD40-406C-AEAB-83C2C76AD81E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "493A8B27-7387-4D82-AA6C-BD2334500753"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -32,180 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "090FDCF8-2DFE-4501-A594-E667F859EFD7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "47510932-58E2-4FA8-A297-F295DC3CCBC6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "deleteCell(cell:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287 - 41e10ae669d75146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemEditViewController.cell(_: CIS.CustomerItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemEditViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "2168">
-               </Location>
-               <Location
-                  uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287 - 41e10ae669d75146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemEditViewController.cell(_: CIS.CustomerItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemEditViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "2240">
-               </Location>
-               <Location
-                  uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287 - 41e10ae669d75146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemEditViewController.cell(_: CIS.CustomerItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemEditViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "2791">
-               </Location>
-               <Location
-                  uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287 - 41e10ae669d75146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemEditViewController.cell(_: CIS.CustomerItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemEditViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "3599">
-               </Location>
-               <Location
-                  uuid = "C2EFBCA6-4130-455E-8A98-E85CC8358287 - 41e10ae669d75146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CIS.CustomerItemEditViewController.cell(_: CIS.CustomerItemEditTableViewCell, didUpdateTextField: __C.UITextField) -&gt; ()"
-                  moduleName = "CIS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pank/Documents/CIS/CIS/Controller/CustomerItemEditViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "4151">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D4D5E8FB-CCCF-4D80-9553-7F82B9546FA5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "deleteCell(cell:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53658C7C-4111-4122-9789-6A4BDE67DA4B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BB5B7577-D95B-4A01-B12E-1EFE71139540"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CIS/Controller/CustomerItemEditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

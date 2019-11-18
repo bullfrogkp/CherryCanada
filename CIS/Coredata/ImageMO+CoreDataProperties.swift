@@ -42,3 +42,20 @@ extension ImageMO {
     @NSManaged public func removeFromItems(_ values: NSSet)
 
 }
+
+// MARK: Generated accessors for customers
+extension ImageMO {
+
+    @objc(addCustomersObject:)
+    @NSManaged public func addToCustomers(_ value: CustomerMO)
+
+    @objc(removeCustomersObject:)
+    @NSManaged public func removeFromCustomers(_ value: CustomerMO)
+
+    @objc(addCustomers:)
+    @NSManaged public func addToCustomers(_ values: NSSet)
+
+    @objc(removeCustomers:)
+    @NSManaged public func removeFromCustomers(_ values: NSSet)
+
+}
