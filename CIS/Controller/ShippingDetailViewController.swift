@@ -445,13 +445,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func removeItem(_ item: ItemMO) {
-        if(shipping.items != nil) {
-            for (idx, itm) in shipping.items!.enumerated() {
-                if(item === itm) {
-                    shipping.items!.remove(at: idx)
-                }
-            }
-        }
+        shipping.removeFromItems(item)
     }
     
     func updateShipping(_ sp: ShippingMO) {
@@ -470,7 +464,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
 
-        shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate)
+        shippingDateLabel.text = dateFormatterPrint.string(from: shipping.shippingDate!)
         shippingStatusLabel.text = shipping.shippingStatus
         shippingCityLabel.text = shipping.city
         
@@ -492,23 +486,19 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
-        let oCus = shipping.customers![customerIndex]
+        let oCus = customerArray[customerIndex]
         
         if(oCus.images != nil) {
             for img in oCus.images! {
-                if(img.customers != nil) {
-                    for cus in img.customers! {
-                        if(cus !== oCus) {
+                if((img as! ImageMO).customers != nil) {
+                    for cus in (img as! ImageMO).customers! {
+                        if((cus as! CustomerMO) !== oCus) {
                             
-                            if(img.newImage != nil) {
-                                if(img.newImage!.customers != nil) {
-                                    img.newImage!.customers!.append(cus)
-                                } else {
-                                    img.newImage!.customers = [cus]
-                                }
+                            if let nImg = (img as! ImageMO).newImage {
+                                nImg.addToCustomers(cus)
                                 
                                 if(cus.images != nil) {
-                                    for (idx, img2) in cus.images!.enumerated() {
+                                    for img2 in cus.images! {
                                         if(img2 === img) {
                                             cus.images![idx] = img.newImage!
                                             break
