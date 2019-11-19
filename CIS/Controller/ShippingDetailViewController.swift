@@ -487,20 +487,20 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
 //    func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
 //        let oCus = shipping.customers![customerIndex]
-//        
+//
 //        if(oCus.images != nil) {
 //            for img in oCus.images! {
 //                if(img.customers != nil) {
 //                    for cus in img.customers! {
 //                        if(cus !== oCus) {
-//                            
+//
 //                            if(img.newImage != nil) {
 //                                if(img.newImage!.customers != nil) {
 //                                    img.newImage!.customers!.append(cus)
 //                                } else {
 //                                    img.newImage!.customers = [cus]
 //                                }
-//                                
+//
 //                                if(cus.images != nil) {
 //                                    for (idx, img2) in cus.images!.enumerated() {
 //                                        if(img2 === img) {
@@ -509,7 +509,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                                        }
 //                                    }
 //                                }
-//                                
+//
 //                                if(shipping.items != nil) {
 //                                    for itm in shipping.items! {
 //                                        if(itm.image === img && itm.customer === cus) {
@@ -523,13 +523,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                }
 //            }
 //        }
-//        
+//
 //        shipping.customers![customerIndex] = customer
 //    }
-//    
+//
 //    func updateImageData(_ image: ImageMO, _ imageIndex: Int) {
 //        let oImg = shipping.images![imageIndex]
-//        
+//
 //        if(oImg.customers != nil) {
 //            for cus in oImg.customers! {
 //                if(cus.images != nil) {
@@ -541,7 +541,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                                } else {
 //                                    cus.newCustomer!.images = [img]
 //                                }
-//                                
+//
 //                                if(img.customers != nil) {
 //                                    for (idx, cus2) in img.customers!.enumerated() {
 //                                        if(cus2 === cus) {
@@ -550,7 +550,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                                        }
 //                                    }
 //                                }
-//                                
+//
 //                                if(shipping.items != nil) {
 //                                    for itm in shipping.items! {
 //                                        if(itm.image === img && itm.customer === cus) {
@@ -564,7 +564,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                }
 //            }
 //        }
-//        
+//
 //        shipping.images![imageIndex] = image
 //    }
     
@@ -577,13 +577,13 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                     for cus in imgCustomers {
                         if((cus as! CustomerMO) !== oCus) {
                             if let nImg = (img as! ImageMO).newImage {
-                                nImg.addToCustomers(cus)
+                                nImg.addToCustomers((cus as! CustomerMO))
                                 
                                 if let cusImages = (cus as! CustomerMO).images {
                                     for img2 in cusImages {
                                         if((img2 as! ImageMO) === (img as! ImageMO)) {
-                                            (cus as! CustomerMO).removeFromImages(img2)
-                                            (cus as! CustomerMO).addToImages(img.newImage)
+                                            (cus as! CustomerMO).removeFromImages((img2 as! ImageMO))
+                                            (cus as! CustomerMO).addToImages((img as! ImageMO).newImage!)
                                             break
                                         }
                                     }
@@ -591,8 +591,8 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                 
                                 if(shipping.items != nil) {
                                     for itm in shipping.items! {
-                                        if(itm.image === img && itm.customer === cus) {
-                                            itm.image = img.newImage!
+                                        if((itm as! ItemMO).image === (img as! ImageMO) && (itm as! ItemMO).customer === (cus as! CustomerMO)) {
+                                            (itm as! ItemMO).image = (img as! ImageMO).newImage
                                         }
                                     }
                                 }
