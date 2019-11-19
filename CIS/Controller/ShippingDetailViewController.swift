@@ -407,22 +407,33 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func addShippingImage(_ image: ImageMO) {
         if(shipping.images != nil) {
-            shipping.images!.insert(image, at: 0)
+            imageArray.insert(image, at: 0)
         } else {
-            shipping.images = [image]
+            imageArray = [image]
         }
+        
+        shipping.addToImages(image)
     }
     
     func deleteImage(_ image: ImageMO, _ customer: CustomerMO) {
         
         if(shipping.items != nil) {
-            shipping.items!.removeAll(where: {$0.image === image && $0.customer === customer})
+            
+            let itmSet = NSSet()
+            
+            for itm in shipping.items! {
+                if((itm as! ItemMO).customer! === customer && (itm as! ItemMO).image! === image) {
+                    itmSet.adding(itm)
+                }
+            }
+            
+            shipping.removeFromItems(itmSet)
         }
         
         if(shipping.images != nil) {
-            for (idx, img) in shipping.images!.enumerated() {
-                if(image === img) {
-                    shipping.images!.remove(at: idx)
+            for img in shipping.images! {
+                if(image === img as! ImageMO) {
+                    shipping.removeFromImages(img as! ImageMO)
                     break
                 }
             }
@@ -430,11 +441,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addItem(_ item: ItemMO) {
-        if(shipping.items != nil) {
-            shipping.items!.insert(item, at: 0)
-        } else {
-            shipping.items = [item]
-        }
+        shipping.addToItems(item)
     }
     
     func removeItem(_ item: ItemMO) {
