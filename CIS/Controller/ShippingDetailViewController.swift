@@ -289,13 +289,22 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func deleteCustomer(_ customer: CustomerMO, _ image: ImageMO) {
         
         if(shipping.items != nil) {
-            shipping.items!.removeAll(where: {$0.customer === customer && $0.image === image})
+            
+            let itmSet = NSSet()
+            
+            for itm in shipping.items! {
+                if((itm as! ItemMO).customer! === customer && (itm as! ItemMO).image! === image) {
+                    itmSet.adding(itm)
+                }
+            }
+            
+            shipping.removeFromItems(itmSet)
         }
         
         if(shipping.customers != nil) {
-            for (idx, cus) in shipping.customers!.enumerated() {
-                if(customer === cus) {
-                    shipping.customers!.remove(at: idx)
+            for cus in shipping.customers! {
+                if(customer === cus as! CustomerMO) {
+                    shipping.removeFromCustomers(cus as! CustomerMO)
                     break
                 }
             }
@@ -382,14 +391,16 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func addImage(_ image: ImageMO) {
         
         if(shipping.images != nil) {
-            shipping.images!.insert(image, at: 0)
+            imageArray.insert(image, at: 0)
         } else {
-            shipping.images = [image]
+            imageArray = [image]
         }
+        
+        shipping.addToImages(image)
         
         if(image.items != nil) {
             for itm in image.items! {
-                self.addItem(itm)
+                self.addItem(itm as! ItemMO)
             }
         }
     }
