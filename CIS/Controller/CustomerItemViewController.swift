@@ -35,10 +35,11 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
+    var customer: CustomerMO!
     var items:[ItemMO]!
+    var imageArray: [ImageMO]!
     var customerIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
-    var customer: CustomerMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,21 +51,22 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         
         if(customer.images != nil) {
             for img in customer.images! {
-                if(img.items != nil) {
-                    img.items!.removeAll()
+                let imgMO = img as! ImageMO
+                if let imgItems = imgMO.items {
+                    for itm in imgItems {
+                        let itmMO = itm as! ItemMO
+                        imgMO.removeFromItems(itmMO)
+                    }
                 }
             }
         }
         
-        for itm in items {
+        for itmMO in items {
             if(customer.images != nil) {
                 for img in customer.images! {
-                    if(itm.image === img) {
-                        if(img.items != nil) {
-                            img.items!.append(itm)
-                        } else {
-                            img.items = [itm]
-                        }
+                    let imgMO = img as! ImageMO
+                    if(itmMO.image === imgMO) {
+                        imgMO.addToItems(itmMO)
                         break
                     }
                 }
@@ -78,17 +80,17 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return customer.images?.count ?? 0
+        return imageArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customer.images?[section].items?.count ?? 0
+        return imageArray[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemTableViewCell
         
-        let item = customer.images![indexPath.section].items![indexPath.row]
+        let item = imageArray[indexPath.section].items!.allObjects[indexPath.row] as! ItemMO
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"
@@ -116,7 +118,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         headerView.backgroundColor = UIColor.white
         
         let itemImageView: UIImageView = {
-            let image = UIImage(data: customer.images![section].imageFile as Data)
+            let image = UIImage(data: imageArray[section].imageFile!)
             let imageView = UIImageView(image: image)
             imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
             

@@ -109,9 +109,9 @@ class ShippingInfoViewController: UIViewController {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "yyyy-MM-dd"
             
-            shippingDateTextField.text = dateFormatterPrint.string(from: shipping!.shippingDate)
-            shippingStatusTextField.text = "\(shipping!.shippingStatus)"
-            shippingCityTextField.text = "\(shipping!.city)"
+            shippingDateTextField.text = dateFormatterPrint.string(from: shipping!.shippingDate!)
+            shippingStatusTextField.text = "\(shipping!.shippingStatus!)"
+            shippingCityTextField.text = "\(shipping!.city!)"
             if(shipping!.priceNational != nil) {
                 shippingFeeNationalTextField.text = "\(shipping!.priceNational!)"
             }
