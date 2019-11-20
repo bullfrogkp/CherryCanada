@@ -214,16 +214,20 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func deleteCell(cell: UITableViewCell) {
         self.view.endEditing(true)
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
+            
+            let deletedItemMO = imageArray[deletionIndexPath.section].items!.allObjects[deletionIndexPath.row] as! ItemMO
+            
             if(newCustomer.items != nil) {
-                for (idx, itm) in newCustomer.items!.enumerated() {
-                    if(itm === imageArray[deletionIndexPath.section].items?[deletionIndexPath.row]) {
-                        newCustomer.items!.remove(at: idx)
+                for itm in newCustomer.items! {
+                    let itmMO = itm as! ItemMO
+                    if(itmMO === deletedItemMO) {
+                        newCustomer.removeFromItems(itmMO)
                         break
                     }
                 }
             }
             
-            newCustomer.images![deletionIndexPath.section].items!.remove(at: deletionIndexPath.row)
+            imageArray[deletionIndexPath.section].removeFromItems(deletedItemMO)
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
@@ -239,11 +243,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
            
-            let itm = newCustomer.images![(indexPath.section)].items![indexPath.row]
+            let itm = imageArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
                 
             switch textField.tag {
             case 1: itm.name = textField.text!
-            case 2: itm.quantity = Int(textField.text!)!
+            case 2: itm.quantity = Int16(textField.text!)!
             case 3: itm.priceBought = NSDecimalNumber(string: textField.text!)
             case 4: itm.priceSold = NSDecimalNumber(string: textField.text!)
             default: print("Error")
