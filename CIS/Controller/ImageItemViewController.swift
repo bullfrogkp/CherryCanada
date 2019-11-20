@@ -48,8 +48,12 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if(image.customers != nil) {
             for cus in image.customers! {
-                if(cus.items != nil) {
-                    cus.items!.removeAll()
+                let cusMO = cus as! CustomerMO
+                if let items = cusMO.items {
+                    for itm in items {
+                        let itmMO = itm as! ItemMO
+                        cusMO.removeFromItems(itmMO)
+                    }
                 }
             }
         }
