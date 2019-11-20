@@ -76,6 +76,12 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         customerNameLabel.text = customer.name
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(ImageItemViewController.editData))
+        
+        if(customer.images != nil) {
+            imageArray = (customer.images!.allObjects as! [ImageMO])
+        } else {
+            imageArray = []
+        }
     }
     
     //MARK: - TableView Functions

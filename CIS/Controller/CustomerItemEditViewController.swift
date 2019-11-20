@@ -25,7 +25,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let image = ImageMO(context: appDelegate.persistentContainer.viewContext)
             image.name  = "test"
-            image.customers = [newCustomer]
+            image.addToCustomers(newCustomer)
             
             if(newCustomer.images != nil) {
                 newCustomer.addToImages(image)
@@ -42,13 +42,13 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         if(customer?.images != nil) {
             for img in customer!.images! {
-                shippingDetailViewController.deleteImage(img, customer!)
+                shippingDetailViewController.deleteImage((img as! ImageMO), customer!)
             }
         }
         
         if(newCustomer.images != nil) {
             for img in newCustomer.images! {
-                shippingDetailViewController.addImage(img)
+                shippingDetailViewController.addImage(img as! ImageMO)
             }
         }
         
@@ -71,6 +71,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     var customer: CustomerMO?
     var customerIndex: Int?
+    var imageArray: [ImageMO]!
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
     var newCustomer: CustomerMO!
@@ -88,6 +89,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            
+            imageArray = []
             newCustomer = CustomerMO(context: appDelegate.persistentContainer.viewContext)
             
             if(customer != nil) {
@@ -98,38 +101,34 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 
                 if(customer?.images != nil) {
                     for img in customer!.images! {
+                        let imgMO = img as! ImageMO
                         let newImg = ImageMO(context: appDelegate.persistentContainer.viewContext)
-                        newImg.name = img.name
-                        newImg.imageFile = img.imageFile
-                        newImg.customers = [newCustomer]
+                        newImg.name = imgMO.name
+                        newImg.imageFile = imgMO.imageFile
+                        newImg.addToCustomers(newCustomer)
                         
-                        if(img.items != nil) {
-                            for itm in img.items! {
+                        if(imgMO.items != nil) {
+                            for itm in imgMO.items! {
+                                let itmMO = itm as! ItemMO
                                 let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
-                                newItm.comment = itm.comment
+                                newItm.comment = itmMO.comment
                                 newItm.image = newImg
-                                newItm.name = itm.name
-                                newItm.priceBought = itm.priceBought
-                                newItm.priceSold = itm.priceSold
-                                newItm.quantity = itm.quantity
+                                newItm.name = itmMO.name
+                                newItm.priceBought = itmMO.priceBought
+                                newItm.priceSold = itmMO.priceSold
+                                newItm.quantity = itmMO.quantity
                                 newItm.customer = newCustomer
                                 
-                                if(newImg.items != nil) {
-                                    newImg.items!.append(newItm)
-                                } else {
-                                    newImg.items = [newItm]
-                                }
+                                newImg.addToItems(newItm)
                             }
                         }
                         
-                        if(newCustomer.images != nil) {
-                            newCustomer.images!.append(newImg)
-                        } else {
-                            newCustomer.images = [newImg]
-                        }
+                        newCustomer.addToImages(newImg)
                         
-                        img.newImage = newImg
+                        imgMO.newImage = newImg
                     }
+                    
+                    imageArray = (customer!.images!.allObjects as! [ImageMO])
                 }
             }
             
@@ -154,8 +153,9 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         var rCount = 0
         
         if(newCustomer.images != nil) {
-            if(newCustomer.images![section].items != nil) {
-                rCount = newCustomer.images![section].items!.count
+            let imgMO = newCustomer.images!.allObjects[section] as! ImageMO
+            if(imgMO.items != nil) {
+                rCount = imgMO.items!.count
             }
         }
         
