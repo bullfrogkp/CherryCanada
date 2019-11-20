@@ -49,8 +49,8 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         if(image.customers != nil) {
             for cus in image.customers! {
                 let cusMO = cus as! CustomerMO
-                if let items = cusMO.items {
-                    for itm in items {
+                if let cusItems = cusMO.items {
+                    for itm in cusItems {
                         let itmMO = itm as! ItemMO
                         cusMO.removeFromItems(itmMO)
                     }
@@ -58,15 +58,12 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-        for itm in items {
+        for itmMO in items {
             if(image.customers != nil) {
                 for cus in image.customers! {
-                    if(itm.customer === cus) {
-                        if(cus.items == nil) {
-                            cus.items = [itm]
-                        } else {
-                            cus.items!.append(itm)
-                        }
+                    let cusMO = cus as! CustomerMO
+                    if(itmMO.customer === cusMO) {
+                        cusMO.addToItems(itmMO)
                         break
                     }
                 }
