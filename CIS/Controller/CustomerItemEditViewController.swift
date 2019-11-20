@@ -165,7 +165,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerItemId", for: indexPath) as! CustomerItemEditTableViewCell
         
-        let item = newCustomer.images![indexPath.section].items![indexPath.row]
+        let item = imageArray[indexPath.section].items!.allObjects[indexPath.row] as! ItemMO
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
@@ -194,7 +194,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         // Dequeue with the reuse identifier
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "customSectionHeader") as! CustomerItemSectionHeaderView
         
-        header.itemImageButton.setBackgroundImage(UIImage(data: newCustomer.images![section].imageFile as Data), for: .normal)
+        header.itemImageButton.setBackgroundImage(UIImage(data: imageArray[section].imageFile!), for: .normal)
         header.itemImageButton.tag = section
         header.itemImageButton.addTarget(self, action: #selector(chooseImage(sender:)), for: .touchUpInside)
         
@@ -216,7 +216,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
             if(newCustomer.items != nil) {
                 for (idx, itm) in newCustomer.items!.enumerated() {
-                    if(itm === newCustomer.images?[deletionIndexPath.section].items?[deletionIndexPath.row]) {
+                    if(itm === imageArray[deletionIndexPath.section].items?[deletionIndexPath.row]) {
                         newCustomer.items!.remove(at: idx)
                         break
                     }
