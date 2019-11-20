@@ -37,6 +37,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var image: ImageMO!
     var items: [ItemMO]!
+    var customerArray: [CustomerMO]!
     var imageIndex: Int!
     var shippingDetailViewController: ShippingDetailViewController!
     
@@ -70,24 +71,32 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-        itemImageView.image = UIImage(data: image.imageFile as Data)
+        if(image.imageFile != nil) {
+            itemImageView.image = UIImage(data: image.imageFile!)
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: Selector(("editData")))
+        
+        if(image.customers != nil) {
+            customerArray = (image.customers!.allObjects as! [CustomerMO])
+        } else {
+            customerArray = []
+        }
     }
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return image.customers?.count ?? 0
+        return customerArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return image.customers?[section].items?.count ?? 0
+        return customerArray[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemTableViewCell
         
-        let item = image.customers![indexPath.section].items![indexPath.row]
+        let item = customerArray[indexPath.section].items!.allObjects[indexPath.row] as! ItemMO
         
         cell.nameLabel.text = item.name
         cell.quantityLabel.text = "\(item.quantity)"
@@ -114,7 +123,7 @@ class ImageItemViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let customerLabel: UILabel = {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 21))
-            label.text = image.customers![section].name
+            label.text = customerArray[section].name
             
             return label
         }()
