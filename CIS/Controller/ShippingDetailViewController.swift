@@ -571,19 +571,24 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     func updateShippingCustomer(_ customer: CustomerMO, _ customerIndex: Int) {
         let oCus = customerArray[customerIndex]
         
-        if(oCus.images != nil) {
-            for img in oCus.images! {
-                if let imgCustomers = (img as! ImageMO).customers {
+        if let oCusImages = oCus.images {
+            for img in oCusImages {
+                let imgMO = img as! ImageMO
+                if let imgCustomers = imgMO.customers {
                     for cus in imgCustomers {
-                        if((cus as! CustomerMO) !== oCus) {
-                            if let nImg = (img as! ImageMO).newImage {
-                                nImg.addToCustomers((cus as! CustomerMO))
+                        let cusMO = cus as! CustomerMO
+                        
+                        if(cusMO !== oCus) {
+                            if let nImg = imgMO.newImage {
+                                nImg.addToCustomers(cusMO)
                                 
-                                if let cusImages = (cus as! CustomerMO).images {
+                                if let cusImages = (cusMO).images {
                                     for img2 in cusImages {
-                                        if((img2 as! ImageMO) === (img as! ImageMO)) {
-                                            (cus as! CustomerMO).removeFromImages((img2 as! ImageMO))
-                                            (cus as! CustomerMO).addToImages((img as! ImageMO).newImage!)
+                                        let imgMO2 = img2 as! ImageMO
+                                        
+                                        if(imgMO2 === imgMO) {
+                                            cusMO.removeFromImages(imgMO2)
+                                            cusMO.addToImages(nImg)
                                             break
                                         }
                                     }
@@ -591,8 +596,9 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                                 
                                 if(shipping.items != nil) {
                                     for itm in shipping.items! {
-                                        if((itm as! ItemMO).image === (img as! ImageMO) && (itm as! ItemMO).customer === (cus as! CustomerMO)) {
-                                            (itm as! ItemMO).image = (img as! ImageMO).newImage
+                                        let itmMO = itm as! ItemMO
+                                        if(itmMO.image === imgMO && itmMO.customer === cusMO) {
+                                            itmMO.image = nImg
                                         }
                                     }
                                 }
@@ -608,7 +614,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func updateImageData(_ image: ImageMO, _ imageIndex: Int) {
-        let oImg = shipping.images![imageIndex]
+        let oImg = imageArray[imageIndex]
         
         if(oImg.customers != nil) {
             for cus in oImg.customers! {
