@@ -258,7 +258,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let itm = newCustomer.images![(indexPath.section)].items![indexPath.row]
+            let itm = imageArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
             itm.comment = textView.text!
         }
     }
@@ -311,14 +311,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         self.view.endEditing(true)
         
         let itm = ItemMO()
-        itm.image = newCustomer.images![sender.tag]
+        itm.image = imageArray[sender.tag]
         itm.customer = newCustomer
         
-        if(newCustomer.images![sender.tag].items != nil) {
-            newCustomer.images![sender.tag].items!.insert(itm, at: 0)
-        } else {
-            newCustomer.images![sender.tag].items = [itm]
-        }
+        imageArray[sender.tag].addToItems(itm)
         
         customerItemTableView.reloadData()
     }
@@ -327,19 +323,22 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        if(newCustomer.images![sender.tag].items != nil) {
-            for dItem in newCustomer.images![sender.tag].items! {
-                for (idx, itm) in newCustomer.items!.enumerated() {
-                    if(itm === dItem) {
-                        newCustomer.items!.remove(at: idx)
+        if(imageArray[sender.tag].items != nil) {
+            for dItem in imageArray[sender.tag].items! {
+                
+                let dItemMO = dItem as! ItemMO
+                
+                for itm in newCustomer.items! {
+                    let itmMO = itm as! ItemMO
+                    if(itmMO === dItemMO) {
+                        newCustomer.removeFromItems(itmMO)
                         break
                     }
                 }
             }
         }
         
-        newCustomer.images!.remove(at: sender.tag)
-        
+        newCustomer.removeFromImages(imageArray[sender.tag])
         customerItemTableView.reloadData()
     }
     
@@ -351,7 +350,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             
             header.itemImageButton.setBackgroundImage(selectedImage, for: .normal)
             
-            newCustomer.images![currentImageSection].imageFile = selectedImage.pngData()! as NSData
+            imageArray[currentImageSection].imageFile = selectedImage.pngData()! as Data
         }
 
         currentImageSection = -1
