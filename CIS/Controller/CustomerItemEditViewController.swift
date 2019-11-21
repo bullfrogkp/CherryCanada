@@ -289,13 +289,17 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        let itm = ItemMO()
-        itm.image = imageArray[sender.tag]
-        itm.customer = newCustomer
-        
-        imageArray[sender.tag].addToItems(itm)
-        
-        customerItemTableView.reloadData()
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                   
+            let itm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                    
+            itm.image = imageArray[sender.tag]
+            itm.customer = newCustomer
+            
+            imageArray[sender.tag].addToItems(itm)
+            
+            customerItemTableView.reloadData()
+        }
     }
     
     @objc func deleteImage(sender:UIButton)

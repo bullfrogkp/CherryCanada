@@ -249,11 +249,11 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
            
-            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row]
+            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
                 
             switch textField.tag {
             case 1: itm.name = textField.text!
-            case 2: itm.quantity = Int(textField.text!)!
+            case 2: itm.quantity = Int16(textField.text!)!
             case 3: itm.priceBought = NSDecimalNumber(string: textField.text!)
             case 4: itm.priceSold = NSDecimalNumber(string: textField.text!)
             default: print("Error")
@@ -264,7 +264,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row]
+            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
             itm.comment = textView.text!
         }
     }
@@ -281,17 +281,17 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     {
         self.view.endEditing(true)
         
-        let itm = ItemMO()
-        itm.customer = newImage.customers![sender.tag]
-        itm.image = newImage
-        
-        if(newImage.customers![sender.tag].items != nil) {
-            newImage.customers![sender.tag].items!.insert(itm, at: 0)
-        } else {
-            newImage.customers![sender.tag].items = [itm]
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                   
+            let itm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                    
+            itm.customer = customerArray[sender.tag]
+            itm.image = newImage
+            
+            customerArray[sender.tag].addToItems(itm)
+            
+            customerItemTableView.reloadData()
         }
-        
-        customerItemTableView.reloadData()
     }
     
     @objc func deleteCustomer(sender:UIButton)
