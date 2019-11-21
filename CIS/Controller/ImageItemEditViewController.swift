@@ -51,13 +51,13 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if(image?.customers != nil) {
             for cus in image!.customers! {
-                shippingDetailViewController.deleteCustomer(cus, image!)
+                shippingDetailViewController.deleteCustomer(cus as! CustomerMO, image!)
             }
         }
         
         if(newImage.customers != nil) {
             for cus in newImage.customers! {
-                shippingDetailViewController.addCustomer(cus)
+                shippingDetailViewController.addCustomer(cus as! CustomerMO)
             }
         }
         
@@ -68,7 +68,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             shippingDetailViewController.updateImageData(newImage, imageIndex!)
         }
         
-        imageItemViewController?.itemImageView.image = UIImage(data: newImage.imageFile as Data)
+        imageItemViewController?.itemImageView.image = UIImage(data: newImage.imageFile!)
         imageItemViewController?.customerItemTableView.reloadData()
         shippingDetailViewController.customerItemTableView.reloadData()
         shippingDetailViewController.imageCollectionView.reloadData()
@@ -86,17 +86,14 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         let customer = CustomerMO()
         customer.images = [newImage]
         
-        if(newImage.customers != nil) {
-            newImage.customers!.insert(customer, at: 0)
-        } else {
-            newImage.customers = [customer]
-        }
+        newImage.addToCustomers(customer)
         
         customerItemTableView.reloadData()
     }
     
     var image: ImageMO?
     var imageIndex: Int?
+    var customerArray: [CustomerMO]!
     var shippingDetailViewController: ShippingDetailViewController!
     var imageItemViewController: ImageItemViewController?
     var newImage = ImageMO()
@@ -112,50 +109,50 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         let nib = UINib(nibName: "ImageItemHeader", bundle: nil)
         customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "imageSectionHeader")
         
-        if(image != nil) {
-            newImage.name = image!.name
-            newImage.imageFile = image!.imageFile
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             
-            if(image!.customers != nil) {
-                for cus in image!.customers! {
-                    let newCus = CustomerMO()
-                    newCus.name = cus.name
-                    newCus.phone = cus.phone
-                    newCus.wechat = cus.wechat
-                    newCus.comment = cus.comment
-                    newCus.images = [newImage]
-                    
-                    if(cus.items != nil) {
-                        for itm in cus.items! {
-                            let newItm = ItemMO()
-                            newItm.comment = itm.comment
-                            newItm.image = newImage
-                            newItm.name = itm.name
-                            newItm.priceBought = itm.priceBought
-                            newItm.priceSold = itm.priceSold
-                            newItm.quantity = itm.quantity
-                            newItm.customer = newCus
-                            
-                            if(newCus.items != nil) {
-                                newCus.items!.append(newItm)
-                            } else {
-                                newCus.items = [newItm]
+            customerArray = []
+            newImage = ImageMO(context: appDelegate.persistentContainer.viewContext)
+            
+            if(image != nil) {
+                newImage.name = image!.name
+                newImage.imageFile = image!.imageFile
+                
+                if(image!.customers != nil) {
+                    for cus in image!.customers! {
+                        let cusMO = cus as! CustomerMO
+                        let newCus = CustomerMO(context: appDelegate.persistentContainer.viewContext)
+                        newCus.name = cusMO.name
+                        newCus.phone = cusMO.phone
+                        newCus.wechat = cusMO.wechat
+                        newCus.comment = cusMO.comment
+                        newCus.images = [newImage]
+                        
+                        if(cusMO.items != nil) {
+                            for itm in cusMO.items! {
+                                let itmMO = itm as! ItemMO
+                                let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                                newItm.comment = itmMO.comment
+                                newItm.image = newImage
+                                newItm.name = itmMO.name
+                                newItm.priceBought = itmMO.priceBought
+                                newItm.priceSold = itmMO.priceSold
+                                newItm.quantity = itmMO.quantity
+                                newItm.customer = newCus
+                                
+                                newCus.addToItems(newItm)
                             }
                         }
+                        
+                        newImage.addToCustomers(newCus)
+                        
+                        cusMO.newCustomer = newCus
                     }
-                    
-                    if(newImage.customers != nil) {
-                        newImage.customers!.append(newCus)
-                    } else {
-                        newImage.customers = [newCus]
-                    }
-                    
-                    cus.newCustomer = newCus
                 }
             }
+            
+            itemImageButton.setBackgroundImage(UIImage(data: newImage.imageFile!), for: .normal)
         }
-        
-        itemImageButton.setBackgroundImage(UIImage(data: newImage.imageFile as Data), for: .normal)
     }
     
     //MARK: - TableView Functions
