@@ -298,12 +298,16 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     {
         self.view.endEditing(true)
         
-        if(newImage.customers![sender.tag].items != nil) {
-            for dItem in newImage.customers![sender.tag].items! {
+        if(customerArray[sender.tag].items != nil) {
+            for dItem in customerArray[sender.tag].items! {
+                
+                let dItemMO = dItem as! ItemMO
+                
                 if(newImage.items != nil) {
-                    for (idx, itm) in newImage.items!.enumerated() {
-                        if(itm === dItem) {
-                            newImage.items!.remove(at: idx)
+                    for itm in newImage.items! {
+                        let itmMO = itm as! ItemMO
+                        if(itmMO === dItemMO) {
+                            newImage.removeFromItems(itmMO)
                             break
                         }
                     }
@@ -311,8 +315,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         
-        newImage.customers!.remove(at: sender.tag)
-        
+        newImage.removeFromCustomers(customerArray[sender.tag])
         customerItemTableView.reloadData()
     }
     
@@ -321,7 +324,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
             itemImageButton.setBackgroundImage(selectedImage, for: .normal)
-            newImage.imageFile = selectedImage.pngData()! as NSData
+            newImage.imageFile = selectedImage.pngData()! as Data
         }
         
         dismiss(animated: true, completion: nil)

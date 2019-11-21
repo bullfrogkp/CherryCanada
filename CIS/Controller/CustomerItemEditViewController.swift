@@ -311,11 +311,13 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 
                 let dItemMO = dItem as! ItemMO
                 
-                for itm in newCustomer.items! {
-                    let itmMO = itm as! ItemMO
-                    if(itmMO === dItemMO) {
-                        newCustomer.removeFromItems(itmMO)
-                        break
+                if(newCustomer.items != nil) {
+                    for itm in newCustomer.items! {
+                        let itmMO = itm as! ItemMO
+                        if(itmMO === dItemMO) {
+                            newCustomer.removeFromItems(itmMO)
+                            break
+                        }
                     }
                 }
             }
