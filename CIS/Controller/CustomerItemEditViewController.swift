@@ -25,6 +25,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let image = ImageMO(context: appDelegate.persistentContainer.viewContext)
             image.name  = "test"
+            image.imageFile = UIImage(named: "test")!.pngData()
             image.addToCustomers(newCustomer)
             
             newCustomer.addToImages(image)
