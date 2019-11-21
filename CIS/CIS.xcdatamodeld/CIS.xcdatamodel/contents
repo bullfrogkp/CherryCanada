@@ -26,7 +26,7 @@
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="items" inverseEntity="Customer"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="items" inverseEntity="Image"/>
-        <relationship name="shipping" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shipping"/>
+        <relationship name="shipping" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shipping" inverseName="items" inverseEntity="Shipping"/>
     </entity>
     <entity name="Shipping" representedClassName="ShippingMO" syncable="YES" codeGenerationType="class">
         <attribute name="city" optional="YES" attributeType="String"/>
@@ -38,12 +38,12 @@
         <attribute name="shippingStatus" optional="YES" attributeType="String"/>
         <relationship name="customers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Customer" inverseName="shipping" inverseEntity="Customer"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="shipping" inverseEntity="Image"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="shipping" inverseEntity="Item"/>
     </entity>
     <elements>
-        <element name="Shipping" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Customer" positionX="-54" positionY="45" width="128" height="163"/>
         <element name="Image" positionX="-36" positionY="63" width="128" height="133"/>
         <element name="Item" positionX="-18" positionY="72" width="128" height="163"/>
+        <element name="Shipping" positionX="-63" positionY="-18" width="128" height="193"/>
     </elements>
 </model>
