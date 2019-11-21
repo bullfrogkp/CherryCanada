@@ -12,7 +12,7 @@ import CoreData
 class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var itemImageButton: UIButton!
-     @IBOutlet weak var customerItemTableView: UITableView!
+    @IBOutlet weak var customerItemTableView: UITableView!
     
     @IBAction func itemImageButtonTapped(_ sender: Any) {
         let photoSourceRequestController = UIAlertController(title: "", message: "选择图片", preferredStyle: .actionSheet)
@@ -87,6 +87,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         customer.images = [newImage]
         
         newImage.addToCustomers(customer)
+        customerArray.append(customer)
         
         customerItemTableView.reloadData()
     }

@@ -28,6 +28,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             image.addToCustomers(newCustomer)
             
             newCustomer.addToImages(image)
+            imageArray.append(image)
            
             customerItemTableView.reloadData()
         }
