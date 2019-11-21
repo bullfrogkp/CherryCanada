@@ -38,32 +38,37 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func saveCustomerItem(_ sender: Any) {
         self.view.endEditing(true)
         
-        if(customer?.images != nil) {
-            for img in customer!.images! {
-                shippingDetailViewController.deleteImage((img as! ImageMO), customer!)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                   
+            if(customer?.images != nil) {
+                for img in customer!.images! {
+                    shippingDetailViewController.deleteImage((img as! ImageMO), customer!)
+                }
             }
-        }
-        
-        if(newCustomer.images != nil) {
-            for img in newCustomer.images! {
-                shippingDetailViewController.addImage(img as! ImageMO)
+            
+            if(newCustomer.images != nil) {
+                for img in newCustomer.images! {
+                    shippingDetailViewController.addImage(img as! ImageMO)
+                }
             }
+            
+            newCustomer.name = customerNameTextField.text!
+            
+            if(customer != nil) {
+                customerItemViewController!.customer = newCustomer
+                shippingDetailViewController.updateShippingCustomer(newCustomer, customerIndex!)
+            } else {
+                shippingDetailViewController.addShippingCustomer(newCustomer)
+            }
+            
+            customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
+            customerItemViewController?.customerItemTableView.reloadData()
+            shippingDetailViewController.customerItemTableView.reloadData()
+            shippingDetailViewController.imageCollectionView.reloadData()
+        
+
+            appDelegate.saveContext()
         }
-        
-        newCustomer.name = customerNameTextField.text!
-        
-        if(customer != nil) {
-            customerItemViewController!.customer = newCustomer
-            shippingDetailViewController.updateShippingCustomer(newCustomer, customerIndex!)
-        } else {
-            shippingDetailViewController.addShippingCustomer(newCustomer)
-        }
-        
-        customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
-        customerItemViewController?.customerItemTableView.reloadData()
-        shippingDetailViewController.customerItemTableView.reloadData()
-        shippingDetailViewController.imageCollectionView.reloadData()
-        
         self.dismiss(animated: true, completion: nil)
     }
     
