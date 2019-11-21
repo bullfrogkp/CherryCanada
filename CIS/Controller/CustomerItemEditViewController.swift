@@ -134,28 +134,11 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        var sCount = 0
-        
-        if(newCustomer.images != nil) {
-            sCount = newCustomer.images!.count
-        }
-        
-        return sCount
+        return imageArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        var rCount = 0
-        
-        if(newCustomer.images != nil) {
-            let imgMO = newCustomer.images!.allObjects[section] as! ImageMO
-            if(imgMO.items != nil) {
-                rCount = imgMO.items!.count
-            }
-        }
-        
-        return rCount
+        return imageArray[section].items?.allObjects.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

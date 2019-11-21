@@ -148,6 +148,8 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
                         
                         cusMO.newCustomer = newCus
                     }
+                    
+                    customerArray = (image!.customers!.allObjects as! [CustomerMO])
                 }
             }
             
@@ -157,17 +159,17 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     
     //MARK: - TableView Functions
     func numberOfSections(in tableView: UITableView) -> Int {
-        return newImage.customers?.count ?? 0
+        return customerArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newImage.customers?[section].items?.count ?? 0
+        return customerArray[section].items?.allObjects.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemEditTableViewCell
         
-        let item = newImage.customers![indexPath.section].items![indexPath.row]
+        let item = customerArray[indexPath.section].items!.allObjects[indexPath.row] as! CustomerMO
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
