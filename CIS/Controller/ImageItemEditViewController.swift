@@ -169,7 +169,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageItemId", for: indexPath) as! ImageItemEditTableViewCell
         
-        let item = customerArray[indexPath.section].items!.allObjects[indexPath.row] as! CustomerMO
+        let item = customerArray[indexPath.section].items!.allObjects[indexPath.row] as! ItemMO
         
         cell.nameTextField.text = item.name
         cell.quantityTextField.text = "\(item.quantity)"
@@ -197,7 +197,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         let header = customerItemTableView.dequeueReusableHeaderFooterView(withIdentifier: "imageSectionHeader") as! ImageItemSectionHeaderView
         
-        header.customerNameTextField.text = newImage.customers![section].name
+        header.customerNameTextField.text = customerArray[section].name
         
         header.customerNameTextField.tag = section
         header.customerNameTextField.addTarget(self, action: #selector(updateCustomerName(sender:)), for: .editingDidEnd)
@@ -218,16 +218,20 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     func deleteCell(cell: UITableViewCell) {
         self.view.endEditing(true)
         if let deletionIndexPath = customerItemTableView.indexPath(for: cell) {
+            
+             let deletedItemMO = customerArray[deletionIndexPath.section].items!.allObjects[deletionIndexPath.row] as! ItemMO
+            
             if(newImage.items != nil) {
-                for (idx, itm) in newImage.items!.enumerated() {
-                    if(itm === newImage.customers![deletionIndexPath.section].items![deletionIndexPath.row]) {
-                        newImage.items!.remove(at: idx)
+                for itm in newImage.items! {
+                    let itmMO = itm as! ItemMO
+                    if(itmMO === deletedItemMO) {
+                        newImage.removeFromItems(itmMO)
                         break
                     }
                 }
             }
             
-            newImage.customers![deletionIndexPath.section].items!.remove(at: deletionIndexPath.row)
+            customerArray[deletionIndexPath.section].removeFromItems(deletedItemMO)
             customerItemTableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
@@ -245,7 +249,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
            
-            let itm = newImage.customers![(indexPath.section)].items![indexPath.row]
+            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row]
                 
             switch textField.tag {
             case 1: itm.name = textField.text!
@@ -260,7 +264,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
     func cell(_ cell: ImageItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let itm = newImage.customers![(indexPath.section)].items![indexPath.row]
+            let itm = customerArray[(indexPath.section)].items!.allObjects[indexPath.row]
             itm.comment = textView.text!
         }
     }
@@ -270,7 +274,7 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         self.view.endEditing(true)
         
         let header = customerItemTableView.headerView(forSection: sender.tag) as! ImageItemSectionHeaderView
-        newImage.customers![sender.tag].name = header.customerNameTextField.text!
+        customerArray[sender.tag].name = header.customerNameTextField.text!
     }
     
     @objc func addItem(sender:UIButton)
