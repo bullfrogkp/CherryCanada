@@ -49,30 +49,33 @@ class ImageItemEditViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.view.endEditing(true)
         
-        if(image?.customers != nil) {
-            for cus in image!.customers! {
-                shippingDetailViewController.deleteCustomer(cus as! CustomerMO, image!)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            if(image?.customers != nil) {
+                for cus in image!.customers! {
+                    shippingDetailViewController.deleteCustomer(cus as! CustomerMO, image!)
+                }
             }
-        }
-        
-        if(newImage.customers != nil) {
-            for cus in newImage.customers! {
-                shippingDetailViewController.addCustomer(cus as! CustomerMO)
+            
+            if(newImage.customers != nil) {
+                for cus in newImage.customers! {
+                    shippingDetailViewController.addCustomer(cus as! CustomerMO)
+                }
             }
+            
+            if(image == nil) {
+                shippingDetailViewController.addShippingImage(newImage)
+            } else {
+                imageItemViewController!.image = newImage
+                shippingDetailViewController.updateImageData(newImage, imageIndex!)
+            }
+            
+            imageItemViewController?.itemImageView.image = UIImage(data: newImage.imageFile!)
+            imageItemViewController?.customerItemTableView.reloadData()
+            shippingDetailViewController.customerItemTableView.reloadData()
+            shippingDetailViewController.imageCollectionView.reloadData()
+            
+            appDelegate.saveContext()
         }
-        
-        if(image == nil) {
-            shippingDetailViewController.addShippingImage(newImage)
-        } else {
-            imageItemViewController!.image = newImage
-            shippingDetailViewController.updateImageData(newImage, imageIndex!)
-        }
-        
-        imageItemViewController?.itemImageView.image = UIImage(data: newImage.imageFile!)
-        imageItemViewController?.customerItemTableView.reloadData()
-        shippingDetailViewController.customerItemTableView.reloadData()
-        shippingDetailViewController.imageCollectionView.reloadData()
-        
         self.dismiss(animated: true, completion: nil)
     }
     
