@@ -162,20 +162,18 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let customer = customerArray[indexPath.row]
                 
-                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                    var items = [ItemMO(context: appDelegate.persistentContainer.viewContext)]
+                var items:[ItemMO] = []
                     
-                    for itm in shipping.items! {
-                        if((itm as! ItemMO).customer === customer) {
-                            items.append(itm as! ItemMO)
-                        }
+                for itm in shipping.items! {
+                    if((itm as! ItemMO).customer === customer) {
+                        items.append(itm as! ItemMO)
                     }
-                    
-                    destinationController.customer = customer
-                    destinationController.items = items
-                    destinationController.customerIndex = indexPath.row
-                    destinationController.shippingDetailViewController = self
                 }
+                
+                destinationController.customer = customer
+                destinationController.items = items
+                destinationController.customerIndex = indexPath.row
+                destinationController.shippingDetailViewController = self
             }
         } else if segue.identifier == "showImageDetail" {
             if let indexPaths = imageCollectionView.indexPathsForSelectedItems {
@@ -183,7 +181,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 let image = imageArray[indexPaths[0].row]
                 
-                var items = [ItemMO]()
+                var items:[ItemMO] = []
                 
                 for itm in shipping.items! {
                     if((itm as! ItemMO).image === image) {
