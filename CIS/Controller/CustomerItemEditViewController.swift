@@ -30,6 +30,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             
             newCustomer.addToImages(image)
             imageArray.append(image)
+            
+            appDelegate.saveContext()
            
             customerItemTableView.reloadData()
         }
@@ -46,10 +48,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
             
-            if(newCustomer.images != nil) {
-                for img in newCustomer.images! {
-                    shippingDetailViewController.addImage(img as! ImageMO)
-                }
+            for img in imageArray {
+                shippingDetailViewController.addImage(img)
             }
             
             newCustomer.name = customerNameTextField.text!
@@ -61,13 +61,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 shippingDetailViewController.addShippingCustomer(newCustomer)
             }
             
+            appDelegate.saveContext()
+            
             customerItemViewController?.customerNameLabel.text = customerNameTextField.text!
             customerItemViewController?.customerItemTableView.reloadData()
             shippingDetailViewController.customerItemTableView.reloadData()
             shippingDetailViewController.imageCollectionView.reloadData()
-        
-
-            appDelegate.saveContext()
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -304,6 +303,8 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
             itm.customer = newCustomer
             
             imageArray[sender.tag].addToItems(itm)
+            
+            appDelegate.saveContext()
             
             customerItemTableView.reloadData()
         }
