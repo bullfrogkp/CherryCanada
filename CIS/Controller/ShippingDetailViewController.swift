@@ -280,7 +280,11 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addShippingCustomer(_ customer: CustomerMO) {
-        print(type(of: customer))
+        if(shipping.customers != nil) {
+            customerArray.insert(customer, at: 0)
+        } else {
+            customerArray = [customer]
+        }
         shipping.addToCustomers(customer)
     }
     
