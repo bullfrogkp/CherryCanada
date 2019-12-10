@@ -44,16 +44,12 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
             
-            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                for img in imageArray {
-                    let imgMO = ImageMO(context: appDelegate.persistentContainer.viewContext)
-                    imgMO.name  = img.name
-                    imgMO.imageFile = img.imageFile
-                    
-                    shippingDetailViewController.addImage(imgMO)
-                }
+            for img in imageArray {
+                let imgMO = ImageMO(context: appDelegate.persistentContainer.viewContext)
+                imgMO.name  = img.name
+                imgMO.imageFile = img.imageFile
                 
-                appDelegate.saveContext()
+                shippingDetailViewController.addImage(imgMO)
             }
             
             newCustomer.name = customerNameTextField.text!
