@@ -73,10 +73,10 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     
     var customer: CustomerMO?
     var customerIndex: Int?
-    var imageArray: [ImageMO]!
+    var imageArray: [Image]!
     var shippingDetailViewController: ShippingDetailViewController!
     var customerItemViewController: CustomerItemViewController?
-    var newCustomer: CustomerMO!
+    var newCustomer: Customer!
     var currentImageSection = -1
     
     override func viewDidLoad() {
@@ -90,48 +90,61 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         let nib = UINib(nibName: "CustomerItemHeader", bundle: nil)
         customerItemTableView.register(nib, forHeaderFooterViewReuseIdentifier: "customSectionHeader")
         
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+    
+        imageArray = []
+        newCustomer = Customer()
+        
+        if(customer != nil) {
+            if(customer!.name != nil) {
+                newCustomer.name = customer!.name!
+            }
+            if(customer!.phone != nil) {
+                newCustomer.phone = customer!.phone!
+            }
+            if(customer!.comment != nil) {
+                newCustomer.comment = customer!.comment!
+            }
+            if(customer!.wechat != nil) {
+                newCustomer.wechat = customer!.wechat!
+            }
             
-            imageArray = []
-            newCustomer = CustomerMO(context: appDelegate.persistentContainer.viewContext)
-            
-            if(customer != nil) {
-                newCustomer.name = customer!.name
-                newCustomer.phone = customer!.phone
-                newCustomer.comment = customer!.comment
-                newCustomer.wechat = customer!.wechat
-                
-                if(customer?.images != nil) {
-                    for img in customer!.images! {
-                        let imgMO = img as! ImageMO
-                        let newImg = ImageMO(context: appDelegate.persistentContainer.viewContext)
-                        newImg.name = imgMO.name
-                        newImg.imageFile = imgMO.imageFile
-                        newImg.addToCustomers(newCustomer)
-                        
-                        if(imgMO.items != nil) {
-                            for itm in imgMO.items! {
-                                let itmMO = itm as! ItemMO
-                                let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
-                                newItm.comment = itmMO.comment
-                                newItm.image = newImg
-                                newItm.name = itmMO.name
-                                newItm.priceBought = itmMO.priceBought
-                                newItm.priceSold = itmMO.priceSold
-                                newItm.quantity = itmMO.quantity
-                                newItm.customer = newCustomer
-                                
-                                newImg.addToItems(newItm)
-                            }
-                        }
-                        
-                        newCustomer.addToImages(newImg)
-                        
-                        imgMO.newImage = newImg
+            if(customer?.images != nil) {
+                for img in customer!.images! {
+                    let imgMO = img as! ImageMO
+                    let newImg = Image()
+                    
+                    if(imgMO.name != nil) {
+                        newImg.name = imgMO.name!
                     }
                     
-                    imageArray = (customer!.images!.allObjects as! [ImageMO])
+                    if(imgMO.imageFile != nil) {
+                        newImg.imageFile = imgMO.imageFile!
+                    }
+                    
+                    newImg.customers = [newCustomer]
+                    
+                    if(imgMO.items != nil) {
+                        for itm in imgMO.items! {
+                            let itmMO = itm as! ItemMO
+                            let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
+                            newItm.comment = itmMO.comment
+                            newItm.image = newImg
+                            newItm.name = itmMO.name
+                            newItm.priceBought = itmMO.priceBought
+                            newItm.priceSold = itmMO.priceSold
+                            newItm.quantity = itmMO.quantity
+                            newItm.customer = newCustomer
+                            
+                            newImg.addToItems(newItm)
+                        }
+                    }
+                    
+                    newCustomer.addToImages(newImg)
+                    
+                    imgMO.newImage = newImg
                 }
+                
+                imageArray = (customer!.images!.allObjects as! [ImageMO])
             }
             
             customerNameTextField.text = newCustomer.name
