@@ -319,24 +319,22 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        if(imageArray[sender.tag].items != nil) {
-            for dItem in imageArray[sender.tag].items! {
-                
-                let dItemMO = dItem as! ItemMO
-                
-                if(newCustomer.items != nil) {
-                    for itm in newCustomer.items! {
-                        let itmMO = itm as! ItemMO
-                        if(itmMO === dItemMO) {
-                            newCustomer.removeFromItems(itmMO)
-                            break
-                        }
-                    }
+        for dItem in imageArray[sender.tag].items {
+            for (idx,itm) in newCustomer.items.enumerated() {
+                if(itm === dItem) {
+                    newCustomer.items.remove(at: idx)
+                    break
                 }
             }
         }
         
-        newCustomer.removeFromImages(imageArray[sender.tag])
+        for (idx,img) in newCustomer.images.enumerated() {
+            if(img === imageArray[sender.tag]) {
+                newCustomer.images.remove(at: idx)
+                break
+            }
+        }
+        
         customerItemTableView.reloadData()
     }
     
