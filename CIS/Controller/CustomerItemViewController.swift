@@ -35,7 +35,7 @@ class CustomerItemViewController: UIViewController, UITableViewDelegate, UITable
         present(optionMenu, animated: true, completion: nil)
     }
     
-    var customer: CustomerMO!
+    var customer: Customer!
     var items:[ItemMO]!
     var imageArray: [ImageMO]!
     var customerIndex: Int!

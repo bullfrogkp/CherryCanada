@@ -40,7 +40,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                    
             if(customer?.images != nil) {
                 for img in customer!.images! {
-                    shippingDetailViewController.deleteImageAndItems((img as! ImageMO), customer!)
+                    shippingDetailViewController.deleteShippingImageAndItems((img as! ImageMO), customer!)
                 }
             }
             

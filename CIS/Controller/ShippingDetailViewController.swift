@@ -417,7 +417,7 @@ class ShippingDetailViewController: UIViewController, UITableViewDelegate, UITab
         shipping.addToImages(image)
     }
     
-    func deleteImageAndItems(_ image: ImageMO, _ customer: CustomerMO) {
+    func deleteShippingImageAndItems(_ image: ImageMO, _ customer: CustomerMO) {
         
         if(shipping.items != nil) {
             
