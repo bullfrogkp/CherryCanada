@@ -40,12 +40,20 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                    
             if(customer?.images != nil) {
                 for img in customer!.images! {
-                    shippingDetailViewController.deleteImage((img as! ImageMO), customer!)
+                    shippingDetailViewController.deleteImageAndItems((img as! ImageMO), customer!)
                 }
             }
             
-            for img in imageArray {
-                shippingDetailViewController.addImage(img)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                for img in imageArray {
+                    let imgMO = ImageMO(context: appDelegate.persistentContainer.viewContext)
+                    imgMO.name  = img.name
+                    imgMO.imageFile = img.imageFile
+                    
+                    shippingDetailViewController.addImage(imgMO)
+                }
+                
+                appDelegate.saveContext()
             }
             
             newCustomer.name = customerNameTextField.text!
