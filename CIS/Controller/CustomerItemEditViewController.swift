@@ -108,7 +108,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                 newCustomer.wechat = customer!.wechat!
             }
             
-            if(customer?.images != nil) {
+            if(customer!.images != nil) {
                 for img in customer!.images! {
                     let imgMO = img as! ImageMO
                     let newImg = Image()
@@ -121,25 +121,38 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
                         newImg.imageFile = imgMO.imageFile!
                     }
                     
-                    newImg.customers = [newCustomer]
+                    newImg.customers.append(newCustomer)
                     
                     if(imgMO.items != nil) {
                         for itm in imgMO.items! {
                             let itmMO = itm as! ItemMO
-                            let newItm = ItemMO(context: appDelegate.persistentContainer.viewContext)
-                            newItm.comment = itmMO.comment
-                            newItm.image = newImg
-                            newItm.name = itmMO.name
-                            newItm.priceBought = itmMO.priceBought
-                            newItm.priceSold = itmMO.priceSold
-                            newItm.quantity = itmMO.quantity
-                            newItm.customer = newCustomer
+                            let newItm = Item()
                             
-                            newImg.addToItems(newItm)
+                            newItm.image = newImg
+                            newItm.customer = newCustomer
+                            newItm.quantity = itmMO.quantity
+                            
+                            if(itmMO.comment != nil) {
+                                newItm.comment = itmMO.comment!
+                            }
+                            
+                            if(itmMO.name != nil) {
+                                newItm.name = itmMO.name!
+                            }
+                                
+                            if(itmMO.priceBought != nil) {
+                                newItm.priceBought = itmMO.priceBought!
+                            }
+                                
+                            if(itmMO.priceSold != nil) {
+                                newItm.priceSold = itmMO.priceSold!
+                            }
+                            
+                            newImg.items.append(newItm)
                         }
                     }
                     
-                    newCustomer.addToImages(newImg)
+                    newCustomer.images.append(newImg)
                     
                     imgMO.newImage = newImg
                 }
