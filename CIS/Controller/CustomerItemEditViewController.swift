@@ -22,19 +22,15 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         self.view.endEditing(true)
         
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let image = ImageMO(context: appDelegate.persistentContainer.viewContext)
-            image.name  = "test"
-            image.imageFile = UIImage(named: "test")!.pngData()
-            image.addToCustomers(newCustomer)
-            
-            newCustomer.addToImages(image)
-            imageArray.append(image)
-            
-            appDelegate.saveContext()
-           
-            customerItemTableView.reloadData()
-        }
+        let image = Image()
+        image.name  = "test"
+        image.imageFile = UIImage(named: "test")!.pngData()!
+        image.customers.append(newCustomer)
+        
+        newCustomer.images.append(image)
+        imageArray.append(image)
+       
+        customerItemTableView.reloadData()
     }
     
     @IBAction func saveCustomerItem(_ sender: Any) {
@@ -242,7 +238,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
            
-            let itm = imageArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
+            let itm = imageArray[(indexPath.section)].items[indexPath.row]
                 
             switch textField.tag {
             case 1: itm.name = textField.text!
@@ -257,7 +253,7 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     func cell(_ cell: CustomerItemEditTableViewCell, didUpdateTextView textView: UITextView) {
         
         if let indexPath = customerItemTableView.indexPath(for: cell) {
-            let itm = imageArray[(indexPath.section)].items!.allObjects[indexPath.row] as! ItemMO
+            let itm = imageArray[(indexPath.section)].items[indexPath.row]
             itm.comment = textView.text!
         }
     }
@@ -309,19 +305,14 @@ class CustomerItemEditViewController: UIViewController, UITableViewDelegate, UIT
     {
         self.view.endEditing(true)
         
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                   
-            let itm = ItemMO(context: appDelegate.persistentContainer.viewContext)
-                    
-            itm.image = imageArray[sender.tag]
-            itm.customer = newCustomer
-            
-            imageArray[sender.tag].addToItems(itm)
-            
-            appDelegate.saveContext()
-            
-            customerItemTableView.reloadData()
-        }
+        let itm = Item()
+                
+        itm.image = imageArray[sender.tag]
+        itm.customer = newCustomer
+        
+        imageArray[sender.tag].items.append(itm)
+        
+        customerItemTableView.reloadData()
     }
     
     @objc func deleteImage(sender:UIButton)
